@@ -1,0 +1,245 @@
+{import "../../../_template/menu.latte"}
+{varType App\Model\Database\Entity\MovieEntity $movie}
+{block content}
+
+<div class="topic">
+    <div class="detail movie">
+        <div class="extern-container">
+            <div class="block background" style="background: url(../{$movie->getImageBanner()})">
+                <div class="darken">
+                    <div class="intern-container">
+                        <div class="block">
+                            <div class="heading">
+                                <div class="title">
+                                    <h2>{$movie->getName()}</h2>
+                                </div>
+
+                                <div class="title-original">
+                                    <ul>
+                                        <li><img src="../img/filmator/uk-flag.jpg"></li>
+                                        <li><span>{$movie->getName()}</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{include menu}
+
+<div class="content">
+    <div class="detail watch">
+        <div class="content-block player">
+
+            <div class="intern-container">
+                <div class="background-icon top">
+                    <img src="../img/icons/movie-tape.svg" alt="movie-tape-icon">
+                </div>
+                <div class="block rating">
+                    <div class="first-column">
+                        <div class="quality">
+                            <span>HD</span>
+                        </div>
+                    </div>
+                    <div class="second-column">
+                        <div class="rating">
+                            <div class="rating-filmator">
+                                <ul>
+                                    <li><span>Filmátor</span></li>
+                                    <li><span>85%</span></li>
+                                </ul>
+                            </div>
+                            <div class="rating-csfd">
+                                <ul>
+                                    <li><span>ČSFD</span></li>
+                                    <li><span>{$movie->getRating()}%</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="player">
+                    <div class="content"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block description">
+            <div class="extern-container">
+                <div class="block description" style="background: url(../{$movie->getImageBanner()})">
+                    <div class="darken">
+                        <div class="intern-container">
+                            <div class="first-row">
+                                <div class="first-column">
+                                    <div class="first-column">
+                                        <div class="poster">
+                                            <img src="../{$movie->getImagePoster()}">
+                                        </div>
+                                    </div>
+                                    <div class="second-column">
+                                        <div class="basics">
+                                            <table>
+                                                <tr>
+                                                    <td class="bold"><span>Rok</span></td>
+                                                    <td><span>2012</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bold"><span>Délka</span></td>
+                                                    <td><span>120 min</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bold"><span>Místo</span></td>
+                                                    <td><span>USA</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bold"><span>Žánr</span></td>
+                                                    <td class="special"><span>Krimi, Drama, Akční</span></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="tags">
+                                            <ul>
+                                                <li><span>Detektivka</span></li>
+                                                <li><span>Historický</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="second-column">
+                                    <div class="trailer">
+                                        <iframe frameborder="0" allowfullscreen="allowfullscreen" loading="lazy"
+                                            src="{$movie->getTrailer()}">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="second-row">
+                                <div class="first-column">
+                                    <p>{$movie->getDescription()}</p>
+                                </div>
+                                <div class="second-column">
+                                    <div class="cast">
+                                        <div class="cast-main">
+                                            <table>
+                                                <tr>
+                                                    <td class="bold"><span>Režie</span></td>
+                                                    <td><span>Guy Ritchie</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bold"><span>Předloha</span></td>
+                                                    <td><span>Arthur Conan Doyle</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bold"><span>Scénář</span></td>
+                                                    <td><span>Michael Robert Johnson, Anthony Peckham, Simon
+                                                            Kinberg</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bold"><span>Kamera</span></td>
+                                                    <td><span>Philippe Rousselot</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bold"><span>Hudba</span></td>
+                                                    <td><span>Hans Zimmer</span></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="cast-actors">
+                                            <table>
+                                                <tr>
+                                                    <td class="bold"><span>Herci</span></td>
+                                                    <td><span>Robert Downey Jr., Jude Law, Rachel McAdams, Mark Strong,
+                                                            Eddie
+                                                            Marsan, Kelly Reilly, James Fox, Hans Matheson, Geraldine
+                                                            James,
+                                                            Robert
+                                                            Maillet</span></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-block next-movie">
+            <div class="intern-container">
+                <div class="background-icon top">
+                    <img src="../img/icons/movie-tape.svg" alt="movie-tape-icon">
+                </div>
+
+                <div class="topic">
+                    <div class="line dark"></div>
+                    <div class="title">
+                        <div class="heading dark">
+                            <h3>Podobné</h3>
+                        </div>
+                        <div class="heading light">
+                            <h3>filmy</h3>
+                        </div>
+                    </div>
+                    <div class="line light"></div>
+                </div>
+
+                <div class="watch-block">
+                    <div class="row">
+
+                        <div class="flexer">
+                            {foreach $nextMovies as $nextMovie}
+                            <div class="item">
+                                <a n:href=":Ghost:Movie:detail $nextMovie->getSlug()">
+                                    <div class="poster">
+                                        <img src="../{$nextMovie->getImagePoster()}" alt="poster-movie">
+                                    </div>
+                                    <div class="play-button">
+                                        <div class="play-text">
+                                            <span>přehrát</span>
+                                        </div>
+                                        <div class="play-icon">
+                                            <img src="../img/icons/play-orange.svg" alt="icon-play">
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="description">
+                                    <div class="title">
+                                        <h3>{$nextMovie->getName()}</h3>
+                                    </div>
+                                    <div class="rating">
+                                        <img src="../img/icons/stars.svg" alt="icon-stars">
+                                        <div class="percent">
+                                            <p>{$nextMovie->getRating()}% ČSFD</p>
+                                        </div>
+                                    </div>
+                                    <div class="genre">
+                                        <p>drama, thriller</p>
+                                    </div>
+                                    <div class="year">
+                                        <p>{$nextMovie->getYear()}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {if $iterator->counter === 2}
+                                </div>
+                                <div class="flexer">
+                            {/if}
+
+                            {/foreach}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

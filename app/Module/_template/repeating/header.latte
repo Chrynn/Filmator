@@ -1,0 +1,89 @@
+{import "../../Ghost/_template/login.latte"}
+{block header}
+<div class="extern-container">
+    <header>
+        <div class="main-menu non-active">
+            <div class="intern-container">
+
+                <div class="logo-part">
+                    <a n:href=":Ghost:Homepage:">
+                        <img src="../img/icons/logo-circle.svg" class="logo-icon" alt="logo-icon">
+                        <p class="text-icon">Filmátor</p>
+                    </a>
+                </div>
+
+                <div class="menu">
+                    <div class="searching">
+                        <div class="search-part">
+                            <input type="text" name="find" placeholder="hledat">
+                            <button onclick="find()">
+                                <img src="../img/icons/find.svg" class="find-icon" alt="eyeglass-icon">
+                            </button>
+                        </div>
+                        <div class="search-tips"></div>
+                    </div>
+
+                    {if !$isLogged}
+                    <div class="nav-button loginbutton">
+                        <div class="menu-login">
+                            <img src="../img/icons/profile.svg" class="profile-icon" alt="profile-icon">
+                            <p>přihlásit</p>
+                        </div>
+                    </div>
+                    {else}
+                    <a n:href="loggOut!">
+                        <div class="nav-button loginbutton">
+                            <div class="menu-login">
+                                <img src="../img/icons/profile.svg" class="profile-icon" alt="profile-icon">
+                                <p>odhlásit</p>
+                            </div>
+                        </div>
+                    </a>
+                    {/if}
+
+                    <div class="hamburger-div2">
+                        <div class="menu-line2"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="window-two">
+        <div class="intern-container">
+
+            <div class="searching-responsive">
+                <div class="searching-block">
+                    <input type="text" name="find" placeholder="hledat">
+                    <button>
+                        <img src="../img/icons/find.svg" class="find-icon" alt="eyeglass-icon">
+                    </button>
+                </div>
+            </div>
+
+            <div class="categories-responsive">
+                <div class="categories-div">
+                    <ul>
+                        <li><a href="#" class="category-active-responsive">domů</a></li>
+                        <li><a href="#">filmy</a></li>
+                        <li><a href="#">seriály</a></li>
+                        <li><a href="#">žánry</a></li>
+                        <li><a href="#">herci</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="nav-button-responsive loginbutton">
+                <div class="menu-login">
+                    <img src="../img/icons/profile.svg" class="profile-icon" alt="profile-icon">
+                    <p>členství</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{if !$isLogged}
+    {include login}
+{/if}

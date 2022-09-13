@@ -1,0 +1,51 @@
+{import "../../../_template/repeating/menu.latte"}
+{block content}
+
+<div class="topic">
+    <div class="default actor">
+        <div class="extern-container">
+            <div class="block background" style="background: url('../img/banners/movie&popcorn.jpg')">
+                <div class="darken">
+                    <div class="intern-container">
+                        <div class="block">
+                            <div class="heading">
+                                <div class="topic">
+                                    <h2>Herci</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{include menu}
+
+<div class="content">
+    <div class="default actor">
+        <div class="intern-container">
+            <div class="row">
+                {foreach $actors as $actor}
+                <div class="item">
+                    <a n:href=":Ghost:Actor:detail $actor->getSlug()" class="link">
+                        <div class="block">
+                            <div class="cover">
+                                <img src="../{$actor->getImagePoster()}">
+                            </div>
+                            <div class="topic">
+                                <h3>{$actor->getName()}</h3>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {if ($iterator->counter % 4) === 0}
+            </div>
+            <div class="row">
+                {/if}
+                {/foreach}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+services:
+    - App\Model\Service\Query\ActorEntityQuery
+    - App\Model\Service\Query\ArticleEntityQuery
+    - App\Model\Service\Query\MovieEntityQuery
+    - App\Model\Service\Query\SerialEntityQuery

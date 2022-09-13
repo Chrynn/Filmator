@@ -1,0 +1,32 @@
+{import "header.latte"}
+{import "footer.latte"}
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Filip Machala">
+
+    <title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
+</head>
+
+<body>
+<div n:foreach="$flashes as $flash" n:class="flash, $flash->type"><span>{$flash->message}</span></div>
+
+{include header}
+{include content}
+{include footer}
+
+<!-- block scripts -->
+<div class="script">
+    <script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
+    <script src="../js/nette.ajax.js"></script>
+    <script src="../js/script.js"></script>
+</div>
+
+</body>
+</html>

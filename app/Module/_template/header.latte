@@ -1,0 +1,69 @@
+{import "../Ghost/_template/login.latte"}
+{block header}
+<div class="navigation">
+    <div class="container-extern">
+        <header>
+            <div class="main-menu non-active">
+                <div class="container-intern">
+
+                    <div class="logo-part">
+                        <a n:href=":Ghost:Homepage:">
+                            <div class="logo image">
+                                <img src="../img/icons/logo-circle.svg" alt="logo-icon">
+                            </div>
+                            <div class="logo heading">
+                                <span>Filmátor</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="menu">
+                        <div class="searching">
+                            <div class="search-part">
+                                <div class="search find">
+                                    <input type="text" name="find" placeholder="hledat">
+                                </div>
+                                <div class="search find-button">
+                                    <button>
+                                        <img src="../img/icons/find.svg" alt="eyeglass-icon">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {if !$isLogged}
+                        <div class="button login-button">
+                            <div class="block icon">
+                                <img src="../img/icons/profile.svg" alt="profile-icon">
+                            </div>
+                            <div class="block text">
+                                <span>přihlásit</span>
+                            </div>
+                        </div>
+                        {else}
+                        <a n:href="loggOut!">
+                            <div class="button">
+                                <div class="block icon">
+                                    <img src="../img/icons/profile.svg" alt="profile-icon">
+                                </div>
+                                <div class="block text">
+                                    <span>odhlásit</span>
+                                </div>
+                            </div>
+                        </a>
+                        {/if}
+
+                        <div class="hamburger-div2">
+                            <div class="menu-line2"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+
+    </div>
+</div>
+{if !$isLogged}
+    {include login}
+{/if}

@@ -1,0 +1,49 @@
+@mixin lightRegular {
+    color: $WhiteFont;
+    font-family: $primaryFont;
+}
+
+@mixin lightLight {
+    color: $WhiteFont;
+    font-family: $secondaryFont;
+}
+
+@mixin lightSpecial {
+    color: $lightFont;
+    font-family: $tertialyFont;
+}
+
+@mixin darkRegular {
+    color: $darkFont;
+    font-family: $primaryFont;
+}
+
+@mixin darkLight {
+    color: $darkFont;
+    font-family: $secondaryFont;
+}
+
+@mixin addRegular {
+    color: $addFont;
+    font-family: $primaryFont;
+}
+
+@mixin addLight {
+    color: $addFont;
+    font-family: $secondaryFont;
+}
+
+@mixin whiteRegular {
+    color: $WhiteFont;
+    font-family: $primaryFont;
+}
+
+@mixin whiteLight {
+    color: $WhiteFont;
+    font-family: $secondaryFont;
+}
+
+@mixin whiteSpecial {
+    color: $WhiteFont;
+    font-family: $tertialyFont;
+}

@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+
+  mariadb:
+    container_name: Database
+    image: mariadb:10.6.4-focal
+    environment:
+      - MYSQL_DATABASE=moviebase
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./data/db/:/var/lib/mysql:delegated
+
+  php:
+    container_name: PHP
+    build:
+      context: ./..
+      dockerfile: ./.docker/php/Dockerfile
+    working_dir: /srv
+    volumes:
+      - ./../:/srv:delegated
+
+  nginx:
+    container_name: Nginx
+    image: nginx:1.19.4-alpine
+    volumes:
+      - ./../www:/srv/www:delegated
+      - ./nginx/default.conf:/etc/nginx/templates/default.conf.template:delegated
+    environment:
+      - NGINX_PHP_HOST=php
+    ports:
+    # change localhost:port here (edit left-one)
+      - 90:80
+
+  phpmyadmin:
+    container_name: phpMyAdmin
+    image: phpmyadmin:5.1.1-apache
+    environment:
+      - PMA_HOST=mariadb
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+    ports:
+    # change database:port here (edit left-one)
+      - "10000:80"

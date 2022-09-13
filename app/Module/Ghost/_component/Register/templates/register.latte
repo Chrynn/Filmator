@@ -1,0 +1,86 @@
+<div class="block-main block-register hidden">
+    <div class="content">
+        <div class="center">
+            <div class="row-heading">
+                <div class="heading">
+                    <h2>Členská sekce</h2>
+                </div>
+                <div class="auth-cross hide-register">
+                    <div class="cross-line"></div>
+                </div>
+            </div>
+            {snippet register}
+                <form n:name="form" class="ajax">
+                    <div class="row-errors">
+                        <div class="error" n:foreach="$form->ownErrors as $error">
+                            <span>{$error}</span>
+                        </div>
+                    </div>
+                    <div class="row-form">
+                        <div class="block mail">
+                            <div class="description">
+                                <div class="label">
+                                    <label n:name="email">E-mail</label>
+                                </div>
+                                <div class="error">
+                                    {if $form["email"]->hasErrors()}
+                                        <span>{$form["email"]->error}</span>
+                                    {/if}
+                                </div>
+                            </div>
+                            <div class="fillable">
+                                <input type="email" n:name="email" {if ($form["email"]->hasErrors())} class="error"{/if}>
+                            </div>
+                        </div>
+                        <div class="block password">
+                            <div class="description">
+                                <div class="label">
+                                    <label n:name="password">Heslo</label>
+                                </div>
+                                <div class="error">
+                                    {if $form["password"]->hasErrors()}
+                                        <span>{$form["password"]->error}</span>
+                                    {/if}
+                                </div>
+                            </div>
+                            <div class="fillable">
+                                <input type="password" n:name="password" {if ($form["password"]->hasErrors())} class="error"{/if}>
+                            </div>
+                        </div>
+                        <div class="block password-again">
+                            <div class="description">
+                                <div class="label">
+                                    <label n:name="passwordAgain">Heslo znovu</label>
+                                </div>
+                                <div class="error">
+                                    {if $form["passwordAgain"]->hasErrors()}
+                                        <span>{$form["passwordAgain"]->error}</span>
+                                    {/if}
+                                </div>
+                            </div>
+                            <div class="fillable">
+                                <input type="password" n:name="passwordAgain" {if ($form["passwordAgain"]->hasErrors())} class="error"{/if}>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-button">
+                        <button type="submit" n:name="register">
+                            <div class="block icon">
+                                <img src="../img/icons/lock.svg" alt="lock-icon" class="lock-icon">
+                            </div>
+                            <div class="block text">
+                                <span>registrovat</span>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            {/snippet}
+            <div class="row-register">
+                <ul>
+                    <li><span>Již máte účet?</span></li>
+                    <li><span class="action-login">Přihlašte se</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

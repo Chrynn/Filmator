@@ -1,0 +1,245 @@
+.footer {
+    width: 100%;
+    @include footerBg;
+
+    .darken {
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 40px 0 80px 0;
+
+        .container-intern {
+            .flexer {
+                display: flex;
+
+                .column {
+                    width: 25%;
+
+                    &.owner {
+                        .block {
+                            &.logo {
+                                display: flex;
+
+                                .owner {
+                                    display: flex;
+                                    align-items: center;
+
+                                    &.icon {
+                                        img {
+                                            height: 40px;
+                                            width: 20px;
+                                        }
+                                    }
+
+                                    &.text {
+                                        margin-left: 7px;
+
+                                        span {
+                                            @include lightSpecial;
+                                            font-size: 20px;
+                                            text-transform: uppercase;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.moto {
+                                padding: 15px 0 22px 0;
+                                border-bottom: 1px solid $tertialyCol;
+
+                                p {
+                                    font-size: 16px;
+                                    @include lightLight;
+                                }
+                            }
+
+                            &.sites {
+                                .flexer {
+                                    display: flex;
+                                    margin-top: 30px;
+
+                                    .fb-site,
+                                    .ig-site,
+                                    .tw-site,
+                                    .tt-site {
+                                        @include siteDiv;
+                                    }
+
+                                    .fb-site:hover,
+                                    .ig-site:hover,
+                                    .tw-site:hover,
+                                    .tt-site:hover {
+                                        @include siteDivHover;
+                                    }
+
+                                    .fb-icon,
+                                    .ig-icon,
+                                    .tw-icon,
+                                    .tt-icon {
+                                        @include siteLogo;
+                                    }
+
+                                    .ig-href,
+                                    .tw-href,
+                                    .tt-href {
+                                        @include siteHref;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &.basic {
+                        display: flex;
+                        justify-content: center;
+
+                        .block {
+                            .heading {
+                                h3 {
+                                    @include addLight;
+                                    font-size: 22px;
+                                    font-weight: normal;
+                                    margin-bottom: 20px;
+                                }
+                            }
+
+                            .links {
+                                ul {
+                                    li {
+                                        list-style-type: none;
+                                        margin: 15px 0 15px 0;
+
+                                        a {
+                                            @include lightLight;
+                                            font-size: 18px;
+                                            text-decoration: none;
+                                            transition: 0.2s;
+
+                                            &:hover {
+                                                color: $lightFontHover;
+                                                transition: 0.2s;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &.links {
+                        display: flex;
+                        justify-content: center;
+
+                        .block {
+                            .heading {
+                                h3 {
+                                    @include addLight;
+                                    font-size: 22px;
+                                    font-weight: normal;
+                                    margin-bottom: 20px;
+                                }
+                            }
+
+                            .links {
+                                ul {
+                                    li {
+                                        list-style-type: none;
+                                        margin: 15px 0 15px 0;
+
+                                        a {
+                                            @include lightLight;
+                                            font-size: 18px;
+                                            text-decoration: none;
+                                            transition: 0.2s;
+
+                                            &:hover {
+                                                color: $lightFontHover;
+                                                transition: 0.2s;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &.creator {
+                        .block {
+                            &.theme {
+                                text-align: center;
+
+                                span {
+                                    @include lightLight;
+                                    font-size: 16px;
+                                    line-height: 1.8;
+                                    text-align: center;
+                                }
+
+                                .theme-changer {
+                                    display: flex;
+                                    border-bottom: 1px solid $tertialyCol;
+                                    padding: 15px 0 25px 0;
+
+                                    .button {
+                                        height: 20px;
+                                        border: 1px solid $secondaryCol;
+                                        transition: 0.33s;
+
+                                        &.light {
+                                            width: 25px;
+                                            border-radius: 10px 0 0 10px;
+                                            background: $secondaryCol;
+                                            margin: 0 0 0 auto;
+                                            z-index: 1;
+                                        }
+
+                                        &.dark {
+                                            width: 26px;
+                                            border-radius: 0 10px 10px 0;
+                                            background: none;
+                                            margin: 0 auto 0 -1px;
+                                            z-index: 0;
+                                        }
+
+                                        &:hover {
+                                            @include bgChangeHover;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.creator {
+                                padding-top: 20px;
+
+                                .logo {
+                                    img {
+                                        height: 40px;
+                                        width: 40px;
+                                        margin: 0 auto 0 auto;
+                                        display: block;
+                                    }
+                                }
+
+                                .name {
+                                    a {
+                                        text-align: center;
+                                        @include lightLight;
+                                        transition: 0.33s;
+                                        text-decoration: none;
+
+                                        &:hover {
+                                            color: $addFont;
+                                            transition: 0.33s;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+}

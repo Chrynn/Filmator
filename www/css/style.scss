@@ -1,0 +1,85 @@
+// imports
+@import "variables";
+@import "mixins";
+@import "banners";
+@import "responsive";
+
+// pages
+@import "pages/homepage";
+
+// repeating
+@import "repeating/default";
+@import "repeating/detail";
+@import "repeating/header";
+@import "repeating/footer";
+@import "repeating/menu";
+@import "repeating/auth";
+
+// HTML
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	overflow-x: hidden;
+}
+
+// containers
+.container-extern {
+	height: 100%;
+	width: 100%;
+}
+
+.container-intern {
+	height: 100%;
+	width: 85%;
+	margin: auto;
+	max-width: 1200px;
+}
+
+// watch animation
+.reveal {
+	position: relative;
+	transform: translateY(20px);
+	opacity: 0;
+	transition: all 0.4s ease;
+
+	&.active {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+// flash message
+.flash {
+	width: 100%;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	padding: 10px 0 10px 0;
+	z-index: 10;
+
+	&+.extern-container .main-menu {
+		top: 42px;
+	}
+
+	&.basic {
+		background-color: $tertialyCol;
+
+		span {
+			font-size: 18px;
+			@include darkRegular;
+		}
+	}
+}
+
+@font-face {
+	font-family: Roboto Condensed Regular;
+	src: url('../fonts/RobotoCondensed-Regular.ttf');
+}
+
+@font-face {
+	font-family: Roboto Condensed Light;
+	src: url('../fonts/RobotoCondensed-Light.ttf');
+}

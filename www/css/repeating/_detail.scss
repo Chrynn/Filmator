@@ -1,0 +1,997 @@
+.topic {
+    .detail {
+
+        &.movie,
+        &.serial {
+            .extern-container {
+                .block {
+                    &.background {
+                        background-attachment: fixed !important;
+                        background-repeat: no-repeat !important;
+                        background-position: center !important;
+                        background-size: cover !important;
+
+                        .darken {
+                            background: rgba(0, 0, 0, .75);
+
+                            .intern-container {
+                                .block {
+                                    position: relative;
+
+                                    .heading {
+                                        padding: 170px 0 30px 0;
+                                        width: 100%;
+
+                                        .title {
+
+                                            h2 {
+                                                z-index: 1;
+                                                font-size: 70px;
+                                                @include lightLight;
+                                            }
+                                        }
+
+                                        .title-original {
+                                            ul {
+                                                display: flex;
+
+                                                li {
+                                                    height: 20px;
+                                                    list-style: none;
+
+                                                    &:not(:first-child) {
+                                                        margin-left: 15px;
+                                                        display: flex;
+                                                        align-items: center;
+                                                    }
+
+                                                    img {
+                                                        height: 100%;
+                                                        width: auto;
+                                                    }
+
+                                                    span {
+                                                        font-size: 16px;
+                                                        z-index: 1;
+                                                        @include lightLight;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+        &.actor {
+            .extern-container {
+                .block {
+                    &.background {
+                        background-attachment: fixed !important;
+                        background-repeat: no-repeat !important;
+                        background-position: center !important;
+                        background-size: cover !important;
+                    }
+
+                    .darken {
+                        background: rgba(0, 0, 0, .75);
+
+                        .intern-container {
+                            .block {
+
+                                .heading {
+                                    padding: 200px 0 20px 0;
+                                    width: 100%;
+
+                                    .topic {
+                                        h2 {
+                                            z-index: 1;
+                                            font-size: 70px;
+                                            @include lightLight;
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+.content {
+    .detail {
+        padding: 0 0 50px 0;
+
+        // ==== MOVIE & SERIAL ====
+        &.watch {
+
+            .content-block {
+                .background-icon {
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+
+                    &.top {
+                        img {
+                            height: 300px;
+                            width: 500px;
+                            transform: rotate(110deg) scaleX(-1);
+                            opacity: 0.04;
+                            position: absolute;
+                            z-index: 0;
+                            margin: -55px 0 0 -240px;
+                        }
+                    }
+
+                    &.bottom {
+                        img {
+                            height: 300px;
+                            width: 500px;
+                            transform: rotate(70deg);
+                            opacity: 0.04;
+                            position: absolute;
+                            z-index: 0;
+                            margin: -195px 0 0 -250px;
+                        }
+                    }
+                }
+
+                &.player {
+                    .intern-container {
+
+                        .block {
+                            &.rating {
+                                padding: 50px 0 0 0;
+                                width: 100%;
+                                display: flex;
+                                justify-content: flex-end;
+
+                                .first-column {
+                                    width: 50%;
+
+                                    .quality {
+                                        height: 50px;
+                                        width: 50px;
+                                        border-radius: 50%;
+                                        background: $primaryCol;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+
+                                        span {
+                                            font-size: 20px;
+                                            @include lightRegular;
+                                        }
+                                    }
+                                }
+
+                                .second-column {
+                                    width: 50%;
+
+                                    .rating {
+                                        display: flex;
+                                        justify-content: flex-end;
+                                        width: 100%;
+
+                                        .rating-filmator,
+                                        .rating-csfd {
+                                            height: 50px;
+                                            background: $tertialyCol;
+                                            padding: 0 15px 0 20px;
+                                            display: flex;
+                                            align-items: center;
+                                            border-radius: 10px;
+
+                                            ul {
+                                                display: flex;
+                                                list-style: none;
+
+                                                li {
+                                                    display: flex;
+                                                    align-items: center;
+
+                                                    &:not(:first-child) {
+                                                        width: 40px;
+                                                        height: 40px;
+                                                        margin-left: 8px;
+                                                        background: $secondaryCol;
+                                                        border-radius: 50%;
+                                                        display: flex;
+                                                        justify-content: center;
+                                                        align-items: center;
+
+                                                        span {
+                                                            @include darkRegular;
+                                                        }
+                                                    }
+
+                                                    span {
+                                                        @include lightRegular;
+                                                        font-size: 18px;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        .rating-csfd {
+                                            margin-left: 15px;
+                                            background: $csfd;
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+
+                        .player {
+                            padding: 20px 0 0 0;
+
+                            .content {
+                                width: 100%;
+                                height: auto;
+                                min-height: 600px;
+                                background: $primaryCol;
+                            }
+                        }
+                    }
+
+                }
+
+                &.description {
+                    .extern-container {
+
+                        .block {
+                            &.description {
+                                background-attachment: fixed !important;
+                                background-repeat: no-repeat !important;
+                                background-position: center !important;
+                                background-size: cover !important;
+
+                                .darken {
+                                    padding: 80px 0;
+
+                                    .intern-container {
+
+                                        .first-row {
+                                            width: 100%;
+                                            display: flex;
+
+                                            .first-column {
+                                                width: 50%;
+                                                display: flex;
+
+                                                .first-column {
+                                                    width: 200px;
+
+                                                    .poster {
+                                                        img {
+                                                            width: 170px;
+                                                            height: auto;
+                                                        }
+                                                    }
+                                                }
+
+                                                .second-column {
+                                                    width: 70%;
+                                                    padding-left: 30px;
+
+                                                    .basics {
+                                                        margin-top: 30px;
+
+                                                        table {
+                                                            tr {
+                                                                td.bold {
+                                                                    width: 70px;
+                                                                    font-size: 18px;
+                                                                    @include lightRegular;
+                                                                }
+
+                                                                td.special {
+                                                                    text-transform: uppercase;
+                                                                    @include addLight;
+                                                                }
+
+                                                                td {
+                                                                    font-size: 18px;
+                                                                    @include lightLight;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+
+                                                    .genre {
+                                                        margin-top: 30px;
+                                                    }
+
+                                                    .tags {
+                                                        margin-top: 40px;
+
+                                                        ul {
+                                                            display: flex;
+
+                                                            li {
+                                                                height: 30px;
+                                                                padding: 0 15px;
+                                                                display: flex;
+                                                                align-items: center;
+                                                                background: white;
+                                                                list-style: none;
+                                                                border-radius: 30px;
+
+                                                                &:not(:first-child) {
+                                                                    margin-left: 10px;
+                                                                }
+
+                                                                span {
+                                                                    font-size: 18px;
+                                                                    @include darkRegular;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            .second-column {
+                                                width: 50%;
+
+                                                .trailer {
+                                                    width: 100%;
+                                                    display: flex;
+                                                    justify-content: flex-end;
+
+                                                    iframe {
+                                                        height: 250px;
+                                                        width: 400px;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        .second-row {
+                                            width: 100%;
+                                            padding: 50px 0 0 0;
+                                            display: flex;
+
+                                            .first-column {
+                                                width: 50%;
+
+                                                p {
+                                                    width: 80%;
+                                                    font-size: 18px;
+                                                    border-left: 2px solid $tertialyCol;
+                                                    padding: 10px 0 10px 30px;
+                                                    @include lightLight;
+                                                }
+                                            }
+
+                                            .second-column {
+                                                width: 50%;
+                                                display: flex;
+                                                justify-content: flex-end;
+
+                                                .cast {
+                                                    width: 400px;
+
+                                                    table {
+                                                        tr {
+                                                            td {
+                                                                &.bold {
+                                                                    width: 100px;
+
+                                                                    span {
+                                                                        @include lightRegular;
+                                                                    }
+                                                                }
+
+                                                                span {
+                                                                    font-size: 18px;
+                                                                    @include lightLight;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+
+                                                    .cast-actors {
+                                                        margin-top: 40px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.next-movie {
+                    padding: 20px 0 0 0;
+
+                    .intern-container {
+                        .background-icon {
+                            display: flex;
+                            width: 100%;
+                            height: 100%;
+
+                            &.top {
+                                img {
+                                    height: 300px;
+                                    width: 500px;
+                                    transform: rotate(110deg) scaleX(-1);
+                                    opacity: 0.04;
+                                    position: absolute;
+                                    z-index: 0;
+                                    margin: -55px 0 0 -240px;
+                                }
+                            }
+                        }
+
+                        .topic {
+                            width: 100%;
+                            display: flex;
+                            padding: 0 0 25px 0;
+
+                            .line {
+                                width: 50%;
+                                height: 1px;
+                                margin-top: 18px;
+
+                                &.dark {
+                                    background: $quaternaryCol;
+                                }
+
+                                &.light {
+                                    background: $tertialyCol;
+                                }
+
+                            }
+
+                            .title {
+                                width: 300px;
+                                display: flex;
+
+                                .heading {
+                                    h3 {
+                                        font-size: 30px;
+                                        font-family: $secondaryFont;
+                                    }
+
+                                    &.dark {
+                                        color: $darkFont;
+                                        text-align: right;
+                                        margin: 0 0 0 auto;
+                                    }
+
+                                    &.light {
+                                        color: $addFont;
+                                        text-align: left;
+                                        margin: 0 auto 0 10px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .watch-block {
+                            .row {
+                                display: flex;
+                                gap: 1%;
+                                @include watch;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+        }
+
+        // ==== ACTOR ====
+        &.actor {
+            padding: 50px 0;
+
+            .content-block {
+                &.about {
+                    padding-bottom: 50px;
+
+                    .intern-container {
+                        .flexer {
+                            display: flex;
+
+                            .column {
+                                &.one {
+                                    .cover {
+                                        width: 250px;
+                                        height: 250px;
+                                        border-radius: 50%;
+                                        overflow: hidden;
+
+                                        img {
+                                            object-fit: contain;
+                                            display: block;
+                                            min-height: 100%;
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+
+                                &.two {
+                                    width: 100%;
+                                    display: flex;
+
+                                    .block {
+                                        padding-top: 15px;
+
+                                        &.one {
+                                            margin-left: 30px;
+                                            border-left: 1px solid $quinaryCol;
+                                            padding-left: 30px;
+
+                                            table {
+                                                &.family {
+                                                    margin-top: 20px;
+                                                }
+
+                                                tr {
+                                                    td {
+                                                        &.bold {
+                                                            width: 140px;
+                                                        }
+
+                                                        span {
+                                                            font-size: 18px;
+                                                            @include darkRegular;
+                                                        }
+
+                                                        p {
+                                                            font-size: 18px;
+                                                            @include darkLight;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        &.two {
+                                            margin-left: 30px;
+                                            border-left: 1px solid $quinaryCol;
+                                            padding-left: 30px;
+
+                                            table {
+
+                                                tr {
+                                                    td {
+                                                        &.bold {
+                                                            width: 140px;
+                                                        }
+
+                                                        span {
+                                                            font-size: 18px;
+                                                            @include darkRegular;
+                                                        }
+
+                                                        p {
+                                                            font-size: 18px;
+                                                            @include darkLight;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.description {
+                    .extern-container {
+                        .block {
+                            &.description {
+                                background-attachment: fixed !important;
+                                background-repeat: no-repeat !important;
+                                background-position: center !important;
+                                background-size: cover !important;
+                            }
+
+                            .darken {
+                                padding: 50px 0;
+
+                                .intern-container {
+                                    .flexer {
+                                        display: flex;
+                                        gap: 10%;
+
+                                        .column {
+                                            width: 45%;
+
+                                            &.one {
+
+                                                .topic {
+                                                    h3 {
+                                                        text-align: center;
+                                                        font-size: 25px;
+                                                        @include addLight;
+                                                    }
+                                                }
+
+                                                .content {
+                                                    height: 340px;
+                                                    margin-top: 30px;
+                                                    overflow: hidden;
+
+                                                    p {
+                                                        font-size: 18px;
+                                                        @include lightLight;
+
+                                                        &:not(:first-child) {
+                                                            margin-top: 30px;
+                                                        }
+                                                    }
+                                                }
+
+                                                .button {
+                                                    display: flex;
+                                                    text-align: center;
+                                                    align-items: center;
+                                                    margin-top: 30px;
+                                                    display: flex;
+                                                    justify-content: center;
+
+                                                    button {
+                                                        background: $quaternaryCol;
+                                                        border: none;
+                                                        padding: 0 15px;
+                                                        height: 30px;
+                                                        border-radius: 8px;
+                                                        cursor: pointer;
+                                                        transition: 0.25s;
+
+                                                        span {
+                                                            font-size: 18px;
+                                                            @include lightRegular;
+
+                                                        }
+
+                                                        &:hover {
+                                                            transition: 0.25s;
+                                                            background: $tertialyCol;
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            &.two {
+                                                .topic {
+                                                    h3 {
+                                                        text-align: center;
+                                                        font-size: 25px;
+                                                        @include addLight;
+                                                    }
+                                                }
+
+                                                .content {
+                                                    height: 340px;
+                                                    overflow: hidden;
+                                                    margin-top: 30px;
+
+                                                    hr {
+                                                        margin: 20px 0;
+                                                        height: 1px;
+                                                        background: $quaternaryCol;
+                                                        border: none;
+                                                    }
+
+                                                    .block {
+                                                        &.hint {
+                                                            display: flex;
+                                                            justify-content: center;
+
+                                                            .block {
+                                                                padding-left: 5px;
+                                                                display: flex;
+
+                                                                .color {
+                                                                    width: 20px;
+                                                                    height: 20px;
+                                                                    border-radius: 50%;
+                                                                    background: $tertialyCol;
+                                                                }
+
+                                                                span {
+                                                                    margin-left: 8px;
+                                                                    font-size: 18px;
+                                                                    @include lightLight;
+                                                                }
+
+                                                                &.nominated {
+                                                                    border-left: 3px solid $secondaryCol;
+                                                                }
+
+                                                                &.won {
+                                                                    margin-left: 30px;
+                                                                    border-left: 3px solid $tertialyCol;
+                                                                }
+                                                            }
+                                                        }
+
+                                                        &.awards {
+                                                            margin-top: 20px;
+
+                                                            .row {
+                                                                &:not(:first-child) {
+                                                                    margin-top: 20px;
+                                                                }
+
+                                                                .heading {
+                                                                    h3 {
+                                                                        @include lightRegular;
+                                                                        font-size: 18px;
+                                                                        font-weight: normal;
+                                                                    }
+                                                                }
+
+                                                                table {
+                                                                    margin-top: 10px;
+
+                                                                    tr {
+                                                                        &.nominated {
+                                                                            td {
+                                                                                &.year {
+                                                                                    border-left: 3px solid $secondaryCol;
+                                                                                }
+                                                                            }
+                                                                        }
+
+                                                                        &.won {
+                                                                            td {
+                                                                                &.year {
+                                                                                    border-left: 3px solid $tertialyCol;
+                                                                                }
+                                                                            }
+                                                                        }
+
+                                                                        td {
+
+
+                                                                            p {
+                                                                                font-size: 18px;
+                                                                            }
+
+                                                                            &.year {
+                                                                                width: 50px;
+                                                                                padding-left: 20px;
+
+                                                                                p {
+                                                                                    @include lightLight;
+                                                                                }
+                                                                            }
+
+                                                                            &.movie {
+                                                                                width: 200px;
+
+                                                                                p {
+                                                                                    @include addLight;
+                                                                                }
+                                                                            }
+
+                                                                            &.reason {
+                                                                                p {
+                                                                                    @include lightLight;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+
+                                                }
+
+                                                .button {
+                                                    display: flex;
+                                                    text-align: center;
+                                                    align-items: center;
+                                                    margin-top: 30px;
+                                                    display: flex;
+                                                    justify-content: center;
+
+                                                    button {
+                                                        background: $quaternaryCol;
+                                                        border: none;
+                                                        padding: 0 15px;
+                                                        height: 30px;
+                                                        border-radius: 8px;
+                                                        cursor: pointer;
+                                                        transition: 0.25s;
+
+                                                        span {
+                                                            font-size: 18px;
+                                                            @include lightRegular;
+
+                                                        }
+
+                                                        &:hover {
+                                                            transition: 0.25s;
+                                                            background: $tertialyCol;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.watch {
+                    .intern-container {
+                        .topic {
+                            width: 100%;
+                            display: flex;
+                            padding: 30px 0;
+
+                            .line {
+                                width: 50%;
+                                height: 1px;
+                                margin-top: 18px;
+
+                                &.dark {
+                                    background: $quaternaryCol;
+                                }
+
+                                &.light {
+                                    background: $tertialyCol;
+                                }
+
+                            }
+
+                            .title {
+                                width: 300px;
+                                display: flex;
+
+                                .heading {
+                                    h3 {
+                                        font-size: 30px;
+                                    }
+
+                                    &.dark {
+                                        @include darkLight;
+                                        text-align: right;
+                                        margin: 0 0 0 auto;
+                                    }
+
+                                    &.light {
+                                        @include addLight;
+                                        text-align: left;
+                                        margin: 0 auto 0 0;
+
+                                    }
+                                }
+                            }
+                        }
+
+                        .picker {
+                            display: flex;
+
+                            .column {
+                                width: 50%;
+
+                                &.second {
+                                    display: flex;
+                                    justify-content: flex-end;
+
+                                    .sort {
+                                        height: 40px;
+                                        width: 40px;
+                                        background: $quaternaryCol;
+                                        border-radius: 5px;
+                                        transition: 0.25s;
+                                        cursor: pointer;
+
+                                        &:hover {
+                                            background: $tertialyCol;
+                                            transition: 0.25s;
+                                        }
+                                    }
+                                }
+
+                                ul {
+                                    display: flex;
+
+                                    li {
+                                        &:not(:first-child) {
+                                            margin-left: 10px;
+                                        }
+
+                                        &.active {
+                                            background: $primaryCol;
+                                        }
+
+                                        &:hover {
+                                            background: $tertialyCol;
+                                            transition: 0.25s;
+                                        }
+
+                                        display: flex;
+                                        align-items: center;
+                                        height: 40px;
+                                        list-style: none;
+                                        background: $quaternaryCol;
+                                        padding: 0 20px;
+                                        border-radius: 5px;
+                                        cursor: pointer;
+                                        transition: 0.25s;
+
+                                        span {
+                                            font-size: 18px;
+                                            @include lightRegular;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .watch-block {
+                            margin-top: 20px;
+
+                            .row {
+                                display: flex;
+                                gap: 1%;
+
+                                &:not(:last-child) {
+                                    margin-bottom: 50px;
+                                }
+
+                                @include watch;
+
+                                .tags {
+                                    margin-top: 40px;
+
+                                    ul {
+                                        display: flex;
+
+                                        li {
+                                            height: 30px;
+                                            padding: 0 15px;
+                                            display: flex;
+                                            align-items: center;
+                                            background: white;
+                                            list-style: none;
+                                            border-radius: 30px;
+
+                                            &:not(:first-child) {
+                                                margin-left: 10px;
+                                            }
+
+                                            span {
+                                                font-size: 18px;
+                                                @include darkRegular;
+                                            }
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

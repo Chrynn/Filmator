@@ -1,0 +1,129 @@
+@mixin watch {
+    .flexer {
+        display: flex;
+        width: 100%;
+        gap: 2%;
+
+        .item {
+            width: 50%;
+            height: 100%;
+
+            a {
+                text-decoration: none;
+
+                &:hover {
+                    .poster {
+                        img {
+                            backface-visibility: hidden;
+                            transform: scale(1.1);
+                            transition: 0.33s;
+                        }
+                    }
+
+                    .play-button {
+                        background: $tertialyCol;
+                        transition: 0.35s;
+                    }
+                }
+
+                .poster {
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                        max-height: 350px;
+                        transition: 0.33s;
+                        display: block;
+                    }
+                }
+
+                .play-button {
+                    height: 50px;
+                    width: 100%;
+                    background: $primaryCol;
+                    display: flex;
+                    transition: 0.35s;
+                    border-top: 3px solid $quinaryCol;
+                    text-align: center;
+                    align-items: center;
+
+                    .play-text {
+                        width: 100%;
+
+                        span {
+                            font-size: 17px;
+                            letter-spacing: 2.5px;
+                            text-transform: uppercase;
+                            margin: 14px 0 0 0;
+                            text-align: center;
+                            @include whiteRegular;
+                        }
+                    }
+
+                    .play-icon {
+                        height: 100%;
+                        width: 60px;
+                        border-left: 3px solid $quinaryCol;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        img {
+                            height: 20px;
+                            width: 40px;
+                        }
+                    }
+                }
+            }
+
+            .description {
+                .title {
+                    h3 {
+                        font-size: 30px;
+                        @include darkLight;
+                        padding: 15px 0 0 0;
+                    }
+                }
+
+                .rating {
+                    display: flex;
+                    height: 40px;
+
+                    img {
+                        width: 70px;
+                        height: 40px;
+                    }
+
+                    .percent {
+                        display: flex;
+                        align-items: center;
+
+                        p {
+                            font-size: 16px;
+                            margin-left: 8px;
+                            @include darkRegular;
+                        }
+                    }
+                }
+
+                .genre {
+                    p {
+                        font-size: 15px;
+                        text-transform: uppercase;
+                        @include addRegular;
+                    }
+                }
+
+                .year {
+                    margin-top: 10px;
+
+                    p {
+                        font-size: 16px;
+                        @include darkRegular;
+                    }
+                }
+            }
+        }
+    }
+}

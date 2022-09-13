@@ -1,0 +1,11 @@
+{block menu}
+<div class="categories">
+    <div class="categories-div">
+        <ul>
+            <li><a n:href=":Ghost:Movie:"{if $module === "movie"} class="category-active"{/if}>filmy</a></li>
+            <li><a n:href=":Ghost:Serial:"{if $module === "serial"} class="category-active"{/if}>seriály</a></li>
+            <li><a n:href=":Ghost:Actor:"{if $module === "actor"} class="category-active"{/if}>herci</a></li>
+            <li><a n:href=":Ghost:Article:"{if $module === "article"} class="category-active"{/if}>blog</a></li>
+        </ul>
+    </div>
+</div>

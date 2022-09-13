@@ -1,0 +1,51 @@
+{varType App\Model\Database\Entity\Movie $article}
+{block content}
+<div class="content">
+    <h1>{$article->getName()}</h1>
+    <div class="description">
+        <div>
+            <div class="block">
+                <p>{$article->getDescription()}</p>
+            </div>
+            {if $isLogged}
+                <div class="buttons">
+                    <li>{control likeButton}</li>
+                    <li>{control watchButton}</li>
+                </div>
+            {/if}
+        </div>
+    </div>
+</div>
+
+<style>
+    .content{
+        text-align: center;
+        padding: 30px 0;
+    }
+    .content .description{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .content .description .block{
+        background: yellowgreen;
+        width: 400px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 40px 0;
+    }
+    .content .description .buttons{
+        display: flex;
+        justify-content: center;
+    }
+    .content .description .buttons li{
+         list-style: none;
+         margin-left: 10px;
+    }
+    .content .description .block p{
+        padding: 20px;
+        color: black;
+    }
+</style>

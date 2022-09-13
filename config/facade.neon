@@ -1,0 +1,17 @@
+services:
+    - App\Model\Facade\Path\PathFacade
+    - App\Model\Facade\Admin\NewContentFacade
+    - App\Model\Facade\Email\EmailFacade
+
+    - App\Model\Facade\Auth\AuthorizationFacade
+    - App\Model\Facade\Auth\AuthenticationFacade
+    - App\Model\Facade\Auth\InputCheckFacade
+
+    - App\Model\Facade\LikeButton\LikeActorFacade
+    - App\Model\Facade\LikeButton\LikeArticleFacade
+    - App\Model\Facade\LikeButton\LikeMovieFacade
+    - App\Model\Facade\LikeButton\LikeSerialFacade
+
+    - App\Model\Facade\WatchButton\WatchMovieFacade
+    - App\Model\Facade\WatchButton\WatchSerialFacade
+    - App\Model\Facade\WatchButton\WatchArticleFacade

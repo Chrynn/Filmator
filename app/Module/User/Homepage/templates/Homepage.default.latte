@@ -1,0 +1,80 @@
+{block content}
+<div class="block">
+    <div class="topic">
+        <h1>Uživatelská sekce</h1>
+    </div>
+
+    <div class="content">
+        <div class="space">
+
+        </div>
+        <div class="navigation">
+            <div class="box">
+                <h1>Filmy</h1>
+                <ul>
+                    <li><a n:href=":User:MovieLiked:">Oblíbené</a></li>
+                    <li><a n:href=":User:MovieLast:">Nedávno sledované</a></li>
+                    <li><a n:href=":User:MovieLater:">Sledovat později</a></li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h1>Seriály</h1>
+                <ul>
+                    <li><a n:href=":User:SerialLiked:">Oblíbené</a></li>
+                    <li><a n:href=":User:SerialLast:">Nedávno sledované</a></li>
+                    <li><a n:href=":User:SerialLater:">Sledovat později</a></li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h1>Články</h1>
+                <ul>
+                    <li><a n:href=":User:ReadLiked:">Oblíbené</a></li>
+                    <li><a n:href=":User:ReadLast:">Nedávno čtené</a></li>
+                    <li><a n:href=":User:ReadLater:">Přečíst později</a></li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h1>Herci</h1>
+                <ul>
+                    <li><a n:href=":User:ActorLiked:">Oblíbené</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .block{
+        padding: 20px 0;
+    }
+    .block .topic{
+        text-align: center;
+    }
+    .block .content{
+        display: flex;
+    }
+    .block .content .space, .block .content .navigation{
+        width: 50%;
+    }
+    .block .content .box{
+        margin-top: 20px;
+        padding: 20px 0;
+        background: darkred;
+        color: white;
+    }
+    .block .content .box h1{
+        margin-left: 20px;
+    }
+    .block .content .box ul li{
+        list-style: none;
+        margin: 10px 0 10px 20px;
+    }
+
+    .block .content .box ul li a{
+        text-decoration: none;
+        color: white;
+    }
+</style>

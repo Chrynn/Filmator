@@ -1,0 +1,62 @@
+{varType App\Model\Database\Entity\ArticleEntity[] $articles}
+{block content}
+<div class="content">
+    <h1>Filmy</h1>
+
+    <div class="block">
+        <div class="row">
+            {foreach $articles as $article}
+            <div class="single">
+                <a n:href=":Ghost:Article:detail $article->getSlug()">
+                    <div>
+                        <h1>{$article->getName()}</h1>
+                        <h3>{$article->getDescription()|truncate:30}</h3>
+                    </div>
+                </a>
+            </div>
+
+            {if ($iterator->counter % 5) === 0}
+        </div>
+        <div class="row">
+            {/if}
+
+            {/foreach}
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .content{
+        padding: 20px 50px;
+    }
+    .content h1{
+        text-align: center;
+        padding: 20px 0;
+    }
+    .content .block{
+        display: block;
+    }
+    .content .block .row .single{
+        width: 18%;
+        background: red;
+    }
+    .content .block .row .single a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 30px;
+        text-decoration: none;
+    }
+    .content .block .row .single a h1{
+        color: white;
+    }
+    .content .block .row .single a h3{
+        color: black;
+    }
+    .content .block .row{
+        display: flex;
+        margin: 20px 0;
+        gap: 0 2.5%;
+    }
+</style>

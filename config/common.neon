@@ -1,0 +1,67 @@
+parameters:
+	doctrine:
+		host: mariadb
+		user: root
+		password: root
+		dbname: moviebase
+
+
+application:
+	errorPresenter: Ghost:Error
+	mapping:
+		*: [App\Module, * ,*\*Presenter]
+
+
+session:
+	expiration: 14 days
+
+
+di:
+	export:
+		parameters: no
+		tags: no
+
+
+extensions:
+	console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
+	doctrine.annotations: Nettrine\Annotations\DI\AnnotationsExtension
+	doctrine.dbal: Nettrine\DBAL\DI\DbalExtension
+	doctrine.dbal.console: Nettrine\DBAL\DI\DbalConsoleExtension
+	doctrine.orm: Nettrine\ORM\DI\OrmExtension
+	doctrine.orm.annotations: Nettrine\ORM\DI\OrmAnnotationsExtension
+	doctrine.orm.console: Nettrine\ORM\DI\OrmConsoleExtension
+	doctrine.cache: Nettrine\Cache\DI\CacheExtension
+	doctrine.migrations: Nettrine\Migrations\DI\MigrationsExtension
+	doctrine.fixtures: Nettrine\Fixtures\DI\FixturesExtension
+
+
+doctrine.dbal:
+	debug:
+		panel: false
+	connection:
+		driver: pdo_mysql
+		host: %doctrine.host%
+		user: %doctrine.user%
+		password: %doctrine.password%
+		dbname: %doctrine.dbname%
+
+doctrine.orm.annotations:
+	mapping:
+		App\Model: %appDir%/Model
+
+doctrine.migrations:
+	directory: migrations/
+
+doctrine.fixtures:
+	paths:
+		- %appDir%/Model/Database/Fixture
+
+# Na produkci zakomentovat
+tracy:
+	bar:
+		- Nextras\MailPanel\MailPanel(%tempDir%/mail-panel-latte)
+
+services:
+	nette.mailer:
+		class: Nette\Mail\Mailer
+		factory: Nextras\MailPanel\FileMailer(%tempDir%/mail-panel-mails)

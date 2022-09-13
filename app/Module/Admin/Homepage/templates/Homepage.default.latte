@@ -1,0 +1,49 @@
+{block content}
+<div class="block">
+    <div class="topic">
+        <h1>Administrativní sekce</h1>
+    </div>
+
+    <div class="content">
+        <div class="space">
+
+        </div>
+        <div class="navigation">
+            <ul>
+                <li><a n:href=":Admin:Add:">Přidat</a></li>
+                <li><a n:href=":Admin:EditAdmin:">Správcovství</a></li>
+                <li><a n:href=":Admin:Statistics:">Statistiky</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<style>
+    .block{
+        padding: 20px 0;
+    }
+    .block .topic{
+        text-align: center;
+    }
+    .block .content{
+        display: flex;
+    }
+    .block .content .space, .block .content .navigation{
+        width: 50%;
+    }
+    .block .content .navigation{
+        margin-top: 20px;
+        padding: 20px 0;
+        background: darkred;
+        color: white;
+    }
+    .block .content .navigation ul li{
+        list-style: none;
+        margin: 10px 0 10px 20px;
+    }
+
+    .block .content .navigation ul li a{
+        text-decoration: none;
+        color: white;
+    }
+</style>
