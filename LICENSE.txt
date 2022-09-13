@@ -4,7 +4,7 @@
 
 1. Author allows user of repository to:
   - view the source code & get indistinctly inspired
-  - suggest changes with author
+  - suggest changes to the author
 
 --------------------------------------------------
 
