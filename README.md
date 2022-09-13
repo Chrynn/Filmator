@@ -2,7 +2,7 @@
 > - úvodní dokumentace projektu
 > - pro orientaci v projektu **DOPORUČUJI PŘEČÍST**
 
-Poppis projektu
+Popis projektu
 - filmová databáze v podobě webové stránky
 
 Účel projektu
