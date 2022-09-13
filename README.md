@@ -17,7 +17,7 @@ Použité technologie
 - Git, Github
 
 Použité nástroje
-- PHPStorm, VSCode
+- [PHPStorm](https://www.jetbrains.com/phpstorm/), VSCode
 - PHP dokumentace, Nette dokumentace, Stackoverflow atd.
 
 Rozcestník projektu
