@@ -1,9 +1,13 @@
 /* Moviebase project license *\
+  
 
-Users can:
-- get indistinctly inspirated by source code
-- suggest changes with author
+1. Author allows user of repository to:
+  - get indistinctly inspirated by source code
+  - suggest changes with author
 
-Users can not:
-- publish source code for money profit
-- share without approval of author
+2. Atuhor disallows user of repository to:
+  - publish source code for money profit
+  - share without approval of author
+
+
+\* created & valid from 12.9.2022 */
