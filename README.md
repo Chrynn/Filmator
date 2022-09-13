@@ -18,7 +18,7 @@ Použité technologie
 
 Použité nástroje
 - [PHPStorm](https://www.jetbrains.com/phpstorm/), VSCode
-- PHP dokumentace, Nette dokumentace, Stackoverflow atd.
+- [PHP dokumentace](https://www.php.net/), [Nette dokumentace](https://doc.nette.org/), Stackoverflow atd.
 
 Rozcestník projektu
 - **app** - OOP programování v PHP a kódování v latte
