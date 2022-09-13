@@ -35,7 +35,7 @@ Obsahuje sekci:
 
 Poznámka
 - design stránky je navržen a veškeré ikony jsou vytvořené čistě mnou
-- stránka je v neustálém vývoji
+- stránka je v neustálém vývoji (není finálním produktem), tudiž se mohou na stránce vyskytovat chyby
 
 > **Stránka podléhá ochraně autorského práva podle [LICENSE.txt](https://github.com/filipmachala88/Moviebase/blob/main/LICENSE.txt)**
 > - nepřeji si aby projekt byl použit pro **cizí** publikaci či **cizí** finančně ziskové účely
