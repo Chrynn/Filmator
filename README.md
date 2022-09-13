@@ -1,6 +1,9 @@
 # Filmátor
+> - ú0vodní dokumentace projektu
+> - pro orientaci v projektu DOPORUČUJI PŘEČÍST
 
-> Filmová databáze v podobě webové stránky
+Poppis projektu
+- Filmová databáze v podobě webové stránky
 
 Účel projektu
 - volnočasový projekt za účelem sebevzdělávání a prezentace dovedností
