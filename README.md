@@ -25,11 +25,6 @@ Rozcestník projektu
 - **www** - obrázky, ikony, CSS styly a JS scripty
 - **wiki** - programátorská dokumentace projektu (včetně rozjetí projektu)
 
-Obsahuje sekci
-- veřejnou
-- členskou
-- administrační
-
 Poznámky k projektu
 - design stránky je navržen a veškeré ikony jsou vytvořené čistě mnou
 - stránka je v neustálém vývoji (není finálním produktem), tudiž se mohou na stránce vyskytovat chyby
