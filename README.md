@@ -1,6 +1,6 @@
 # Filmátor
 > - úvodní dokumentace projektu
-> - DOPORUČUJI PŘEČÍST pro orientaci v projektu 
+> - **Doporučuji přečíst** pro orientaci v projektu 
 
 Poppis projektu
 - Filmová databáze v podobě webové stránky
