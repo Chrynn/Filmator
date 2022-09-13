@@ -21,7 +21,7 @@ Použité nástroje
 - [PHP dokumentace](https://www.php.net/), [Nette dokumentace](https://doc.nette.org/), Stackoverflow atd.
 
 Coding standart
-- HTML - [W3C](https://www.w3.org/) standard [viz.](https://html.spec.whatwg.org/multipage/)
+- HTML - [W3C](https://www.w3.org/) standard viz. [stránka](https://html.spec.whatwg.org/multipage/)
 - CSS - W3C standard + [BEM](https://www.vzhurudolu.cz/prirucka/bem)
 - PHP - verze 8, OOP, čistý kód
 
