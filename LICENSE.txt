@@ -9,8 +9,8 @@
 --------------------------------------------------
 
 2. Atuhor disallows user of repository to:
-  - publishing source code for money profit purposes
-  - sharing without approval of author
+  - publish the source code for money profit purposes
+  - share without approval of author
 
 --------------------------------------------------
 
