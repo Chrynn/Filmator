@@ -1,4 +1,4 @@
-# o projektu Filmátor
+# Filmátor - o projektu
 
 > Filmová databáze v podobě webové stránky
 
