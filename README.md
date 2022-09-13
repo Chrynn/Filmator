@@ -10,7 +10,7 @@ Popis
 
 Použité technologie
 - PHP framework [Nette](https://nette.org/cs/)
-- SQL databázové ORM [Doctrine](https://www.doctrine-project.org/) (nettrine)
+- SQL databázové [ORM](https://cs.wikipedia.org/wiki/Objektov%C4%9B_rela%C4%8Dn%C3%AD_mapov%C3%A1n%C3%AD) [Doctrine](https://www.doctrine-project.org/) (nettrine)
 - Javascript (dříve i jQuery)
 - HTML a CSS v kombinaci s [Latte](https://latte.nette.org/cs/), SCSS (sass)
 - [Neon](https://doc.nette.org/cs/neon/format), [Markdown](https://www.markdownguide.org/)
