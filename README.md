@@ -8,9 +8,6 @@ Popis projektu
 Účel projektu
 - volnočasový projekt za účelem sebevzdělávání a prezentace dovedností
 
-Repozitář projektu
-- https://github.com/filipmachala88/Moviebase
-
 Použité technologie
 - PHP framework [Nette](https://nette.org/cs/)
 - SQL databázové ORM [Doctrine](https://www.doctrine-project.org/) (nettrine)
