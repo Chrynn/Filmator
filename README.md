@@ -23,7 +23,7 @@ Použité nástroje
 Rozcestník projektu
 - **app** - OOP programování v PHP a kódování v latte
 - **www** - obrázky, ikony, CSS styly a JS scripty
-- **wiki** - programátorská dokumentace projektu
+- **wiki** - programátorská dokumentace projektu (včetně rozjetí projektu)
 
 Obsahuje sekci:
 - veřejnou
