@@ -34,7 +34,7 @@ Obsahuje sekci:
 - administrační
 
 Poznámka
-- design stránky a veškeré ikony projektu jsou vytvořené čistě mnou
+- design stránky je navržen a veškeré ikony jsou vytvořené čistě mnou
 - stránka je v neustálém vývoji
 
 > **Stránka podléhá ochraně autorského práva podle [LICENSE.txt](https://github.com/filipmachala88/Moviebase/blob/main/LICENSE.txt)**
