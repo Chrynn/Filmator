@@ -3,7 +3,7 @@
 --------------------------------------------------  
 
 1. Author allows user of repository to:
-  - get indistinctly inspirated by source code
+  - view the source code & get indistinctly inspirated
   - suggest changes with author
 
 --------------------------------------------------
