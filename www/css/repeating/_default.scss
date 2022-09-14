@@ -4,7 +4,7 @@
         &.movie,
         &.serial,
         &.actor {
-            .extern-container {
+            .container-extern {
                 .block {
                     &.background {
                         background-attachment: initial !important;
@@ -16,7 +16,7 @@
                     .darken {
                         background: rgba(0, 0, 0, .75);
 
-                        .intern-container {
+                        .container-intern {
                             .block {
 
                                 .heading {
@@ -48,7 +48,7 @@
         &.watch {
             padding: 50px 0;
 
-            .intern-container {
+            .container-intern {
                 .watch-block {
                     .row {
                         display: flex;
@@ -67,7 +67,7 @@
         &.actor {
             padding: 30px 0;
 
-            .intern-container {
+            .container-intern {
                 .row {
                     width: 100%;
                     display: flex;

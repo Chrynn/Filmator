@@ -3,7 +3,9 @@
 namespace App\Module\Ghost\Article;
 
 use App\Model\Facade\Auth\AuthorizationFacade;
+use App\Model\Facade\Path\PathFacade;
 use App\Model\Service\Query\ArticleEntityQuery;
+use App\Module\Ghost\_component\Forgotten\ForgottenFactory;
 use App\Module\Ghost\_component\Login\LoginFactory;
 use App\Module\Ghost\_component\Register\RegisterFactory;
 use App\Module\Ghost\Article\Component\LikeButton\LikeButton;
@@ -26,9 +28,11 @@ class ArticlePresenter extends GhostPresenter
 		ArticleEntityQuery $articleEntityQuery,
 		LikeButtonFactory $likeButtonFactory,
 		WatchButtonFactory $watchButtonFactory,
+		ForgottenFactory $forgottenFactory,
+		PathFacade $pathFacade
 	)
     {
-        parent::__construct($authorizationFacade, $loginFactory, $registerFactory);
+        parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $forgottenFactory, $pathFacade);
 		$this->articleEntityQuery = $articleEntityQuery;
 		$this->likeButtonFactory = $likeButtonFactory;
 		$this->watchButtonFactory = $watchButtonFactory;
