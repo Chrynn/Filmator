@@ -14,7 +14,7 @@
                 h2 {
                     font-size: 30px;
                     text-align: center;
-                    @include lightLight;
+                    @include lightThin;
                 }
 
                 h3 {
@@ -22,7 +22,7 @@
                     text-align: center;
                     text-transform: uppercase;
                     margin-top: 5px;
-                    @include addLight;
+                    @include coloredThin;
                 }
             }
 
@@ -64,13 +64,13 @@
                         &.text {
                             p {
                                 text-align: center;
-                                @include lightLight;
+                                @include lightThin;
                                 font-size: 18px;
                             }
 
                             strong {
                                 text-transform: uppercase;
-                                color: $tertialyCol;
+                                color: $tercialy;
                                 font-weight: normal;
                             }
                         }
@@ -95,11 +95,6 @@
                     width: 160px;
                     margin: 40px auto 0 auto;
                     display: flex;
-                    @include primaryButton;
-
-                    &:hover {
-                        @include primaryButtonHover;
-                    }
 
                     .button {
                         display: flex;

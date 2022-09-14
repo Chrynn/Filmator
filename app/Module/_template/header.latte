@@ -1,69 +1,66 @@
 {import "../Ghost/_template/login.latte"}
 {block header}
-<div class="navigation">
+<header class="header" role="banner">
     <div class="container-extern">
-        <header>
-            <div class="main-menu non-active">
-                <div class="container-intern">
+        <div class="header__wrap">
+            <div class="container-intern">
 
-                    <div class="logo-part">
-                        <a n:href=":Ghost:Homepage:">
-                            <div class="logo image">
-                                <img src="../img/icons/logo-circle.svg" alt="logo-icon">
+                <div class="header__logo">
+                    <a n:href=":Ghost:Homepage:" class="header__link-logo">
+                        <div class="header__block-image-logo">
+                            <img src="../img/icons/logo-circle.svg" alt="logo-icon" class="header__image-logo">
+                        </div>
+                        <div class="header__block-heading-logo">
+                            <h3 class="header__heading-logo">Filmátor</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="header__menu-desktop">
+                    <div class="header__search">
+                        <div class="flexer">
+                            <div>
+                                <input type="text" name="find" placeholder="hledat" class="header__input-search">
                             </div>
-                            <div class="logo heading">
-                                <span>Filmátor</span>
+                            <div>
+                                <button class="header__button-search">
+                                    <img src="../img/icons/find.svg" alt="eyeglass-icon" class="header__image-search">
+                                </button>
                             </div>
-                        </a>
+                        </div>
                     </div>
 
-                    <div class="menu">
-                        <div class="searching">
-                            <div class="search-part">
-                                <div class="search find">
-                                    <input type="text" name="find" placeholder="hledat">
-                                </div>
-                                <div class="search find-button">
-                                    <button>
-                                        <img src="../img/icons/find.svg" alt="eyeglass-icon">
-                                    </button>
-                                </div>
-                            </div>
+                    {if !$isLogged}
+                    <div class="button button--special js-button-login">
+                        <div class="button__block-image">
+                            <img src="../img/icons/profile.svg" alt="profile-icon" class="button__image">
                         </div>
-
-                        {if !$isLogged}
-                        <div class="button login-button">
-                            <div class="block icon">
-                                <img src="../img/icons/profile.svg" alt="profile-icon">
-                            </div>
-                            <div class="block text">
-                                <span>přihlásit</span>
-                            </div>
+                        <div class="button__block-text">
+                            <span class="button__text">přihlásit</span>
                         </div>
-                        {else}
-                        <a n:href="loggOut!">
-                            <div class="button">
-                                <div class="block icon">
-                                    <img src="../img/icons/profile.svg" alt="profile-icon">
-                                </div>
-                                <div class="block text">
-                                    <span>odhlásit</span>
-                                </div>
-                            </div>
-                        </a>
-                        {/if}
-
-                        <div class="hamburger-div2">
-                            <div class="menu-line2"></div>
-                        </div>
-
                     </div>
+                    {else}
+                    <a n:href="loggOut!" class="button__link">
+                        <div class="button button--special">
+                            <div class="button__block-image">
+                                <img src="../img/icons/profile.svg" alt="profile-icon" class="button__image">
+                            </div>
+                            <div class="button__block-text">
+                                <span class="button__text">odhlásit</span>
+                            </div>
+                        </div>
+                    </a>
+                    {/if}
+
+                    <div class="hamburger-div2">
+                        <div class="menu-line2"></div>
+                    </div>
+
                 </div>
             </div>
-        </header>
-
+        </div>
     </div>
-</div>
 {if !$isLogged}
     {include login}
 {/if}
+</header>

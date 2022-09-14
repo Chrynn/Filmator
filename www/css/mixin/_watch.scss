@@ -21,7 +21,7 @@
                     }
 
                     .play-button {
-                        background: $tertialyCol;
+                        background: $tercialy;
                         transition: 0.35s;
                     }
                 }
@@ -41,10 +41,10 @@
                 .play-button {
                     height: 50px;
                     width: 100%;
-                    background: $primaryCol;
+                    background: $primary;
                     display: flex;
                     transition: 0.35s;
-                    border-top: 3px solid $quinaryCol;
+                    border-top: 3px solid $grey;
                     text-align: center;
                     align-items: center;
 
@@ -57,14 +57,14 @@
                             text-transform: uppercase;
                             margin: 14px 0 0 0;
                             text-align: center;
-                            @include whiteRegular;
+                            @include lightRegular;
                         }
                     }
 
                     .play-icon {
                         height: 100%;
                         width: 60px;
-                        border-left: 3px solid $quinaryCol;
+                        border-left: 3px solid $grey;
                         display: flex;
                         align-items: center;
                         justify-content: center;
@@ -81,7 +81,7 @@
                 .title {
                     h3 {
                         font-size: 30px;
-                        @include darkLight;
+                        @include darkThin;
                         padding: 15px 0 0 0;
                     }
                 }
@@ -111,7 +111,7 @@
                     p {
                         font-size: 15px;
                         text-transform: uppercase;
-                        @include addRegular;
+                        @include coloredRegular;
                     }
                 }
 

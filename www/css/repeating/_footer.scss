@@ -45,11 +45,11 @@
 
                             &.moto {
                                 padding: 15px 0 22px 0;
-                                border-bottom: 1px solid $tertialyCol;
+                                border-bottom: 1px solid $tercialy;
 
                                 p {
                                     font-size: 16px;
-                                    @include lightLight;
+                                    @include lightThin;
                                 }
                             }
 
@@ -96,7 +96,7 @@
                         .block {
                             .heading {
                                 h3 {
-                                    @include addLight;
+                                    @include coloredThin;
                                     font-size: 22px;
                                     font-weight: normal;
                                     margin-bottom: 20px;
@@ -110,13 +110,12 @@
                                         margin: 15px 0 15px 0;
 
                                         a {
-                                            @include lightLight;
+                                            @include lightThin;
                                             font-size: 18px;
                                             text-decoration: none;
                                             transition: 0.2s;
 
                                             &:hover {
-                                                color: $lightFontHover;
                                                 transition: 0.2s;
                                             }
                                         }
@@ -133,7 +132,7 @@
                         .block {
                             .heading {
                                 h3 {
-                                    @include addLight;
+                                    @include coloredThin;
                                     font-size: 22px;
                                     font-weight: normal;
                                     margin-bottom: 20px;
@@ -147,13 +146,12 @@
                                         margin: 15px 0 15px 0;
 
                                         a {
-                                            @include lightLight;
+                                            @include lightThin;
                                             font-size: 18px;
                                             text-decoration: none;
                                             transition: 0.2s;
 
                                             &:hover {
-                                                color: $lightFontHover;
                                                 transition: 0.2s;
                                             }
                                         }
@@ -169,7 +167,7 @@
                                 text-align: center;
 
                                 span {
-                                    @include lightLight;
+                                    @include lightThin;
                                     font-size: 16px;
                                     line-height: 1.8;
                                     text-align: center;
@@ -177,18 +175,18 @@
 
                                 .theme-changer {
                                     display: flex;
-                                    border-bottom: 1px solid $tertialyCol;
+                                    border-bottom: 1px solid $tercialy;
                                     padding: 15px 0 25px 0;
 
                                     .button {
                                         height: 20px;
-                                        border: 1px solid $secondaryCol;
+                                        border: 1px solid $secondary;
                                         transition: 0.33s;
 
                                         &.light {
                                             width: 25px;
                                             border-radius: 10px 0 0 10px;
-                                            background: $secondaryCol;
+                                            background: $secondary;
                                             margin: 0 0 0 auto;
                                             z-index: 1;
                                         }
@@ -223,12 +221,11 @@
                                 .name {
                                     a {
                                         text-align: center;
-                                        @include lightLight;
+                                        @include lightThin;
                                         transition: 0.33s;
                                         text-decoration: none;
 
                                         &:hover {
-                                            color: $addFont;
                                             transition: 0.33s;
                                         }
                                     }

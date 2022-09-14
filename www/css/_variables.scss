@@ -1,56 +1,25 @@
-// == FONT COLORS ==
-$darkFont: #141414;
-$lightFont: #e1e1e1;
-$WhiteFont: white;
-$lightFontHover: #a7a7a7;
-$addFont: #ff8a00;
-
-// == BACKGROUND ==
-$lightBg: #f5f5f5;
-$darkBg: #1e1e1e;
-$addBg: #ff8a00;
-
-// == MAIN COLORS ==
-$primaryCol: black; //1
-$secondaryCol: white; //2
-$secondaryColHover: #f5f5f5;
-
-// == ADDITIONAL COLORS ==
-$tertialyCol: #ff8a00; //3
-$tertialyColHover: #ffaa45;
-
-$quaternaryCol: #999999; //4
-$quinaryCol: #e1e1e1; //5
-$senaryCol: #1e1e1e; //6
-$septenaryCol: #404040; //7
-
-// == FONTS ==
-$primaryFont: Roboto Condensed Regular;
-$secondaryFont: Roboto Condensed Light;
-$tertialyFont: Otomanopee One;
-
-$csfd: #e70000;
-$succeed: #4feb34;
-
-/*
------------------------------------------
-*/
-
 // main colors
-$colorOrange: #ff8a00;
-$colorBlack: black;
-$colorWhite: white;
+$primary: black;
+$secondary: white;
+$tercialy: #ff8a00;
 
-// main colors - shades
-$colorOrangeLight: #ffaa45;
-$colorBlackLight: #1e1e1e;
-$colorWhiteDark: #f5f5f5;
+$shadePrimary: #404040;
+$shadeSecondary: #e1e1e1;
+$shadeTercialy: #ffaa45;
 
-// aditional colors
-$colorRed: #e70000;
-$colorGrey: #999999;
+// background
+$backgroundPrimary: #1e1e1e;
+$backgroundSecondary: #f5f5f5;
+
+// colors
+$darken: rgba(0, 0, 0, 0.7);
+$transparent: transparent;
+
+$grey: #999999;
+$red: #e70000;
+$green: #4feb34;
 
 // fonts
-$fontPrimaryRegular: Roboto Condensed Regular;
 $fontPrimaryLight: Roboto Condensed Light;
-$fontSecondary: Otomanopee One;
+$fontPrimaryRegular: Roboto Condensed Regular;
+$fontSecondaryRegular: Otomanopee One;

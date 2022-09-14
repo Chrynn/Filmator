@@ -27,7 +27,7 @@
                                         h2 {
                                             z-index: 1;
                                             font-size: 70px;
-                                            @include lightLight;
+                                            @include lightThin;
                                         }
                                     }
 
@@ -96,7 +96,7 @@
                                     .topic {
                                         h3 {
                                             transition: 0.25s;
-                                            @include addRegular;
+                                            @include coloredRegular;
                                         }
                                     }
                                 }

@@ -1,9 +1,8 @@
 .categories {
     height: 70px;
     width: 100%;
-    background: $primaryCol;
-    font-family: $primaryFont;
-    border-top: 1px solid $septenaryCol;
+    background: $primary;
+    border-top: 1px solid $grey;
     z-index: 1;
     position: relative;
 
@@ -15,7 +14,6 @@
 
     p {
         font-size: 17px;
-        color: $darkFont;
         padding: 0 20px;
         text-transform: uppercase;
         line-height: 4.2;
@@ -28,12 +26,8 @@
         justify-content: center;
 
         a {
-            font-size: 18px;
-
-            @include addRegular;
-
             @include lightRegular;
-
+            font-size: 18px;
             display: inline;
             text-decoration: none;
             text-transform: uppercase;
@@ -46,13 +40,7 @@
             }
 
             &:hover {
-                @include lightRegular;
-
-                @include addRegular;
-            }
-
-            &:hover {
-                @include addRegular;
+                @include coloredRegular;
 
                 transition: 0.2s;
             }
@@ -65,7 +53,7 @@
     height: 390px;
     width: 100%;
     margin-top: 40px;
-    font-family: $primaryFont;
+    font-family: $primary;
 
     li {
         list-style-type: none;

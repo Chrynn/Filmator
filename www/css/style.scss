@@ -15,6 +15,11 @@
 @import "repeating/menu";
 @import "repeating/auth";
 
+// global
+@import "global/button";
+@import "global/reveal";
+@import "global/flash";
+
 // HTML
 * {
 	margin: 0;
@@ -23,6 +28,18 @@
 
 html {
 	overflow-x: hidden;
+}
+
+.flexer {
+	height: 100%;
+	width: 100%;
+	display: flex;
+}
+
+.darken {
+	height: 100%;
+	width: 100%;
+	background: $darken;
 }
 
 // containers
@@ -36,42 +53,6 @@ html {
 	width: 85%;
 	margin: auto;
 	max-width: 1200px;
-}
-
-// watch animation
-.reveal {
-	position: relative;
-	transform: translateY(20px);
-	opacity: 0;
-	transition: all 0.4s ease;
-
-	&.active {
-		transform: translateY(0px);
-		opacity: 1;
-	}
-}
-
-// flash message
-.flash {
-	width: 100%;
-	position: fixed;
-	display: flex;
-	justify-content: center;
-	padding: 10px 0 10px 0;
-	z-index: 10;
-
-	&+.extern-container .main-menu {
-		top: 42px;
-	}
-
-	&.basic {
-		background-color: $tertialyCol;
-
-		span {
-			font-size: 18px;
-			@include darkRegular;
-		}
-	}
 }
 
 @font-face {

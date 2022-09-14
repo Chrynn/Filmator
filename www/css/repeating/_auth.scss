@@ -8,7 +8,7 @@
     opacity: 1;
     transition: all 0.33s;
 
-    &.hidden{
+    &.hidden {
         visibility: hidden;
         opacity: 0;
     }
@@ -35,7 +35,7 @@
                     width: 550px;
                     display: flex;
                     justify-content: center;
-                    border: 1px solid $tertialyCol;
+                    border: 1px solid $tercialy;
                     border-radius: 35px;
                     background: rgba(0, 0, 0, 0.7);
 
@@ -65,7 +65,7 @@
                                         position: absolute;
                                         transition: 0.33s;
                                         margin-top: 14px;
-                                        background: $tertialyCol;
+                                        background: $tercialy;
                                     }
 
                                     &::before {
@@ -84,7 +84,7 @@
                                         &::before,
                                         &::after {
                                             transition: 0.33s;
-                                            background: $secondaryCol;
+                                            background: $secondary;
                                         }
                                     }
                                 }
@@ -98,7 +98,7 @@
                                     text-align: center;
                                     font-weight: normal;
                                     margin-left: 30px;
-                                    @include lightLight;
+                                    @include lightThin;
                                 }
                             }
                         }
@@ -115,7 +115,7 @@
 
                                 span {
                                     @include lightRegular;
-                                    color: $csfd;
+                                    color: $red;
                                     font-size: 16px;
                                 }
                             }
@@ -136,12 +136,12 @@
 
                                         label {
                                             font-size: 18px;
-                                            @include lightLight;
+                                            @include lightThin;
                                             transition: 0.25s;
                                             cursor: pointer;
 
                                             &:hover {
-                                                @include addLight;
+                                                @include coloredThin;
                                                 transition: 0.25s;
                                             }
                                         }
@@ -154,7 +154,7 @@
 
                                         span {
                                             @include lightRegular;
-                                            color: $csfd;
+                                            color: $red;
                                             font-size: 16px;
                                         }
                                     }
@@ -169,7 +169,7 @@
                                         @include loginSection;
 
                                         &.error {
-                                            border: 1px solid $csfd;
+                                            border: 1px solid $red;
                                         }
                                     }
                                 }
@@ -181,13 +181,7 @@
                             display: flex;
                             justify-content: center;
 
-                            button {
-                                @include primaryButton;
-
-                                &:hover {
-                                    @include primaryButtonHover;
-                                }
-                            }
+                            button {}
                         }
 
                         .row-register {
@@ -200,14 +194,14 @@
 
                                     span {
                                         font-size: 16px;
-                                        @include lightLight;
+                                        @include lightThin;
                                     }
 
                                     &:not(:first-child) {
                                         margin-left: 5px;
 
                                         span {
-                                            @include addRegular;
+                                            @include coloredRegular;
                                             cursor: pointer;
                                         }
                                     }
@@ -233,14 +227,14 @@
 
                                     span {
                                         font-size: 16px;
-                                        @include lightLight;
+                                        @include lightThin;
                                     }
 
                                     &:not(:first-child) {
                                         margin-left: 5px;
 
                                         span {
-                                            @include addRegular;
+                                            @include coloredRegular;
                                             cursor: pointer;
                                         }
                                     }
@@ -251,7 +245,7 @@
                 }
             }
 
-            &.hidden{
+            &.hidden {
                 visibility: hidden;
                 opacity: 0;
             }

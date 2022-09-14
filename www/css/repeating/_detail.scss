@@ -27,7 +27,7 @@
                                             h2 {
                                                 z-index: 1;
                                                 font-size: 70px;
-                                                @include lightLight;
+                                                @include lightThin;
                                             }
                                         }
 
@@ -53,7 +53,7 @@
                                                     span {
                                                         font-size: 16px;
                                                         z-index: 1;
-                                                        @include lightLight;
+                                                        @include lightThin;
                                                     }
                                                 }
                                             }
@@ -93,7 +93,7 @@
                                         h2 {
                                             z-index: 1;
                                             font-size: 70px;
-                                            @include lightLight;
+                                            @include lightThin;
                                         }
                                     }
 
@@ -163,7 +163,7 @@
                                         height: 50px;
                                         width: 50px;
                                         border-radius: 50%;
-                                        background: $primaryCol;
+                                        background: $primary;
                                         display: flex;
                                         align-items: center;
                                         justify-content: center;
@@ -186,7 +186,7 @@
                                         .rating-filmator,
                                         .rating-csfd {
                                             height: 50px;
-                                            background: $tertialyCol;
+                                            background: $tercialy;
                                             padding: 0 15px 0 20px;
                                             display: flex;
                                             align-items: center;
@@ -204,7 +204,7 @@
                                                         width: 40px;
                                                         height: 40px;
                                                         margin-left: 8px;
-                                                        background: $secondaryCol;
+                                                        background: $secondary;
                                                         border-radius: 50%;
                                                         display: flex;
                                                         justify-content: center;
@@ -225,7 +225,7 @@
 
                                         .rating-csfd {
                                             margin-left: 15px;
-                                            background: $csfd;
+                                            background: $red;
                                         }
 
                                     }
@@ -240,7 +240,7 @@
                                 width: 100%;
                                 height: auto;
                                 min-height: 600px;
-                                background: $primaryCol;
+                                background: $primary;
                             }
                         }
                     }
@@ -299,12 +299,12 @@
 
                                                                 td.special {
                                                                     text-transform: uppercase;
-                                                                    @include addLight;
+                                                                    @include coloredThin;
                                                                 }
 
                                                                 td {
                                                                     font-size: 18px;
-                                                                    @include lightLight;
+                                                                    @include lightThin;
                                                                 }
                                                             }
                                                         }
@@ -370,9 +370,9 @@
                                                 p {
                                                     width: 80%;
                                                     font-size: 18px;
-                                                    border-left: 2px solid $tertialyCol;
+                                                    border-left: 2px solid $tercialy;
                                                     padding: 10px 0 10px 30px;
-                                                    @include lightLight;
+                                                    @include lightThin;
                                                 }
                                             }
 
@@ -397,7 +397,7 @@
 
                                                                 span {
                                                                     font-size: 18px;
-                                                                    @include lightLight;
+                                                                    @include lightThin;
                                                                 }
                                                             }
                                                         }
@@ -449,11 +449,11 @@
                                 margin-top: 18px;
 
                                 &.dark {
-                                    background: $quaternaryCol;
+                                    background: $grey;
                                 }
 
                                 &.light {
-                                    background: $tertialyCol;
+                                    background: $tercialy;
                                 }
 
                             }
@@ -465,17 +465,15 @@
                                 .heading {
                                     h3 {
                                         font-size: 30px;
-                                        font-family: $secondaryFont;
+                                        font-family: $secondary;
                                     }
 
                                     &.dark {
-                                        color: $darkFont;
                                         text-align: right;
                                         margin: 0 0 0 auto;
                                     }
 
                                     &.light {
-                                        color: $addFont;
                                         text-align: left;
                                         margin: 0 auto 0 10px;
                                     }
@@ -535,7 +533,7 @@
 
                                         &.one {
                                             margin-left: 30px;
-                                            border-left: 1px solid $quinaryCol;
+                                            border-left: 1px solid $grey;
                                             padding-left: 30px;
 
                                             table {
@@ -556,7 +554,7 @@
 
                                                         p {
                                                             font-size: 18px;
-                                                            @include darkLight;
+                                                            @include darkThin;
                                                         }
                                                     }
                                                 }
@@ -565,7 +563,7 @@
 
                                         &.two {
                                             margin-left: 30px;
-                                            border-left: 1px solid $quinaryCol;
+                                            border-left: 1px solid $grey;
                                             padding-left: 30px;
 
                                             table {
@@ -583,7 +581,7 @@
 
                                                         p {
                                                             font-size: 18px;
-                                                            @include darkLight;
+                                                            @include darkThin;
                                                         }
                                                     }
                                                 }
@@ -624,7 +622,7 @@
                                                     h3 {
                                                         text-align: center;
                                                         font-size: 25px;
-                                                        @include addLight;
+                                                        @include coloredThin;
                                                     }
                                                 }
 
@@ -635,7 +633,7 @@
 
                                                     p {
                                                         font-size: 18px;
-                                                        @include lightLight;
+                                                        @include lightThin;
 
                                                         &:not(:first-child) {
                                                             margin-top: 30px;
@@ -652,7 +650,7 @@
                                                     justify-content: center;
 
                                                     button {
-                                                        background: $quaternaryCol;
+                                                        background: $grey;
                                                         border: none;
                                                         padding: 0 15px;
                                                         height: 30px;
@@ -668,7 +666,7 @@
 
                                                         &:hover {
                                                             transition: 0.25s;
-                                                            background: $tertialyCol;
+                                                            background: $tercialy;
                                                         }
                                                     }
                                                 }
@@ -679,7 +677,7 @@
                                                     h3 {
                                                         text-align: center;
                                                         font-size: 25px;
-                                                        @include addLight;
+                                                        @include coloredThin;
                                                     }
                                                 }
 
@@ -691,7 +689,7 @@
                                                     hr {
                                                         margin: 20px 0;
                                                         height: 1px;
-                                                        background: $quaternaryCol;
+                                                        background: $grey;
                                                         border: none;
                                                     }
 
@@ -708,22 +706,22 @@
                                                                     width: 20px;
                                                                     height: 20px;
                                                                     border-radius: 50%;
-                                                                    background: $tertialyCol;
+                                                                    background: $tercialy;
                                                                 }
 
                                                                 span {
                                                                     margin-left: 8px;
                                                                     font-size: 18px;
-                                                                    @include lightLight;
+                                                                    @include lightThin;
                                                                 }
 
                                                                 &.nominated {
-                                                                    border-left: 3px solid $secondaryCol;
+                                                                    border-left: 3px solid $secondary;
                                                                 }
 
                                                                 &.won {
                                                                     margin-left: 30px;
-                                                                    border-left: 3px solid $tertialyCol;
+                                                                    border-left: 3px solid $secondary;
                                                                 }
                                                             }
                                                         }
@@ -751,7 +749,7 @@
                                                                         &.nominated {
                                                                             td {
                                                                                 &.year {
-                                                                                    border-left: 3px solid $secondaryCol;
+                                                                                    border-left: 3px solid $secondary;
                                                                                 }
                                                                             }
                                                                         }
@@ -759,7 +757,7 @@
                                                                         &.won {
                                                                             td {
                                                                                 &.year {
-                                                                                    border-left: 3px solid $tertialyCol;
+                                                                                    border-left: 3px solid $tercialy;
                                                                                 }
                                                                             }
                                                                         }
@@ -776,7 +774,7 @@
                                                                                 padding-left: 20px;
 
                                                                                 p {
-                                                                                    @include lightLight;
+                                                                                    @include lightThin;
                                                                                 }
                                                                             }
 
@@ -784,13 +782,13 @@
                                                                                 width: 200px;
 
                                                                                 p {
-                                                                                    @include addLight;
+                                                                                    @include coloredThin;
                                                                                 }
                                                                             }
 
                                                                             &.reason {
                                                                                 p {
-                                                                                    @include lightLight;
+                                                                                    @include lightThin;
                                                                                 }
                                                                             }
                                                                         }
@@ -811,7 +809,7 @@
                                                     justify-content: center;
 
                                                     button {
-                                                        background: $quaternaryCol;
+                                                        background: $grey;
                                                         border: none;
                                                         padding: 0 15px;
                                                         height: 30px;
@@ -827,7 +825,7 @@
 
                                                         &:hover {
                                                             transition: 0.25s;
-                                                            background: $tertialyCol;
+                                                            background: $tercialy;
                                                         }
                                                     }
                                                 }
@@ -853,11 +851,11 @@
                                 margin-top: 18px;
 
                                 &.dark {
-                                    background: $quaternaryCol;
+                                    background: $grey;
                                 }
 
                                 &.light {
-                                    background: $tertialyCol;
+                                    background: $tercialy;
                                 }
 
                             }
@@ -872,13 +870,13 @@
                                     }
 
                                     &.dark {
-                                        @include darkLight;
+                                        @include darkThin;
                                         text-align: right;
                                         margin: 0 0 0 auto;
                                     }
 
                                     &.light {
-                                        @include addLight;
+                                        @include coloredThin;
                                         text-align: left;
                                         margin: 0 auto 0 0;
 
@@ -900,13 +898,13 @@
                                     .sort {
                                         height: 40px;
                                         width: 40px;
-                                        background: $quaternaryCol;
+                                        background: $grey;
                                         border-radius: 5px;
                                         transition: 0.25s;
                                         cursor: pointer;
 
                                         &:hover {
-                                            background: $tertialyCol;
+                                            background: $tercialy;
                                             transition: 0.25s;
                                         }
                                     }
@@ -921,11 +919,11 @@
                                         }
 
                                         &.active {
-                                            background: $primaryCol;
+                                            background: $primary;
                                         }
 
                                         &:hover {
-                                            background: $tertialyCol;
+                                            background: $tercialy;
                                             transition: 0.25s;
                                         }
 
@@ -933,7 +931,7 @@
                                         align-items: center;
                                         height: 40px;
                                         list-style: none;
-                                        background: $quaternaryCol;
+                                        background: $grey;
                                         padding: 0 20px;
                                         border-radius: 5px;
                                         cursor: pointer;

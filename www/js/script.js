@@ -1,6 +1,5 @@
 function navigationScroll() {
-  
-  var header = document.querySelector('.main-menu');
+  var header = document.querySelector('.header__wrap');
   if (header) {
     window.addEventListener('scroll', check);
   }
@@ -8,9 +7,9 @@ function navigationScroll() {
   function check() {
     var top = (window.pageYOffset || document.documentElement.scrollTop) - (document.documentElement.clientTop || 0);
     if (top > 0) {
-      header.classList.add('scroll-active');
+      header.classList.add('header__wrap--enabled');
     } else {
-      header.classList.remove('scroll-active');
+      header.classList.remove('header__wrap--enabled');
     }
   }
 
@@ -121,10 +120,10 @@ function MainSlider() {
   var sliderExist = document.querySelector(".slider");
 
   if (sliderExist){
-    const slides = document.querySelector(".block-content").children;
-    const prev = document.querySelector(".prev");
-    const next = document.querySelector(".next");
-    const indicator = document.querySelector(".indicator");
+    const slides = document.querySelector(".slider__block-wrap").children;
+    const prev = document.querySelector(".js-slider-prev");
+    const next = document.querySelector(".js-slider-next");
+    const indicator = document.querySelector(".slider__indicator");
     let index=0;
 
        prev.addEventListener("click",function(){
@@ -145,7 +144,7 @@ function MainSlider() {
 
                     div.id=i;
                     if(i==0){
-                      div.className="active";
+                      div.className="slide--enabled";
                     }
                    indicator.appendChild(div);
             }
@@ -154,9 +153,9 @@ function MainSlider() {
 
         function updateCircleIndicator(){
           for(let i=0; i<indicator.children.length; i++){
-            indicator.children[i].classList.remove("active");
+            indicator.children[i].classList.remove("slide--enabled");
           }
-          indicator.children[index].classList.add("active");
+          indicator.children[index].classList.add("slide--enabled");
         }
 
         function prevSlide(){
@@ -181,10 +180,10 @@ function MainSlider() {
 
        function changeSlide(){
                for(let i=0; i<slides.length; i++){
-                  slides[i].classList.remove("active");
+                  slides[i].classList.remove("slide--enabled");
                }
 
-           slides[index].classList.add("active");
+           slides[index].classList.add("slide--enabled");
        }
 
        function resetTimer(){
@@ -216,7 +215,7 @@ function authWindow(){
   */
   var overlay = document.querySelector(".auth-overlay");
 
-  var buttonShowLogin = document.querySelector(".login-button");
+  var buttonShowLogin = document.querySelector(".js-button-login");
   var buttonHideLogin = document.querySelector(".hide-login");
   var buttonHideRegister = document.querySelector(".hide-register");
   var buttonHideForgotten = document.querySelector(".hide-forgotten");
