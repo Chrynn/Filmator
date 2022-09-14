@@ -30,7 +30,7 @@ Rozcestník
 - **wiki** - programátorská dokumentace projektu (včetně rozjetí projektu)
 
 Poznámky
-- design stránky je navržen a veškeré ikony jsou vytvořené čistě mnou
+- design stránky a ikony jsou vytvořené čistě mnou
 - stránka je v neustálém vývoji (není finálním produktem), tudiž se mohou vyskytovat chyby
 
 > **Stránka podléhá ochraně autorského práva podle [LICENSE.txt](https://github.com/filipmachala88/Moviebase/blob/main/LICENSE.txt)**
