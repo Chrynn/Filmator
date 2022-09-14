@@ -25,8 +25,8 @@ Coding standard
 - PHP 8 - čistý OOP kód
 
 Rozcestník
-- **app** - PHP a latte soubory
-- **www** - obrázky, ikony, CSS styly a JS scripty
+- **app** - PHP a latte soubory (source)
+- **www** - obrázky, ikony, CSS styly a JS scripty (assets)
 - **wiki** - programátorská dokumentace projektu (včetně rozjetí projektu)
 
 Poznámky
