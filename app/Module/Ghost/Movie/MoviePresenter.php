@@ -5,6 +5,7 @@ namespace App\Module\Ghost\Movie;
 use App\Model\Facade\Auth\AuthorizationFacade;
 use App\Model\Facade\Path\PathFacade;
 use App\Model\Service\Query\MovieEntityQuery;
+use App\Module\Ghost\_component\Forgotten\ForgottenFactory;
 use App\Module\Ghost\_component\Login\LoginFactory;
 use App\Module\Ghost\_component\Register\RegisterFactory;
 use App\Module\Ghost\GhostPresenter;
@@ -28,10 +29,11 @@ class MoviePresenter extends GhostPresenter
 		MovieEntityQuery $movieEntityQuery,
 		LikeButtonFactory $likeButtonFactory,
 		WatchButtonFactory $watchButtonFactory,
-		PathFacade $pathFacade
+		PathFacade $pathFacade,
+		ForgottenFactory $forgottenFactory
   	)
   	{
-		parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $pathFacade);
+		parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $forgottenFactory, $pathFacade);
 		$this->movieEntityQuery = $movieEntityQuery;
 		$this->likeButtonFactory = $likeButtonFactory;
 		$this->watchButtonFactory = $watchButtonFactory;

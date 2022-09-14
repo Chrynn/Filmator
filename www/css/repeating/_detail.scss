@@ -3,7 +3,7 @@
 
         &.movie,
         &.serial {
-            .extern-container {
+            .container-extern {
                 .block {
                     &.background {
                         background-attachment: fixed !important;
@@ -14,7 +14,7 @@
                         .darken {
                             background: rgba(0, 0, 0, .75);
 
-                            .intern-container {
+                            .container-intern {
                                 .block {
                                     position: relative;
 
@@ -70,7 +70,7 @@
         }
 
         &.actor {
-            .extern-container {
+            .container-extern {
                 .block {
                     &.background {
                         background-attachment: fixed !important;
@@ -82,7 +82,7 @@
                     .darken {
                         background: rgba(0, 0, 0, .75);
 
-                        .intern-container {
+                        .container-intern {
                             .block {
 
                                 .heading {
@@ -147,7 +147,7 @@
                 }
 
                 &.player {
-                    .intern-container {
+                    .container-intern {
 
                         .block {
                             &.rating {
@@ -248,7 +248,7 @@
                 }
 
                 &.description {
-                    .extern-container {
+                    .container-extern {
 
                         .block {
                             &.description {
@@ -259,8 +259,9 @@
 
                                 .darken {
                                     padding: 80px 0;
+                                    background: rgba(0, 0, 0, .75);
 
-                                    .intern-container {
+                                    .container-intern {
 
                                         .first-row {
                                             width: 100%;
@@ -418,7 +419,7 @@
                 &.next-movie {
                     padding: 20px 0 0 0;
 
-                    .intern-container {
+                    .container-intern {
                         .background-icon {
                             display: flex;
                             width: 100%;
@@ -504,7 +505,7 @@
                 &.about {
                     padding-bottom: 50px;
 
-                    .intern-container {
+                    .container-intern {
                         .flexer {
                             display: flex;
 
@@ -596,7 +597,7 @@
                 }
 
                 &.description {
-                    .extern-container {
+                    .container-extern {
                         .block {
                             &.description {
                                 background-attachment: fixed !important;
@@ -607,8 +608,9 @@
 
                             .darken {
                                 padding: 50px 0;
+                                background: rgba(0, 0, 0, .75);
 
-                                .intern-container {
+                                .container-intern {
                                     .flexer {
                                         display: flex;
                                         gap: 10%;
@@ -839,7 +841,7 @@
                 }
 
                 &.watch {
-                    .intern-container {
+                    .container-intern {
                         .topic {
                             width: 100%;
                             display: flex;

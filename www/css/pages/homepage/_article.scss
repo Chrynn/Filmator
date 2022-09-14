@@ -6,8 +6,7 @@
 .news {
     height: 100%;
     width: 100%;
-    @include contentPadding;
-    background: $lightBg;
+    padding-top: 30px;
 }
 
 .news-dark {
@@ -19,6 +18,13 @@
 
 .news-flex {
     display: flex;
+}
+
+.news {
+    .top-lines {
+        display: flex;
+        margin-bottom: 20px;
+    }
 }
 
 // == TOPIC ==
@@ -199,27 +205,20 @@
 // == BUTTON ==
 .news-button {
     width: 100%;
-    height: 40px;
-    margin-top: 30px;
 }
 
-.news-button a {
-    width: 110px;
+.news-button {
+    margin-top: 20px;
+    padding: 0 0 50px 0;
     display: flex;
-    float: right;
-    @include secondaryButton;
-}
+    justify-content: flex-end;
 
-.news-button a:hover {
-    @include secondaryButtonHover;
-}
+    a {
+        display: inline-block;
+        text-decoration: none;
 
-.news-button p {
-    margin-left: 20px;
-}
-
-.next-icon {
-    height: 22px;
-    width: 22px;
-    padding: 8px 0 0 5px;
+        .button {
+            @include secondaryButton;
+        }
+    }
 }

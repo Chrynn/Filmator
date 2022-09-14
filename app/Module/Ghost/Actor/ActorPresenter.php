@@ -6,6 +6,7 @@ use App\Model\Service\Query\ActorEntityQuery;
 use App\Model\Facade\Auth\AuthorizationFacade;
 use App\Model\Facade\Path\PathFacade;
 use App\Model\Service\Query\MovieEntityQuery;
+use App\Module\Ghost\_component\Forgotten\ForgottenFactory;
 use App\Module\Ghost\_component\Login\LoginFactory;
 use App\Module\Ghost\_component\Register\RegisterFactory;
 use App\Module\Ghost\Actor\Component\LikeButton\LikeButton;
@@ -27,10 +28,11 @@ class ActorPresenter extends GhostPresenter
 		LikeButtonFactory $likeButtonFactory,
 		ActorEntityQuery $actorEntityQuery,
 		MovieEntityQuery $movieEntityQuery,
-		PathFacade $pathFacade
+		PathFacade $pathFacade,
+		ForgottenFactory $forgottenFactory
 	)
 	{
-    	parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $pathFacade);
+    	parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $forgottenFactory, $pathFacade);
     	$this->likeButtonFactory = $likeButtonFactory;
 		$this->actorEntityQuery = $actorEntityQuery;
 		$this->movieEntityQuery = $movieEntityQuery;
