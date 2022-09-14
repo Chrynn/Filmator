@@ -22,7 +22,7 @@ Použité nástroje
 
 Coding standart
 - CSS - [BEM](https://www.vzhurudolu.cz/prirucka/bem)
-- PHP - verze 8, OOP, čistý kód
+- PHP8 - čistý OOP kód
 
 Rozcestník
 - **app** - OOP programování v PHP a kódování v latte
