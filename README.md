@@ -20,7 +20,7 @@ Použité nástroje
 - [PHPStorm](https://www.jetbrains.com/phpstorm/), VSCode
 - [PHP dokumentace](https://www.php.net/), [Nette dokumentace](https://doc.nette.org/), Stackoverflow atd.
 
-Coding standart
+Coding standard
 - CSS - [BEM](https://www.vzhurudolu.cz/prirucka/bem)
 - PHP 8 - čistý OOP kód
 
