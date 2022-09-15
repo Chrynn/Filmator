@@ -36,6 +36,7 @@ diff:
 cache:
 	docker-compose -f .docker/docker-compose.yml exec php rm -rf temp/cache
 
+# rebuild database (containers etc.)
 reset:
 	docker-compose -f .docker/docker-compose.yml exec php rm -rf .docker/data/db
 	make down

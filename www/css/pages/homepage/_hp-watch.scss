@@ -1,0 +1,72 @@
+.watch {
+
+    @include h-content;
+
+    &__serial-wrap {
+        margin-top: 25px;
+    }
+
+    // --- topic ---
+    &__block-topic {
+        width: 100%;
+        display: flex;
+        margin-bottom: 25px;
+    }
+
+    &__topic-line--dark {
+        width: 50%;
+        height: 1px;
+        margin-top: 18px;
+        background: $grey;
+    }
+
+    &__topic-line--light {
+        width: 50%;
+        height: 1px;
+        margin-top: 18px;
+        background: $tercialy;
+    }
+
+    &__topic-title {
+        width: 300px;
+        display: flex;
+    }
+
+    &__topic-box--dark {
+        text-align: right;
+        margin: 0 0 0 auto;
+    }
+
+    &__topic-box--light {
+        text-align: left;
+        margin: 0 auto 0 10px;
+    }
+
+    &__topic-heading--dark {
+        @include darkThin;
+        font-size: 30px;
+    }
+
+    &__topic-heading--light {
+        @include coloredThin;
+        font-size: 30px;
+    }
+
+    // --- content ---
+
+    @include watch;
+
+    // --- button ---
+    &__block-button {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__button-link {
+        text-decoration: none;
+        display: inline-block;
+    }
+
+}

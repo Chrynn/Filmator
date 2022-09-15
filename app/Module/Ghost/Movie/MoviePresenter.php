@@ -29,11 +29,10 @@ class MoviePresenter extends GhostPresenter
 		MovieEntityQuery $movieEntityQuery,
 		LikeButtonFactory $likeButtonFactory,
 		WatchButtonFactory $watchButtonFactory,
-		PathFacade $pathFacade,
 		ForgottenFactory $forgottenFactory
   	)
   	{
-		parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $forgottenFactory, $pathFacade);
+		parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $forgottenFactory);
 		$this->movieEntityQuery = $movieEntityQuery;
 		$this->likeButtonFactory = $likeButtonFactory;
 		$this->watchButtonFactory = $watchButtonFactory;

@@ -1,6 +1,10 @@
-// == CONTENT PADDING ==
-@mixin contentPadding {
-	padding: 35px 0 0 0;
+@import "mixin/button";
+@import "mixin/font";
+@import "mixin/watch";
+
+// content padding
+@mixin h-content {
+	padding: 35px 0 70px 0;
 }
 
 @mixin loginSection {
@@ -51,7 +55,3 @@
 	transition: 0.33s;
 	cursor: pointer;
 }
-
-@import "mixin/button";
-@import "mixin/font";
-@import "mixin/watch";
