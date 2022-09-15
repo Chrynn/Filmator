@@ -53,7 +53,8 @@ database:
     dsn: 'mysql:host=127.0.0.1;dbname=test'
     user:
     password:
-    
+
+# nextras mailer
 tracy:
 	bar:
 		- Nextras\MailPanel\MailPanel(%tempDir%/mail-panel-latte)
