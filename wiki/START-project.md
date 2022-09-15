@@ -53,6 +53,15 @@ database:
     dsn: 'mysql:host=127.0.0.1;dbname=test'
     user:
     password:
+    
+tracy:
+	bar:
+		- Nextras\MailPanel\MailPanel(%tempDir%/mail-panel-latte)
+
+services:
+	nette.mailer:
+		class: Nette\Mail\Mailer
+		factory: Nextras\MailPanel\FileMailer(%tempDir%/mail-panel-mails)
 ```
 - přidáme konzoli práva pro spuštění `make init` příkazu
 ```
