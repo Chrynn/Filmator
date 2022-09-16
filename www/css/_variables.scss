@@ -3,18 +3,22 @@ $primary: black;
 $secondary: white;
 $tercialy: #ff8a00;
 
-$shadePrimary: #404040;
-$shadeSecondary: #e1e1e1;
-$shadeTercialy: #ffaa45;
+$shadeLightPrimary: #404040;
+$shadeLightTercialy: #ffaa45;
+
+$shadeDarkSecondary: #e1e1e1;
+$shadeDarkTercialy: #4e2b00;
 
 // background
 $backgroundPrimary: #1e1e1e;
 $backgroundSecondary: #f5f5f5;
 
 // colors
-$darken: rgba(0, 0, 0, 0.7);
+$darken: rgba(0, 0, 0, 0.8);
+$shadeDarken: rgba(0, 0, 0, 0.9);
 $transparent: transparent;
 
+$darkOrange: #ff8800a8;
 $grey: #999999;
 $red: #e70000;
 $green: #4feb34;

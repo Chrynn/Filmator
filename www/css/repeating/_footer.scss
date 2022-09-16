@@ -1,242 +1,197 @@
 .footer {
-    width: 100%;
     @include footerBg;
 
-    .darken {
-        height: 100%;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.9);
+    .darken-shade {
         padding: 40px 0 80px 0;
+    }
 
-        .container-intern {
-            .flexer {
-                display: flex;
+    &__content-wrap {
+        display: flex;
+        width: 100%;
+    }
 
-                .column {
-                    width: 25%;
+    &__column--first,
+    &__column--third {
+        width: 25%;
+    }
 
-                    &.owner {
-                        .block {
-                            &.logo {
-                                display: flex;
+    &__column--second {
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+    }
 
-                                .owner {
-                                    display: flex;
-                                    align-items: center;
+    // --- fisrt column ---
 
-                                    &.icon {
-                                        img {
-                                            height: 40px;
-                                            width: 20px;
-                                        }
-                                    }
+    // owner
+    &__block-owner {
+        display: flex;
+        align-items: center;
+    }
 
-                                    &.text {
-                                        margin-left: 7px;
+    &__owner-text-box {
+        margin-left: 7px;
+    }
 
-                                        span {
-                                            @include lightSpecial;
-                                            font-size: 20px;
-                                            text-transform: uppercase;
-                                        }
-                                    }
-                                }
-                            }
+    &__owner-text {
+        @include lightSpecial;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
 
-                            &.moto {
-                                padding: 15px 0 22px 0;
-                                border-bottom: 1px solid $tercialy;
+    &__owner-image {
+        height: 40px;
+        width: 20px;
+    }
 
-                                p {
-                                    font-size: 16px;
-                                    @include lightThin;
-                                }
-                            }
+    &__block-motto-box {
+        padding: 15px 0 20px 0;
+        border-bottom: 1px solid $tercialy;
+    }
 
-                            &.sites {
-                                .flexer {
-                                    display: flex;
-                                    margin-top: 30px;
+    &__motto {
+        font-size: 16px;
+        @include lightThin;
+    }
 
-                                    .fb-site,
-                                    .ig-site,
-                                    .tw-site,
-                                    .tt-site {
-                                        @include siteDiv;
-                                    }
+    // sites
+    &__block-site {
+        margin-top: 20px;
+    }
 
-                                    .fb-site:hover,
-                                    .ig-site:hover,
-                                    .tw-site:hover,
-                                    .tt-site:hover {
-                                        @include siteDivHover;
-                                    }
+    &__link-site {
+        border-radius: 30px;
 
-                                    .fb-icon,
-                                    .ig-icon,
-                                    .tw-icon,
-                                    .tt-icon {
-                                        @include siteLogo;
-                                    }
-
-                                    .ig-href,
-                                    .tw-href,
-                                    .tt-href {
-                                        @include siteHref;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    &.basic {
-                        display: flex;
-                        justify-content: center;
-
-                        .block {
-                            .heading {
-                                h3 {
-                                    @include coloredThin;
-                                    font-size: 22px;
-                                    font-weight: normal;
-                                    margin-bottom: 20px;
-                                }
-                            }
-
-                            .links {
-                                ul {
-                                    li {
-                                        list-style-type: none;
-                                        margin: 15px 0 15px 0;
-
-                                        a {
-                                            @include lightThin;
-                                            font-size: 18px;
-                                            text-decoration: none;
-                                            transition: 0.2s;
-
-                                            &:hover {
-                                                transition: 0.2s;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    &.links {
-                        display: flex;
-                        justify-content: center;
-
-                        .block {
-                            .heading {
-                                h3 {
-                                    @include coloredThin;
-                                    font-size: 22px;
-                                    font-weight: normal;
-                                    margin-bottom: 20px;
-                                }
-                            }
-
-                            .links {
-                                ul {
-                                    li {
-                                        list-style-type: none;
-                                        margin: 15px 0 15px 0;
-
-                                        a {
-                                            @include lightThin;
-                                            font-size: 18px;
-                                            text-decoration: none;
-                                            transition: 0.2s;
-
-                                            &:hover {
-                                                transition: 0.2s;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    &.creator {
-                        .block {
-                            &.theme {
-                                text-align: center;
-
-                                span {
-                                    @include lightThin;
-                                    font-size: 16px;
-                                    line-height: 1.8;
-                                    text-align: center;
-                                }
-
-                                .theme-changer {
-                                    display: flex;
-                                    border-bottom: 1px solid $tercialy;
-                                    padding: 15px 0 25px 0;
-
-                                    .button {
-                                        height: 20px;
-                                        border: 1px solid $secondary;
-                                        transition: 0.33s;
-
-                                        &.light {
-                                            width: 25px;
-                                            border-radius: 10px 0 0 10px;
-                                            background: $secondary;
-                                            margin: 0 0 0 auto;
-                                            z-index: 1;
-                                        }
-
-                                        &.dark {
-                                            width: 26px;
-                                            border-radius: 0 10px 10px 0;
-                                            background: none;
-                                            margin: 0 auto 0 -1px;
-                                            z-index: 0;
-                                        }
-
-                                        &:hover {
-                                            @include bgChangeHover;
-                                        }
-                                    }
-                                }
-                            }
-
-                            &.creator {
-                                padding-top: 20px;
-
-                                .logo {
-                                    img {
-                                        height: 40px;
-                                        width: 40px;
-                                        margin: 0 auto 0 auto;
-                                        display: block;
-                                    }
-                                }
-
-                                .name {
-                                    a {
-                                        text-align: center;
-                                        @include lightThin;
-                                        transition: 0.33s;
-                                        text-decoration: none;
-
-                                        &:hover {
-                                            transition: 0.33s;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                    }
-                }
-            }
+        &:not(:last-child) {
+            margin-right: 10px;
         }
     }
 
+    &__site-box {
+        height: 40px;
+        width: 40px;
+        background: $secondary;
+        border-radius: 30px;
+        transition: 0.33s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            background: $tercialy;
+            transition: 0.33s;
+        }
+    }
+
+    &__image-site {
+        height: 18px;
+        width: 18px;
+    }
+
+    // --- second & third column ---
+    &__navigation-heading {
+        @include coloredThin;
+        font-size: 22px;
+        font-weight: normal;
+        margin-bottom: 30px;
+    }
+
+    &__navigation-item {
+        list-style-type: none;
+        margin: 20px 0;
+    }
+
+    &__navigation-link {
+        @include lightThin;
+        font-size: 18px;
+        text-decoration: none;
+        transition: 0.2s;
+        padding: 8px 0;
+
+        &:hover {
+            @include coloredThin;
+            transition: 0.2s;
+        }
+    }
+
+    // creator
+    &__block-theme {
+        text-align: center
+    }
+
+    &__theme-text {
+        @include lightThin;
+        font-size: 16px;
+        line-height: 1.8;
+        text-align: center;
+    }
+
+    &__theme-change {
+        display: flex;
+        border-bottom: 1px solid $tercialy;
+        padding: 15px 0 25px 0;
+    }
+
+
+    &__theme-change--light,
+    &__theme-change--dark {
+        height: 20px;
+        border: 1px solid $secondary;
+        transition: 0.33s;
+        cursor: pointer;
+
+        &:hover {
+            background: $tercialy;
+            border: 1px solid $tercialy;
+            transition: 0.33s;
+        }
+    }
+
+    &__theme-change--light {
+        width: 25px;
+        border-radius: 10px 0 0 10px;
+        background: $secondary;
+        margin: 0 0 0 auto;
+        z-index: 1;
+    }
+
+    &__theme-change--dark {
+        width: 26px;
+        border-radius: 0 10px 10px 0;
+        background: none;
+        margin: 0 auto 0 -1px;
+        z-index: 0;
+    }
+
+    &__block-creator {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__creator-link-box {}
+
+    &__creator-link:hover .footer__creator-text {
+        @include coloredThin;
+        transition: 0.2s;
+    }
+
+    &__creator-image-box {}
+
+    &__creator-image {
+        height: 40px;
+        width: 40px;
+        margin: 0 auto 0 auto;
+        display: block;
+    }
+
+    &__creator-text-box {
+        text-align: center;
+    }
+
+    &__creator-text {
+        @include lightThin;
+        transition: 0.33s;
+        text-decoration: none;
+    }
 }

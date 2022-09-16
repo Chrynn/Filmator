@@ -16,20 +16,17 @@
         align-items: center;
     }
 
-    .slide {
+    &__item {
+        display: none;
         width: 100%;
         height: 100%;
-        background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        display: none;
-        z-index: 1;
+        animation: slide 0.5s ease;
         position: absolute;
         left: 0;
         top: 0;
-        animation: slide 0.5s ease;
+        z-index: 1;
 
-        &.slide--enabled {
+        &.slider__item--active {
             display: flex;
         }
 
@@ -170,26 +167,7 @@
         }
     }
 
-    &__controls--prev {
-        position: absolute;
-        z-index: 2;
-        top: 50%;
-        height: 40px;
-        width: 40px;
-        margin-top: -20px;
-        text-align: center;
-        line-height: 40px;
-        font-size: 20px;
-        cursor: pointer;
-        transition: all .5s ease;
-        opacity: 0.4;
-        left: 0;
-
-        &:hover {
-            opacity: 1;
-        }
-    }
-
+    &__controls--prev,
     &__controls--next {
         position: absolute;
         z-index: 2;
@@ -203,18 +181,21 @@
         cursor: pointer;
         transition: all .5s ease;
         opacity: 0.4;
-        right: 0;
 
         &:hover {
             opacity: 1;
         }
     }
 
-    &__image-controls--prev {
-        width: 30px;
-        height: 30px;
+    &__controls--next {
+        right: 0;
     }
 
+    &__controls--prev {
+        left: 0;
+    }
+
+    &__image-controls--prev,
     &__image-controls--next {
         width: 30px;
         height: 30px;
@@ -238,7 +219,7 @@
             text-align: center;
             line-height: 25px;
 
-            &.slide--enabled {
+            &.slider__item--active {
                 background-color: $secondary;
             }
 

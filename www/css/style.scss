@@ -25,10 +25,15 @@
 * {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 
-html {
+body {
 	overflow-x: hidden;
+}
+
+body.auth--active {
+	overflow-y: hidden;
 }
 
 .flexer {
@@ -41,6 +46,12 @@ html {
 	height: 100%;
 	width: 100%;
 	background: $darken;
+}
+
+.darken-shade {
+	height: 100%;
+	width: 100%;
+	background: $shadeDarken;
 }
 
 // containers

@@ -1,54 +1,60 @@
-<div class="block-main block-forgotten hidden">
-    <div class="content">
-        <div class="center">
-            <div class="row-heading">
-                <div class="heading">
-                    <h2>Členská sekce</h2>
+<div class="auth__content js-block-forgotten">
+    <div class="auth__content-wrap">
+        <div class="auth__content-center">
+
+            <div class="auth__block-heading">
+                <div class="auth__heading-box">
+                    <h2 class="auth__heading">Členská sekce</h2>
                 </div>
-                <div class="auth-cross hide-forgotten">
-                    <div class="cross-line"></div>
+                <div class="auth__cross-box js-close-auth">
+                    <div class="auth__cross"></div>
                 </div>
             </div>
-            {snippet forgotten}
-                <form n:name="form" class="ajax">
-                    <div class="row-errors">
-                        <div class="error" n:foreach="$form->ownErrors as $error">
-                            <span>{$error}</span>
-                        </div>
-                    </div>
-                    <div class="row-form">
-                        <div class="block mail">
-                            <div class="description">
-                                <div class="label">
-                                    <label n:name="email">E-mail</label>
-                                </div>
-                                <div class="error">
-                                    {if $form["email"]->hasErrors()}
-                                        <span>{$form["email"]->error}</span>
-                                    {/if}
-                                </div>
-                            </div>
-                            <div class="fillable">
-                                <input type="email" n:name="email" {if ($form["email"]->hasErrors())} class="error"{/if}>
+
+            <div>
+                {snippet forgotten}
+                    <form n:name="form" class="ajax">
+                        <div class="auth__block-error">
+                            <div class="auth__error-box" n:foreach="$form->ownErrors as $error">
+                                <span class="auth__error">{$error}</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="row-button">
-                        <button type="submit" n:name="sent">
-                            <div class="block icon">
-                                <img src="../img/icons/lock.svg" alt="lock-icon" class="lock-icon">
+                        <div>
+                            <div class="auth__form-wrap">
+                                <div class="auth__label-wrap">
+                                    <div class="auth__label-box">
+                                        <label n:name="email" class="auth__label">E-mail</label>
+                                    </div>
+                                    <div class="auth__label-error-box">
+                                        {if $form["email"]->hasErrors()}
+                                            <span class="auth__label-error">{$form["email"]->error}</span>
+                                        {/if}
+                                    </div>
+                                </div>
+                                <div>
+                                    <input type="email" n:name="email" class="auth__form{if ($form["email"]->hasErrors())} auth__form--error{/if}">
+                                </div>
                             </div>
-                            <div class="block text">
-                                <span>odeslat</span>
-                            </div>
-                        </button>
-                    </div>
-                </form>
-            {/snippet}
-            <div class="row-register">
-                <ul>
-                    <li><span>Již došel E-mail?</span></li>
-                    <li><span class="action-login-forgotten">Přihlašte se</span></li>
+                        </div>
+
+                        <div class="auth__block-button">
+                            <button class="button button--special" n:name="sent">
+                                <div class="button__block-image">
+                                    <img src="../img/icons/lock.svg" alt="lock-icon" class="button__image">
+                                </div>
+                                <div class="button__block-text">
+                                    <span class="button__text">odeslat</span>
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+                {/snippet}
+            </div>
+
+            <div>
+                <ul class="auth__register-list">
+                    <li class="auth__register-item"><span class="auth__register-text">Již došel E-mail?</span></li>
+                    <li class="auth__register-item"><span class="auth__register-text--colored js-show-login">Přihlašte se</span></li>
                 </ul>
             </div>
         </div>

@@ -22,36 +22,3 @@
 @mixin newsContentFont {
 	@include lightThin;
 }
-
-// == SITES == 
-@mixin siteLogo {
-	height: 18px;
-	width: 18px;
-	margin: 10px 0 0 11.2px;
-}
-
-@mixin siteDiv {
-	height: 40px;
-	width: 40px;
-	background: $tercialy;
-	border-radius: 30px;
-	transition: 0.33s;
-}
-
-@mixin siteDivHover {
-	background: #f5f5f5;
-	transition: 0.33s;
-}
-
-@mixin siteHref {
-	border-radius: 30px;
-	margin-left: 10px;
-}
-
-// == BACKGROUND CHANGE ==
-@mixin bgChangeHover {
-	background: $tercialy;
-	border: 1px solid $tercialy;
-	transition: 0.33s;
-	cursor: pointer;
-}

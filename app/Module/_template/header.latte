@@ -1,4 +1,4 @@
-{import "../Ghost/_template/login.latte"}
+{import "../Ghost/_template/auth.latte"}
 {block header}
 <header class="header" role="banner">
     <div class="container-extern">
@@ -31,7 +31,7 @@
                     </div>
 
                     {if !$isLogged}
-                    <div class="button button--special js-button-login">
+                    <div class="button button--special js-show-auth">
                         <div class="button__block-image">
                             <img src="../img/icons/profile.svg" alt="profile-icon" class="button__image">
                         </div>
@@ -61,6 +61,6 @@
         </div>
     </div>
 {if !$isLogged}
-    {include login}
+    {include auth}
 {/if}
 </header>

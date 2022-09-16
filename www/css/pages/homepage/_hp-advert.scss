@@ -1,0 +1,90 @@
+.banner {
+    background: url('../img/banners/watching-tv.jpg') no-repeat center;
+    background-size: cover;
+
+    .darken {
+        padding: 40px 0 50px 0;
+    }
+
+    // --- topic ---
+    &__heading--big {
+        @include lightThin;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    &__heading-box {
+        margin-top: 5px;
+    }
+
+    &__heading--small {
+        @include coloredThin;
+        font-size: 20px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    // --- content ---
+    &__column--first,
+    &__column--second,
+    &__column--third {
+        width: 33.3%;
+        padding: 10px;
+        opacity: 0;
+    }
+
+    &__animation {
+        animation: captionTextReg 0.4s ease forwards;
+    }
+
+    &__column--first {
+        animation-delay: 0.4s;
+    }
+
+    &__column--second {
+        animation-delay: 0.8s;
+    }
+
+    &__column--third {
+        animation-delay: 1.2s;
+    }
+
+    &__image {
+        height: 70px;
+        width: 70px;
+        margin: 40px auto 25px auto;
+        display: block;
+    }
+
+    &__text {
+        @include lightThin;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    &__text--strong {
+        @include coloredThin;
+        text-transform: uppercase;
+    }
+
+    // --- button ---
+    &__block-button {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    @keyframes captionTextReg {
+        0% {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+
+}

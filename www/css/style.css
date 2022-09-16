@@ -206,21 +206,18 @@
   display: flex;
   align-items: center;
 }
-.slider .slide {
+.slider__item {
+  display: none;
   width: 100%;
   height: 100%;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  display: none;
-  z-index: 1;
+  -webkit-animation: slide 0.5s ease;
+          animation: slide 0.5s ease;
   position: absolute;
   left: 0;
   top: 0;
-  -webkit-animation: slide 0.5s ease;
-          animation: slide 0.5s ease;
+  z-index: 1;
 }
-.slider .slide.slide--enabled {
+.slider__item.slider__item--active {
   display: flex;
 }
 @-webkit-keyframes slide {
@@ -365,7 +362,7 @@
     transform: translateX(0px);
   }
 }
-.slider__controls--prev {
+.slider__controls--prev, .slider__controls--next {
   position: absolute;
   z-index: 2;
   top: 50%;
@@ -378,34 +375,17 @@
   cursor: pointer;
   transition: all 0.5s ease;
   opacity: 0.4;
-  left: 0;
 }
-.slider__controls--prev:hover {
+.slider__controls--prev:hover, .slider__controls--next:hover {
   opacity: 1;
 }
 .slider__controls--next {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  height: 40px;
-  width: 40px;
-  margin-top: -20px;
-  text-align: center;
-  line-height: 40px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.5s ease;
-  opacity: 0.4;
   right: 0;
 }
-.slider__controls--next:hover {
-  opacity: 1;
+.slider__controls--prev {
+  left: 0;
 }
-.slider__image-controls--prev {
-  width: 30px;
-  height: 30px;
-}
-.slider__image-controls--next {
+.slider__image-controls--prev, .slider__image-controls--next {
   width: 30px;
   height: 30px;
 }
@@ -427,7 +407,7 @@
   text-align: center;
   line-height: 25px;
 }
-.slider__indicator div.slide--enabled {
+.slider__indicator div.slider__item--active {
   background-color: white;
 }
 .slider__indicator div:not(:first-child) {
@@ -597,73 +577,72 @@
   display: inline-block;
 }
 
-.register {
-  height: 100%;
-  width: 100%;
+.banner {
   background: url("../img/banners/watching-tv.jpg") no-repeat center;
   background-size: cover;
 }
-.register .darken {
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.7);
+.banner .darken {
   padding: 40px 0 50px 0;
 }
-.register .darken .container-intern .heading h2 {
-  font-size: 30px;
-  text-align: center;
+.banner__heading--big {
   color: white;
   font-family: Roboto Condensed Light;
+  font-size: 30px;
+  text-align: center;
 }
-.register .darken .container-intern .heading h3 {
+.banner__heading-box {
+  margin-top: 5px;
+}
+.banner__heading--small {
+  color: #ff8a00;
+  font-family: Roboto Condensed Light;
   font-size: 20px;
   text-align: center;
   text-transform: uppercase;
-  margin-top: 5px;
-  color: #ff8a00;
-  font-family: Roboto Condensed Light;
 }
-.register .darken .container-intern .block-content {
-  display: flex;
-}
-.register .darken .container-intern .block-content .column {
+.banner__column--first, .banner__column--second, .banner__column--third {
   width: 33.3%;
   padding: 10px;
   opacity: 0;
 }
-.register .darken .container-intern .block-content .column.animation {
+.banner__animation {
   -webkit-animation: captionTextReg 0.4s ease forwards;
           animation: captionTextReg 0.4s ease forwards;
 }
-.register .darken .container-intern .block-content .column.first {
+.banner__column--first {
   -webkit-animation-delay: 0.4s;
           animation-delay: 0.4s;
 }
-.register .darken .container-intern .block-content .column.second {
+.banner__column--second {
   -webkit-animation-delay: 0.8s;
           animation-delay: 0.8s;
 }
-.register .darken .container-intern .block-content .column.third {
+.banner__column--third {
   -webkit-animation-delay: 1.2s;
           animation-delay: 1.2s;
 }
-.register .darken .container-intern .block-content .column .block.icon img {
+.banner__image {
   height: 70px;
   width: 70px;
-  margin: 0 auto 0 auto;
+  margin: 40px auto 25px auto;
   display: block;
-  padding: 40px 0 25px 0;
 }
-.register .darken .container-intern .block-content .column .block.text p {
-  text-align: center;
+.banner__text {
   color: white;
   font-family: Roboto Condensed Light;
+  text-align: center;
   font-size: 18px;
 }
-.register .darken .container-intern .block-content .column .block.text strong {
-  text-transform: uppercase;
+.banner__text--strong {
   color: #ff8a00;
-  font-weight: normal;
+  font-family: Roboto Condensed Light;
+  text-transform: uppercase;
+}
+.banner__block-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
 @-webkit-keyframes captionTextReg {
   0% {
@@ -685,22 +664,6 @@
     transform: translateX(0px);
   }
 }
-.register .darken .container-intern .block-button a {
-  width: 160px;
-  margin: 40px auto 0 auto;
-  display: flex;
-}
-.register .darken .container-intern .block-button a .button {
-  display: flex;
-}
-.register .darken .container-intern .block-button a .button .block.icon img {
-  height: 20px;
-  width: 20px;
-  margin: 9px 0 0 20px;
-}
-.register .darken .container-intern .block-button a .button .block.text span {
-  margin-left: 10px;
-}
 
 /*
 	-------------------------------------------
@@ -710,6 +673,7 @@
 .news {
   height: 100%;
   width: 100%;
+  padding: 40px 0 80px 0;
 }
 
 .news-dark {
@@ -2160,194 +2124,165 @@
 }
 
 .footer {
-  width: 100%;
   background: url("../img/banners/office.jpg") no-repeat center;
   background-size: cover;
 }
-.footer .darken {
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.9);
+.footer .darken-shade {
   padding: 40px 0 80px 0;
 }
-.footer .darken .container-intern .flexer {
+.footer__content-wrap {
   display: flex;
+  width: 100%;
 }
-.footer .darken .container-intern .flexer .column {
+.footer__column--first, .footer__column--third {
   width: 25%;
 }
-.footer .darken .container-intern .flexer .column.owner .block.logo {
+.footer__column--second {
+  width: 50%;
   display: flex;
+  justify-content: space-evenly;
 }
-.footer .darken .container-intern .flexer .column.owner .block.logo .owner {
+.footer__block-owner {
   display: flex;
   align-items: center;
 }
-.footer .darken .container-intern .flexer .column.owner .block.logo .owner.icon img {
-  height: 40px;
-  width: 20px;
-}
-.footer .darken .container-intern .flexer .column.owner .block.logo .owner.text {
+.footer__owner-text-box {
   margin-left: 7px;
 }
-.footer .darken .container-intern .flexer .column.owner .block.logo .owner.text span {
+.footer__owner-text {
   color: white;
   font-family: Otomanopee One;
   font-size: 20px;
   text-transform: uppercase;
 }
-.footer .darken .container-intern .flexer .column.owner .block.moto {
-  padding: 15px 0 22px 0;
+.footer__owner-image {
+  height: 40px;
+  width: 20px;
+}
+.footer__block-motto-box {
+  padding: 15px 0 20px 0;
   border-bottom: 1px solid #ff8a00;
 }
-.footer .darken .container-intern .flexer .column.owner .block.moto p {
+.footer__motto {
   font-size: 16px;
   color: white;
   font-family: Roboto Condensed Light;
 }
-.footer .darken .container-intern .flexer .column.owner .block.sites .flexer {
-  display: flex;
-  margin-top: 30px;
+.footer__block-site {
+  margin-top: 20px;
 }
-.footer .darken .container-intern .flexer .column.owner .block.sites .flexer .fb-site,
-.footer .darken .container-intern .flexer .column.owner .block.sites .flexer .ig-site,
-.footer .darken .container-intern .flexer .column.owner .block.sites .flexer .tw-site,
-.footer .darken .container-intern .flexer .column.owner .block.sites .flexer .tt-site {
+.footer__link-site {
+  border-radius: 30px;
+}
+.footer__link-site:not(:last-child) {
+  margin-right: 10px;
+}
+.footer__site-box {
   height: 40px;
   width: 40px;
-  background: #ff8a00;
+  background: white;
   border-radius: 30px;
   transition: 0.33s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.footer .darken .container-intern .flexer .column.owner .block.sites .flexer .fb-site:hover,
-.footer .darken .container-intern .flexer .column.owner .block.sites .flexer .ig-site:hover,
-.footer .darken .container-intern .flexer .column.owner .block.sites .flexer .tw-site:hover,
-.footer .darken .container-intern .flexer .column.owner .block.sites .flexer .tt-site:hover {
-  background: #f5f5f5;
+.footer__site-box:hover {
+  background: #ff8a00;
   transition: 0.33s;
 }
-.footer .darken .container-intern .flexer .column.owner .block.sites .flexer .fb-icon,
-.footer .darken .container-intern .flexer .column.owner .block.sites .flexer .ig-icon,
-.footer .darken .container-intern .flexer .column.owner .block.sites .flexer .tw-icon,
-.footer .darken .container-intern .flexer .column.owner .block.sites .flexer .tt-icon {
+.footer__image-site {
   height: 18px;
   width: 18px;
-  margin: 10px 0 0 11.2px;
 }
-.footer .darken .container-intern .flexer .column.owner .block.sites .flexer .ig-href,
-.footer .darken .container-intern .flexer .column.owner .block.sites .flexer .tw-href,
-.footer .darken .container-intern .flexer .column.owner .block.sites .flexer .tt-href {
-  border-radius: 30px;
-  margin-left: 10px;
-}
-.footer .darken .container-intern .flexer .column.basic {
-  display: flex;
-  justify-content: center;
-}
-.footer .darken .container-intern .flexer .column.basic .block .heading h3 {
+.footer__navigation-heading {
   color: #ff8a00;
   font-family: Roboto Condensed Light;
   font-size: 22px;
   font-weight: normal;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
-.footer .darken .container-intern .flexer .column.basic .block .links ul li {
+.footer__navigation-item {
   list-style-type: none;
-  margin: 15px 0 15px 0;
+  margin: 20px 0;
 }
-.footer .darken .container-intern .flexer .column.basic .block .links ul li a {
+.footer__navigation-link {
   color: white;
   font-family: Roboto Condensed Light;
   font-size: 18px;
   text-decoration: none;
   transition: 0.2s;
+  padding: 8px 0;
 }
-.footer .darken .container-intern .flexer .column.basic .block .links ul li a:hover {
-  transition: 0.2s;
-}
-.footer .darken .container-intern .flexer .column.links {
-  display: flex;
-  justify-content: center;
-}
-.footer .darken .container-intern .flexer .column.links .block .heading h3 {
+.footer__navigation-link:hover {
   color: #ff8a00;
   font-family: Roboto Condensed Light;
-  font-size: 22px;
-  font-weight: normal;
-  margin-bottom: 20px;
-}
-.footer .darken .container-intern .flexer .column.links .block .links ul li {
-  list-style-type: none;
-  margin: 15px 0 15px 0;
-}
-.footer .darken .container-intern .flexer .column.links .block .links ul li a {
-  color: white;
-  font-family: Roboto Condensed Light;
-  font-size: 18px;
-  text-decoration: none;
   transition: 0.2s;
 }
-.footer .darken .container-intern .flexer .column.links .block .links ul li a:hover {
-  transition: 0.2s;
-}
-.footer .darken .container-intern .flexer .column.creator .block.theme {
+.footer__block-theme {
   text-align: center;
 }
-.footer .darken .container-intern .flexer .column.creator .block.theme span {
+.footer__theme-text {
   color: white;
   font-family: Roboto Condensed Light;
   font-size: 16px;
   line-height: 1.8;
   text-align: center;
 }
-.footer .darken .container-intern .flexer .column.creator .block.theme .theme-changer {
+.footer__theme-change {
   display: flex;
   border-bottom: 1px solid #ff8a00;
   padding: 15px 0 25px 0;
 }
-.footer .darken .container-intern .flexer .column.creator .block.theme .theme-changer .button {
+.footer__theme-change--light, .footer__theme-change--dark {
   height: 20px;
   border: 1px solid white;
   transition: 0.33s;
+  cursor: pointer;
 }
-.footer .darken .container-intern .flexer .column.creator .block.theme .theme-changer .button.light {
+.footer__theme-change--light:hover, .footer__theme-change--dark:hover {
+  background: #ff8a00;
+  border: 1px solid #ff8a00;
+  transition: 0.33s;
+}
+.footer__theme-change--light {
   width: 25px;
   border-radius: 10px 0 0 10px;
   background: white;
   margin: 0 0 0 auto;
   z-index: 1;
 }
-.footer .darken .container-intern .flexer .column.creator .block.theme .theme-changer .button.dark {
+.footer__theme-change--dark {
   width: 26px;
   border-radius: 0 10px 10px 0;
   background: none;
   margin: 0 auto 0 -1px;
   z-index: 0;
 }
-.footer .darken .container-intern .flexer .column.creator .block.theme .theme-changer .button:hover {
-  background: #ff8a00;
-  border: 1px solid #ff8a00;
-  transition: 0.33s;
-  cursor: pointer;
+.footer__block-creator {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
-.footer .darken .container-intern .flexer .column.creator .block.creator {
-  padding-top: 20px;
+.footer__creator-link:hover .footer__creator-text {
+  color: #ff8a00;
+  font-family: Roboto Condensed Light;
+  transition: 0.2s;
 }
-.footer .darken .container-intern .flexer .column.creator .block.creator .logo img {
+.footer__creator-image {
   height: 40px;
   width: 40px;
   margin: 0 auto 0 auto;
   display: block;
 }
-.footer .darken .container-intern .flexer .column.creator .block.creator .name a {
+.footer__creator-text-box {
   text-align: center;
+}
+.footer__creator-text {
   color: white;
   font-family: Roboto Condensed Light;
   transition: 0.33s;
   text-decoration: none;
-}
-.footer .darken .container-intern .flexer .column.creator .block.creator .name a:hover {
-  transition: 0.33s;
 }
 
 .category {
@@ -2389,83 +2324,55 @@
   transition: 0.2s;
 }
 
-.auth-overlay {
+.auth {
   width: 100%;
   height: 100%;
   position: fixed;
   background: rgba(0, 0, 0, 0.8);
   z-index: 5;
-  visibility: visible;
-  opacity: 1;
-  transition: all 0.33s;
-}
-.auth-overlay.hidden {
   visibility: hidden;
   opacity: 0;
+  transition: all 0.33s;
 }
-.auth-overlay .content-center {
-  width: 100%;
-  height: 100%;
-  display: flex;
+.auth .flexer {
   justify-content: center;
   position: relative;
 }
-.auth-overlay .content-center .block-main {
-  margin-top: 15vh;
-  position: absolute;
-}
-.auth-overlay .content-center .block-main.block-login, .auth-overlay .content-center .block-main.block-register, .auth-overlay .content-center .block-main.block-forgotten {
+.auth--active {
   visibility: visible;
   opacity: 1;
+}
+.auth__content {
+  visibility: hidden;
+  opacity: 0;
+  margin-top: 15vh;
+  position: absolute;
   transition: all 0.33s;
 }
-.auth-overlay .content-center .block-main.block-login .content, .auth-overlay .content-center .block-main.block-register .content, .auth-overlay .content-center .block-main.block-forgotten .content {
+.auth__content--active {
+  visibility: visible;
+  opacity: 1;
+}
+.auth__content-wrap {
   width: 550px;
+  border: 1.5px solid #404040;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 35px;
   display: flex;
   justify-content: center;
-  border: 1px solid #ff8a00;
-  border-radius: 35px;
-  background: rgba(0, 0, 0, 0.7);
 }
-.auth-overlay .content-center .block-main.block-login .content .center, .auth-overlay .content-center .block-main.block-register .content .center, .auth-overlay .content-center .block-main.block-forgotten .content .center {
+.auth__content-center {
   width: 450px;
   padding: 25px 0 35px 0;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-heading, .auth-overlay .content-center .block-main.block-register .content .center .row-heading, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-heading {
+.auth__block-heading {
   width: 100%;
   display: flex;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-heading .auth-cross, .auth-overlay .content-center .block-main.block-register .content .center .row-heading .auth-cross, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-heading .auth-cross {
-  height: 30px;
-  width: 30px;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-}
-.auth-overlay .content-center .block-main.block-login .content .center .row-heading .auth-cross .cross-line::before, .auth-overlay .content-center .block-main.block-login .content .center .row-heading .auth-cross .cross-line::after, .auth-overlay .content-center .block-main.block-register .content .center .row-heading .auth-cross .cross-line::before, .auth-overlay .content-center .block-main.block-register .content .center .row-heading .auth-cross .cross-line::after, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-heading .auth-cross .cross-line::before, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-heading .auth-cross .cross-line::after {
-  width: 25px;
-  height: 2px;
-  border-radius: 5px;
-  content: "";
-  position: absolute;
-  transition: 0.33s;
-  margin-top: 14px;
-  background: #ff8a00;
-}
-.auth-overlay .content-center .block-main.block-login .content .center .row-heading .auth-cross .cross-line::before, .auth-overlay .content-center .block-main.block-register .content .center .row-heading .auth-cross .cross-line::before, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-heading .auth-cross .cross-line::before {
-  transform: rotate(45deg) translate(2px, -2px);
-}
-.auth-overlay .content-center .block-main.block-login .content .center .row-heading .auth-cross .cross-line::after, .auth-overlay .content-center .block-main.block-register .content .center .row-heading .auth-cross .cross-line::after, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-heading .auth-cross .cross-line::after {
-  transform: rotate(-45deg) translate(2px, 2px);
-}
-.auth-overlay .content-center .block-main.block-login .content .center .row-heading .auth-cross:hover .cross-line::before, .auth-overlay .content-center .block-main.block-login .content .center .row-heading .auth-cross:hover .cross-line::after, .auth-overlay .content-center .block-main.block-register .content .center .row-heading .auth-cross:hover .cross-line::before, .auth-overlay .content-center .block-main.block-register .content .center .row-heading .auth-cross:hover .cross-line::after, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-heading .auth-cross:hover .cross-line::before, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-heading .auth-cross:hover .cross-line::after {
-  transition: 0.33s;
-  background: white;
-}
-.auth-overlay .content-center .block-main.block-login .content .center .row-heading .heading, .auth-overlay .content-center .block-main.block-register .content .center .row-heading .heading, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-heading .heading {
+.auth__heading-box {
   width: 100%;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-heading .heading h2, .auth-overlay .content-center .block-main.block-register .content .center .row-heading .heading h2, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-heading .heading h2 {
+.auth__heading {
   font-size: 28px;
   text-align: center;
   font-weight: normal;
@@ -2473,59 +2380,83 @@
   color: white;
   font-family: Roboto Condensed Light;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-errors, .auth-overlay .content-center .block-main.block-register .content .center .row-errors, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-errors {
+.auth__cross-box {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+.auth__cross-box:hover .auth__cross::before, .auth__cross-box:hover .auth__cross::after {
+  transition: 0.33s;
+  background: #e70000;
+}
+.auth__cross::before, .auth__cross::after {
+  width: 25px;
+  height: 2px;
+  border-radius: 5px;
+  content: "";
+  position: absolute;
+  transition: 0.33s;
+  margin-top: 14px;
+  background: white;
+}
+.auth__cross::before {
+  transform: rotate(45deg) translate(2px, -2px);
+}
+.auth__cross::after {
+  transform: rotate(-45deg) translate(2px, 2px);
+}
+.auth__block-error {
   width: 100%;
   min-height: 30px;
   margin-top: 10px;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-errors .error, .auth-overlay .content-center .block-main.block-register .content .center .row-errors .error, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-errors .error {
+.auth__error-box {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-errors .error span, .auth-overlay .content-center .block-main.block-register .content .center .row-errors .error span, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-errors .error span {
+.auth__error {
   color: white;
   font-family: Roboto Condensed Regular;
-  color: #e70000;
   font-size: 16px;
+  color: #e70000;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-form .block:not(:first-child), .auth-overlay .content-center .block-main.block-register .content .center .row-form .block:not(:first-child), .auth-overlay .content-center .block-main.block-forgotten .content .center .row-form .block:not(:first-child) {
+.auth__form-wrap:not(:first-child) {
   margin-top: 10px;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-form .block .description, .auth-overlay .content-center .block-main.block-register .content .center .row-form .block .description, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-form .block .description {
+.auth__label-wrap {
   display: flex;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-form .block .description .label, .auth-overlay .content-center .block-main.block-register .content .center .row-form .block .description .label, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-form .block .description .label {
+.auth__label-box {
   width: 50%;
   padding-left: 20px;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-form .block .description .label label, .auth-overlay .content-center .block-main.block-register .content .center .row-form .block .description .label label, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-form .block .description .label label {
-  font-size: 18px;
+.auth__label {
   color: white;
   font-family: Roboto Condensed Light;
+  font-size: 18px;
   transition: 0.25s;
   cursor: pointer;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-form .block .description .label label:hover, .auth-overlay .content-center .block-main.block-register .content .center .row-form .block .description .label label:hover, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-form .block .description .label label:hover {
+.auth__label:hover {
   color: #ff8a00;
   font-family: Roboto Condensed Light;
   transition: 0.25s;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-form .block .description .error, .auth-overlay .content-center .block-main.block-register .content .center .row-form .block .description .error, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-form .block .description .error {
+.auth__label-error-box {
   width: 50%;
   display: flex;
   justify-content: flex-end;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-form .block .description .error span, .auth-overlay .content-center .block-main.block-register .content .center .row-form .block .description .error span, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-form .block .description .error span {
+.auth__label-error {
   color: white;
   font-family: Roboto Condensed Regular;
   color: #e70000;
   font-size: 16px;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-form .block .fillable input, .auth-overlay .content-center .block-main.block-register .content .center .row-form .block .fillable input, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-form .block .fillable input {
-  width: 100%;
-  margin: 5px auto 5px auto;
-  box-sizing: border-box;
+.auth__form {
   height: 40px;
   border-radius: 25px;
   border: 1px solid white;
@@ -2535,61 +2466,62 @@
   font-size: 16px;
   color: white;
   font-family: Roboto Condensed Light;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 5px auto 5px auto;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-form .block .fillable input.error, .auth-overlay .content-center .block-main.block-register .content .center .row-form .block .fillable input.error, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-form .block .fillable input.error {
+.auth__form--error {
   border: 1px solid #e70000;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-button, .auth-overlay .content-center .block-main.block-register .content .center .row-button, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-button {
+.auth__block-forgotten {
+  margin-top: 8px;
+}
+.auth__forgotten-list {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+.auth__forgotten-text {
+  color: white;
+  font-family: Roboto Condensed Light;
+  font-size: 16px;
+}
+.auth__forgotten-text--colored {
+  color: #ff8a00;
+  font-family: Roboto Condensed Regular;
+  cursor: pointer;
+  padding: 5px;
+  transition: 0.25s;
+}
+.auth__forgotten-text--colored:hover {
+  transition: 0.25s;
+  color: #4feb34;
+}
+.auth__block-button {
   margin: 30px 0;
   display: flex;
   justify-content: center;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-register ul, .auth-overlay .content-center .block-main.block-register .content .center .row-register ul, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-register ul {
+.auth__register-list {
   display: flex;
   justify-content: center;
+  list-style-type: none;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-register ul li, .auth-overlay .content-center .block-main.block-register .content .center .row-register ul li, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-register ul li {
-  list-style: none;
-}
-.auth-overlay .content-center .block-main.block-login .content .center .row-register ul li span, .auth-overlay .content-center .block-main.block-register .content .center .row-register ul li span, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-register ul li span {
-  font-size: 16px;
+.auth__register-text {
   color: white;
   font-family: Roboto Condensed Light;
+  font-size: 16px;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-register ul li:not(:first-child), .auth-overlay .content-center .block-main.block-register .content .center .row-register ul li:not(:first-child), .auth-overlay .content-center .block-main.block-forgotten .content .center .row-register ul li:not(:first-child) {
-  margin-left: 5px;
-}
-.auth-overlay .content-center .block-main.block-login .content .center .row-register ul li:not(:first-child) span, .auth-overlay .content-center .block-main.block-register .content .center .row-register ul li:not(:first-child) span, .auth-overlay .content-center .block-main.block-forgotten .content .center .row-register ul li:not(:first-child) span {
+.auth__register-text--colored {
   color: #ff8a00;
   font-family: Roboto Condensed Regular;
   cursor: pointer;
+  padding: 5px;
+  transition: 0.25s;
 }
-.auth-overlay .content-center .block-main.block-login .content .center .row-forgotten {
-  margin-top: 8px;
-}
-.auth-overlay .content-center .block-main.block-login .content .center .row-forgotten ul {
-  display: flex;
-  justify-content: center;
-}
-.auth-overlay .content-center .block-main.block-login .content .center .row-forgotten ul li {
-  list-style: none;
-}
-.auth-overlay .content-center .block-main.block-login .content .center .row-forgotten ul li span {
-  font-size: 16px;
-  color: white;
-  font-family: Roboto Condensed Light;
-}
-.auth-overlay .content-center .block-main.block-login .content .center .row-forgotten ul li:not(:first-child) {
-  margin-left: 5px;
-}
-.auth-overlay .content-center .block-main.block-login .content .center .row-forgotten ul li:not(:first-child) span {
-  color: #ff8a00;
-  font-family: Roboto Condensed Regular;
-  cursor: pointer;
-}
-.auth-overlay .content-center .block-main.hidden {
-  visibility: hidden;
-  opacity: 0;
+.auth__register-text--colored:hover {
+  transition: 0.25s;
+  color: #4feb34;
 }
 
 .button {
@@ -2654,8 +2586,8 @@
   border: 1px solid #ff8a00;
 }
 .button.button--special:hover {
-  background: #999999;
-  border: 1px solid #999999;
+  background: #4feb34;
+  border: 1px solid #4feb34;
 }
 
 .reveal {
@@ -2664,7 +2596,7 @@
   opacity: 0;
   transition: all 0.4s ease;
 }
-.reveal.active {
+.reveal.reveal--active {
   transform: translateY(0px);
   opacity: 1;
 }
@@ -2716,10 +2648,15 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-html {
+body {
   overflow-x: hidden;
+}
+
+body.auth--active {
+  overflow-y: hidden;
 }
 
 .flexer {
@@ -2731,7 +2668,13 @@ html {
 .darken {
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.darken-shade {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .container-extern {
