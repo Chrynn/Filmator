@@ -11,6 +11,7 @@ rmdir "nazev"
 - složku vytvářet v Ubuntu konzoli, ale klonovat v PHPStorm konzoli
 
 ## Získání projektu
+- bude potřeba mít vygenerovaný SSH klíč (pokud nemáme)
 ```
 git clone "repository"
 ```
