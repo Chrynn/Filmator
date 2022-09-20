@@ -42,7 +42,7 @@ composer update
 ```
 exit
 ```
-- vytvoříme složku pro cache "temp" (cache se generuje sama)
+- vytvoříme složku pro cache `temp` (cache se generuje sama)
 - nastavíme ji práva
 ```
 chmod 777 temp
