@@ -30,7 +30,7 @@ make up:build
 ```
 make up
 ```
-- přepneme se do php kontejneru
+- přepneme se do PHP kontejneru
 ```
 make exec:php
 ```
