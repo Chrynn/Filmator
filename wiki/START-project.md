@@ -47,7 +47,7 @@ exit
 ```
 chmod 777 temp
 ```
-- do složky "config" vytvoříme `local.neon` soubor
+- do složky `config` vytvoříme `local.neon` soubor
 ```neon
 parameters:
 
