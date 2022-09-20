@@ -1,4 +1,4 @@
-## Pripraveni projektu
+## Připravení projektu
 
 - vytvoření složky
 ```
