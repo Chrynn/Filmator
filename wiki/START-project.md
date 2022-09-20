@@ -18,6 +18,7 @@ git clone "repository"
 
 ## Rozjetí projektu
 
+> Pozn.
 > - číslo portu nastavíme v `nginx/default.conf` a v `docker-compose.yml`
 > - název databáze nastavíme v `docker-compose.yml`
 
