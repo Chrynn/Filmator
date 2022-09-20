@@ -17,4 +17,4 @@ ssh-keygen -o
 ```
 cat "link"
 ```
-- nyní v Githubu přidáme tento klíč mezi ostatní (záložka "SSH and GPG keys")
+- nyní v Githubu přidáme tento klíč mezi ostatní - záložka `SSH and GPG keys`
