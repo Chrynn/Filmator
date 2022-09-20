@@ -2,11 +2,17 @@
 
     .flexer {
         gap: 2%;
+        width: 50%;
     }
 
     &__row {
         display: flex;
         gap: 1%;
+        position: relative;
+
+        &:not(:first-child) .watch__item {
+            margin-top: 60px;
+        }
     }
 
     &__item {

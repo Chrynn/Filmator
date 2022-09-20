@@ -1,4 +1,7 @@
+{varType App\Model\Database\Entity\SerialEntity[] $serials}
+
 {block watchSerial}
+
 <div class="watch__block-content">
     <div class="watch__row">
 
@@ -7,14 +10,14 @@
             <div class="watch__item">
                 <a n:href=":Ghost:Serial:detail $serial->getSlug()" class="watch__item-link">
                     <div class="watch__item-image-box">
-                        <img src="{$serial->getImagePoster()}" alt="poster-movie" class="watch__item-image">
+                        <img src="../{$serial->getImagePoster()}" alt="poster-movie" class="watch__item-image">
                     </div>
                     <div class="watch__item-button-box">
                         <div class="watch__item-button-text-wrap">
                             <span class="watch__item-button-text">přehrát</span>
                         </div>
                         <div class="watch__item-button-image-wrap">
-                            <img src="img/icons/play-orange.svg" alt="icon-play" class="watch__item-button-image">
+                            <img src="../img/icons/play-orange.svg" alt="icon-play" class="watch__item-button-image">
                         </div>
                     </div>
                 </a>
@@ -23,7 +26,7 @@
                         <h3 class="watch__item-title">{$serial->getName()}</h3>
                     </div>
                     <div class="watch__item-rating-box">
-                        <img src="img/icons/stars.svg" alt="icon-stars" class="watch__item-rating-image">
+                        <img src="../img/icons/stars.svg" alt="icon-stars" class="watch__item-rating-image">
                         <div class="watch__item-rating-text-wrap">
                             <p class="watch__item-rating-text">{$serial->getRating()}% ČSFD</p>
                         </div>
@@ -37,9 +40,16 @@
                 </div>
             </div>
 
-            {if $iterator->counter === 2}
-        </div>
-        <div class="flexer">
+            {if $iterator->even && !(($iterator->counter % 4) === 0)}
+                </div>
+                <div class="flexer">
+            {/if}
+
+            {if ($iterator->counter % 4) === 0}
+                </div>
+            </div>
+            <div class="watch__row">
+                <div class="flexer">
             {/if}
 
             {/foreach}

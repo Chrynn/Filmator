@@ -46,7 +46,7 @@ class ActorPresenter extends GhostPresenter
     public function actionDetail(string $url): void
 	{
         $this->getTemplate()->actor = $this->actorEntityQuery->getActorBySlug($url);
-		$this->getTemplate()->movies = $this->movieEntityQuery->getMovies();
+		$this->getTemplate()->otherMovies = $this->movieEntityQuery->getMovies();
     }
 
     protected function createComponentLikeButton(): LikeButton

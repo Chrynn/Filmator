@@ -1,25 +1,8 @@
-// imports
+// imports main
 @import "variables";
 @import "mixins";
 @import "banners";
 @import "responsive";
-
-// pages
-@import "pages/homepage";
-
-// repeating
-@import "repeating/default";
-@import "repeating/detail";
-@import "repeating/header";
-@import "repeating/footer";
-@import "repeating/menu";
-@import "repeating/auth";
-
-// global
-@import "global/button";
-@import "global/reveal";
-@import "global/flash";
-@import "global/tapes";
 
 // HTML
 * {
@@ -67,6 +50,38 @@ body.auth--active {
 	max-width: 1200px;
 }
 
+// theme
+.page-wrap {
+	&--light {
+
+		.player,
+		.watch,
+		.biography {
+			background: $backgroundSecondary;
+		}
+	}
+
+	&--dark {}
+}
+
+// pages
+@import "pages/homepage";
+
+// repeating
+@import "repeating/default";
+@import "repeating/detail";
+@import "repeating/header";
+@import "repeating/footer";
+@import "repeating/menu";
+@import "repeating/auth";
+
+// global
+@import "global/button";
+@import "global/reveal";
+@import "global/flash";
+@import "global/tapes";
+
+// import fonts
 @font-face {
 	font-family: Roboto Condensed Regular;
 	src: url('../fonts/RobotoCondensed-Regular.ttf');

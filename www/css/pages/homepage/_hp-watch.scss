@@ -69,4 +69,72 @@
         display: inline-block;
     }
 
+    // --- picker ---
+
+    &__block-picker {
+        display: flex;
+        margin: 0 0 30px 0;
+        position: relative;
+    }
+
+    &__column-picker {
+        width: 50%;
+
+        &--second {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+    &__text-picker {
+        @include lightRegular;
+        font-size: 18px;
+    }
+
+    &__button-picker {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        list-style: none;
+        background: $grey;
+        padding: 0 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.25s;
+        border: none;
+
+        &--active {
+            background: $primary;
+        }
+
+        &:hover {
+            background: $tercialy;
+            transition: 0.25s;
+        }
+    }
+
+    &__sort-picker {
+        height: 40px;
+        width: 40px;
+        background: $grey;
+        border-radius: 5px;
+        transition: 0.25s;
+        cursor: pointer;
+
+        &:hover {
+            background: $tercialy;
+            transition: 0.25s;
+        }
+    }
+
+    &__list-picker {
+        display: flex;
+        list-style-type: none;
+    }
+
+    &__item-picker:not(:first-child) {
+        margin-left: 10px;
+    }
+
+
 }

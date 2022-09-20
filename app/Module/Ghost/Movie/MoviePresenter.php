@@ -46,7 +46,7 @@ class MoviePresenter extends GhostPresenter
 	public function actionDetail(string $url): void
 	{
 		$this->getTemplate()->movie = $this->movieEntityQuery->getMovieBySlug($url);
-		$this->getTemplate()->nextMovies = $this->movieEntityQuery->getMoviesByLimit(4);
+		$this->getTemplate()->otherMovies = $this->movieEntityQuery->getMoviesByLimit(4);
 	}
 
 	protected function createComponentLikeButton(): LikeButton
