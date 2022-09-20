@@ -1,13 +1,14 @@
 ## Pripraveni projektu
-- vytvoreni slozky
+
+- vytvoření složky
 ```
 mkdir "nazev"
 ```
-- smazani slozky
+- smazání složky
 ```
 rmdir "nazev"
 ```
-- slozku vytvaret v Ubuntu konzoli ale klonovat v PHPStorm konzoli
+- složku vytvářet v Ubuntu konzoli, ale klonovat v PHPStorm konzoli
 
 ## Získání projektu
 ```
