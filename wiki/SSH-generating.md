@@ -1,19 +1,19 @@
 ## Generování SSH
 > - může být nudné neustále vyplňovat informace při použití HTTP
-> - vygenerujeme SSH (jinak nemůžeme používat SSH metodu při klonování - permision denied)
-> - zepta se nas na vytvoreni "passphrase" - zapamatovat (bude to chtit pri klonovani)
-> - pri pregenerovani potreba nove pridat do vsech git aplikaci (github, gitlab atd.)
+> - vygenerujeme SSH - jinak nemůžeme používat SSH metodu při klonování `permision denied`
+> - zeptá se nás na vytvoření "passphrase" - zapamatovat (bude to chtít při klonovaní)
+> - pri přegenerovaní je potřeba nově přidat do všech git aplikací (github, gitlab atd.)
 
-- vygenerujeme SSH soubor a vypise cestu k nemu
+- vygenerujeme SSH soubor a vypíše cestu k němu
 > pokud nevygeneruje cestu, nachází se v:
 > - `cd ~`
-> - `ls -la` - s `a` vypise i skryte soubory
+> - `ls -la` - s `a` vypíše i skryte soubory
 > - `cd .ssh`
-> - nyni vypise `id_rsa` (soukromy, nikde nezverejnovat) a `id_rsa.pub` (verejny, nechame vypsat)
+> - nyní vypíše `id_rsa` - soukromý (nikde nezveřejňovat) a `id_rsa.pub` - veřejny (necháme vypsat)
 ```
 ssh-keygen -o
 ```
-- nechame vypsat obsah vygenerovaneho SSH souboru (zkopirujeme celé!)
+- necháme vypsat obsah vygenerovaného SSH souboru (zkopirujeme celé)
 ```
 cat "link"
 ```
