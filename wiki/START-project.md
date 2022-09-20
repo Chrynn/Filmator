@@ -74,8 +74,6 @@ sudo chmod 777 bin/console
 - nahodíme databázi
 > pokud jsme na windows
 > - upravit kódování `bin/console` z CRLF na LF (pravo dole) - jinak nepůjde (error)
-
-- nahodíme databázi
 ```
 make init
 ```
