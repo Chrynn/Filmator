@@ -2,12 +2,6 @@
     background-size: cover;
 }
 
-// == ADVERTISMENT ==
-@mixin advert {
-    background: url('../img/banners/watching-tv.jpg') no-repeat center;
-    @include bgSize;
-}
-
 // == NEWS ==
 @mixin newsBgOne {
     background: url('../img/banners/black-panther.jpg') no-repeat center;

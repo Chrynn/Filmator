@@ -55,13 +55,3 @@ doctrine.migrations:
 doctrine.fixtures:
 	paths:
 		- %appDir%/Model/Database/Fixture
-
-# Na produkci zakomentovat
-tracy:
-	bar:
-		- Nextras\MailPanel\MailPanel(%tempDir%/mail-panel-latte)
-
-services:
-	nette.mailer:
-		class: Nette\Mail\Mailer
-		factory: Nextras\MailPanel\FileMailer(%tempDir%/mail-panel-mails)

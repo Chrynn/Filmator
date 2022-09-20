@@ -29,11 +29,10 @@ class MoviePresenter extends GhostPresenter
 		MovieEntityQuery $movieEntityQuery,
 		LikeButtonFactory $likeButtonFactory,
 		WatchButtonFactory $watchButtonFactory,
-		PathFacade $pathFacade,
 		ForgottenFactory $forgottenFactory
   	)
   	{
-		parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $forgottenFactory, $pathFacade);
+		parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $forgottenFactory);
 		$this->movieEntityQuery = $movieEntityQuery;
 		$this->likeButtonFactory = $likeButtonFactory;
 		$this->watchButtonFactory = $watchButtonFactory;
@@ -47,7 +46,7 @@ class MoviePresenter extends GhostPresenter
 	public function actionDetail(string $url): void
 	{
 		$this->getTemplate()->movie = $this->movieEntityQuery->getMovieBySlug($url);
-		$this->getTemplate()->nextMovies = $this->movieEntityQuery->getMoviesByLimit(4);
+		$this->getTemplate()->otherMovies = $this->movieEntityQuery->getMoviesByLimit(4);
 	}
 
 	protected function createComponentLikeButton(): LikeButton

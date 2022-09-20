@@ -1,261 +1,232 @@
-.auth-overlay {
+.auth {
     width: 100%;
     height: 100%;
     position: fixed;
     background: rgba(0, 0, 0, 0.8);
     z-index: 5;
-    visibility: visible;
-    opacity: 1;
+    visibility: hidden;
+    opacity: 0;
     transition: all 0.33s;
 
-    &.hidden{
-        visibility: hidden;
-        opacity: 0;
-    }
-
-    .content-center {
-        width: 100%;
-        height: 100%;
-        display: flex;
+    .flexer {
         justify-content: center;
         position: relative;
+    }
 
-        .block-main {
-            margin-top: 15vh;
-            position: absolute;
+    &--active {
+        visibility: visible;
+        opacity: 1;
+    }
 
-            &.block-login,
-            &.block-register,
-            &.block-forgotten {
-                visibility: visible;
-                opacity: 1;
-                transition: all 0.33s;
+    &__content {
+        visibility: hidden;
+        opacity: 0;
+        margin-top: 15vh;
+        position: absolute;
+        transition: all 0.33s;
 
-                .content {
-                    width: 550px;
-                    display: flex;
-                    justify-content: center;
-                    border: 1px solid $tertialyCol;
-                    border-radius: 35px;
-                    background: rgba(0, 0, 0, 0.7);
-
-                    .center {
-                        width: 450px;
-                        padding: 25px 0 35px 0;
-
-                        .row-heading {
-                            width: 100%;
-                            display: flex;
-
-                            .auth-cross {
-                                height: 30px;
-                                width: 30px;
-                                cursor: pointer;
-                                align-items: center;
-                                justify-content: center;
-
-                                .cross-line {
-
-                                    &::before,
-                                    &::after {
-                                        width: 25px;
-                                        height: 2px;
-                                        border-radius: 5px;
-                                        content: '';
-                                        position: absolute;
-                                        transition: 0.33s;
-                                        margin-top: 14px;
-                                        background: $tertialyCol;
-                                    }
-
-                                    &::before {
-                                        transform: rotate(45deg) translate(2px, -2px);
-                                    }
-
-                                    &::after {
-                                        transform: rotate(-45deg) translate(2px, 2px);
-                                    }
-                                }
-
-                                &:hover {
-
-                                    .cross-line {
-
-                                        &::before,
-                                        &::after {
-                                            transition: 0.33s;
-                                            background: $secondaryCol;
-                                        }
-                                    }
-                                }
-                            }
-
-                            .heading {
-                                width: 100%;
-
-                                h2 {
-                                    font-size: 28px;
-                                    text-align: center;
-                                    font-weight: normal;
-                                    margin-left: 30px;
-                                    @include lightLight;
-                                }
-                            }
-                        }
-
-                        .row-errors {
-                            width: 100%;
-                            min-height: 30px;
-                            margin-top: 10px;
-
-                            .error {
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-
-                                span {
-                                    @include lightRegular;
-                                    color: $csfd;
-                                    font-size: 16px;
-                                }
-                            }
-                        }
-
-                        .row-form {
-                            .block {
-                                &:not(:first-child) {
-                                    margin-top: 10px;
-                                }
-
-                                .description {
-                                    display: flex;
-
-                                    .label {
-                                        width: 50%;
-                                        padding-left: 20px;
-
-                                        label {
-                                            font-size: 18px;
-                                            @include lightLight;
-                                            transition: 0.25s;
-                                            cursor: pointer;
-
-                                            &:hover {
-                                                @include addLight;
-                                                transition: 0.25s;
-                                            }
-                                        }
-                                    }
-
-                                    .error {
-                                        width: 50%;
-                                        display: flex;
-                                        justify-content: flex-end;
-
-                                        span {
-                                            @include lightRegular;
-                                            color: $csfd;
-                                            font-size: 16px;
-                                        }
-                                    }
-
-                                }
-
-                                .fillable {
-                                    input {
-                                        width: 100%;
-                                        margin: 5px auto 5px auto;
-                                        box-sizing: border-box;
-                                        @include loginSection;
-
-                                        &.error {
-                                            border: 1px solid $csfd;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        .row-button {
-                            margin: 30px 0;
-                            display: flex;
-                            justify-content: center;
-
-                            button {
-                                @include primaryButton;
-
-                                &:hover {
-                                    @include primaryButtonHover;
-                                }
-                            }
-                        }
-
-                        .row-register {
-                            ul {
-                                display: flex;
-                                justify-content: center;
-
-                                li {
-                                    list-style: none;
-
-                                    span {
-                                        font-size: 16px;
-                                        @include lightLight;
-                                    }
-
-                                    &:not(:first-child) {
-                                        margin-left: 5px;
-
-                                        span {
-                                            @include addRegular;
-                                            cursor: pointer;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            &.block-login {
-                .content {
-                    .center {
-                        .row-forgotten {
-                            margin-top: 8px;
-
-                            ul {
-                                display: flex;
-                                justify-content: center;
-
-                                li {
-                                    list-style: none;
-
-                                    span {
-                                        font-size: 16px;
-                                        @include lightLight;
-                                    }
-
-                                    &:not(:first-child) {
-                                        margin-left: 5px;
-
-                                        span {
-                                            @include addRegular;
-                                            cursor: pointer;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            &.hidden{
-                visibility: hidden;
-                opacity: 0;
-            }
-
+        &--active {
+            visibility: visible;
+            opacity: 1;
         }
     }
+
+    &__content-wrap {
+        width: 550px;
+        border: 1.5px solid $shadeLightPrimary;
+        background: $darken;
+        border-radius: 35px;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__content-center {
+        width: 450px;
+        padding: 25px 0 35px 0;
+    }
+
+    // --- heading ---
+    &__block-heading {
+        width: 100%;
+        display: flex;
+    }
+
+    &__heading-box {
+        width: 100%;
+    }
+
+    &__heading {
+        font-size: 28px;
+        text-align: center;
+        font-weight: normal;
+        margin-left: 30px;
+        @include lightThin;
+    }
+
+    &__cross-box {
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+
+        &:hover .auth__cross {
+
+            &::before,
+            &::after {
+                transition: 0.33s;
+                background: $red;
+            }
+        }
+    }
+
+    &__cross {
+
+        &::before,
+        &::after {
+            width: 25px;
+            height: 2px;
+            border-radius: 5px;
+            content: '';
+            position: absolute;
+            transition: 0.33s;
+            margin-top: 14px;
+            background: $secondary;
+        }
+
+        &::before {
+            transform: rotate(45deg) translate(2px, -2px);
+        }
+
+        &::after {
+            transform: rotate(-45deg) translate(2px, 2px);
+        }
+    }
+
+    // --- form ---
+    &__block-error {
+        width: 100%;
+        min-height: 30px;
+        margin-top: 10px;
+    }
+
+    &__error-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__error {
+        @include lightRegular;
+        font-size: 16px;
+        color: $red;
+    }
+
+    &__form-wrap:not(:first-child) {
+        margin-top: 10px;
+    }
+
+    &__label-wrap {
+        display: flex;
+    }
+
+    &__label-box {
+        width: 50%;
+        padding-left: 20px;
+    }
+
+    &__label {
+        @include lightThin;
+        font-size: 18px;
+        transition: 0.25s;
+        cursor: pointer;
+
+        &:hover {
+            @include coloredThin;
+            transition: 0.25s;
+        }
+    }
+
+    &__label-error-box {
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__label-error {
+        @include lightRegular;
+        color: $red;
+        font-size: 16px;
+    }
+
+    &__form {
+        @include loginSection;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 5px auto 5px auto;
+
+        &--error {
+            border: 1px solid $red;
+        }
+    }
+
+    // --- forgotten ---
+    &__block-forgotten {
+        margin-top: 8px;
+    }
+
+    &__forgotten-list {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+    }
+
+    &__forgotten-text {
+        @include lightThin;
+        font-size: 16px;
+    }
+
+    &__forgotten-text--colored {
+        @include coloredRegular;
+        cursor: pointer;
+        padding: 5px;
+        transition: 0.25s;
+
+        &:hover {
+            transition: 0.25s;
+            color: $green;
+        }
+    }
+
+    // --- button ---
+    &__block-button {
+        margin: 30px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    // --- register link ---
+    &__register-list {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+    }
+
+    &__register-text {
+        @include lightThin;
+        font-size: 16px;
+    }
+
+    &__register-text--colored {
+        @include coloredRegular;
+        cursor: pointer;
+        padding: 5px;
+        transition: 0.25s;
+
+        &:hover {
+            transition: 0.25s;
+            color: $green;
+        }
+    }
+
 }

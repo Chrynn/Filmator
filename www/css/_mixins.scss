@@ -1,189 +1,24 @@
-// == CONTENT PADDING ==
-@mixin contentPadding {
-	padding: 35px 0 0 0;
-}
+@import "mixin/button";
+@import "mixin/font";
+@import "mixin/watch";
 
-// == TEXT RULES ==
-@mixin lightRegular {
-	color: $WhiteFont;
-	font-family: $primaryFont;
-}
-
-@mixin lightLight {
-	color: $WhiteFont;
-	font-family: $secondaryFont;
-}
-
-@mixin lightSpecial {
-	color: $lightFont;
-	font-family: $tertialyFont;
-}
-
-@mixin darkRegular {
-	color: $darkFont;
-	font-family: $primaryFont;
-}
-
-@mixin darkLight {
-	color: $darkFont;
-	font-family: $secondaryFont;
-}
-
-@mixin addRegular {
-	color: $addFont;
-	font-family: $primaryFont;
-}
-
-@mixin addLight {
-	color: $addFont;
-	font-family: $secondaryFont;
-}
-
-@mixin whiteRegular {
-	color: $WhiteFont;
-	font-family: $primaryFont;
-}
-
-@mixin whiteLight {
-	color: $WhiteFont;
-	font-family: $secondaryFont;
-}
-
-@mixin whiteSpecial {
-	color: $WhiteFont;
-	font-family: $tertialyFont;
-}
-
-// ================== HOMEPAGE ====================
-
-// == BUTTONS ==
-@mixin buttonRules {
-	height: 40px;
-	border-radius: 30px;
-	text-decoration: none;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	transition: 0.35s;
-	cursor: pointer;
-	display: flex;
-}
-
-@mixin primaryButton {
-	@include buttonRules;
-	background: $tertialyCol;
-	border: 1px solid $tertialyCol;
-}
-
-@mixin primaryButtonHover {
-	transition: 0.35s;
-	background: $quaternaryCol;
-	border: 1px solid $quaternaryCol;
-}
-
-@mixin secondaryButton {
-	@include buttonRules;
-	background: $primaryCol;
-	border: 1px solid $primaryCol;
-	@include whiteRegular;
-}
-
-@mixin secondaryButtonHover {
-	background: $quaternaryCol;
-	border: 1px solid $quaternaryCol;
-	transition: 0.35s;
-}
-
-@mixin tercialyButton {
-	@include buttonRules;
-	background: $secondaryCol;
-	border: 1px solid $secondaryCol;
-	@include darkRegular;
-}
-
-@mixin tercialyButtonHover {
-	background: $tertialyCol;
-	border: 1px solid $tertialyCol;
-	transition: 0.35s;
-}
-
-// == SEARCHING ==
-@mixin headerSearching {
-	height: 40px;
-	border-radius: 25px 0 0 25px;
-	border-top: 1px solid $secondaryCol;
-	border-bottom: 1px solid $secondaryCol;
-	border-left: 1px solid $secondaryCol;
-	outline: none;
-	padding: 0 0 0 20px;
-	margin: 0 0 0 0;
-	background: none;
-	font-size: 16px;
-	@include lightLight;
+// content padding
+@mixin h-content {
+	padding: 35px 0 70px 0;
 }
 
 @mixin loginSection {
 	height: 40px;
 	border-radius: 25px;
-	border: 1px solid $secondaryCol;
+	border: 1px solid $secondary;
 	outline: none;
 	padding: 0 0 0 20px;
 	background: none;
 	font-size: 16px;
-	@include lightLight;
-}
-
-@mixin searchingButton {
-	width: 50px;
-	height: 42px;
-	padding: 0;
-	background: none;
-	border-radius: 0 25px 25px 0;
-	border-top: 1px solid white;
-	border-right: 1px solid white;
-	border-bottom: 1px solid white;
-	border-left: 1px solid white;
-	cursor: pointer;
-	transition: 0.35s;
+	@include lightThin;
 }
 
 // == CONTENT ==
 @mixin newsContentFont {
-	@include whiteLight;
+	@include lightThin;
 }
-
-// == SITES == 
-@mixin siteLogo {
-	height: 18px;
-	width: 18px;
-	margin: 10px 0 0 11.2px;
-}
-
-@mixin siteDiv {
-	height: 40px;
-	width: 40px;
-	background: $tertialyCol;
-	border-radius: 30px;
-	transition: 0.33s;
-}
-
-@mixin siteDivHover {
-	background: #f5f5f5;
-	transition: 0.33s;
-}
-
-@mixin siteHref {
-	border-radius: 30px;
-	margin-left: 10px;
-}
-
-// == BACKGROUND CHANGE ==
-@mixin bgChangeHover {
-	background: $tertialyCol;
-	border: 1px solid $tertialyCol;
-	transition: 0.33s;
-	cursor: pointer;
-}
-
-@import "mixin/button";
-@import "mixin/font";
-@import "mixin/watch";

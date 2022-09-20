@@ -1,11 +1,11 @@
 {block menu}
-<div class="categories">
-    <div class="categories-div">
+<div class="category">
+    <div class="category__wrap">
         <ul>
-            <li><a n:href=":Ghost:Movie:"{if $module === "movie"} class="category-active"{/if}>filmy</a></li>
-            <li><a n:href=":Ghost:Serial:"{if $module === "serial"} class="category-active"{/if}>seriály</a></li>
-            <li><a n:href=":Ghost:Actor:"{if $module === "actor"} class="category-active"{/if}>herci</a></li>
-            <li><a n:href=":Ghost:Article:"{if $module === "article"} class="category-active"{/if}>blog</a></li>
+            <li class="category__item"><a n:href=":Ghost:Movie:" class="category__link{if $presenter->isLinkCurrent("Movie:*")} category__item--active{/if}">filmy</a></li>
+            <li class="category__item"><a n:href=":Ghost:Serial:" class="category__link{if $presenter->isLinkCurrent("Serial:*")} category__item--active{/if}">seriály</a></li>
+            <li class="category__item"><a n:href=":Ghost:Actor:" class="category__link{if $presenter->isLinkCurrent("Actor:*")} category__item--active{/if}">herci</a></li>
+            <li class="category__item"><a n:href=":Ghost:Article:" class="category__link{if $presenter->isLinkCurrent("Article:*")} category__item--active{/if}">blog</a></li>
         </ul>
     </div>
 </div>

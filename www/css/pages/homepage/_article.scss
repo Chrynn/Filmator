@@ -6,14 +6,12 @@
 .news {
     height: 100%;
     width: 100%;
-    padding-top: 30px;
+    padding: 40px 0 80px 0;
 }
 
 .news-dark {
     height: 100%;
     width: 100%;
-    @include contentPadding;
-    background: $darkBg;
 }
 
 .news-flex {
@@ -38,41 +36,41 @@
 .news h1 {
     font-size: 30px;
     text-align: center;
-    @include darkLight;
+    @include darkThin;
 }
 
 .news-dark h1 {
     font-size: 30px;
     text-align: center;
     font-weight: normal;
-    @include lightLight;
+    @include lightThin;
 }
 
 .news-dark .news-line-one {
-    background: $quinaryCol;
+    background: $grey;
     font-weight: normal;
 }
 
 .news strong {
-    color: $tertialyCol;
+    color: $tercialy;
 }
 
 .news-dark strong {
-    color: $tertialyCol;
+    color: $tercialy;
     font-weight: normal;
 }
 
 .news-line-one {
     width: 36%;
     height: 1px;
-    background: $quaternaryCol;
+    background: $grey;
     margin-top: 18px;
 }
 
 .news-line-two {
     width: 36%;
     height: 1px;
-    background: $tertialyCol;
+    background: $tercialy;
     margin-top: 18px;
 }
 
@@ -179,7 +177,7 @@
     text-transform: uppercase;
     margin: 0 25px 0 25px;
     line-height: 2;
-    @include addRegular;
+    @include coloredRegular;
 }
 
 .news-date {
@@ -187,7 +185,7 @@
     text-transform: uppercase;
     margin: 0 25px 0 25px;
     line-height: 2.5;
-    @include lightLight;
+    @include lightThin;
 }
 
 .news-darken {
@@ -211,14 +209,10 @@
     margin-top: 20px;
     padding: 0 0 50px 0;
     display: flex;
-    justify-content: flex-end;
+    float: right;
 
     a {
         display: inline-block;
         text-decoration: none;
-
-        .button {
-            @include secondaryButton;
-        }
     }
 }

@@ -1,19 +1,19 @@
 {import "../../../_template/menu.latte"}
+{import "../../../_template/watch/default/watchMovie.latte"}
 {varType App\Model\Database\Entity\MovieEntity[] $movies}
 {block content}
 
-<div class="topic">
-    <div class="default movie">
-        <div class="container-extern">
-            <div class="block background" style="background: url('../img/banners/movie&popcorn.jpg')">
+<div class="topic-default">
+    <div class="container-extern">
+        <div class="topic-default__content-wrap">
+            <div class="topic-default__image-box">
+                <img src="../img/banners/movie&popcorn.jpg" alt="movie-n-popcorn" class="topic-default__image">
+            </div>
+            <div class="topic-default__content">
                 <div class="darken">
                     <div class="container-intern">
-                        <div class="block">
-                            <div class="heading">
-                                <div class="topic">
-                                    <h2>Filmy</h2>
-                                </div>
-                            </div>
+                        <div class="topic-default__heading-box">
+                            <h2 class="topic-default__heading">Filmy</h2>
                         </div>
                     </div>
                 </div>
@@ -24,65 +24,17 @@
 
 {include menu}
 
-<div class="content">
-    <div class="default watch">
-        <div class="container-intern">
-            <div class="watch-block">
-                <div class="row">
+<div class="watch">
+    <div class="container-intern">
 
-                    <div class="flexer">
-                        {foreach $movies as $movie}
-                            <div class="item">
-                                <a n:href=":Ghost:Movie:detail $movie->getSlug()">
-                                    <div class="poster">
-                                        <img src="../{$movie->getImagePoster()}" alt="poster-movie">
-                                    </div>
-                                    <div class="play-button">
-                                        <div class="play-text">
-                                            <span>přehrát</span>
-                                        </div>
-                                        <div class="play-icon">
-                                            <img src="../img/icons/play-orange.svg" alt="icon-play">
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="description">
-                                    <div class="title">
-                                        <h3>{$movie->getName()}</h3>
-                                    </div>
-                                    <div class="rating">
-                                        <img src="../img/icons/stars.svg" alt="icon-stars">
-                                        <div class="percent">
-                                            <p>{$movie->getRating()}% ČSFD</p>
-                                        </div>
-                                    </div>
-                                    <div class="genre">
-                                        <p>drama, thriller</p>
-                                    </div>
-                                    <div class="year">
-                                        <p>{$movie->getYear()}</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {if $iterator->even && !(($iterator->counter % 4) === 0)}
-                                </div>
-                                <div class="flexer">
-                            {/if}
-
-                            {if ($iterator->counter % 4) === 0}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="flexer">
-                            {/if}
-
-                        {/foreach}
-                    </div>
-                </div>
-            </div>
+        <div class="background-icon">
+            <img src="../img/icons/movie-tape.svg" alt="movie-tape-icon" class="background-icon__image--top">
         </div>
+
+        {include watchMovie}
+
     </div>
 </div>
+
 
 

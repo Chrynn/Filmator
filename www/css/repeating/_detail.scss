@@ -1,733 +1,537 @@
-.topic {
-    .detail {
+.topic-detail {
 
-        &.movie,
-        &.serial {
-            .container-extern {
-                .block {
-                    &.background {
-                        background-attachment: fixed !important;
-                        background-repeat: no-repeat !important;
-                        background-position: center !important;
-                        background-size: cover !important;
+    &.topic-detail--normal .topic-detail__heading-wrap {
+        padding: 170px 0 30px 0;
+    }
 
-                        .darken {
-                            background: rgba(0, 0, 0, .75);
+    &.topic-detail--special .topic-detail__heading-wrap {
+        padding: 200px 0 20px 0;
+    }
 
-                            .container-intern {
-                                .block {
-                                    position: relative;
+    &__content-wrap {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
 
-                                    .heading {
-                                        padding: 170px 0 30px 0;
-                                        width: 100%;
+    &__image-box {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
 
-                                        .title {
+    &__image {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: fixed;
+        object-fit: cover;
+        object-position: center;
+        z-index: -1;
+    }
 
-                                            h2 {
-                                                z-index: 1;
-                                                font-size: 70px;
-                                                @include lightLight;
-                                            }
-                                        }
+    &__content {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
 
-                                        .title-original {
-                                            ul {
-                                                display: flex;
+    &__heading-wrap {
+        width: 100%;
+    }
 
-                                                li {
-                                                    height: 20px;
-                                                    list-style: none;
+    &__title {
+        @include lightThin;
+        z-index: 1;
+        font-size: 70px;
+    }
 
-                                                    &:not(:first-child) {
-                                                        margin-left: 15px;
-                                                        display: flex;
-                                                        align-items: center;
-                                                    }
+    &__translate-list {
+        display: flex;
+    }
 
-                                                    img {
-                                                        height: 100%;
-                                                        width: auto;
-                                                    }
+    &__translate-item {
+        height: 20px;
+        list-style: none;
 
-                                                    span {
-                                                        font-size: 16px;
-                                                        z-index: 1;
-                                                        @include lightLight;
-                                                    }
-                                                }
-                                            }
-                                        }
+        &:not(:first-child) {
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+        }
+    }
 
-                                    }
-                                }
-                            }
+    &__translate-image {
+        height: 100%;
+        width: auto;
+    }
 
-                        }
-                    }
-                }
-            }
+    &__translate {
+        @include lightThin;
+        font-size: 16px;
+        z-index: 1;
+    }
+}
+
+.player {
+    padding-top: 35px;
+
+    .flexer {
+        justify-content: flex-end;
+    }
+
+    &__block-rating {
+        display: flex;
+    }
+
+    // --- quality ---
+
+    &__column--first,
+    &__column--second {
+        width: 50%;
+    }
+
+    &__quality-box {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background: $primary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__quality {
+        @include lightRegular;
+        font-size: 20px;
+    }
+
+    // --- rating ---
+
+    &__item {
+        height: 50px;
+        padding: 0 15px 0 20px;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        background: $tercialy;
+
+        &--second {
+            background: $red;
         }
 
-        &.actor {
-            .container-extern {
-                .block {
-                    &.background {
-                        background-attachment: fixed !important;
-                        background-repeat: no-repeat !important;
-                        background-position: center !important;
-                        background-size: cover !important;
-                    }
+        &:not(:first-child) {
+            margin-left: 15px;
+        }
+    }
 
-                    .darken {
-                        background: rgba(0, 0, 0, .75);
+    &__rating--second {
+        width: 40px;
+        height: 40px;
+        margin-left: 8px;
+        background: $secondary;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-                        .container-intern {
-                            .block {
+    &__list {
+        display: flex;
+        list-style: none;
+    }
 
-                                .heading {
-                                    padding: 200px 0 20px 0;
-                                    width: 100%;
+    &__rating-text {
+        @include darkRegular;
+        font-size: 18px;
+    }
 
-                                    .topic {
-                                        h2 {
-                                            z-index: 1;
-                                            font-size: 70px;
-                                            @include lightLight;
-                                        }
-                                    }
+    &__rating-number {
+        @include darkRegular;
+    }
 
-                                }
-                            }
-                        }
+    // --- screen ---
 
-                    }
-                }
-            }
+    &__block-screen {
+        margin: 20px 0 0 0;
+    }
+
+    &__screen {
+        width: 100%;
+        height: auto;
+        min-height: 600px;
+        background: $primary;
+    }
+}
+
+.overview {
+
+    .darken {
+        padding: 50px 0;
+    }
+
+    &__row {
+        display: flex;
+
+        &:not(:first-child) {
+            margin-top: 30px;
+        }
+    }
+
+    &__column {
+        width: 50%;
+        display: flex;
+    }
+
+    // --- background image ---
+    &__image {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: fixed;
+        object-fit: cover;
+        object-position: center;
+        z-index: -1;
+    }
+
+    // --- main ---
+
+    &__poster {
+        width: 180px;
+        height: auto;
+    }
+
+    &__main-wrap {
+        width: 100%;
+        margin-left: 30px;
+        padding-top: 30px;
+    }
+
+    &__item-fixed {
+        width: 70px;
+    }
+
+    &__text-main {
+        @include lightThin;
+        font-size: 18px;
+
+        &--strong {
+            @include lightRegular;
+            font-size: 18px;
+        }
+
+        &--colored {
+            @include coloredThin;
+            text-transform: uppercase;
+        }
+    }
+
+    // --- tags ---
+
+    &__block-tags {
+        margin-top: 30px;
+    }
+
+    &__list-tags {
+        display: flex;
+    }
+
+    &__item-tags {
+        height: 30px;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        background: $secondary;
+        list-style: none;
+        border-radius: 30px;
+
+        &:not(:first-child) {
+            margin-left: 10px;
+        }
+    }
+
+    &__text-tags {
+        @include darkRegular;
+        font-size: 18px;
+    }
+
+    // --- trailer ---
+
+    &__trailer-box {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__trailer {
+        height: 250px;
+        width: 400px;
+    }
+
+    // --- description ---
+
+    &__description-box {
+        width: 90%;
+        border-left: 2px solid $tercialy;
+        padding: 10px 0 10px 30px;
+    }
+
+    &__description {
+        @include lightThin;
+        font-size: 18px;
+    }
+
+    // --- cast ---
+
+    &__content-wrap-cast {
+        width: 100%;
+    }
+
+    &__cast-wrap,
+    &__actor-wrap {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__cast,
+    &__actor {
+        width: 400px;
+    }
+
+    &__actor-wrap {
+        margin-top: 30px;
+    }
+}
+
+.biography {
+
+    padding: 35px 0;
+
+    &__overview-wrap {
+        width: 100%;
+        display: flex;
+    }
+
+    // --- cover ---
+
+    &__cover-wrap {
+        margin-right: 30px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__cover-box {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    &__cover {
+        object-fit: contain;
+        display: block;
+        min-height: 100%;
+        width: 100%;
+    }
+
+    &__column {
+        border-left: 1px solid $grey;
+        padding: 10px 30px;
+    }
+
+
+    &__item {
+        width: 140px;
+    }
+
+    &__text {
+        font-size: 18px;
+        @include darkThin;
+
+        &--strong {
+            @include darkRegular;
+            font-size: 18px;
+        }
+    }
+
+    &__table {
+
+        &--second {
+            margin-top: 30px;
+        }
+
+    }
+}
+
+.filmography {
+
+    .darken {
+        padding: 50px 0;
+    }
+
+    &__content {
+        display: flex;
+        width: 100%;
+        gap: 10%;
+    }
+
+    &__column {
+        width: 45%;
+    }
+
+    &__heading {
+        @include coloredThin;
+        text-align: center;
+        font-size: 25px;
+    }
+
+    // --- description ---
+
+    &__description-block {
+        height: 340px;
+        margin-top: 30px;
+        overflow: hidden;
+    }
+
+    &__description {
+        @include lightThin;
+        font-size: 18px;
+    }
+
+    // --- button ---
+
+    &__button-block {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__button {
+        background: $grey;
+        border: none;
+        padding: 0 15px;
+        height: 30px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.25s;
+
+        &:hover {
+            background: $tercialy;
+            transition: 0.25s;
+        }
+    }
+
+    &__button-text {
+        @include lightRegular;
+        font-size: 18px;
+    }
+
+    // --- hint ---
+
+    &__hint-wrap {
+        margin: 30px 0 15px 0;
+    }
+
+    &__hint-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__hint-color {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        margin-right: 8px;
+
+        &--first {
+            background: $secondary;
+        }
+
+        &--second {
+            background: $tercialy;
+        }
+    }
+
+    &__hint-text {
+        @include lightThin;
+        font-size: 18px;
+    }
+
+    &__list-hint {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__item-hint:not(:first-child) {
+        margin-left: 30px;
+    }
+
+    &__hint-box {
+        display: flex;
+    }
+
+    // --- awards ---
+
+    &__awards-box {
+        margin-top: 20px;
+        height: 280px;
+        overflow: hidden;
+    }
+
+    &__row:not(:first-child) {
+        margin-top: 20px;
+    }
+
+    &__heading-awards {
+        @include lightRegular;
+        font-size: 18px;
+        font-weight: normal;
+    }
+
+    &__text-awards {
+        @include lightThin;
+        font-size: 18px;
+
+        &--colored {
+            @include coloredThin;
+        }
+    }
+
+    &__item-awards {
+
+        // nominated
+        &--basic {
+            border-left: 3px solid $secondary;
+        }
+
+        // won
+        &--colored {
+            border-left: 3px solid $tercialy;
+        }
+
+        &--side {
+            width: 50px;
+            padding-left: 20px;
+        }
+
+        &--middle {
+            width: 200px;
+            padding-left: 20px;
         }
     }
 }
 
-.content {
-    .detail {
-        padding: 0 0 50px 0;
 
-        // ==== MOVIE & SERIAL ====
-        &.watch {
+/*
 
-            .content-block {
-                .background-icon {
-                    display: flex;
-                    width: 100%;
-                    height: 100%;
 
-                    &.top {
-                        img {
-                            height: 300px;
-                            width: 500px;
-                            transform: rotate(110deg) scaleX(-1);
-                            opacity: 0.04;
-                            position: absolute;
-                            z-index: 0;
-                            margin: -55px 0 0 -240px;
-                        }
-                    }
-
-                    &.bottom {
-                        img {
-                            height: 300px;
-                            width: 500px;
-                            transform: rotate(70deg);
-                            opacity: 0.04;
-                            position: absolute;
-                            z-index: 0;
-                            margin: -195px 0 0 -250px;
-                        }
-                    }
-                }
-
-                &.player {
-                    .container-intern {
-
-                        .block {
-                            &.rating {
-                                padding: 50px 0 0 0;
-                                width: 100%;
-                                display: flex;
-                                justify-content: flex-end;
-
-                                .first-column {
-                                    width: 50%;
-
-                                    .quality {
-                                        height: 50px;
-                                        width: 50px;
-                                        border-radius: 50%;
-                                        background: $primaryCol;
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: center;
-
-                                        span {
-                                            font-size: 20px;
-                                            @include lightRegular;
-                                        }
-                                    }
-                                }
-
-                                .second-column {
-                                    width: 50%;
-
-                                    .rating {
-                                        display: flex;
-                                        justify-content: flex-end;
-                                        width: 100%;
-
-                                        .rating-filmator,
-                                        .rating-csfd {
-                                            height: 50px;
-                                            background: $tertialyCol;
-                                            padding: 0 15px 0 20px;
-                                            display: flex;
-                                            align-items: center;
-                                            border-radius: 10px;
-
-                                            ul {
-                                                display: flex;
-                                                list-style: none;
-
-                                                li {
-                                                    display: flex;
-                                                    align-items: center;
-
-                                                    &:not(:first-child) {
-                                                        width: 40px;
-                                                        height: 40px;
-                                                        margin-left: 8px;
-                                                        background: $secondaryCol;
-                                                        border-radius: 50%;
-                                                        display: flex;
-                                                        justify-content: center;
-                                                        align-items: center;
-
-                                                        span {
-                                                            @include darkRegular;
-                                                        }
-                                                    }
-
-                                                    span {
-                                                        @include lightRegular;
-                                                        font-size: 18px;
-                                                    }
-                                                }
-                                            }
-                                        }
-
-                                        .rating-csfd {
-                                            margin-left: 15px;
-                                            background: $csfd;
-                                        }
-
-                                    }
-                                }
-                            }
-                        }
-
-                        .player {
-                            padding: 20px 0 0 0;
-
-                            .content {
-                                width: 100%;
-                                height: auto;
-                                min-height: 600px;
-                                background: $primaryCol;
-                            }
-                        }
-                    }
-
-                }
-
-                &.description {
-                    .container-extern {
-
-                        .block {
-                            &.description {
-                                background-attachment: fixed !important;
-                                background-repeat: no-repeat !important;
-                                background-position: center !important;
-                                background-size: cover !important;
-
-                                .darken {
-                                    padding: 80px 0;
-                                    background: rgba(0, 0, 0, .75);
-
-                                    .container-intern {
-
-                                        .first-row {
-                                            width: 100%;
-                                            display: flex;
-
-                                            .first-column {
-                                                width: 50%;
-                                                display: flex;
-
-                                                .first-column {
-                                                    width: 200px;
-
-                                                    .poster {
-                                                        img {
-                                                            width: 170px;
-                                                            height: auto;
-                                                        }
-                                                    }
-                                                }
-
-                                                .second-column {
-                                                    width: 70%;
-                                                    padding-left: 30px;
-
-                                                    .basics {
-                                                        margin-top: 30px;
-
-                                                        table {
-                                                            tr {
-                                                                td.bold {
-                                                                    width: 70px;
-                                                                    font-size: 18px;
-                                                                    @include lightRegular;
-                                                                }
-
-                                                                td.special {
-                                                                    text-transform: uppercase;
-                                                                    @include addLight;
-                                                                }
-
-                                                                td {
-                                                                    font-size: 18px;
-                                                                    @include lightLight;
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-
-                                                    .genre {
-                                                        margin-top: 30px;
-                                                    }
-
-                                                    .tags {
-                                                        margin-top: 40px;
-
-                                                        ul {
-                                                            display: flex;
-
-                                                            li {
-                                                                height: 30px;
-                                                                padding: 0 15px;
-                                                                display: flex;
-                                                                align-items: center;
-                                                                background: white;
-                                                                list-style: none;
-                                                                border-radius: 30px;
-
-                                                                &:not(:first-child) {
-                                                                    margin-left: 10px;
-                                                                }
-
-                                                                span {
-                                                                    font-size: 18px;
-                                                                    @include darkRegular;
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-
-                                            .second-column {
-                                                width: 50%;
-
-                                                .trailer {
-                                                    width: 100%;
-                                                    display: flex;
-                                                    justify-content: flex-end;
-
-                                                    iframe {
-                                                        height: 250px;
-                                                        width: 400px;
-                                                    }
-                                                }
-                                            }
-                                        }
-
-                                        .second-row {
-                                            width: 100%;
-                                            padding: 50px 0 0 0;
-                                            display: flex;
-
-                                            .first-column {
-                                                width: 50%;
-
-                                                p {
-                                                    width: 80%;
-                                                    font-size: 18px;
-                                                    border-left: 2px solid $tertialyCol;
-                                                    padding: 10px 0 10px 30px;
-                                                    @include lightLight;
-                                                }
-                                            }
-
-                                            .second-column {
-                                                width: 50%;
-                                                display: flex;
-                                                justify-content: flex-end;
-
-                                                .cast {
-                                                    width: 400px;
-
-                                                    table {
-                                                        tr {
-                                                            td {
-                                                                &.bold {
-                                                                    width: 100px;
-
-                                                                    span {
-                                                                        @include lightRegular;
-                                                                    }
-                                                                }
-
-                                                                span {
-                                                                    font-size: 18px;
-                                                                    @include lightLight;
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-
-                                                    .cast-actors {
-                                                        margin-top: 40px;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                &.next-movie {
-                    padding: 20px 0 0 0;
-
-                    .container-intern {
-                        .background-icon {
-                            display: flex;
-                            width: 100%;
-                            height: 100%;
-
-                            &.top {
-                                img {
-                                    height: 300px;
-                                    width: 500px;
-                                    transform: rotate(110deg) scaleX(-1);
-                                    opacity: 0.04;
-                                    position: absolute;
-                                    z-index: 0;
-                                    margin: -55px 0 0 -240px;
-                                }
-                            }
-                        }
-
-                        .topic {
-                            width: 100%;
-                            display: flex;
-                            padding: 0 0 25px 0;
-
-                            .line {
-                                width: 50%;
-                                height: 1px;
-                                margin-top: 18px;
-
-                                &.dark {
-                                    background: $quaternaryCol;
-                                }
-
-                                &.light {
-                                    background: $tertialyCol;
-                                }
-
-                            }
-
-                            .title {
-                                width: 300px;
-                                display: flex;
-
-                                .heading {
-                                    h3 {
-                                        font-size: 30px;
-                                        font-family: $secondaryFont;
-                                    }
-
-                                    &.dark {
-                                        color: $darkFont;
-                                        text-align: right;
-                                        margin: 0 0 0 auto;
-                                    }
-
-                                    &.light {
-                                        color: $addFont;
-                                        text-align: left;
-                                        margin: 0 auto 0 10px;
-                                    }
-                                }
-                            }
-                        }
-
-                        .watch-block {
-                            .row {
-                                display: flex;
-                                gap: 1%;
-                                @include watch;
-                            }
-                        }
-                    }
-                }
-
-
-            }
-        }
-
-        // ==== ACTOR ====
-        &.actor {
-            padding: 50px 0;
-
-            .content-block {
-                &.about {
-                    padding-bottom: 50px;
-
-                    .container-intern {
-                        .flexer {
-                            display: flex;
-
-                            .column {
-                                &.one {
-                                    .cover {
-                                        width: 250px;
-                                        height: 250px;
-                                        border-radius: 50%;
-                                        overflow: hidden;
-
-                                        img {
-                                            object-fit: contain;
-                                            display: block;
-                                            min-height: 100%;
-                                            width: 100%;
-                                        }
-                                    }
-                                }
-
-                                &.two {
-                                    width: 100%;
-                                    display: flex;
-
-                                    .block {
-                                        padding-top: 15px;
-
-                                        &.one {
-                                            margin-left: 30px;
-                                            border-left: 1px solid $quinaryCol;
-                                            padding-left: 30px;
-
-                                            table {
-                                                &.family {
-                                                    margin-top: 20px;
-                                                }
-
-                                                tr {
-                                                    td {
-                                                        &.bold {
-                                                            width: 140px;
-                                                        }
-
-                                                        span {
-                                                            font-size: 18px;
-                                                            @include darkRegular;
-                                                        }
-
-                                                        p {
-                                                            font-size: 18px;
-                                                            @include darkLight;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-
-                                        &.two {
-                                            margin-left: 30px;
-                                            border-left: 1px solid $quinaryCol;
-                                            padding-left: 30px;
-
-                                            table {
-
-                                                tr {
-                                                    td {
-                                                        &.bold {
-                                                            width: 140px;
-                                                        }
-
-                                                        span {
-                                                            font-size: 18px;
-                                                            @include darkRegular;
-                                                        }
-
-                                                        p {
-                                                            font-size: 18px;
-                                                            @include darkLight;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                &.description {
-                    .container-extern {
-                        .block {
-                            &.description {
-                                background-attachment: fixed !important;
-                                background-repeat: no-repeat !important;
-                                background-position: center !important;
-                                background-size: cover !important;
-                            }
-
-                            .darken {
-                                padding: 50px 0;
-                                background: rgba(0, 0, 0, .75);
-
-                                .container-intern {
-                                    .flexer {
-                                        display: flex;
-                                        gap: 10%;
-
-                                        .column {
-                                            width: 45%;
-
-                                            &.one {
-
-                                                .topic {
-                                                    h3 {
-                                                        text-align: center;
-                                                        font-size: 25px;
-                                                        @include addLight;
-                                                    }
-                                                }
-
-                                                .content {
-                                                    height: 340px;
-                                                    margin-top: 30px;
-                                                    overflow: hidden;
-
-                                                    p {
-                                                        font-size: 18px;
-                                                        @include lightLight;
-
-                                                        &:not(:first-child) {
-                                                            margin-top: 30px;
-                                                        }
-                                                    }
-                                                }
-
-                                                .button {
-                                                    display: flex;
-                                                    text-align: center;
-                                                    align-items: center;
-                                                    margin-top: 30px;
-                                                    display: flex;
-                                                    justify-content: center;
-
-                                                    button {
-                                                        background: $quaternaryCol;
-                                                        border: none;
-                                                        padding: 0 15px;
-                                                        height: 30px;
-                                                        border-radius: 8px;
-                                                        cursor: pointer;
-                                                        transition: 0.25s;
-
-                                                        span {
-                                                            font-size: 18px;
-                                                            @include lightRegular;
-
-                                                        }
-
-                                                        &:hover {
-                                                            transition: 0.25s;
-                                                            background: $tertialyCol;
-                                                        }
-                                                    }
-                                                }
-                                            }
-
-                                            &.two {
-                                                .topic {
-                                                    h3 {
-                                                        text-align: center;
-                                                        font-size: 25px;
-                                                        @include addLight;
-                                                    }
-                                                }
-
-                                                .content {
-                                                    height: 340px;
-                                                    overflow: hidden;
-                                                    margin-top: 30px;
-
-                                                    hr {
-                                                        margin: 20px 0;
-                                                        height: 1px;
-                                                        background: $quaternaryCol;
-                                                        border: none;
-                                                    }
-
-                                                    .block {
-                                                        &.hint {
-                                                            display: flex;
-                                                            justify-content: center;
-
-                                                            .block {
-                                                                padding-left: 5px;
-                                                                display: flex;
-
-                                                                .color {
-                                                                    width: 20px;
-                                                                    height: 20px;
-                                                                    border-radius: 50%;
-                                                                    background: $tertialyCol;
-                                                                }
-
-                                                                span {
-                                                                    margin-left: 8px;
-                                                                    font-size: 18px;
-                                                                    @include lightLight;
-                                                                }
-
-                                                                &.nominated {
-                                                                    border-left: 3px solid $secondaryCol;
-                                                                }
-
-                                                                &.won {
-                                                                    margin-left: 30px;
-                                                                    border-left: 3px solid $tertialyCol;
-                                                                }
-                                                            }
-                                                        }
-
+               
                                                         &.awards {
                                                             margin-top: 20px;
 
@@ -751,7 +555,7 @@
                                                                         &.nominated {
                                                                             td {
                                                                                 &.year {
-                                                                                    border-left: 3px solid $secondaryCol;
+                                                                                    border-left: 3px solid $secondary;
                                                                                 }
                                                                             }
                                                                         }
@@ -759,7 +563,7 @@
                                                                         &.won {
                                                                             td {
                                                                                 &.year {
-                                                                                    border-left: 3px solid $tertialyCol;
+                                                                                    border-left: 3px solid $tercialy;
                                                                                 }
                                                                             }
                                                                         }
@@ -776,7 +580,7 @@
                                                                                 padding-left: 20px;
 
                                                                                 p {
-                                                                                    @include lightLight;
+                                                                                    @include lightThin;
                                                                                 }
                                                                             }
 
@@ -784,13 +588,13 @@
                                                                                 width: 200px;
 
                                                                                 p {
-                                                                                    @include addLight;
+                                                                                    @include coloredThin;
                                                                                 }
                                                                             }
 
                                                                             &.reason {
                                                                                 p {
-                                                                                    @include lightLight;
+                                                                                    @include lightThin;
                                                                                 }
                                                                             }
                                                                         }
@@ -811,7 +615,7 @@
                                                     justify-content: center;
 
                                                     button {
-                                                        background: $quaternaryCol;
+                                                        background: $grey;
                                                         border: none;
                                                         padding: 0 15px;
                                                         height: 30px;
@@ -827,7 +631,7 @@
 
                                                         &:hover {
                                                             transition: 0.25s;
-                                                            background: $tertialyCol;
+                                                            background: $tercialy;
                                                         }
                                                     }
                                                 }
@@ -853,11 +657,11 @@
                                 margin-top: 18px;
 
                                 &.dark {
-                                    background: $quaternaryCol;
+                                    background: $grey;
                                 }
 
                                 &.light {
-                                    background: $tertialyCol;
+                                    background: $tercialy;
                                 }
 
                             }
@@ -872,13 +676,13 @@
                                     }
 
                                     &.dark {
-                                        @include darkLight;
+                                        @include darkThin;
                                         text-align: right;
                                         margin: 0 0 0 auto;
                                     }
 
                                     &.light {
-                                        @include addLight;
+                                        @include coloredThin;
                                         text-align: left;
                                         margin: 0 auto 0 0;
 
@@ -900,13 +704,13 @@
                                     .sort {
                                         height: 40px;
                                         width: 40px;
-                                        background: $quaternaryCol;
+                                        background: $grey;
                                         border-radius: 5px;
                                         transition: 0.25s;
                                         cursor: pointer;
 
                                         &:hover {
-                                            background: $tertialyCol;
+                                            background: $tercialy;
                                             transition: 0.25s;
                                         }
                                     }
@@ -921,11 +725,11 @@
                                         }
 
                                         &.active {
-                                            background: $primaryCol;
+                                            background: $primary;
                                         }
 
                                         &:hover {
-                                            background: $tertialyCol;
+                                            background: $tercialy;
                                             transition: 0.25s;
                                         }
 
@@ -933,7 +737,7 @@
                                         align-items: center;
                                         height: 40px;
                                         list-style: none;
-                                        background: $quaternaryCol;
+                                        background: $grey;
                                         padding: 0 20px;
                                         border-radius: 5px;
                                         cursor: pointer;
@@ -997,3 +801,4 @@
         }
     }
 }
+*/

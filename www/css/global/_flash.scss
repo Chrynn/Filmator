@@ -1,0 +1,22 @@
+// flash message
+.flash {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+    z-index: 10;
+
+    &+.container--extern .main-menu {
+        top: 42px;
+    }
+
+    &.basic {
+        background-color: $tercialy;
+
+        span {
+            font-size: 18px;
+            @include darkRegular;
+        }
+    }
+}

@@ -17,11 +17,17 @@
 <body>
 <div n:foreach="$flashes as $flash" n:class="flash, $flash->type"><span>{$flash->message}</span></div>
 
-{include header}
-{include content}
-{include footer}
+<div class="page-wrap page-wrap--light">
+    {include header}
 
-<!-- block scripts -->
+    <main class="main" role="main">
+        {include content}
+    </main>
+
+    {include footer}
+</div>
+
+<!-- scripts -->
 <div class="script">
     <script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
     <script src="../js/nette.ajax.js"></script>

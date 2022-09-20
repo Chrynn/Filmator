@@ -29,7 +29,7 @@ services:
       - NGINX_PHP_HOST=php
     ports:
     # change localhost:port here (edit left-one)
-      - 90:80
+      - 80:80
 
   phpmyadmin:
     container_name: phpMyAdmin

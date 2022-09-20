@@ -1,75 +1,40 @@
-.categories {
+.category {
     height: 70px;
     width: 100%;
-    background: $primaryCol;
-    font-family: $primaryFont;
-    border-top: 1px solid $septenaryCol;
+    background: $primary;
+    border-top: 1px solid $shadeLightPrimary;
     z-index: 1;
     position: relative;
 
-    li {
+    &__wrap {
+        height: 100%;
+        display: flex;
+        margin: 0 auto 0 auto;
+        justify-content: center;
+    }
+
+    &__item {
         list-style-type: none;
         display: inline-block;
         padding: 20px 15px;
     }
 
-    p {
-        font-size: 17px;
-        color: $darkFont;
-        padding: 0 20px;
+    &__link {
+        @include lightRegular;
+        font-size: 18px;
+        display: inline;
+        text-decoration: none;
         text-transform: uppercase;
-        line-height: 4.2;
-    }
+        line-height: 1.7;
+        transition: 0.1s;
 
-    .categories-div {
-        height: 100%;
-        display: flex;
-        margin: 0 auto 0 auto;
-        justify-content: center;
-
-        a {
-            font-size: 18px;
-
-            @include addRegular;
-
-            @include lightRegular;
-
-            display: inline;
-            text-decoration: none;
-            text-transform: uppercase;
-            line-height: 1.7;
-            transition: 0.1s;
-
-            &.category-active {
-
-                @include lightRegular;
-            }
-
-            &:hover {
-                @include lightRegular;
-
-                @include addRegular;
-            }
-
-            &:hover {
-                @include addRegular;
-
-                transition: 0.2s;
-            }
+        &.category__item--active {
+            @include coloredRegular;
         }
-    }
 
-}
-
-.categories-responsive {
-    height: 390px;
-    width: 100%;
-    margin-top: 40px;
-    font-family: $primaryFont;
-
-    li {
-        list-style-type: none;
-        padding: 20px 15px;
-        text-align: center;
+        &:hover {
+            @include coloredRegular;
+            transition: 0.2s;
+        }
     }
 }

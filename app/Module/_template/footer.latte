@@ -1,95 +1,97 @@
 {block footer}
-<div class="footer">
-    <div class="darken">
+<footer class="footer" role="contentinfo">
+    <div class="darken-shade">
         <div class="container-intern">
-            <div class="flexer">
+            <div class="footer__content-wrap">
 
-                <div class="column owner">
-                    <div class="block logo">
-                        <div class="owner icon">
-                            <img src="../img/icons/logo-circle.svg" alt="logo-icon">
+                <div class="footer__column--first">
+                    <div class="footer__block-owner">
+                        <div>
+                            <img src="../img/icons/logo-circle.svg" alt="logo-icon" class="footer__owner-image">
                         </div>
-                        <div class="owner text">
-                            <span>Filmátor</span>
+                        <div class="footer__owner-text-box">
+                            <span class="footer__owner-text">Filmátor</span>
                         </div>
                     </div>
-                    <div class="block moto">
-                        <p>Filmy a seriály je to, co nás spojuje</p>
+                    <div class="footer__block-motto-box">
+                        <p class="footer__motto">Filmy a seriály je to, co nás spojuje</p>
                     </div>
-                    <div class="block sites">
+
+                    <div class="footer__block-site">
                         <div class="flexer">
-                            <a href="" class="fb-href">
-                                <div class="fb-site">
-                                    <img src="../img/icons/fb_icon_b.svg" class="fb-icon" alt="facebook-icon">
+                            <a href="" class="footer__link-site">
+                                <div class="footer__site-box">
+                                    <img src="../img/icons/fb_icon_b.svg" alt="facebook-icon" class="footer__image-site">
                                 </div>
                             </a>
-                            <a href="" class="ig-href">
-                                <div class="ig-site">
-                                    <img src="../img/icons/ig_icon_b.svg" class="ig-icon" alt="instagram-icon">
+                            <a href="" class="footer__link-site">
+                                <div class="footer__site-box">
+                                    <img src="../img/icons/ig_icon_b.svg" alt="instagram-icon" class="footer__image-site">
                                 </div>
                             </a>
-                            <a href="" class="tw-href">
-                                <div class="tw-site">
-                                    <img src="../img/icons/twitter_b.svg" class="tw-icon" alt="twitter-icon">
+                            <a href="" class="footer__link-site">
+                                <div class="footer__site-box">
+                                    <img src="../img/icons/twitter_b.svg" alt="twitter-icon" class="footer__image-site">
                                 </div>
                             </a>
-                            <a href="" class="tt-href">
-                                <div class="tt-site">
-                                    <img src="../img/icons/tiktok_b.svg" class="tt-icon" alt="tiktok-icon">
+                            <a href="" class="footer__link-site">
+                                <div class="footer__site-box">
+                                    <img src="../img/icons/tiktok_b.svg" alt="tiktok-icon" class="footer__image-site">
                                 </div>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="column basic">
-                    <div class="block">
-                        <div class="heading">
-                            <h3>Soukromí</h3>
+                <div class="footer__column--second">
+                    <div>
+                        <div>
+                            <h3 class="footer__navigation-heading">Soukromí</h3>
                         </div>
-                        <div class="links">
+                        <div>
                             <ul>
-                                <li><a href="">Podmínky používání</a></li>
-                                <li><a href="">DMCA</a></li>
-                                <li><a href="">Cookies</a></li>
+                                <li class="footer__navigation-item"><a href="" class="footer__navigation-link">Podmínky používání</a></li>
+                                <li class="footer__navigation-item"><a href="" class="footer__navigation-link">DMCA</a></li>
+                                <li class="footer__navigation-item"><a href="" class="footer__navigation-link">Cookies</a></li>
                             </ul>
                         </div>
                     </div>
-                </div>
-                <div class="column links">
-                    <div class="block">
-                        <div class="heading">
-                            <h3>O nás</h3>
+
+                    <div>
+                        <div>
+                            <h3 class="footer__navigation-heading">O nás</h3>
                         </div>
-                        <div class="links">
+                        <div>
                             <ul>
-                                <li><a href="">Kontakt</a></li>
-                                <li><a href="">Návody</a></li>
-                                <li><a href="">Členství</a></li>
+                                <li class="footer__navigation-item"><a href="" class="footer__navigation-link">Kontakt</a></li>
+                                <li class="footer__navigation-item"><a href="" class="footer__navigation-link">Návody</a></li>
+                                <li class="footer__navigation-item"><a href="" class="footer__navigation-link">Členství</a></li>
                             </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="column creator">
-                    <div class="block theme">
-                        <span>Světlý režim</span>
-                        <div class="theme-changer">
-                            <div class="button light"></div>
-                            <div class="button dark"></div>
-                        </div>
-                    </div>
-                    <div class="block creator">
-                        <div class="logo">
-                            <img src="../img/icons/owner-logo.svg" alt="logo-icon">
-                        </div>
-                        <div class="name">
-                            <a href="#">
-                                <p>Vytvořil Filip Machala</p>
-                            </a>
                         </div>
                     </div>
                 </div>
 
+                <div class="footer__column--third">
+                    <div class="footer__block-theme">
+                        <span class="footer__theme-text">Světlý režim</span>
+                        <div class="footer__theme-change">
+                            <div class="footer__theme-change--light"></div>
+                            <div class="footer__theme-change--dark"></div>
+                        </div>
+                    </div>
+                    <div class="footer__block-creator">
+                        <a href="#" class="footer__creator-link">
+                            <div class="footer__creator-image-box">
+                                <img src="../img/icons/owner-logo.svg" alt="logo-icon" class="footer__creator-image">
+                            </div>
+                            <div class="footer__creator-text-box">
+                                <span class="footer__creator-text">Vytvořil Filip Machala</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
+</footer>

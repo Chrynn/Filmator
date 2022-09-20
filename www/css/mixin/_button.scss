@@ -1,79 +1,31 @@
-@mixin buttonRules {
-    height: 40px;
-    display: flex;
-    border-radius: 30px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: 0.35s;
-    padding: 0 10px;
+@mixin h-button-search {
+    width: 50px;
+    height: 42px;
+    padding: 0;
+    background: none;
+    border-radius: 0 25px 25px 0;
+    border-top: 1px solid $secondary;
+    border-right: 1px solid $secondary;
+    border-bottom: 1px solid $secondary;
+    border-left: 1px solid $secondary;
     cursor: pointer;
-
-    .block {
-
-        &.icon {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 5px;
-
-            img {
-                height: 20px;
-                width: 20px;
-                margin-bottom: 2px;
-            }
-        }
-
-        &.text {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 5px;
-
-            span {
-                font-size: 18px;
-            }
-        }
-    }
-
-    &:hover{
-        transition: 0.35s;
-    }
+    transition: 0.35s;
 }
 
-@mixin primaryButton {
-    @include buttonRules;
-    @include lightRegular;
-    background: $tertialyCol;
-    border: 1px solid $tertialyCol;
+@mixin h-input-search {
+    border-radius: 25px 0 0 25px;
+    border-top: 1px solid $secondary;
+    border-bottom: 1px solid $secondary;
+    border-left: 1px solid $secondary;
+    outline: none;
+    padding: 11px 0 10px 20px;
+    margin-right: -2px;
+    background: none;
+    font-size: 16px;
+    @include lightThin;
 
-    &:hover{
-        background: $quaternaryCol;
-        border: 1px solid $quaternaryCol;
-    }
-}
-
-@mixin secondaryButton {
-    @include buttonRules;
-    @include lightRegular;
-    background: $primaryCol;
-    border: 1px solid $primaryCol;
-
-    &:hover{
-        background: $quaternaryCol;
-        border: 1px solid $quaternaryCol;
-    }
-}
-
-@mixin tercialyButton {
-    @include buttonRules;
-    @include darkRegular;
-    background: $secondaryCol;
-    border: 1px solid $secondaryCol;
-
-    &:hover{
-        background: $tertialyCol;
-        border: 1px solid $tertialyCol;
+    &::placeholder {
+        @include lightThin;
+        opacity: 0.6;
     }
 }

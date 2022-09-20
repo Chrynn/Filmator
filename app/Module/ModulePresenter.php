@@ -11,21 +11,17 @@ class ModulePresenter extends Presenter
 {
 
 	private AuthorizationFacade $authorizationFacade;
-	private PathFacade $pathFacade;
 
 	public function __construct(
 		AuthorizationFacade $authorizationFacade,
-		PathFacade $pathFacade,
 	)
 	{
 		parent::__construct();
 		$this->authorizationFacade = $authorizationFacade;
-		$this->pathFacade = $pathFacade;
 	}
 
 	protected function beforeRender()
 	{
-		$this->getTemplate()->basePath = $this->pathFacade->getBasePath();
 		$this->getTemplate()->isLogged = $this->authorizationFacade->isLoggedIn();
 		if ($this->authorizationFacade->isLoggedIn()) {
 			$this->getTemplate()->isAdmin = $this->authorizationFacade->getLoggedUser()->getAdminRole();

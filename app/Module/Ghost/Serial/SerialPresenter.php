@@ -46,7 +46,7 @@ class SerialPresenter extends GhostPresenter
 	public function actionDetail(string $url): void
 	{
 		$this->getTemplate()->serial = $this->serialEntityQuery->getSerialBySlug($url);
-		$this->getTemplate()->nextSerials = $this->serialEntityQuery->getSerialsByLimit(4);
+		$this->getTemplate()->otherSerials = $this->serialEntityQuery->getSerialsByLimit(4);
 	}
 
 	public function createComponentLikeButton(): LikeButton

@@ -1,129 +1,137 @@
 @mixin watch {
+
     .flexer {
-        display: flex;
-        width: 100%;
         gap: 2%;
+        width: 50%;
+    }
 
-        .item {
-            width: 50%;
-            height: 100%;
+    &__row {
+        display: flex;
+        gap: 1%;
+        position: relative;
 
-            a {
-                text-decoration: none;
-
-                &:hover {
-                    .poster {
-                        img {
-                            backface-visibility: hidden;
-                            transform: scale(1.1);
-                            transition: 0.33s;
-                        }
-                    }
-
-                    .play-button {
-                        background: $tertialyCol;
-                        transition: 0.35s;
-                    }
-                }
-
-                .poster {
-                    overflow: hidden;
-
-                    img {
-                        width: 100%;
-                        height: auto;
-                        max-height: 350px;
-                        transition: 0.33s;
-                        display: block;
-                    }
-                }
-
-                .play-button {
-                    height: 50px;
-                    width: 100%;
-                    background: $primaryCol;
-                    display: flex;
-                    transition: 0.35s;
-                    border-top: 3px solid $quinaryCol;
-                    text-align: center;
-                    align-items: center;
-
-                    .play-text {
-                        width: 100%;
-
-                        span {
-                            font-size: 17px;
-                            letter-spacing: 2.5px;
-                            text-transform: uppercase;
-                            margin: 14px 0 0 0;
-                            text-align: center;
-                            @include whiteRegular;
-                        }
-                    }
-
-                    .play-icon {
-                        height: 100%;
-                        width: 60px;
-                        border-left: 3px solid $quinaryCol;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-
-                        img {
-                            height: 20px;
-                            width: 40px;
-                        }
-                    }
-                }
-            }
-
-            .description {
-                .title {
-                    h3 {
-                        font-size: 30px;
-                        @include darkLight;
-                        padding: 15px 0 0 0;
-                    }
-                }
-
-                .rating {
-                    display: flex;
-                    height: 40px;
-
-                    img {
-                        width: 70px;
-                        height: 40px;
-                    }
-
-                    .percent {
-                        display: flex;
-                        align-items: center;
-
-                        p {
-                            font-size: 16px;
-                            margin-left: 8px;
-                            @include darkRegular;
-                        }
-                    }
-                }
-
-                .genre {
-                    p {
-                        font-size: 15px;
-                        text-transform: uppercase;
-                        @include addRegular;
-                    }
-                }
-
-                .year {
-                    margin-top: 10px;
-
-                    p {
-                        font-size: 16px;
-                        @include darkRegular;
-                    }
-                }
-            }
+        &:not(:first-child) .watch__item {
+            margin-top: 60px;
         }
     }
+
+    &__item {
+        width: 50%;
+        height: 100%;
+    }
+
+    &__item-link {
+        text-decoration: none;
+
+        &:hover .watch__item-image {
+            backface-visibility: hidden;
+            transform: scale(1.1);
+            transition: 0.33s;
+        }
+
+        &:hover .watch__item-button-box {
+            background: $tercialy;
+            transition: 0.35s;
+        }
+    }
+
+    // --- image ---
+    &__item-image-box {
+        overflow: hidden;
+    }
+
+    &__item-image {
+        width: 100%;
+        height: auto;
+        max-height: 350px;
+        transition: 0.33s;
+        display: block;
+    }
+
+    // --- button ---
+    &__item-button-box {
+        height: 50px;
+        width: 100%;
+        background: $primary;
+        display: flex;
+        transition: 0.35s;
+        border-top: 3px solid $backgroundSecondary;
+        text-align: center;
+        align-items: center;
+    }
+
+    &__item-button-text-wrap {
+        width: 100%;
+    }
+
+    &__item-button-text {
+        font-size: 17px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        margin: 14px 0 0 0;
+        text-align: center;
+        @include lightRegular;
+    }
+
+    &__item-button-image-wrap {
+        height: 100%;
+        width: 60px;
+        border-left: 3px solid $backgroundSecondary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__item-button-image {
+        height: 20px;
+        width: 40px;
+    }
+
+    // --- title ---
+    &__item-title {
+        @include darkThin;
+        font-size: 30px;
+        padding: 15px 0 0 0;
+    }
+
+    // --- rating ---
+    &__item-rating-box {
+        display: flex;
+        align-items: center;
+    }
+
+    &__item-rating-image {
+        width: 70px;
+    }
+
+    &__item-rating-text-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        margin-left: 8px;
+    }
+
+    &__item-rating-text {
+        @include darkRegular;
+        font-size: 16px;
+    }
+
+    // --- genre ---
+    &__item-genre {
+        font-size: 15px;
+        text-transform: uppercase;
+        @include coloredRegular;
+    }
+
+    // --- year ---
+    &__item-year-box {
+        margin-top: 10px;
+    }
+
+    &__item-year {
+        font-size: 16px;
+        @include darkRegular;
+    }
+
 }

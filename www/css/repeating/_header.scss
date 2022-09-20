@@ -1,116 +1,99 @@
-.navigation {
-    .container-extern {
-        header {
-            .main-menu {
-                height: 70px;
-                width: 100%;
-                position: fixed;
-                z-index: 5;
+// block (universal)
+.header {
 
-                &.non-active {
-                    background: none;
-                    transition: .3s ease-out;
-                }
+    // element
+    &__wrap {
+        height: 70px;
+        width: 100%;
+        position: fixed;
+        z-index: 5;
+        background: $transparent;
+        transition: .3s ease-out;
 
-                &.scroll-active {
-                    background: $primaryCol;
-                    transition: .3s ease-in;
-                }
-
-                .container-intern {
-                    display: flex;
-
-                    .logo-part {
-                        height: 100%;
-                        width: 200px;
-
-                        & a {
-                            height: 100%;
-                            display: flex;
-                            text-decoration: none;
-                        }
-
-                        .logo {
-                            &.image {
-                                height: 100%;
-                                display: flex;
-                                align-items: center;
-
-                                img {
-                                    height: 50px;
-                                    width: 30px;
-                                }
-                            }
-
-                            &.heading {
-                                height: 100%;
-                                display: flex;
-                                align-items: center;
-                                margin-left: 15px;
-
-                                span {
-                                    font-size: 30px;
-                                    text-transform: uppercase;
-                                    @include whiteSpecial;
-                                }
-                            }
-                        }
-                    }
-
-                    .menu {
-                        display: flex;
-                        height: 100%;
-                        width: 100%;
-                        justify-content: flex-end;
-                        align-items: center;
-
-                        .searching {
-                            height: 100%;
-                            height: 40px;
-                            margin-right: 20px;
-
-                            .search-part {
-                                .search {
-                                    &.find {
-                                        input {
-                                            width: 250px;
-                                            z-index: 5;
-                                            @include headerSearching;
-                                        }
-                                    }
-
-                                    &.find-button {
-
-                                        button {
-                                            @include searchingButton;
-
-                                            img {
-                                                height: 18px;
-                                                width: 18px;
-                                                margin: 3px 2px 0 0;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            .search-part {
-                                display: flex;
-                            }
-                        }
-
-                        .button {
-                            @include primaryButton;
-
-                            &:hover {
-                                @include primaryButtonHover;
-                            }
-
-                        }
-                    }
-                }
-
-            }
+        // modificator
+        &--enabled {
+            background: $primary;
+            transition: .3s ease-in;
         }
+    }
+
+    // --- logo ---
+
+    &__logo {
+        height: 100%;
+        width: 200px;
+
+        &:hover .header__heading-logo {
+            transform: scale(1.05);
+            transition: .25s;
+        }
+    }
+
+    &__link-logo {
+        height: 100%;
+        display: flex;
+        text-decoration: none;
+    }
+
+    &__block-image-logo {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    &__block-heading-logo {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        margin-left: 15px;
+    }
+
+    &__image-logo {
+        height: 50px;
+        width: 30px;
+    }
+
+    &__heading-logo {
+        font-size: 30px;
+        text-transform: uppercase;
+        font-weight: initial;
+        transition: .25s;
+        @include lightSpecial;
+    }
+
+    .container-intern {
+        display: flex;
+    }
+
+    // --- menu ---
+
+    &__menu-desktop {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &__search {
+        height: 100%;
+        height: 40px;
+        margin-right: 20px;
+    }
+
+    &__button-search {
+        @include h-button-search;
+    }
+
+    &__input-search {
+        width: 250px;
+        z-index: 5;
+        @include h-input-search;
+    }
+
+    &__image-search {
+        height: 18px;
+        width: 18px;
+        margin: 3px 2px 0 0;
     }
 }

@@ -21,27 +21,23 @@ abstract class GhostPresenter extends ModulePresenter
 	private LoginFactory $loginFactory;
 	private RegisterFactory $registerFactory;
 	private ForgottenFactory $forgottenFactory;
-	private PathFacade $pathFacade;
 
 	public function __construct(
 		AuthorizationFacade $authorizationFacade,
 		LoginFactory $loginFactory,
 		RegisterFactory $registerFactory,
 		ForgottenFactory $forgottenFactory,
-		PathFacade $pathFacade,
 	)
 	{
-		parent::__construct($authorizationFacade, $pathFacade);
+		parent::__construct($authorizationFacade);
 		$this->loginFactory = $loginFactory;
 		$this->registerFactory = $registerFactory;
 		$this->forgottenFactory = $forgottenFactory;
-		$this->pathFacade = $pathFacade;
 	}
 
 	public function beforeRender()
 	{
 		parent::beforeRender();
-		$this->getTemplate()->module = $this->pathFacade->getModuleActive();
 	}
 
 	protected function createComponentRegister(): Register

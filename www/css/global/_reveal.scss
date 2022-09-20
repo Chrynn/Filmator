@@ -1,0 +1,12 @@
+// watch animation
+.reveal {
+    position: relative;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s ease;
+
+    &.reveal--active {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
