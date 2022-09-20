@@ -1,0 +1,36 @@
+# NEON syntaxe characters are # " ' , : = - [ ] { } ( )
+-
+	name: Silvester Stalone
+	image:
+		imageBanner: img/fixture/actor/sylvester-stalone_banner.jpg
+		imagePoster: img/fixture/actor/sylvester-stalone_poster.jpg
+-
+	name: Dwayne Johnson
+	image:
+		imageBanner: img/fixture/actor/dwayne-johnson_banner.jpg
+		imagePoster: img/fixture/actor/dwayne-johnson_poster.jpg
+-
+	name: Jason Statham
+	image:
+		imageBanner: img/fixture/actor/jason-statham_banner.jpg
+		imagePoster: img/fixture/actor/jason-statham_poster.jpg
+-
+	name: Keyanu Reaves
+	image:
+		imageBanner: img/fixture/actor/keyanu-reaves_banner.jpg
+		imagePoster: img/fixture/actor/keyanu-reaves_poster.jpg
+-
+	name: Arnold Schwanceneger
+	image:
+		imageBanner: img/fixture/actor/arnold-schwarzeneger_banner.jpg
+		imagePoster: img/fixture/actor/arnold-schwarzeneger_poster.jpg
+-
+	name: Johny Depp
+	image:
+		imageBanner: img/fixture/actor/johny-depp_banner.jpg
+		imagePoster: img/fixture/actor/johny-depp_poster.jpg
+-
+	name: Robert Downey Jr.
+	image:
+		imageBanner: img/fixture/actor/robert-downey-jr_banner.jpg
+		imagePoster: img/fixture/actor/robert-downey-jr_poster.jpg
