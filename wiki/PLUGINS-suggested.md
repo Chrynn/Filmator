@@ -19,3 +19,29 @@ Neon Support
 ![image](https://user-images.githubusercontent.com/91970419/191776247-2bf5cd99-ec6e-4fbe-aac3-f3ebf2fa3817.png)
 
 ### Pro VSCode
+
+> ![image](https://user-images.githubusercontent.com/91970419/191776423-7ee1a279-77b3-4d27-a935-d0a9be24fd87.png)
+>
+> levý panel - extensions
+
+Auto close tag
+
+![image](https://user-images.githubusercontent.com/91970419/191776584-dcd054d0-b87f-490b-98a1-2e0ad1033ea5.png)
+
+Auto rename tag
+
+![image](https://user-images.githubusercontent.com/91970419/191776671-36c9f7a6-a08f-4b51-b251-370fe212db85.png)
+
+Nette latte + Neon
+
+![image](https://user-images.githubusercontent.com/91970419/191776779-7a56963d-abe3-4f8d-9c7f-c3f89db47e03.png)
+
+Live SASS compiler
+
+![image](https://user-images.githubusercontent.com/91970419/191776913-e1d1968b-f5b6-4480-bdd2-ee18ce0cbd44.png)
+
+Remote - WSL
+> pouze v případě, že používáte Ubuntu
+
+![image](https://user-images.githubusercontent.com/91970419/191777031-1e8ed23d-1a19-47ca-a2a4-00fc7f6e80a0.png)
+
