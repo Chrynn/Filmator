@@ -1,4 +1,6 @@
-## Doporučené doplňky pro PHPStorm
+## Doporučené doplňky
+
+### Pro PHPStorm
 
 > settings (v pravo, nahoře) - plugins
 > - marketplace
@@ -11,3 +13,5 @@ link
 Neon Support
 
 link
+
+### Pro VSCode
