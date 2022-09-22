@@ -46,6 +46,7 @@ class ArticlePresenter extends GhostPresenter
     public function actionDetail(string $url): void
     {
         $this->getTemplate()->article = $this->articleEntityQuery->getArticleBySlug($url);
+		$this->getTemplate()->nextArticles = $this->articleEntityQuery->getArticlesByLimit(3);
     }
 
     protected function createComponentLikeButton(): LikeButton

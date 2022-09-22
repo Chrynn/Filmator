@@ -5,6 +5,7 @@ namespace App\Model\Database\Entity;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Nette\Security\User;
+use Nette\Utils\DateTime;
 
 
 /**
@@ -35,6 +36,16 @@ class ArticleEntity
 	 * @ORM\Column(type="string", nullable=true)
 	 */
 	protected ?string $description;
+
+	/**
+	 * @ORM\Column(type="string", nullable=false)
+	 */
+	protected string $image;
+
+	/**
+	 * @ORM\Column(type="datetime", nullable=false)
+	 */
+	protected \DateTime $createdAt;
 
 	/**
 	 * @var Collection<int, UserEntity>
@@ -123,6 +134,30 @@ class ArticleEntity
 	public function setArticleTag(Collection $articleTag): void
 	{
 		$this->articleTag = $articleTag;
+	}
+
+
+	public function getImage(): string
+	{
+		return $this->image;
+	}
+
+
+	public function setImage(string $image): void
+	{
+		$this->image = $image;
+	}
+
+
+	public function getCreatedAt(): \DateTime
+	{
+		return $this->createdAt;
+	}
+
+
+	public function setCreatedAt(\DateTime $createdAt): void
+	{
+		$this->createdAt = $createdAt;
 	}
 
 }

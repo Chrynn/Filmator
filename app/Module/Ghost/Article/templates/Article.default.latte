@@ -1,62 +1,36 @@
-{varType App\Model\Database\Entity\ArticleEntity[] $articles}
+{import "../../../_template/read/default/read.latte"}
+{import "../../../_template/menu.latte"}
 {block content}
-<div class="content">
-    <h1>Filmy</h1>
 
-    <div class="block">
-        <div class="row">
-            {foreach $articles as $article}
-            <div class="single">
-                <a n:href=":Ghost:Article:detail $article->getSlug()">
-                    <div>
-                        <h1>{$article->getName()}</h1>
-                        <h3>{$article->getDescription()|truncate:30}</h3>
-                    </div>
-                </a>
+<div class="topic-default">
+    <div class="container-extern">
+        <div class="topic-default__content-wrap">
+            <div class="topic-default__image-box">
+                <img src="../img/banners/movie&popcorn.jpg" alt="movie-n-popcorn" class="topic-default__image">
             </div>
-
-            {if ($iterator->counter % 5) === 0}
-        </div>
-        <div class="row">
-            {/if}
-
-            {/foreach}
+            <div class="topic-default__content">
+                <div class="darken">
+                    <div class="container-intern">
+                        <div class="topic-default__heading-box">
+                            <h2 class="topic-default__heading">Blog</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
 </div>
 
-<style>
-    .content{
-        padding: 20px 50px;
-    }
-    .content h1{
-        text-align: center;
-        padding: 20px 0;
-    }
-    .content .block{
-        display: block;
-    }
-    .content .block .row .single{
-        width: 18%;
-        background: red;
-    }
-    .content .block .row .single a{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 50px 30px;
-        text-decoration: none;
-    }
-    .content .block .row .single a h1{
-        color: white;
-    }
-    .content .block .row .single a h3{
-        color: black;
-    }
-    .content .block .row{
-        display: flex;
-        margin: 20px 0;
-        gap: 0 2.5%;
-    }
-</style>
+{include menu}
+
+<div class="read">
+    <div class="container-intern">
+
+        <div class="background-icon">
+            <img src="../img/icons/movie-tape.svg" alt="movie-tape-icon" class="background-icon__image--top">
+        </div>
+
+        {include read}
+
+    </div>
+</div>
