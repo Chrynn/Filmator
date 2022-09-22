@@ -31,10 +31,16 @@ body.auth--active {
 	background: $darken;
 }
 
-.darken-shade {
+.darken-shade-dark {
 	height: 100%;
 	width: 100%;
-	background: $shadeDarken;
+	background: $shadeDarkDarken;
+}
+
+.darken-shade-light {
+	height: 100%;
+	width: 100%;
+	background: $shadeLightDarken;
 }
 
 // containers
@@ -56,7 +62,9 @@ body.auth--active {
 
 		.player,
 		.watch,
-		.biography {
+		.biography,
+		.news-content,
+		.read {
 			background: $backgroundSecondary;
 		}
 	}

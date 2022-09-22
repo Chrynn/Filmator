@@ -216,13 +216,19 @@ body.auth--active {
 .darken {
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.8);
 }
 
-.darken-shade {
+.darken-shade-dark {
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.9);
+}
+
+.darken-shade-light {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .container-extern {
@@ -239,7 +245,9 @@ body.auth--active {
 
 .page-wrap--light .player,
 .page-wrap--light .watch,
-.page-wrap--light .biography {
+.page-wrap--light .biography,
+.page-wrap--light .news-content,
+.page-wrap--light .read {
   background: #f5f5f5;
 }
 .slider__block-slide {
@@ -621,7 +629,7 @@ body.auth--active {
   font-family: Roboto Condensed Regular;
 }
 .watch__block-button {
-  margin-top: 20px;
+  margin-top: 30px;
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -774,228 +782,124 @@ body.auth--active {
   }
 }
 
-/*
-	-------------------------------------------
-						NEWS
-	-------------------------------------------
-*/
-.news {
+.read {
   height: 100%;
   width: 100%;
-  padding: 40px 0 80px 0;
+  padding: 35px 0 70px 0;
 }
-
-.news-dark {
-  height: 100%;
+.read__block-topic {
   width: 100%;
+  display: flex;
+  margin-bottom: 25px;
 }
-
-.news-flex {
+.read__topic-line--dark {
+  width: 50%;
+  height: 1px;
+  margin-top: 18px;
+  background: #999999;
+}
+.read__topic-line--light {
+  width: 50%;
+  height: 1px;
+  margin-top: 18px;
+  background: #ff8a00;
+}
+.read__topic-title {
+  width: 300px;
   display: flex;
 }
-
-.news .top-lines {
-  display: flex;
-  margin-bottom: 20px;
+.read__topic-box--dark {
+  text-align: right;
+  margin: 0 0 0 auto;
 }
-
-.news-topic-text {
-  width: 28%;
-  display: flex;
-  text-align: center;
-  display: block;
+.read__topic-box--light {
+  text-align: left;
+  margin: 0 auto 0 10px;
 }
-
-.news h1 {
-  font-size: 30px;
-  text-align: center;
+.read__topic-heading--dark {
   color: black;
   font-family: Roboto Condensed Light;
-}
-
-.news-dark h1 {
   font-size: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: white;
-  font-family: Roboto Condensed Light;
 }
-
-.news-dark .news-line-one {
-  background: #999999;
-  font-weight: normal;
-}
-
-.news strong {
+.read__topic-heading--light {
   color: #ff8a00;
-}
-
-.news-dark strong {
-  color: #ff8a00;
-  font-weight: normal;
-}
-
-.news-line-one {
-  width: 36%;
-  height: 1px;
-  background: #999999;
-  margin-top: 18px;
-}
-
-.news-line-two {
-  width: 36%;
-  height: 1px;
-  background: #ff8a00;
-  margin-top: 18px;
-}
-
-.news-column-one {
-  width: 49.3%;
-  height: 440px;
-  margin-right: 0.7%;
-  overflow: hidden;
-  background: url("../img/banners/black-panther.jpg") no-repeat center;
-  background-size: cover;
-}
-
-.news-column-one .news-genre {
-  padding: 270px 0 0 0;
-}
-
-.news-column-one a {
-  text-decoration: none;
-}
-
-.news-column-one h2 {
-  font-size: 24px;
-  font-weight: normal;
-  margin: 0 25px 0 25px;
-  color: white;
   font-family: Roboto Condensed Light;
+  font-size: 30px;
 }
-
-.news-column-two {
-  width: 49.3%;
-  height: 230px;
-  margin-left: 0.7%;
+.read .darken {
+  transition: 0.33s;
 }
-
-.news-top {
+.read__row {
   display: flex;
-  margin-bottom: 20px;
+  gap: 1.2%;
 }
-
-.news-top a {
-  text-decoration: none;
+.read__row:not(:first-child) .read__item {
+  margin-top: 15px;
 }
-
-.news-top-one {
-  width: 48.5%;
-  margin-right: 1.5%;
-  background: url("../img/banners/robert-downey.jpg") no-repeat center;
-  background-size: cover;
-  height: 230px;
+.read__item {
+  width: 32.5%;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  max-height: 500px;
 }
-
-.news-top-one .news-genre {
-  padding: 100px 0 0 0;
+.read__item:hover .read__image {
+  transform: scale(1.1);
+  transition: 0.33s;
 }
-
-.news-top-two .news-genre {
-  padding: 100px 0 0 0;
+.read__item:hover .darken {
+  background: rgba(0, 0, 0, 0.5);
+  transition: 0.33s;
 }
-
-.news-top-one .news-date,
-.news-top-two .news-date {
-  padding: 0 0 25px 0;
+.read__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
-
-.news-top-two {
-  width: 48.5%;
-  height: 230px;
-  margin-left: 1.5%;
-  background: url("../img/banners/black-widow.jpg") no-repeat center;
-  background-size: cover;
+.read__image {
+  width: 100%;
+  height: auto;
+  transition: 0.33s;
+  display: block;
 }
-
-.news-top-one h2,
-.news-top-two h2 {
-  font-size: 18px;
-  font-weight: normal;
-  margin: 0 25px 0 25px;
-  color: white;
-  font-family: Roboto Condensed Light;
+.read__content {
+  position: absolute;
+  bottom: 20%;
 }
-
-.news-bot {
-  height: 190px;
-  background: url("../img/banners/wraith-of-man.jpg") no-repeat center;
-  background-size: cover;
-}
-
-.news-bot a {
-  text-decoration: none;
-}
-
-.news-bot h2 {
-  font-size: 18px;
-  font-weight: normal;
-  margin: 0 25px 0 25px;
-  color: white;
-  font-family: Roboto Condensed Light;
-}
-
-.news-bot .news-genre {
-  padding-top: 60px;
-}
-
-.news-bot .news-date {
-  padding-bottom: 16.5px;
-}
-
-.news-genre {
+.read__type {
+  color: #ff8a00;
+  font-family: Roboto Condensed Regular;
   font-size: 14px;
   text-transform: uppercase;
   margin: 0 25px 0 25px;
   line-height: 2;
-  color: #ff8a00;
-  font-family: Roboto Condensed Regular;
 }
-
-.news-date {
+.read__title {
+  color: white;
+  font-family: Roboto Condensed Light;
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0 25px 0 25px;
+}
+.read__date {
+  color: white;
+  font-family: Roboto Condensed Light;
   font-size: 14px;
   text-transform: uppercase;
   margin: 0 25px 0 25px;
   line-height: 2.5;
-  color: white;
-  font-family: Roboto Condensed Light;
 }
-
-.news-darken {
-  height: 100%;
+.read__block-button {
+  margin-top: 30px;
   width: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  transition: 0.33s;
-}
-
-.news-darken:hover {
-  background: rgba(0, 0, 0, 0.4);
-  transition: 0.33s;
-}
-
-.news-button {
-  width: 100%;
-}
-
-.news-button {
-  margin-top: 20px;
-  padding: 0 0 50px 0;
   display: flex;
-  float: right;
+  justify-content: flex-end;
 }
-.news-button a {
-  display: inline-block;
+.read__button-link {
   text-decoration: none;
+  display: inline-block;
 }
 
 .topic-default__content-wrap {
@@ -1511,280 +1415,33 @@ body.auth--active {
   padding-left: 20px;
 }
 
-/*
-
-
-
-                                                        &.awards {
-                                                            margin-top: 20px;
-
-                                                            .row {
-                                                                &:not(:first-child) {
-                                                                    margin-top: 20px;
-                                                                }
-
-                                                                .heading {
-                                                                    h3 {
-                                                                        @include lightRegular;
-                                                                        font-size: 18px;
-                                                                        font-weight: normal;
-                                                                    }
-                                                                }
-
-                                                                table {
-                                                                    margin-top: 10px;
-
-                                                                    tr {
-                                                                        &.nominated {
-                                                                            td {
-                                                                                &.year {
-                                                                                    border-left: 3px solid $secondary;
-                                                                                }
-                                                                            }
-                                                                        }
-
-                                                                        &.won {
-                                                                            td {
-                                                                                &.year {
-                                                                                    border-left: 3px solid $tercialy;
-                                                                                }
-                                                                            }
-                                                                        }
-
-                                                                        td {
-
-
-                                                                            p {
-                                                                                font-size: 18px;
-                                                                            }
-
-                                                                            &.year {
-                                                                                width: 50px;
-                                                                                padding-left: 20px;
-
-                                                                                p {
-                                                                                    @include lightThin;
-                                                                                }
-                                                                            }
-
-                                                                            &.movie {
-                                                                                width: 200px;
-
-                                                                                p {
-                                                                                    @include coloredThin;
-                                                                                }
-                                                                            }
-
-                                                                            &.reason {
-                                                                                p {
-                                                                                    @include lightThin;
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-
-                                                }
-
-                                                .button {
-                                                    display: flex;
-                                                    text-align: center;
-                                                    align-items: center;
-                                                    margin-top: 30px;
-                                                    display: flex;
-                                                    justify-content: center;
-
-                                                    button {
-                                                        background: $grey;
-                                                        border: none;
-                                                        padding: 0 15px;
-                                                        height: 30px;
-                                                        border-radius: 8px;
-                                                        cursor: pointer;
-                                                        transition: 0.25s;
-
-                                                        span {
-                                                            font-size: 18px;
-                                                            @include lightRegular;
-
-                                                        }
-
-                                                        &:hover {
-                                                            transition: 0.25s;
-                                                            background: $tercialy;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                &.watch {
-                    .container-intern {
-                        .topic {
-                            width: 100%;
-                            display: flex;
-                            padding: 30px 0;
-
-                            .line {
-                                width: 50%;
-                                height: 1px;
-                                margin-top: 18px;
-
-                                &.dark {
-                                    background: $grey;
-                                }
-
-                                &.light {
-                                    background: $tercialy;
-                                }
-
-                            }
-
-                            .title {
-                                width: 300px;
-                                display: flex;
-
-                                .heading {
-                                    h3 {
-                                        font-size: 30px;
-                                    }
-
-                                    &.dark {
-                                        @include darkThin;
-                                        text-align: right;
-                                        margin: 0 0 0 auto;
-                                    }
-
-                                    &.light {
-                                        @include coloredThin;
-                                        text-align: left;
-                                        margin: 0 auto 0 0;
-
-                                    }
-                                }
-                            }
-                        }
-
-                        .picker {
-                            display: flex;
-
-                            .column {
-                                width: 50%;
-
-                                &.second {
-                                    display: flex;
-                                    justify-content: flex-end;
-
-                                    .sort {
-                                        height: 40px;
-                                        width: 40px;
-                                        background: $grey;
-                                        border-radius: 5px;
-                                        transition: 0.25s;
-                                        cursor: pointer;
-
-                                        &:hover {
-                                            background: $tercialy;
-                                            transition: 0.25s;
-                                        }
-                                    }
-                                }
-
-                                ul {
-                                    display: flex;
-
-                                    li {
-                                        &:not(:first-child) {
-                                            margin-left: 10px;
-                                        }
-
-                                        &.active {
-                                            background: $primary;
-                                        }
-
-                                        &:hover {
-                                            background: $tercialy;
-                                            transition: 0.25s;
-                                        }
-
-                                        display: flex;
-                                        align-items: center;
-                                        height: 40px;
-                                        list-style: none;
-                                        background: $grey;
-                                        padding: 0 20px;
-                                        border-radius: 5px;
-                                        cursor: pointer;
-                                        transition: 0.25s;
-
-                                        span {
-                                            font-size: 18px;
-                                            @include lightRegular;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        .watch-block {
-                            margin-top: 20px;
-
-                            .row {
-                                display: flex;
-                                gap: 1%;
-
-                                &:not(:last-child) {
-                                    margin-bottom: 50px;
-                                }
-
-                                @include watch;
-
-                                .tags {
-                                    margin-top: 40px;
-
-                                    ul {
-                                        display: flex;
-
-                                        li {
-                                            height: 30px;
-                                            padding: 0 15px;
-                                            display: flex;
-                                            align-items: center;
-                                            background: white;
-                                            list-style: none;
-                                            border-radius: 30px;
-
-                                            &:not(:first-child) {
-                                                margin-left: 10px;
-                                            }
-
-                                            span {
-                                                font-size: 18px;
-                                                @include darkRegular;
-                                            }
-                                        }
-
-                                    }
-                                }
-                            }
-                        }
-
-                    }
-                }
-            }
-        }
-    }
+.news-content {
+  padding-top: 35px;
 }
-*/
+.news-content__block-detail {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.news-content__tags {
+  color: #ff8a00;
+  font-family: Roboto Condensed Regular;
+  font-size: 22px;
+}
+.news-content__date {
+  color: black;
+  font-family: Roboto Condensed Light;
+  font-size: 18px;
+}
+.news-content__block-description {
+  margin: 20px 0;
+}
+.news-content__description {
+  color: black;
+  font-family: Roboto Condensed Light;
+  font-size: 22px;
+}
+
 .header__wrap {
   height: 70px;
   width: 100%;
@@ -1795,6 +1452,7 @@ body.auth--active {
 }
 .header__wrap--enabled {
   background: black;
+  border-bottom: 1px solid #404040;
   transition: 0.3s ease-in;
 }
 .header__logo {
@@ -1901,7 +1559,7 @@ body.auth--active {
   background: url("../img/banners/office.jpg") no-repeat center;
   background-size: cover;
 }
-.footer .darken-shade {
+.footer .darken-shade-dark {
   padding: 40px 0 80px 0;
 }
 .footer__content-wrap {
@@ -2130,7 +1788,7 @@ body.auth--active {
 .auth__content-wrap {
   width: 550px;
   border: 1.5px solid #404040;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 35px;
   display: flex;
   justify-content: center;
@@ -2350,8 +2008,8 @@ body.auth--active {
   border: 1px solid black;
 }
 .button.button--dark:hover {
-  background: #999999;
-  border: 1px solid #999999;
+  background: #ff8a00;
+  border: 1px solid #ff8a00;
 }
 .button.button--special {
   color: white;
@@ -2360,8 +2018,8 @@ body.auth--active {
   border: 1px solid #ff8a00;
 }
 .button.button--special:hover {
-  background: #4feb34;
-  border: 1px solid #4feb34;
+  background: #999999;
+  border: 1px solid #999999;
 }
 
 .reveal {

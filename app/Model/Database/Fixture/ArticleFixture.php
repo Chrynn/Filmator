@@ -21,6 +21,8 @@ final class ArticleFixture implements FixtureInterface
 			$newArticle->setName($article['title']);
 			$newArticle->setSlug(Strings::webalize($article['title']));
 			$newArticle->setDescription($article['description']);
+			$newArticle->setImage($article['image']);
+			$newArticle->setCreatedAt(new \DateTime('now'));
 			$manager->persist($newArticle);
 		}
 		$manager->flush();

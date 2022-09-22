@@ -1,0 +1,78 @@
+@mixin read {
+
+
+    .darken {
+        transition: 0.33s;
+    }
+
+    &__row {
+        display: flex;
+        gap: 1.2%;
+
+        &:not(:first-child) .read__item {
+            margin-top: 15px;
+        }
+    }
+
+    &__item {
+        width: 32.5%;
+        position: relative;
+        display: block;
+        overflow: hidden;
+        max-height: 500px;
+
+        &:hover .read__image {
+            transform: scale(1.1);
+            transition: 0.33s;
+        }
+
+        &:hover .darken {
+            background: $shadeLightDarken;
+            transition: 0.33s;
+        }
+    }
+
+    &__link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    &__image {
+        width: 100%;
+        height: auto;
+        transition: 0.33s;
+        display: block;
+    }
+
+    &__content {
+        position: absolute;
+        bottom: 20%;
+    }
+
+    &__type {
+        @include coloredRegular;
+        font-size: 14px;
+        text-transform: uppercase;
+        margin: 0 25px 0 25px;
+        line-height: 2;
+    }
+
+    &__title {
+        @include newsContentFont;
+        font-size: 24px;
+        font-weight: normal;
+        margin: 0 25px 0 25px;
+    }
+
+    &__date {
+        @include lightThin;
+        font-size: 14px;
+        text-transform: uppercase;
+        margin: 0 25px 0 25px;
+        line-height: 2.5;
+    }
+
+}

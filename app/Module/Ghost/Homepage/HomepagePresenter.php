@@ -37,12 +37,12 @@ final class HomepagePresenter extends GhostPresenter
 		$this->articleEntityQuery = $articleEntityQuery;
 	}
     
-    public function actionDefault(): void
-    {
-        $this->getTemplate()->movies = $this->movieEntityQuery->getMoviesByLimit(4);
-        $this->getTemplate()->serials = $this->serialEntityQuery->getSerialsByLimit(4);
-        $this->getTemplate()->articles = $this->articleEntityQuery->getArticlesByLimit(4);
-    }
+	public function actionDefault(): void
+	{
+		$this->getTemplate()->movies = $this->movieEntityQuery->getMoviesByLimit(4);
+		$this->getTemplate()->serials = $this->serialEntityQuery->getSerialsByLimit(4);
+		$this->getTemplate()->articles = $this->articleEntityQuery->getArticlesByLimit(3);
+	}
 
 	public function actionBanner(): void
 	{

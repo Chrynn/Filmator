@@ -1,51 +1,66 @@
-{varType App\Model\Database\Entity\Movie $article}
+{varType App\Model\Database\Entity\ArticleEntity $article}
+{import "../../../_template/read/detail/read.latte"}
+{import "../../../_template/menu.latte"}
 {block content}
-<div class="content">
-    <h1>{$article->getName()}</h1>
-    <div class="description">
-        <div>
-            <div class="block">
-                <p>{$article->getDescription()}</p>
+
+<div class="topic-detail topic-detail--special">
+    <div class="container-extern">
+        <div class="topic-detail__content-wrap">
+            <div class="topic-detail__image-box">
+                <img src="../{$article->getImage()}" alt="actor-face" class="topic-detail__image">
             </div>
-            {if $isLogged}
-                <div class="buttons">
-                    <li>{control likeButton}</li>
-                    <li>{control watchButton}</li>
+            <div class="topic-detail__content">
+                <div class="darken">
+                    <div class="container-intern">
+                        <div class="topic-detail__heading-wrap">
+                            <div>
+                                <h2 class="topic-detail__title">{$article->getName()}</h2>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            {/if}
+            </div>
         </div>
     </div>
 </div>
 
-<style>
-    .content{
-        text-align: center;
-        padding: 30px 0;
-    }
-    .content .description{
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
-    .content .description .block{
-        background: yellowgreen;
-        width: 400px;
-        height: 200px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 40px 0;
-    }
-    .content .description .buttons{
-        display: flex;
-        justify-content: center;
-    }
-    .content .description .buttons li{
-         list-style: none;
-         margin-left: 10px;
-    }
-    .content .description .block p{
-        padding: 20px;
-        color: black;
-    }
-</style>
+{include menu}
+
+<div class="news-content">
+    <div class="container-intern">
+
+        <div>
+            <p class="news-content__tags">Oznámení</p>
+        </div>
+        <div class="news-content__block-description">
+            <p class="news-content__description">{$article->getDescription()}</p>
+        </div>
+        <div>
+            <p class="news-content__date">{$article->getCreatedAt()|date:'d. m'}</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="read">
+    <div class="container-intern">
+
+        <div class="read__block-topic">
+            <div class="read__topic-line--dark"></div>
+            <div class="read__topic-title">
+                <div class="read__topic-box--dark">
+                    <h3 class="read__topic-heading--dark">Další</h3>
+                </div>
+                <div class="read__topic-box--light">
+                    <h3 class="read__topic-heading--light">články</h3>
+                </div>
+            </div>
+            <div class="read__topic-line--light"></div>
+        </div>
+
+        <div>
+            {include read}
+        </div>
+
+    </div>
+</div>
