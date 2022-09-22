@@ -1,6 +1,6 @@
-## Doporučené doplňky
+# Doporučené doplňky
 
-### Pro PHPStorm
+## Pro PHPStorm
 
 > ![image](https://user-images.githubusercontent.com/91970419/191775830-d50dc92e-feb1-4f9e-943a-03f2f9cbeb27.png)
 > 
@@ -18,7 +18,7 @@ Neon Support
 
 ![image](https://user-images.githubusercontent.com/91970419/191776247-2bf5cd99-ec6e-4fbe-aac3-f3ebf2fa3817.png)
 
-### Pro VSCode
+## Pro VSCode
 
 > ![image](https://user-images.githubusercontent.com/91970419/191776423-7ee1a279-77b3-4d27-a935-d0a9be24fd87.png)
 >
