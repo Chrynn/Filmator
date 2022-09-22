@@ -54,8 +54,8 @@ parameters:
 
 database:
     dsn: 'mysql:host=127.0.0.1;dbname=test'
-    user:
-    password:
+    user: root
+    password: root
 
 # nextras mailer
 tracy:
