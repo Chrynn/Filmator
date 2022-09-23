@@ -4,13 +4,13 @@ namespace App\Model\Database\Fixture;
 
 use App\Model\Database\Entity\SerialEntity;
 use App\Model\Facade\Admin\NewContentFacade;
-use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Nette\Neon\Neon;
 use Nette\Utils\Strings;
+use Nettrine\Fixtures\ContainerAwareInterface;
 
 
-final class SerialFixture implements FixtureInterface
+final class SerialFixture extends AbstractFixture implements ContainerAwareInterface
 {
 
 	public function load(ObjectManager $manager): void

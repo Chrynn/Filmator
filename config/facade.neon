@@ -15,3 +15,5 @@ services:
     - App\Model\Facade\WatchButton\WatchMovieFacade
     - App\Model\Facade\WatchButton\WatchSerialFacade
     - App\Model\Facade\WatchButton\WatchArticleFacade
+
+    - App\Model\Facade\Month\MonthFacade

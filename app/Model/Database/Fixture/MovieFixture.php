@@ -4,13 +4,13 @@ namespace App\Model\Database\Fixture;
 
 use App\Model\Database\Entity\MovieEntity;
 use App\Model\Facade\Admin\NewContentFacade;
-use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Nette\Neon\Neon;
 use Nette\Utils\Strings;
+use Nettrine\Fixtures\ContainerAwareInterface;
 
 
-final class MovieFixture implements FixtureInterface
+final class MovieFixture extends AbstractFixture implements ContainerAwareInterface
 {
 
 	public function load(ObjectManager $manager): void

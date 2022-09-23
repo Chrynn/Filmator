@@ -48,6 +48,11 @@ class ArticleEntity
 	protected \DateTime $createdAt;
 
 	/**
+	 * @ORM\Column(type="string", nullable=false)
+	 */
+	protected string $createdAtMonth;
+
+	/**
 	 * @var Collection<int, UserEntity>
 	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="likeArticle")
 	 * @ORM\JoinTable(name="like_article")
@@ -158,6 +163,18 @@ class ArticleEntity
 	public function setCreatedAt(\DateTime $createdAt): void
 	{
 		$this->createdAt = $createdAt;
+	}
+
+
+	public function getCreatedAtMonth(): string
+	{
+		return $this->createdAtMonth;
+	}
+
+
+	public function setCreatedAtMonth(string $createdAtMonth): void
+	{
+		$this->createdAtMonth = $createdAtMonth;
 	}
 
 }

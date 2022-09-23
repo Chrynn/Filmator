@@ -556,4 +556,16 @@
         font-size: 22px;
     }
 
+    &__list {
+        display: flex;
+    }
+
+    &__item {
+        list-style: none;
+
+        &:not(:first-child) {
+            margin-left: 5px;
+        }
+    }
+
 }

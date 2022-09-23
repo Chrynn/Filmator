@@ -70,9 +70,23 @@
     &__date {
         @include lightThin;
         font-size: 14px;
-        text-transform: uppercase;
-        margin: 0 25px 0 25px;
         line-height: 2.5;
+    }
+
+    &__date-box {
+        margin: 0 25px 0 25px;
+    }
+
+    &__list-date {
+        display: flex;
+    }
+
+    &__item-date {
+        list-style: none;
+
+        &:not(:first-child) {
+            margin-left: 5px;
+        }
     }
 
 }

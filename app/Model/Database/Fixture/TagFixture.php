@@ -4,12 +4,12 @@ namespace App\Model\Database\Fixture;
 
 use App\Model\Database\Entity\TagReadEntity;
 use App\Model\Database\Entity\TagWatchEntity;
-use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Nette\Neon\Neon;
+use Nettrine\Fixtures\ContainerAwareInterface;
 
 
-final class TagFixture implements FixtureInterface
+final class TagFixture extends AbstractFixture implements ContainerAwareInterface
 {
 
 	public function load(ObjectManager $manager): void
