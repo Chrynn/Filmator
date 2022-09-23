@@ -887,9 +887,19 @@ body.auth--active {
   color: white;
   font-family: Roboto Condensed Light;
   font-size: 14px;
-  text-transform: uppercase;
-  margin: 0 25px 0 25px;
   line-height: 2.5;
+}
+.read__date-box {
+  margin: 0 25px 0 25px;
+}
+.read__list-date {
+  display: flex;
+}
+.read__item-date {
+  list-style: none;
+}
+.read__item-date:not(:first-child) {
+  margin-left: 5px;
 }
 .read__block-button {
   margin-top: 30px;
@@ -1440,6 +1450,15 @@ body.auth--active {
   color: black;
   font-family: Roboto Condensed Light;
   font-size: 22px;
+}
+.news-content__list {
+  display: flex;
+}
+.news-content__item {
+  list-style: none;
+}
+.news-content__item:not(:first-child) {
+  margin-left: 5px;
 }
 
 .header__wrap {

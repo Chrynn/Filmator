@@ -36,7 +36,11 @@
             <p class="news-content__description">{$article->getDescription()}</p>
         </div>
         <div>
-            <p class="news-content__date">{$article->getCreatedAt()|date:'d. m'}</p>
+            <ul class="news-content__list">
+                <li class="news-content__item"><p class="news-content__date">{$article->getCreatedAt()|date:'d.'}</p></li>
+                <li class="news-content__item"><p class="news-content__date">{$article->getCreatedAtMonth()}</p></li>
+                <li class="news-content__item"><p class="news-content__date">{$article->getCreatedAt()|date:'Y'}</p></li>
+            </ul>
         </div>
 
     </div>

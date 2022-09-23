@@ -15,7 +15,12 @@
                         <div class="read__content">
                             <p class="read__type">oznámení</p>
                             <h2 class="read__title">{$article->getName()|truncate:35}</h2>
-                            <p class="read__date">{$article->getCreatedAt()|date:'d. m'}</p>
+                            <div class="read__date-box">
+                                <ul class="read__list-date">
+                                    <li class="read__item-date"><p class="read__date">{$article->getCreatedAt()|date:'d.'}</p></li>
+                                    <li class="read__item-date"><p class="read__date">{$article->getCreatedAtMonth()}</p></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </a>
