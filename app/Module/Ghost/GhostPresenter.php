@@ -3,6 +3,8 @@
 namespace App\Module\Ghost;
 
 use App\Model\Facade\Auth\AuthorizationFacade;
+use App\Model\Facade\AutoIncrement\AutoIncrementFacade;
+use App\Model\Facade\PermanentLogin\PermanentLoginFacade;
 use App\Model\FlashMessage;
 use App\Module\Ghost\_component\Forgotten\Forgotten;
 use App\Module\Ghost\_component\Forgotten\ForgottenFactory;
@@ -23,15 +25,21 @@ abstract class GhostPresenter extends ModulePresenter
 
 	public function __construct(
 		AuthorizationFacade $authorizationFacade,
-		LoginFactory $loginFactory,
-		RegisterFactory $registerFactory,
+		PermanentLoginFacade $permanentLoginFacade,
+		AutoIncrementFacade $autoIncrementFacade,
 		ForgottenFactory $forgottenFactory,
+		LoginFactory $loginFactory,
+		RegisterFactory $registerFactory
 	)
 	{
-		parent::__construct($authorizationFacade);
+		parent::__construct(
+			$authorizationFacade,
+			$permanentLoginFacade,
+			$autoIncrementFacade
+		);
+		$this->forgottenFactory = $forgottenFactory;
 		$this->loginFactory = $loginFactory;
 		$this->registerFactory = $registerFactory;
-		$this->forgottenFactory = $forgottenFactory;
 	}
 
 

@@ -3,6 +3,8 @@
 namespace App\Module\Ghost\Serial;
 
 use App\Model\Facade\Auth\AuthorizationFacade;
+use App\Model\Facade\AutoIncrement\AutoIncrementFacade;
+use App\Model\Facade\PermanentLogin\PermanentLoginFacade;
 use App\Model\Service\Query\SerialEntityQuery;
 use App\Module\Ghost\_component\Forgotten\ForgottenFactory;
 use App\Module\Ghost\_component\Login\LoginFactory;
@@ -21,32 +23,45 @@ class SerialPresenter extends GhostPresenter
 	private LikeButtonFactory $likeButtonFactory;
 	private WatchButtonFactory $watchButtonFactory;
 
+
 	public function __construct(
 		AuthorizationFacade $authorizationFacade,
+		PermanentLoginFacade $permanentLoginFacade,
+		AutoIncrementFacade $autoIncrementFacade,
+		ForgottenFactory $forgottenFactory,
 		LoginFactory $loginFactory,
 		RegisterFactory $registerFactory,
 		SerialEntityQuery $serialEntityQuery,
 		LikeButtonFactory $likeButtonFactory,
-		WatchButtonFactory $watchButtonFactory,
-		ForgottenFactory $forgottenFactory
+		WatchButtonFactory $watchButtonFactory
 	)
 	{
-		parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $forgottenFactory);
+		parent::__construct(
+			$authorizationFacade,
+			$permanentLoginFacade,
+			$autoIncrementFacade,
+			$forgottenFactory,
+			$loginFactory,
+			$registerFactory
+		);
 		$this->serialEntityQuery = $serialEntityQuery;
 		$this->likeButtonFactory = $likeButtonFactory;
 		$this->watchButtonFactory = $watchButtonFactory;
 	}
+
 
 	protected function actionDefault()
 	{
 		$this->getTemplate()->serials = $this->serialEntityQuery->getSerials();
 	}
 
+
 	public function actionDetail(string $url): void
 	{
 		$this->getTemplate()->serial = $this->serialEntityQuery->getSerialBySlug($url);
 		$this->getTemplate()->otherSerials = $this->serialEntityQuery->getSerialsByLimit(4);
 	}
+
 
 	public function createComponentLikeButton(): LikeButton
 	{
@@ -64,6 +79,7 @@ class SerialPresenter extends GhostPresenter
 		};
 		return $component;
 	}
+
 
 	protected function createComponentWatchButton(): WatchButton
 	{

@@ -1,14 +1,11 @@
 <?php declare(strict_types = 1);
 
 namespace App\Model\Service\User;
-
-use App\Model\Database\Entity\ActorEntity;
+;
 use App\Model\Database\Entity\UserEntity;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Mapping\Entity;
 use Nette\Application\UI\Form;
 use Nette\Security\Passwords;
-
 
 final class UserService
 {
@@ -56,8 +53,11 @@ final class UserService
 	}
 
 
-	public function edit(): void
+	public function getUserById(int $userId): ?UserEntity
 	{
+		return $this->entityManager->getRepository(UserEntity::class)->findOneBy([
+			"id" => $userId,
+		]);
 	}
 
 

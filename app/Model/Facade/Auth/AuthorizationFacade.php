@@ -32,6 +32,13 @@ final class AuthorizationFacade implements IAuthorizationFacade
 	}
 
 
+	public function loginById(int $userId): void
+	{
+		$identity = $this->getIdentityById($userId);
+		$this->netteSecurityUser->login($identity);
+	}
+
+
 	public function logout(bool $clearIdentity = false): void
 	{
 		$this->netteSecurityUser->logout($clearIdentity);
@@ -48,6 +55,12 @@ final class AuthorizationFacade implements IAuthorizationFacade
 	public function getIdentity(): ?IIdentity
 	{
 		return $this->netteSecurityUser->getIdentity();
+	}
+
+
+	public function getIdentityById(int $id): UserIdentityFacade
+	{
+		return new UserIdentityFacade($id);
 	}
 
 

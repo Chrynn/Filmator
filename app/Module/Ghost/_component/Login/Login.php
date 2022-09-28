@@ -4,6 +4,8 @@ namespace App\Module\Ghost\_component\Login;
 
 use App\Model\Facade\Auth\AuthorizationFacade;
 use App\Model\Facade\Auth\InputCheckFacade;
+use App\Model\Facade\PermanentLogin\PermanentLoginFacade;
+use App\Model\Service\User\UserService;
 use Nette\Application\UI\Control;
 use Nette\Application\UI\Form;
 use Nette\Security\AuthenticationException;
@@ -19,15 +21,21 @@ final class Login extends Control
 
 	private AuthorizationFacade $authorizationFacade;
 	private InputCheckFacade $inputCheckFacade;
+	private UserService $userService;
+	private PermanentLoginFacade $permanentLoginFacade;
 
 
 	public function __construct(
 		AuthorizationFacade $authorizationFacade,
-		InputCheckFacade $inputCheckFacade
+		InputCheckFacade $inputCheckFacade,
+		UserService $userService,
+		PermanentLoginFacade $permanentLoginFacade
 	)
 	{
 		$this->authorizationFacade = $authorizationFacade;
 		$this->inputCheckFacade = $inputCheckFacade;
+		$this->userService = $userService;
+		$this->permanentLoginFacade = $permanentLoginFacade;
 	}
 
 
@@ -52,6 +60,9 @@ final class Login extends Control
 		if ($dataReady) {
 			try {
 				$this->authorizationFacade->login($email, $password);
+				if ($form->getValues()->logged) {
+					$this->permanentLoginFacade->setPermanentLoginCookie($email);
+				}
 				$this->onLogin();
 			} catch (AuthenticationException $e) {
 				$form->addError(self::LOGIN_ERROR);

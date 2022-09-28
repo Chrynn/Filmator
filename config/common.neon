@@ -3,7 +3,7 @@ parameters:
 		host: mariadb
 		user: root
 		password: root
-		dbname: moviebase
+		dbname: Filmator
 
 
 application:
