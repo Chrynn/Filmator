@@ -28,11 +28,10 @@ class ArticlePresenter extends GhostPresenter
 		ArticleEntityQuery $articleEntityQuery,
 		LikeButtonFactory $likeButtonFactory,
 		WatchButtonFactory $watchButtonFactory,
-		ForgottenFactory $forgottenFactory,
-		PathFacade $pathFacade
+		ForgottenFactory $forgottenFactory
 	)
     {
-        parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $forgottenFactory, $pathFacade);
+        parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $forgottenFactory);
 		$this->articleEntityQuery = $articleEntityQuery;
 		$this->likeButtonFactory = $likeButtonFactory;
 		$this->watchButtonFactory = $watchButtonFactory;

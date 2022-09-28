@@ -26,7 +26,7 @@ class UserEntity
 	/**
 	 * @ORM\Column(type="string", nullable=false)
 	 */
-	protected string $name;
+	protected string $nickname;
 
 	/**
 	 * @ORM\Column(type="string", nullable=false)
@@ -37,6 +37,16 @@ class UserEntity
 	 * @ORM\Column(type="string", nullable=false)
 	 */
 	protected string $password;
+
+	/**
+	 * @ORM\Column(type="smallint", nullable=false)
+	 */
+	protected bool $conditions;
+
+	/**
+	 * @ORM\Column(type="smallint", nullable=false)
+	 */
+	protected bool $newsletter;
 
 	/**
 	 * @ORM\Column(type="smallint", nullable=false)
@@ -108,65 +118,96 @@ class UserEntity
 		$this->likedMovies = new ArrayCollection();
 	}
 
+
 	public function getId(): int
 	{
 		return $this->id;
 	}
 
-	public function getName(): string
+
+	public function getNickname(): string
 	{
-		return $this->name;
+		return $this->nickname;
 	}
 
-	public function setName(string $name): void
+
+	public function setNickname(string $nickname): void
 	{
-		$this->name = $name;
+		$this->nickname = $nickname;
 	}
+
 
 	public function setEmail(string $email): void
 	{
 		$this->email = $email;
 	}
 
-	public function setPassword(string $password): void
-	{
-		$this->password = $password;
-	}
 
 	public function getPassword(): string
 	{
 		return $this->password;
 	}
 
+
+	public function setPassword(string $password): void
+	{
+		$this->password = $password;
+	}
+
+
+	public function setConditions(bool $conditions): void
+	{
+		$this->conditions = $conditions;
+	}
+
+
+	public function getNewsletter(): bool
+	{
+		return $this->newsletter;
+	}
+
+
+	public function setNewsletter(bool $newsletter): void
+	{
+		$this->newsletter = $newsletter;
+	}
+
+
 	public function getUserRole(): int
 	{
 		return $this->userRole;
 	}
+
 
 	public function setUserRole(int $userRole): void
 	{
 		$this->userRole = $userRole;
 	}
 
+
 	public function getEditorRole(): int
 	{
 		return $this->editorRole;
 	}
+
 
 	public function setEditorRole(int $editorRole): void
 	{
 		$this->editorRole = $editorRole;
 	}
 
+
 	public function getAdminRole(): int
 	{
 		return $this->adminRole;
 	}
 
+
 	public function setAdminRole(int $adminRole): void
 	{
 		$this->adminRole = $adminRole;
 	}
+
 
 	/**
 	 * @return Collection<int, MovieEntity>
@@ -176,6 +217,7 @@ class UserEntity
 		return $this->likeMovie;
 	}
 
+
 	/**
 	 * @return Collection<int, SerialEntity>
 	 */
@@ -183,6 +225,7 @@ class UserEntity
 	{
 		return $this->likeSerial;
 	}
+
 
 	/**
 	 * @return Collection<int, ActorEntity>
@@ -192,6 +235,7 @@ class UserEntity
 		return $this->likeActor;
 	}
 
+
 	/**
 	 * @return Collection<int, ArticleEntity>
 	 */
@@ -199,6 +243,7 @@ class UserEntity
 	{
 		return $this->likeArticle;
 	}
+
 
 	/**
 	 * @return Collection<int, MovieEntity>
@@ -208,6 +253,7 @@ class UserEntity
 		return $this->watchMovie;
 	}
 
+
 	/**
 	 * @return Collection<int, SerialEntity>
 	 */
@@ -215,6 +261,7 @@ class UserEntity
 	{
 		return $this->watchSerial;
 	}
+
 
 	/**
 	 * @return Collection<int, ArticleEntity>

@@ -10,9 +10,9 @@ use App\Module\User\UserPresenter;
 class HomepagePresenter extends UserPresenter
 {
 
-	public function __construct(AuthorizationFacade $authorizationFacade, PathFacade $pathFacade)
+	public function __construct(AuthorizationFacade $authorizationFacade)
 	{
-		parent::__construct($authorizationFacade, $pathFacade);
+		parent::__construct($authorizationFacade);
 	}
 
 }

@@ -3,7 +3,6 @@
 namespace App\Module\Ghost\Serial;
 
 use App\Model\Facade\Auth\AuthorizationFacade;
-use App\Model\Facade\Path\PathFacade;
 use App\Model\Service\Query\SerialEntityQuery;
 use App\Module\Ghost\_component\Forgotten\ForgottenFactory;
 use App\Module\Ghost\_component\Login\LoginFactory;
@@ -13,6 +12,7 @@ use App\Module\Ghost\Serial\Component\LikeButton\LikeButton;
 use App\Module\Ghost\Serial\Component\LikeButton\LikeButtonFactory;
 use App\Module\Ghost\Serial\Component\WatchButton\WatchButton;
 use App\Module\Ghost\Serial\Component\WatchButton\WatchButtonFactory;
+
 
 class SerialPresenter extends GhostPresenter
 {
@@ -28,11 +28,10 @@ class SerialPresenter extends GhostPresenter
 		SerialEntityQuery $serialEntityQuery,
 		LikeButtonFactory $likeButtonFactory,
 		WatchButtonFactory $watchButtonFactory,
-		PathFacade $pathFacade,
 		ForgottenFactory $forgottenFactory
 	)
 	{
-		parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $forgottenFactory, $pathFacade);
+		parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $forgottenFactory);
 		$this->serialEntityQuery = $serialEntityQuery;
 		$this->likeButtonFactory = $likeButtonFactory;
 		$this->watchButtonFactory = $watchButtonFactory;

@@ -157,8 +157,52 @@ function MainSlider() {
 }
 MainSlider();
 
+function showPassword() {
+
+  // login form
+  var loginPasswordShow = document.querySelector(".js-password-login");
+  var loginPassword = document.getElementById("auth__form-password-login");
+
+  // register form
+  var registerPasswordShow = document.querySelector(".js-password-register");
+  var registerPassword = document.getElementById("auth__form-password-register");
+
+  var registerPasswordAgainShow = document.querySelector(".js-password-again-register");
+  var registerPasswordAgain = document.getElementById("auth__form-password-again-register");
+
+  loginPasswordShow?.addEventListener("click", () => {
+
+      if (loginPassword?.type === "password") {
+          loginPassword.type = "text";
+      } else {
+          loginPassword.type = "password";
+      }
+
+  });
+  registerPasswordShow?.addEventListener("click", () => {
+
+      if (registerPassword?.type === "password") {
+          registerPassword.type = "text";
+      } else {
+          registerPassword.type = "password";
+      }
+
+  });
+  registerPasswordAgainShow?.addEventListener("click", () => {
+
+      if (registerPasswordAgain?.type === "password") {
+          registerPasswordAgain.type = "text";
+      } else {
+          registerPasswordAgain.type = "password";
+      }
+
+  });
+
+}
+showPassword();
+
 // --- auth window ---
-function authWindow(){
+function authWindow() {
   /*
 
     MAC VSCode shortcuts:
@@ -172,6 +216,11 @@ function authWindow(){
   */
   var overlay = document.querySelector(".auth");
   var bodyTag = document.querySelector("body");
+
+  var authInput = document.querySelectorAll(".auth__form");
+  var authInputError = document.querySelectorAll(".auth__label-error");
+  var authCheckBox = document.querySelectorAll(".auth__check");
+  var authMessage = document.querySelectorAll(".auth__message");
 
   // querySelectorAll - create array of appearance
   var buttonShow = document.querySelectorAll(".js-show-auth");
@@ -190,6 +239,7 @@ function authWindow(){
       blockRegister?.classList.remove("auth__content--active");
       blockForgotten?.classList.remove("auth__content--active");
       bodyTag?.classList.remove("auth--active");
+      clearErrors();
   }
 
   function showAuth() {
@@ -202,16 +252,35 @@ function authWindow(){
       blockLogin?.classList.add("auth__content--active");
       blockRegister?.classList.remove("auth__content--active");
       blockForgotten?.classList.remove("auth__content--active");
+      clearErrors();
   }
 
   function showRegister() {
       blockLogin?.classList.remove("auth__content--active");
       blockRegister?.classList.add("auth__content--active");
+      clearErrors();
   }
 
   function showForgotten() {
       blockLogin?.classList.remove("auth__content--active");
       blockForgotten?.classList.add("auth__content--active");
+      clearErrors();
+  }
+
+  function clearErrors() {
+    authInput.forEach((input) => {
+      input.classList.remove("auth__form--error");
+      input["value"] = "";
+    });
+    authInputError.forEach((error) => {
+      error.classList.remove("auth__label-error--active");
+    });
+    authCheckBox.forEach((checkbox) => {
+      checkbox["checked"] = false;
+    });
+    authMessage.forEach((message) => {
+      message.classList.remove("auth__message--active");
+    });
   }
 
   buttonShow.forEach((show) => {
@@ -240,15 +309,19 @@ function authWindow(){
         closeAuth();
     }
   });
+
 }
 authWindow();
+
+// --- ajax initialization ---
+$(function () {
+    $.nette.init();
+});
 
 // --- class re-bind after ajax ---
 $(document).ajaxComplete(function refreshAuth(){
     authWindow();
 });
 
-// --- ajax initialization ---
-$(function () {
-    $.nette.init();
-});
+// --- hide flash ID in URL ---
+window.history.replaceState({}, null, removeFid(url, pos));

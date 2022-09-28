@@ -30,7 +30,6 @@ class Bootstrap
 		$configurator->addConfig($appDir . '/config/factory.neon');
 		$configurator->addConfig($appDir . '/config/local.neon');
 		$configurator->addConfig($appDir . '/config/facade.neon');
-		$configurator->addConfig($appDir . '/config/needToChange.neon');
 
 		return $configurator;
 	}

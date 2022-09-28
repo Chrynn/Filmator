@@ -3,7 +3,6 @@
 namespace App\Module\Ghost\Movie;
 
 use App\Model\Facade\Auth\AuthorizationFacade;
-use App\Model\Facade\Path\PathFacade;
 use App\Model\Service\Query\MovieEntityQuery;
 use App\Module\Ghost\_component\Forgotten\ForgottenFactory;
 use App\Module\Ghost\_component\Login\LoginFactory;

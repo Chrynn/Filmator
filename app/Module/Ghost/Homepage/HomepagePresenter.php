@@ -3,7 +3,6 @@
 namespace App\Module\Ghost\Homepage;
 
 use App\Model\Facade\Auth\AuthorizationFacade;
-use App\Model\Facade\Path\PathFacade;
 use App\Model\Service\Query\ArticleEntityQuery;
 use App\Model\Service\Query\MovieEntityQuery;
 use App\Model\Service\Query\SerialEntityQuery;
@@ -27,11 +26,10 @@ final class HomepagePresenter extends GhostPresenter
 		RegisterFactory $registerFactory,
 		ForgottenFactory $forgottenFactory,
 		SerialEntityQuery $serialEntityQuery,
-		ArticleEntityQuery $articleEntityQuery,
-		PathFacade $pathFacade
+		ArticleEntityQuery $articleEntityQuery
 	)
     {
-        parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $forgottenFactory, $pathFacade);
+        parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $forgottenFactory);
 		$this->movieEntityQuery = $movieEntityQuery;
 		$this->serialEntityQuery = $serialEntityQuery;
 		$this->articleEntityQuery = $articleEntityQuery;

@@ -2,9 +2,7 @@
 
 namespace App\Module\Ghost;
 
-use App\Model\Facade\Admin\NewContentFacade;
 use App\Model\Facade\Auth\AuthorizationFacade;
-use App\Model\Facade\Path\PathFacade;
 use App\Model\FlashMessage;
 use App\Module\Ghost\_component\Forgotten\Forgotten;
 use App\Module\Ghost\_component\Forgotten\ForgottenFactory;
@@ -22,6 +20,7 @@ abstract class GhostPresenter extends ModulePresenter
 	private RegisterFactory $registerFactory;
 	private ForgottenFactory $forgottenFactory;
 
+
 	public function __construct(
 		AuthorizationFacade $authorizationFacade,
 		LoginFactory $loginFactory,
@@ -35,38 +34,27 @@ abstract class GhostPresenter extends ModulePresenter
 		$this->forgottenFactory = $forgottenFactory;
 	}
 
-	public function beforeRender()
-	{
-		parent::beforeRender();
-	}
 
 	protected function createComponentRegister(): Register
 	{
-		$component = $this->registerFactory->create();
-		$component->onRegister[] = function (): void {
-			$this->flashMessage("Úspěšná registrace, přihlaste se", FlashMessage::TYPE_BASIC);
-			$this->redirect("this");
-		};
-		return $component;
+		return $this->registerFactory->create();
 	}
+
 
 	protected function createComponentLogin(): Login
 	{
 		$component = $this->loginFactory->create();
 		$component->onLogin[] = function (): void {
 			$this->flashMessage('Přihlášení bylo úspěšné', FlashMessage::TYPE_BASIC);
-			$this->redirect(':User:Homepage:');
+			$this->redirect('this');
 		};
 		return $component;
 	}
 
+
 	protected function createComponentForgotten(): Forgotten
 	{
-		$component = $this->forgottenFactory->create();
-		$component->onForgotten[] = function (): void {
-			$this->flashMessage('Heslo bylo odesláno na E-mail', FlashMessage::TYPE_BASIC);
-		};
-		return $component;
+		return $this->forgottenFactory->create();
 	}
 
 }

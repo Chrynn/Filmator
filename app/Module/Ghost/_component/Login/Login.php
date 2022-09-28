@@ -12,8 +12,14 @@ use Nette\Security\AuthenticationException;
 final class Login extends Control
 {
 
+	private const LOGIN_ERROR = "Nesprávný E-mail nebo heslo";
+
+	/** @var array<callable> */
+	public array $onLogin = [];
+
 	private AuthorizationFacade $authorizationFacade;
 	private InputCheckFacade $inputCheckFacade;
+
 
 	public function __construct(
 		AuthorizationFacade $authorizationFacade,
@@ -24,8 +30,6 @@ final class Login extends Control
 		$this->inputCheckFacade = $inputCheckFacade;
 	}
 
-	/** @var array<callable> */
-	public array $onLogin = [];
 
 	protected function createComponentForm(): Form
 	{
@@ -33,25 +37,31 @@ final class Login extends Control
 		$form->addText("email");
 		$form->addPassword("password");
 		$form->addSubmit("login");
+		$form->addCheckbox("logged");
 		$form->onSubmit[] = [$this, "loginCheck"];
 		return $form;
 	}
 
+
 	public function loginCheck(Form $form): void
 	{
 		$dataReady = $this->inputCheckFacade->loginChecked($form);
+		$values = $form->getValues();
+		$email = $values->email;
+		$password = $values->password;
 		if ($dataReady) {
 			try {
-				$this->authorizationFacade->login($form->getValues()->email, $form->getValues()->password);
+				$this->authorizationFacade->login($email, $password);
 				$this->onLogin();
 			} catch (AuthenticationException $e) {
-				$form->addError("Nesprávný E-mail nebo heslo");
+				$form->addError(self::LOGIN_ERROR);
 				$this->redrawControl("login");
 			}
 		} else{
 			$this->redrawControl("login");
 		}
 	}
+
 
 	public function render(): void
 	{

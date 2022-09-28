@@ -2,10 +2,11 @@
 
 namespace App\Module;
 
+use App\Model\CookieID;
 use App\Model\Facade\Auth\AuthorizationFacade;
-use App\Model\Facade\Path\PathFacade;
 use App\Model\FlashMessage;
 use Nette\Application\UI\Presenter;
+use Nette\Http\Request;
 
 class ModulePresenter extends Presenter
 {
@@ -36,6 +37,7 @@ class ModulePresenter extends Presenter
 		$this->flashMessage("Úspěšně odhlášen", FlashMessage::TYPE_BASIC);
 		$this->redirect(":Ghost:Homepage:");
 	}
+
 
 	public function findLayoutTemplateFile(): ?string
 	{

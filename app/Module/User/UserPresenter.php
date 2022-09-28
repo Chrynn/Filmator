@@ -14,10 +14,9 @@ class UserPresenter extends ModulePresenter
 
 	public function __construct(
 		AuthorizationFacade $authorizationFacade,
-		PathFacade $pathFacade,
 	)
 	{
-		parent::__construct($authorizationFacade, $pathFacade);
+		parent::__construct($authorizationFacade);
 		$this->authorizationFacade = $authorizationFacade;
 	}
 
