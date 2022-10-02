@@ -5,7 +5,7 @@ services:
     container_name: Database
     image: mariadb:10.6.4-focal
     environment:
-      - MYSQL_DATABASE=moviebase
+      - MYSQL_DATABASE=Filmator
       - MYSQL_ROOT_PASSWORD=root
     volumes:
       - ./data/db/:/var/lib/mysql:delegated

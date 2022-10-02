@@ -3,7 +3,8 @@
 namespace App\Module\Ghost\Movie;
 
 use App\Model\Facade\Auth\AuthorizationFacade;
-use App\Model\Facade\Path\PathFacade;
+use App\Model\Facade\AutoIncrement\AutoIncrementFacade;
+use App\Model\Facade\PermanentLogin\PermanentLoginFacade;
 use App\Model\Service\Query\MovieEntityQuery;
 use App\Module\Ghost\_component\Forgotten\ForgottenFactory;
 use App\Module\Ghost\_component\Login\LoginFactory;
@@ -22,8 +23,11 @@ class MoviePresenter extends GhostPresenter
 	private LikeButtonFactory $likeButtonFactory;
 	private WatchButtonFactory $watchButtonFactory;
 
+
 	public function __construct(
 		AuthorizationFacade $authorizationFacade,
+		PermanentLoginFacade $permanentLoginFacade,
+		AutoIncrementFacade $autoIncrementFacade,
 		LoginFactory $loginFactory,
 		RegisterFactory $registerFactory,
 		MovieEntityQuery $movieEntityQuery,
@@ -32,22 +36,32 @@ class MoviePresenter extends GhostPresenter
 		ForgottenFactory $forgottenFactory
   	)
   	{
-		parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $forgottenFactory);
+		parent::__construct(
+			$authorizationFacade,
+			$permanentLoginFacade,
+			$autoIncrementFacade,
+			$forgottenFactory,
+			$loginFactory,
+			$registerFactory
+		);
 		$this->movieEntityQuery = $movieEntityQuery;
 		$this->likeButtonFactory = $likeButtonFactory;
 		$this->watchButtonFactory = $watchButtonFactory;
 	}
+
 
 	public function actionDefault(): void
 	{
 		$this->getTemplate()->movies = $this->movieEntityQuery->getMovies();
 	}
 
+
 	public function actionDetail(string $url): void
 	{
 		$this->getTemplate()->movie = $this->movieEntityQuery->getMovieBySlug($url);
 		$this->getTemplate()->otherMovies = $this->movieEntityQuery->getMoviesByLimit(4);
 	}
+
 
 	protected function createComponentLikeButton(): LikeButton
 	{
@@ -65,6 +79,7 @@ class MoviePresenter extends GhostPresenter
 		};
 		return $component;
 	}
+
 
 	protected function createComponentWatchButton(): WatchButton
 	{

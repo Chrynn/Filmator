@@ -3,7 +3,8 @@
 namespace App\Module\Ghost\Article;
 
 use App\Model\Facade\Auth\AuthorizationFacade;
-use App\Model\Facade\Path\PathFacade;
+use App\Model\Facade\AutoIncrement\AutoIncrementFacade;
+use App\Model\Facade\PermanentLogin\PermanentLoginFacade;
 use App\Model\Service\Query\ArticleEntityQuery;
 use App\Module\Ghost\_component\Forgotten\ForgottenFactory;
 use App\Module\Ghost\_component\Login\LoginFactory;
@@ -21,33 +22,45 @@ class ArticlePresenter extends GhostPresenter
 	private LikeButtonFactory $likeButtonFactory;
 	private WatchButtonFactory $watchButtonFactory;
 
+
 	public function __construct(
 		AuthorizationFacade $authorizationFacade,
+		PermanentLoginFacade $permanentLoginFacade,
+		AutoIncrementFacade $autoIncrementFacade,
 		LoginFactory $loginFactory,
 		RegisterFactory $registerFactory,
 		ArticleEntityQuery $articleEntityQuery,
 		LikeButtonFactory $likeButtonFactory,
 		WatchButtonFactory $watchButtonFactory,
-		ForgottenFactory $forgottenFactory,
-		PathFacade $pathFacade
+		ForgottenFactory $forgottenFactory
 	)
     {
-        parent::__construct($authorizationFacade, $loginFactory, $registerFactory, $forgottenFactory, $pathFacade);
+        parent::__construct(
+			$authorizationFacade,
+			$permanentLoginFacade,
+			$autoIncrementFacade,
+			$forgottenFactory,
+			$loginFactory,
+			$registerFactory
+		);
 		$this->articleEntityQuery = $articleEntityQuery;
 		$this->likeButtonFactory = $likeButtonFactory;
 		$this->watchButtonFactory = $watchButtonFactory;
 	}
+
 
 	protected function actionDefault(): void
 	{
 		$this->getTemplate()->articles = $this->articleEntityQuery->getArticles();
 	}
 
+
     public function actionDetail(string $url): void
     {
         $this->getTemplate()->article = $this->articleEntityQuery->getArticleBySlug($url);
 		$this->getTemplate()->nextArticles = $this->articleEntityQuery->getArticlesByLimit(3);
     }
+
 
     protected function createComponentLikeButton(): LikeButton
     {
@@ -65,6 +78,7 @@ class ArticlePresenter extends GhostPresenter
         };
         return $component;
     }
+
 
 	protected function createComponentWatchButton(): WatchButton
 	{

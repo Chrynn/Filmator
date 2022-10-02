@@ -15,12 +15,14 @@ final class EmailFacade
 		$this->mailer = $mailer;
 	}
 
-	public function sentEmail(string $from, string $to, string $content): void
+	public function sentEmail(string $from, string $to, string $subject, string $content): void
 	{
 		$mail = new Message();
 		$mail->setFrom($from);
+		$mail->setSubject($subject);
 		$mail->addTo($to);
-		// setBody() - text, setHtmlBody() - html
+		// setBody() - text
+		// setHtmlBody() - html
 		$mail->setHtmlBody($content);
 
 		$this->mailer->send($mail);

@@ -11,6 +11,7 @@
     .flexer {
         justify-content: center;
         position: relative;
+        align-items: center;
     }
 
     &--active {
@@ -21,7 +22,6 @@
     &__content {
         visibility: hidden;
         opacity: 0;
-        margin-top: 15vh;
         position: absolute;
         transition: all 0.33s;
 
@@ -104,22 +104,34 @@
     }
 
     // --- form ---
-    &__block-error {
+    &__block-message {
         width: 100%;
         min-height: 30px;
         margin-top: 10px;
     }
 
-    &__error-box {
+    &__message-box {
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    &__error {
+    &__message {
         @include lightRegular;
         font-size: 16px;
-        color: $red;
+        display: none;
+
+        &--active {
+            display: block;
+        }
+
+        &--error {
+            color: $red;
+        }
+
+        &--success {
+            color: $green;
+        }
     }
 
     &__form-wrap:not(:first-child) {
@@ -140,11 +152,19 @@
         font-size: 18px;
         transition: 0.25s;
         cursor: pointer;
+        user-select: none;
 
         &:hover {
             @include coloredThin;
             transition: 0.25s;
         }
+    }
+
+    &__required {
+        @include coloredRegular;
+        font-size: 18px;
+        cursor: pointer;
+        user-select: none;
     }
 
     &__label-error-box {
@@ -157,6 +177,15 @@
         @include lightRegular;
         color: $red;
         font-size: 16px;
+        display: none;
+
+        &--active {
+            display: block;
+        }
+    }
+
+    &__input-box {
+        position: relative;
     }
 
     &__form {
@@ -164,9 +193,94 @@
         width: 100%;
         box-sizing: border-box;
         margin: 5px auto 5px auto;
+        position: relative;
 
         &--error {
             border: 1px solid $red;
+        }
+
+        &--special {
+            padding: 0 50px 0 20px;
+        }
+    }
+
+    &__image-eye-box {
+        width: 40px;
+        height: 100%;
+        position: absolute;
+        right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    &__image-eye {
+        width: auto;
+        height: 10px;
+        position: relative;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    &__check-wrap {
+        padding-left: 20px;
+    }
+
+    &__check {
+        width: 20px;
+        height: 20px;
+        appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+        background: none;
+        border: 1px solid $secondary;
+        transition: 0.35s;
+        margin-right: 10px;
+
+        &:checked {
+            background: $tercialy;
+            border: 1px solid $tercialy;
+            transition: 0.25s;
+        }
+
+        &:hover {
+            border: 1px solid $tercialy;
+            transition: 0.25s;
+        }
+
+        &--error {
+            border: 1px solid $red;
+        }
+    }
+
+    &__text-check {
+        @include lightThin;
+        font-size: 16px;
+        user-select: none;
+        cursor: pointer;
+
+        &--required {
+            @include coloredRegular;
+            margin-right: 4px;
+            cursor: pointer;
+        }
+
+        &--second {
+            margin-left: 11px;
+        }
+    }
+
+    &__check-box {
+        display: flex;
+
+        &--first {
+            margin: 10px 0;
+        }
+
+        &--second {
+            margin: 10px 0 25px 0;
         }
     }
 
@@ -184,17 +298,18 @@
     &__forgotten-text {
         @include lightThin;
         font-size: 16px;
-    }
 
-    &__forgotten-text--colored {
-        @include coloredRegular;
-        cursor: pointer;
-        padding: 5px;
-        transition: 0.25s;
-
-        &:hover {
+        &--colored {
+            @include coloredRegular;
+            padding: 5px;
             transition: 0.25s;
-            color: $green;
+            user-select: none;
+            cursor: pointer;
+
+            &:hover {
+                transition: 0.25s;
+                color: $green;
+            }
         }
     }
 
@@ -215,17 +330,18 @@
     &__register-text {
         @include lightThin;
         font-size: 16px;
-    }
 
-    &__register-text--colored {
-        @include coloredRegular;
-        cursor: pointer;
-        padding: 5px;
-        transition: 0.25s;
-
-        &:hover {
+        &--colored {
+            @include coloredRegular;
+            padding: 5px;
             transition: 0.25s;
-            color: $green;
+            user-select: none;
+            cursor: pointer;
+
+            &:hover {
+                transition: 0.25s;
+                color: $green;
+            }
         }
     }
 

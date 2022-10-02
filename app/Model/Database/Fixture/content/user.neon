@@ -1,16 +1,20 @@
 # NEON syntaxe characters are # " ' , : = - [ ] { } ( )
 -
-	name: Pepa
+	nickname: Pepa
 	email: 123@gmail.com
 	password: bengoro
+	conditions: true
+	newsletter: false
 	right:
 		admin: 1
 		editor: 1
 		user: 1
 -
-	name: Mike
+	nickname: Mike
 	email: hello@gmail.com
 	password: '123'
+	conditions: true
+	newsletter: true
 	right:
 		admin: 0
 		editor: 0

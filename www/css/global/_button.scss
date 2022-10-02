@@ -29,10 +29,13 @@
             height: 20px;
             width: 20px;
             margin-bottom: 2px;
+            pointer-events: none;
+            user-select: none;
         }
 
         &__text {
             font-size: 18px;
+            user-select: none;
         }
     }
 

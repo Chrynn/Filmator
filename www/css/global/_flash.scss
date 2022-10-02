@@ -7,8 +7,8 @@
     padding: 10px 0 10px 0;
     z-index: 10;
 
-    &+.container--extern .main-menu {
-        top: 42px;
+    &+.page-wrap .header__wrap {
+        margin-top: 42px;
     }
 
     &.basic {

@@ -1,5 +1,4 @@
 services:
-    - App\Model\Facade\Path\PathFacade
     - App\Model\Facade\Admin\NewContentFacade
     - App\Model\Facade\Email\EmailFacade
 
@@ -17,3 +16,5 @@ services:
     - App\Model\Facade\WatchButton\WatchArticleFacade
 
     - App\Model\Facade\Month\MonthFacade
+    - App\Model\Facade\PermanentLogin\PermanentLoginFacade
+    - App\Model\Facade\AutoIncrement\AutoIncrementFacade

@@ -8,27 +8,42 @@ use Exception;
 use Nette\Security\IIdentity;
 use Nette\Security\User as NetteSecurityUser;
 
+
 final class AuthorizationFacade implements IAuthorizationFacade
 {
 
 	private EntityManagerInterface $entityManager;
 	private NetteSecurityUser $netteSecurityUser;
 
-	public function __construct(EntityManagerInterface $entityManager, NetteSecurityUser $netteSecurityUser)
+
+	public function __construct(
+		EntityManagerInterface $entityManager,
+		NetteSecurityUser $netteSecurityUser,
+	)
 	{
 		$this->entityManager = $entityManager;
 		$this->netteSecurityUser = $netteSecurityUser;
 	}
+
 
 	public function login(string $user, string $password): void
 	{
 		$this->netteSecurityUser->login($user, $password);
 	}
 
+
+	public function loginById(int $userId): void
+	{
+		$identity = $this->getIdentityById($userId);
+		$this->netteSecurityUser->login($identity);
+	}
+
+
 	public function logout(bool $clearIdentity = false): void
 	{
 		$this->netteSecurityUser->logout($clearIdentity);
 	}
+
 
 	public function isLoggedIn(): bool
 	{
@@ -36,10 +51,18 @@ final class AuthorizationFacade implements IAuthorizationFacade
 		return $isLoggedIn && $this->getIdentity() instanceof UserIdentityFacade;
 	}
 
+
 	public function getIdentity(): ?IIdentity
 	{
 		return $this->netteSecurityUser->getIdentity();
 	}
+
+
+	public function getIdentityById(int $id): UserIdentityFacade
+	{
+		return new UserIdentityFacade($id);
+	}
+
 
 	public function getLoggedUser(): UserEntity
 	{

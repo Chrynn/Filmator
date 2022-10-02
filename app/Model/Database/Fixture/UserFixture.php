@@ -18,11 +18,14 @@ final class UserFixture extends AbstractFixture implements ContainerAwareInterfa
 
 		foreach ($users as $user) {
 			$newUser = new UserEntity();
-			$newUser->setName($user['name']);
+			$newUser->setNickname($user['nickname']);
 			$newUser->setEmail($user['email']);
 
 			$passwords = new Passwords();
 			$passwordHash = $passwords->hash($user['password']);
+
+			$newUser->setConditions($user['conditions']);
+			$newUser->setNewsletter($user['newsletter']);
 
 			$newUser->setPassword($passwordHash);
 			foreach ($user['right'] as $role => $value) {

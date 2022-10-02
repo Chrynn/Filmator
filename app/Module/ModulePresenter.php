@@ -3,7 +3,8 @@
 namespace App\Module;
 
 use App\Model\Facade\Auth\AuthorizationFacade;
-use App\Model\Facade\Path\PathFacade;
+use App\Model\Facade\AutoIncrement\AutoIncrementFacade;
+use App\Model\Facade\PermanentLogin\PermanentLoginFacade;
 use App\Model\FlashMessage;
 use Nette\Application\UI\Presenter;
 
@@ -11,18 +12,29 @@ class ModulePresenter extends Presenter
 {
 
 	private AuthorizationFacade $authorizationFacade;
+	private PermanentLoginFacade $permanentLoginFacade;
+	private AutoIncrementFacade $autoIncrementFacade;
+
 
 	public function __construct(
 		AuthorizationFacade $authorizationFacade,
+		PermanentLoginFacade $permanentLoginFacade,
+		AutoIncrementFacade $autoIncrementFacade
 	)
 	{
 		parent::__construct();
 		$this->authorizationFacade = $authorizationFacade;
+		$this->permanentLoginFacade = $permanentLoginFacade;
+		$this->autoIncrementFacade = $autoIncrementFacade;
 	}
+
 
 	protected function beforeRender()
 	{
-		$this->getTemplate()->isLogged = $this->authorizationFacade->isLoggedIn();
+		$this->autoIncrementFacade->resetAutoIncrement();
+		$this->permanentLoginFacade->setPermanentLogin();
+
+		$this->getTemplate()->isLogged = $this->authorizationFacade->isLoggedIn();;
 		if ($this->authorizationFacade->isLoggedIn()) {
 			$this->getTemplate()->isAdmin = $this->authorizationFacade->getLoggedUser()->getAdminRole();
 			$this->getTemplate()->isEditor = $this->authorizationFacade->getLoggedUser()->getEditorRole();
@@ -30,12 +42,15 @@ class ModulePresenter extends Presenter
 		}
 	}
 
+
 	public function handleLoggOut(): void
 	{
+		$this->permanentLoginFacade->removePermanentLogin();
 		$this->authorizationFacade->logout();
 		$this->flashMessage("Úspěšně odhlášen", FlashMessage::TYPE_BASIC);
 		$this->redirect(":Ghost:Homepage:");
 	}
+
 
 	public function findLayoutTemplateFile(): ?string
 	{

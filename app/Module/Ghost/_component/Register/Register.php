@@ -2,54 +2,62 @@
 
 namespace App\Module\Ghost\_component\Register;
 
-use App\Model\Database\Entity\UserEntity;
 use App\Model\Facade\Auth\InputCheckFacade;
-use App\Model\Service\NeedToChange\Auth;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Model\Service\User\UserService;
 use Nette\Application\UI\Control;
 use Nette\Application\UI\Form;
 use Nette\Security\AuthenticationException;
-use Nette\Security\Passwords;
 
 
 final class Register extends Control
 {
 
+	private const REGISTER_ERROR = "Registrace nebyla úspěšná";
+	private const REGISTER_SUCCESS = "Registrace byla úspěšná, můžete se přihlásit";
+
 	/** @var array<callable> */
 	public array $onRegister = [];
 
 	private InputCheckFacade $inputCheckFacade;
-	private Auth $auth;
+	private UserService $userService;
+
 
 	public function __construct(
 		InputCheckFacade $inputCheckFacade,
-		Auth $auth
+		UserService $userService
 	)
 	{
 		$this->inputCheckFacade = $inputCheckFacade;
-		$this->auth = $auth;
+		$this->userService = $userService;
 	}
+
 
 	protected function createComponentForm(): Form
 	{
 		$form = new Form();
-		$form->addText("name");
+		$form->addText("nickname");
 		$form->addText("email");
 		$form->addPassword("password");
 		$form->addPassword("passwordAgain");
+		$form->addCheckbox("conditions");
+		$form->addCheckbox("newsletter");
 		$form->addSubmit("register");
 		$form->onSubmit[] = [$this, "registrationCheck"];
 		return $form;
 	}
 
+
 	public function registrationCheck(Form $form): void
 	{
 		if ($this->inputCheckFacade->registerChecked($form)) {
 			try {
-				$this->auth->setNewUser($form);
+				$this->userService->add($form);
+				$this->flashMessage(self::REGISTER_SUCCESS);
+				$this->redrawControl("register");
+				$form->reset();
 				$this->onRegister();
 			} catch (AuthenticationException $e) {
-				$form->addError("Registrace nebyla úspěšná");
+				$form->addError(self::REGISTER_ERROR);
 				$this->redrawControl("register");
 			}
 		}
@@ -57,6 +65,7 @@ final class Register extends Control
 			$this->redrawControl("register");
 		}
 	}
+
 
 	public function render(): void
 	{
