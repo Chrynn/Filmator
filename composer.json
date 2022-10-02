@@ -34,16 +34,12 @@
 	},
 	"autoload": {
 		"files": [
-			"app/Module/ModulePresenter.php",
-			"app/Model/FlashMessage.php"
+			"app/Bootstrap.php"
 		],
 		"psr-4": {
-			"App\\Module\\Admin\\": "app/Module/Admin",
-			"App\\Module\\Ghost\\": "app/Module/Ghost",
-			"App\\Module\\User\\": "app/Module/User",
-			"App\\Model\\Database\\": "app/Model/Database",
-			"App\\Model\\Facade\\": "app/Model/Facade",
-			"App\\Model\\Service\\": "app/Model/Service"
+			"App\\Model\\": "app/Model",
+			"App\\Module\\": "app/Module",
+			"App\\Router\\": "app/Router"
 		}
 	},
 	"minimum-stability": "stable",
