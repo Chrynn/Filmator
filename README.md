@@ -19,6 +19,7 @@ Použité technologie
 Použité nástroje
 - [PHPStorm](https://www.jetbrains.com/phpstorm/), VSCode
 - PHP [dokumentace](https://www.php.net/), Nette [dokumentace](https://doc.nette.org/), Stackoverflow atd.
+- Docker, MariaDB
 
 Coding standard
 - CSS 3 - [BEM](https://www.vzhurudolu.cz/prirucka/bem) a [W3C](https://www.w3.org/Style/CSS/specs.en.html)
