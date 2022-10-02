@@ -5,7 +5,6 @@ namespace App\Model\Database\Entity;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
  * @ORM\Entity
  * @ORM\Table(name="read_tag")
@@ -38,15 +37,18 @@ class TagReadEntity
 		return $this->id;
 	}
 
+
 	public function getTitle(): string
 	{
 		return $this->title;
 	}
 
+
 	public function setTitle(string $title): void
 	{
 		$this->title = $title;
 	}
+
 
 	/**
 	 * @return Collection<int, ArticleEntity>
@@ -55,6 +57,7 @@ class TagReadEntity
 	{
 		return $this->tagArticle;
 	}
+
 
 	/**
 	 * @param Collection<int, ArticleEntity> $tagArticle

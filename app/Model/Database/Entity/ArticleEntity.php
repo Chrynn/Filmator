@@ -2,11 +2,9 @@
 
 namespace App\Model\Database\Entity;
 
+use DateTime;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Nette\Security\User;
-use Nette\Utils\DateTime;
-
 
 /**
  * @ORM\Entity
@@ -45,7 +43,7 @@ class ArticleEntity
 	/**
 	 * @ORM\Column(type="datetime", nullable=false)
 	 */
-	protected \DateTime $createdAt;
+	protected DateTime $createdAt;
 
 	/**
 	 * @ORM\Column(type="string", nullable=false)
@@ -79,35 +77,42 @@ class ArticleEntity
 		return $this->id;
 	}
 
+
 	public function getName(): string
 	{
 		return $this->name;
 	}
+
 
 	public function setName(string $name): void
 	{
 		$this->name = $name;
 	}
 
+
 	public function getSlug(): string
 	{
 		return $this->slug;
 	}
+
 
 	public function setSlug(string $slug): void
 	{
 		$this->slug = $slug;
 	}
 
+
 	public function getDescription(): ?string
 	{
 		return $this->description;
 	}
 
+
 	public function setDescription(?string $description): void
 	{
 		$this->description = $description;
 	}
+
 
 	/**
 	 * @return Collection<int, UserEntity>
@@ -117,6 +122,7 @@ class ArticleEntity
 		return $this->likeUser;
 	}
 
+
 	/**
 	 * @return Collection<int, UserEntity>
 	 */
@@ -125,6 +131,7 @@ class ArticleEntity
 		return $this->watchUser;
 	}
 
+
 	/**
 	 * @return Collection<int, TagReadEntity>
 	 */
@@ -132,6 +139,7 @@ class ArticleEntity
 	{
 		return $this->articleTag;
 	}
+
 
 	/**
 	 * @param Collection<int, TagReadEntity> $articleTag
@@ -154,13 +162,13 @@ class ArticleEntity
 	}
 
 
-	public function getCreatedAt(): \DateTime
+	public function getCreatedAt(): DateTime
 	{
 		return $this->createdAt;
 	}
 
 
-	public function setCreatedAt(\DateTime $createdAt): void
+	public function setCreatedAt(DateTime $createdAt): void
 	{
 		$this->createdAt = $createdAt;
 	}

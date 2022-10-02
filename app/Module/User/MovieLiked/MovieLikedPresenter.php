@@ -3,8 +3,9 @@
 namespace App\Module\User\MovieLiked;
 
 use App\Model\Database\Entity\MovieEntity;
-use App\Model\Facade\Auth\AuthorizationFacade;
-use App\Model\Facade\Auth\LoginFunctions;
+use App\Model\Facade\Anonymous\Auth\AuthorizationFacade;
+use App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade;
+use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
 use App\Module\User\UserPresenter;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -14,15 +15,23 @@ class MovieLikedPresenter extends UserPresenter
 	private AuthorizationFacade $authorizationFacade;
 	private EntityManagerInterface $entityManager;
 
+
 	public function __construct(
+		AutoIncrementFacade $autoIncrementFacade,
+		PermanentLoginFacade $permanentLoginFacade,
 		AuthorizationFacade $authorizationFacade,
 		EntityManagerInterface $entityManager,
 	)
 	{
-		parent::__construct($authorizationFacade);
+		parent::__construct(
+			$autoIncrementFacade,
+			$permanentLoginFacade,
+			$authorizationFacade
+		);
 		$this->authorizationFacade = $authorizationFacade;
 		$this->entityManager = $entityManager;
 	}
+
 
 	public function actionDefault(): void
 	{

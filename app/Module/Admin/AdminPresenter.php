@@ -1,38 +1,43 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace App\Module\Admin;
 
-use App\Model\Facade\Auth\AuthorizationFacade;
-use App\Module\Ghost\_component\Login\LoginFactory;
-use App\Module\Ghost\_component\Register\RegisterFactory;
+use App\Model\Facade\Anonymous\Auth\AuthorizationFacade;
+use App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade;
+use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
+use App\Module\ModulePresenter;
 
-abstract class AdminPresenter extends \App\Module\ModulePresenter
+abstract class AdminPresenter extends ModulePresenter
 {
-
 
 	private AuthorizationFacade $authorizationFacade;
 
-	public function __construct(AuthorizationFacade $authorizationFacade, LoginFactory $loginFactory, RegisterFactory $registerFactory)
+	public function __construct(
+		AutoIncrementFacade $autoIncrementFacade,
+		PermanentLoginFacade $permanentLoginFacade,
+		AuthorizationFacade $authorizationFacade
+	)
 	{
-		parent::__construct($authorizationFacade);
+		parent::__construct(
+			$autoIncrementFacade,
+			$permanentLoginFacade,
+			$authorizationFacade
+		);
 		$this->authorizationFacade = $authorizationFacade;
 	}
+
 
 	protected function startup(): void
 	{
 		parent::startup();
-		if ($this->authorizationFacade->isLoggedIn()) {
-			if($this->authorizationFacade->getLoggedUser()->getAdminRole())
-			{
-				$this->redirect(":Admin:Homepage:");
-			}
-			elseif(!$this->authorizationFacade->getLoggedUser()->getAdminRole())
-			{
+		$logged = $this->authorizationFacade->isLoggedIn();
+		if ($logged) {
+			$admin = $this->authorizationFacade->getLoggedUser()->getRole() === "admin";
+			if (!$admin) {
 				$this->redirect(":User:Homepage:");
 			}
-		}
-		else {
-			$this->redirect(":Ghost:Login:");
+		} else {
+			$this->redirect(":Anonymous:Homepage:");
 		}
 	}
 

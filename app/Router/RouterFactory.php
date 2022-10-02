@@ -14,24 +14,23 @@ final class RouterFactory
 	public static function createRouter(): RouteList
 	{
 		$routerAdmin = new RouteList("Admin");
-		$routerAdmin->addRoute('admin/edit-movie/<id>', 'Edit:default');
 		$routerAdmin->addRoute('admin/<presenter>/<action>[/<id>]', 'Homepage:default');
 
 		$routerUser = new RouteList("User");
 		$routerUser->addRoute('user/<presenter>/<action>[/<id>]', 'Homepage:default');
 
-		$routerGhost = new RouteList("Ghost");
-		$routerGhost->addRoute('movie/<url>', 'Movie:detail');
-		$routerGhost->addRoute('serial/<url>', 'Serial:detail');
-		$routerGhost->addRoute('actor/<url>', 'Actor:detail');
-		$routerGhost->addRoute('article/<url>', 'Article:detail');
-		$routerGhost->addRoute('profile/<url>', 'Profile:detail');
-		$routerGhost->addRoute('<presenter>/<action>[/<id>]', 'Homepage:default');
+		$routerAnonymous = new RouteList("Anonymous");
+		$routerAnonymous->addRoute('movie/<url>', 'Movie:detail');
+		$routerAnonymous->addRoute('serial/<url>', 'Serial:detail');
+		$routerAnonymous->addRoute('actor/<url>', 'Actor:detail');
+		$routerAnonymous->addRoute('article/<url>', 'Article:detail');
+		$routerAnonymous->addRoute('profile/<url>', 'Profile:detail');
+		$routerAnonymous->addRoute('<presenter>/<action>[/<id>]', 'Homepage:default');
 
 		$router = new RouteList();
 		$router->add($routerAdmin);
 		$router->add($routerUser);
-		$router->add($routerGhost);
+		$router->add($routerAnonymous);
 
 		return $router;
 	}

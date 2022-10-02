@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 
 namespace App\Model\Service\User;
-;
+
 use App\Model\Database\Entity\UserEntity;
 use Doctrine\ORM\EntityManagerInterface;
 use Nette\Application\UI\Form;
@@ -10,9 +10,7 @@ use Nette\Security\Passwords;
 final class UserService
 {
 
-	private const DEFAULT_ADMIN = 0;
-	private const DEFAULT_EDITOR = 0;
-	private const DEFAULT_USER = 1;
+	private const DEFAULT_ROLE = "user";
 
 	private Passwords $passwords;
 	private EntityManagerInterface $entityManager;
@@ -34,10 +32,7 @@ final class UserService
 		$passwordHash = $this->passwords->hash($password);
 		$conditions = $values->conditions;
 		$newsletter = $values->newsletter;
-
-		$defaultAdmin = self::DEFAULT_ADMIN;
-		$defaultEditor = self::DEFAULT_EDITOR;
-		$defaultUser = self::DEFAULT_USER;
+		$role = self::DEFAULT_ROLE;
 
 		$user = new UserEntity();
 		$user->setNickname($nickname);
@@ -45,9 +40,7 @@ final class UserService
 		$user->setPassword($passwordHash);
 		$user->setConditions($conditions);
 		$user->setNewsletter($newsletter);
-		$user->setAdminRole($defaultAdmin);
-		$user->setEditorRole($defaultEditor);
-		$user->setUserRole($defaultUser);
+		$user->setRole($role);
 		$this->entityManager->persist($user);
 		$this->entityManager->flush();
 	}

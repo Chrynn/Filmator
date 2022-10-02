@@ -8,7 +8,7 @@
         <div class="admin">
             {foreach $users as $singleUser}
                 {if $singleUser->getUserRole() && $singleUser->getAdminRole()}
-                    <a n:href=":Ghost:Profile:detail $singleUser->getName()">
+                    <a n:href=":Anonymous:Profile:detail $singleUser->getName()">
                         <div class="single">
                             <h2>{$singleUser->getName()}</h2>
                         </div>
@@ -21,7 +21,7 @@
         <div class="user">
             {foreach $users as $singleUser}
                 {if $singleUser->getUserRole() && !$singleUser->getAdminRole()}
-                    <a n:href=":Ghost:Profile:detail $singleUser->getName()">
+                    <a n:href=":Anonymous:Profile:detail $singleUser->getName()">
                         <div class="single">
                             <h2>{$singleUser->getName()}</h2>
                         </div>

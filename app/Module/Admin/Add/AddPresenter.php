@@ -2,15 +2,11 @@
 
 namespace App\Module\Admin\Add;
 
-use App\Model\Database\Entity\Actor;
 use App\Model\Database\Entity\ActorEntity;
 use App\Model\Database\Entity\ArticleEntity;
-use App\Model\Database\Entity\Blog;
-use App\Model\Database\Entity\Movie;
 use App\Model\Database\Entity\MovieEntity;
-use App\Model\Database\Entity\Serial;
 use App\Model\Database\Entity\SerialEntity;
-use App\Model\Facade\Auth\AuthorizationFacade;
+use App\Model\Facade\Anonymous\Auth\AuthorizationFacade;
 use App\Module\Admin\AdminPresenter;
 use Doctrine\ORM\EntityManagerInterface;
 use Nette\Application\UI\Form;
@@ -18,9 +14,13 @@ use Nette\Utils\Strings;
 
 class AddPresenter extends AdminPresenter
 {
+
     private EntityManagerInterface $entityManager;
 
-	public function __construct(EntityManagerInterface $entityManager, AuthorizationFacade $authorizationFacade)
+	public function __construct(
+		EntityManagerInterface $entityManager,
+		AuthorizationFacade $authorizationFacade
+	)
     {
         parent::__construct($authorizationFacade);
         $this->entityManager = $entityManager;

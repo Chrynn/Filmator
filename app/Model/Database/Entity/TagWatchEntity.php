@@ -5,7 +5,6 @@ namespace App\Model\Database\Entity;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
  * @ORM\Entity
  * @ORM\Table(name="watch_tag")
@@ -45,15 +44,18 @@ class TagWatchEntity
 		return $this->id;
 	}
 
+
 	public function getTitle(): string
 	{
 		return $this->title;
 	}
 
+
 	public function setTitle(string $title): void
 	{
 		$this->title = $title;
 	}
+
 
 	/**
 	 * @return Collection<int, MovieEntity>
@@ -63,6 +65,7 @@ class TagWatchEntity
 		return $this->tagMovie;
 	}
 
+
 	/**
 	 * @param Collection<int, MovieEntity> $tagMovie
 	 */
@@ -71,6 +74,7 @@ class TagWatchEntity
 		$this->tagMovie = $tagMovie;
 	}
 
+
 	/**
 	 * @return Collection<int, SerialEntity>
 	 */
@@ -78,6 +82,7 @@ class TagWatchEntity
 	{
 		return $this->tagSerial;
 	}
+
 
 	/**
 	 * @param Collection<int, SerialEntity> $tagSerial

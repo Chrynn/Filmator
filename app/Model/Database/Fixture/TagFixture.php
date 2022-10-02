@@ -8,7 +8,6 @@ use Doctrine\Persistence\ObjectManager;
 use Nette\Neon\Neon;
 use Nettrine\Fixtures\ContainerAwareInterface;
 
-
 final class TagFixture extends AbstractFixture implements ContainerAwareInterface
 {
 

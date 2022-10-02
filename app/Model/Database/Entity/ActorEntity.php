@@ -4,8 +4,6 @@ namespace App\Model\Database\Entity;
 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Nette\Security\User;
-
 
 /**
  * @ORM\Entity
@@ -54,45 +52,54 @@ class ActorEntity
 		return $this->id;
 	}
 
+
 	public function getSlug(): string
 	{
 		return $this->slug;
 	}
+
 
 	public function setSlug(string $slug): void
 	{
 		$this->slug = $slug;
 	}
 
+
 	public function getName(): string
 	{
 		return $this->name;
 	}
+
 
 	public function setName(string $name): void
 	{
 		$this->name = $name;
 	}
 
+
 	public function getImagePoster(): string
 	{
 		return $this->imagePoster;
 	}
+
 
 	public function setImagePoster(string $imagePoster): void
 	{
 		$this->imagePoster = $imagePoster;
 	}
 
+
 	public function getImageBanner(): string
 	{
 		return $this->imageBanner;
 	}
 
+
 	public function setImageBanner(string $imageBanner): void
 	{
 		$this->imageBanner = $imageBanner;
 	}
+
 
 	/**
 	 * @return Collection<int, UserEntity>

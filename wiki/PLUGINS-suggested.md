@@ -44,4 +44,3 @@ Remote - WSL
 > pouze v případě, že používáte Ubuntu
 
 ![image](https://user-images.githubusercontent.com/91970419/191777031-1e8ed23d-1a19-47ca-a2a4-00fc7f6e80a0.png)
-

@@ -1,0 +1,305 @@
+{import "../../../templates/menu.latte"}
+{import "../../../templates/watch/detail/watchMovie.latte"}
+{varType App\Model\Database\Entity\ActorEntity $actor}
+{block content}
+
+<div class="topic-detail topic-detail--special">
+    <div class="container-extern">
+        <div class="topic-detail__content-wrap">
+            <div class="topic-detail__image-box">
+                <img src="../{$actor->getImageBanner()}" alt="actor-face" class="topic-detail__image">
+            </div>
+            <div class="topic-detail__content">
+                <div class="darken">
+                    <div class="container-intern">
+                        <div class="topic-detail__heading-wrap">
+                            <div>
+                                <h2 n:block="title" class="topic-detail__title">{$actor->getName()}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{include menu}
+
+<div class="biography">
+    <div class="container-intern">
+        <div class="flexer">
+            <div class="biography__cover-wrap">
+                <div class="biography__cover-box">
+                    <img src="../{$actor->getImagePoster()}" alt="actor-face" class="biography__cover">
+                </div>
+            </div>
+            <div class="biography__overview-wrap">
+                <div class="biography__column">
+                    <table>
+                        <tr>
+                            <td class="biography__item"><span class="biography__text biography__text--strong">Výška<span></td>
+                            <td class="biography__item"><p class="biography__text">185 cm</p></td>
+                        </tr>
+                        <tr>
+                            <td class="biography__item"><span class="biography__text biography__text--strong">Rodné jméno<span></td>
+                            <td class="biography__item"><p class="biography__text">Robert John Downey Jr.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="biography__item"><span class="biography__text biography__text--strong">Datum narození<span></td>
+                            <td class="biography__item"><p class="biography__text">04.04.1965 - 57 let</p></td>
+                        </tr>
+                        <tr>
+                            <td class="biography__item"><span class="biography__text biography__text--strong">Místo narození<span></td>
+                            <td class="biography__item"><p class="biography__text">New York, USA</p></td>
+                        </tr>
+                    </table>
+                    <table class="biography__table biography__table--second">
+                        <tr>
+                            <td class="biography__item"><span class="biography__text biography__text--strong">Manželka<span></td>
+                            <td class="biography__item"><p class="biography__text">Susan Downey</p></td>
+                        </tr>
+                        <tr>
+                            <td class="biography__item"><span class="biography__text biography__text--strong">Děti</span></td>
+                            <td class="biography__item"><p class="biography__text">3</p></td>
+                        </tr>
+                        <tr>
+                            <td class="biography__item"><span class="biography__text biography__text--strong">Příbuzní</span></td>
+                            <td class="biography__item"><p class="biography__text">Allyson Downey - sourozenec</p></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="biography__column">
+                    <table>
+                        <tr>
+                            <td class="biography__item"><span class="biography__text biography__text--strong">Studium</span></td>
+                            <td class="biography__item"><p class="biography__text">Střední škola UK</p></td>
+                        </tr>
+                        <tr>
+                            <td class="biography__item"><span class="biography__text biography__text--strong">Koníčky</span></td>
+                            <td class="biography__item"><p class="biography__text">Plavání</p></td>
+                        </tr>
+                        <tr>
+                            <td class="biography__item"><span class="biography__text biography__text--strong">Přezdívky</span></td>
+                            <td class="biography__item"><p class="biography__text">Orel</p></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="background-icon">
+            <img src="../img/icons/movie-tape.svg" alt="movie-tape-icon" class="background-icon__image--bottom">
+        </div>
+    </div>
+</div>
+
+<div class="filmography">
+    <div class="container-extern">
+        <div class="darken">
+            <div class="container-intern">
+                <div class="filmography__content">
+                    <div class="filmography__column">
+                        <div>
+                            <h3 class="filmography__heading">Biografie</h3>
+                        </div>
+                        <div class="filmography__description-block">
+                            <p class="filmography__description">Robert Downey Jr. se narodil 4.4.1965 v Manhattanu, New York, USA. Mnoho lidí
+                                v
+                                tu dobu
+                                již jistě předpokládalo, že se po vzoru svých rodičů, režiséra Roberta
+                                Downeyho
+                                Sr. a
+                                herečky Elsie Downey, bude chtít věnovat filmu. Předtuchy těchto lidí se
+                                staly
+                                skutečností po pouhých pěti letech. V roce 1970 ho totiž jeho otec poprvé
+                                obsadil do
+                                jednoho ze svých snímků s názvem POUND. Filmová spolupráce otec-syn trvala
+                                prakticky až
+                                do roku 1997. Během těchto let se tento mladý talentovaný herec objevil v
+                                drtivé
+                                většině
+                                děl svého méně známého režisérského otce. Z těch úspěšnějších lze jmenovat
+                                například
+                                komedie TO JE ALE TEPLO! a LÁSKA NA DRUHÝ DOTEK. Otec byl vždy jeden z
+                                hlavních
+                                Robertových vzorů, ale ne vše, co se od něj naučil, bylo pro jeho život
+                                prospěšné. Mezi
+                                méně užitečné návyky, které si od něho osvojil, patřila drogová závislost
+                                již od
+                                velmi
+                                mladého věku.
+                                Drogová závislost, stejně tak jako závislost na otci určitě byly jedny z
+                                věcí,
+                                kterých se chtěl zbavit pokud možno co
+                                nejdříve. Ve filmové branži se mu to podařilo poprvé v jeho osmnácti letech.
+                                Tehdy si zahrál menší roli v romantické
+                                komedii MILÁČKU, JSI TO TY?
+                            </p>
+                        </div>
+                        <div class="filmography__button-block">
+                            <button class="filmography__button">
+                                <span class="filmography__button-text">více</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="filmography__column">
+                        <div>
+                            <h3 class="filmography__heading">Ocenění</h3>
+                        </div>
+                        <div class="filmography__hint-wrap">
+                            <ul class="filmography__list-hint">
+                                <li class="filmography__item-hint">
+                                    <div class="filmography__hint-box">
+                                        <div class="filmography__hint-color-box">
+                                            <div class="filmography__hint-color filmography__hint-color--first"></div>
+                                        </div>
+                                        <span class="filmography__hint-text">Nominace</span>
+                                    </div>
+                                </li>
+                                <li class="filmography__item-hint">
+                                    <div class="filmography__hint-box">
+                                        <div class="filmography__hint-color-box">
+                                            <div class="filmography__hint-color filmography__hint-color--second"></div>
+                                        </div>
+                                        <span class="filmography__hint-text">Vítězství</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <hr>
+
+                        <div class="filmography__awards-box">
+
+                            <div class="filmography__row">
+                                <div>
+                                    <h3 class="filmography__heading-awards">Academy Awards</h3>
+                                </div>
+                                <table>
+                                    <tr>
+                                        <td class="filmography__item-awards filmography__item-awards--side filmography__item-awards--basic"><p class="filmography__text-awards">2009</p></td>
+                                        <td class="filmography__item-awards filmography__item-awards--middle"><p class="filmography__text-awards filmography__text-awards--colored">Tropická Bouře</p></td>
+                                        <td><p class="filmography__text-awards">Nejlepší herec ve vedlejší roli</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="filmography__item-awards filmography__item-awards--side filmography__item-awards--basic"><p class="filmography__text-awards">1993</p></td>
+                                        <td class="filmography__item-awards filmography__item-awards--middle"><p class="filmography__text-awards filmography__text-awards--colored">Chaplin</p></td>
+                                        <td><p class="filmography__text-awards">Nejlepší herec ve vedlejší roli</p></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="filmography__row">
+                                <div>
+                                    <h3 class="filmography__heading-awards">Academy Awards</h3>
+                                </div>
+                                <table>
+                                    <tr>
+                                        <td class="filmography__item-awards filmography__item-awards--side filmography__item-awards--colored"><p class="filmography__text-awards">2009</p></td>
+                                        <td class="filmography__item-awards filmography__item-awards--middle"><p class="filmography__text-awards filmography__text-awards--colored">Tropická Bouře</p></td>
+                                        <td><p class="filmography__text-awards">Nejlepší herec ve vedlejší roli</p></td>
+                                    </tr>
+                                    <tr class="nominated">
+                                        <td class="filmography__item-awards filmography__item-awards--side filmography__item-awards--basic"><p class="filmography__text-awards">1993</p></td>
+                                        <td class="filmography__item-awards filmography__item-awards--middle"><p class="filmography__text-awards filmography__text-awards--colored">Chaplin</p></td>
+                                        <td><p class="filmography__text-awards">Nejlepší herec ve vedlejší roli</p></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="filmography__row">
+                                <div>
+                                    <h3 class="filmography__heading-awards">Academy Awards</h3>
+                                </div>
+                                <table>
+                                    <tr>
+                                        <td class="filmography__item-awards filmography__item-awards--side filmography__item-awards--basic"><p class="filmography__text-awards">2009</p></td>
+                                        <td class="filmography__item-awards filmography__item-awards--middle"><p class="filmography__text-awards filmography__text-awards--colored">Tropická Bouře</p></td>
+                                        <td><p class="filmography__text-awards">Nejlepší herec ve vedlejší roli</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="filmography__item-awards filmography__item-awards--side filmography__item-awards--basic"><p class="filmography__text-awards">1993</p></td>
+                                        <td class="filmography__item-awards filmography__item-awards--middle"><p class="filmography__text-awards filmography__text-awards--colored">Chaplin</p></td>
+                                        <td><p class="filmography__text-awards">Nejlepší herec ve vedlejší roli</p></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="filmography__row">
+                                <div>
+                                    <h3 class="filmography__heading-awards">Academy Awards</h3>
+                                </div>
+                                <table>
+                                    <tr>
+                                        <td class="filmography__item-awards filmography__item-awards--side filmography__item-awards--basic"><p class="filmography__text-awards">2009</p></td>
+                                        <td class="filmography__item-awards filmography__item-awards--middle"><p class="filmography__text-awards filmography__text-awards--colored">Tropická Bouře</p></td>
+                                        <td><p class="filmography__text-awards">Nejlepší herec ve vedlejší roli</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="filmography__item-awards filmography__item-awards--side filmography__item-awards--basic"><p class="filmography__text-awards">1993</p></td>
+                                        <td class="filmography__item-awards filmography__item-awards--middle"><p class="filmography__text-awards filmography__text-awards--colored">Chaplin</p></td>
+                                        <td><p class="filmography__text-awards">Nejlepší herec ve vedlejší roli</p></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="filmography__button-block">
+                            <button class="filmography__button">
+                                <span class="filmography__button-text">více</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="watch">
+    <div class="container-intern">
+
+        <div class="background-icon">
+            <img src="../img/icons/movie-tape.svg" alt="movie-tape-icon" class="background-icon__image--top">
+        </div>
+
+        <div class="watch__block-topic">
+            <div class="watch__topic-line--dark"></div>
+            <div class="watch__topic-title">
+                <div class="watch__topic-box--dark">
+                    <h3 class="watch__topic-heading--dark">Filmo</h3>
+                </div>
+                <div class="watch__topic-box--light">
+                    <h3 class="watch__topic-heading--light">grafie</h3>
+                </div>
+            </div>
+            <div class="watch__topic-line--light"></div>
+        </div>
+
+        <div class="watch__block-picker">
+            <div class="watch__column-picker">
+                <ul class="watch__list-picker">
+                    <li class="watch__item-picker">
+                        <button class="watch__button-picker watch__button-picker--active">
+                            <span class="watch__text-picker">Filmy</span>
+                        </button>
+                    </li>
+                    <li class="watch__item-picker">
+                        <button class="watch__button-picker">
+                            <span class="watch__text-picker">Seriály</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="watch__column-picker watch__column-picker--second">
+                <div class="watch__sort-picker">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal">
+            {include watchMovie}
+        </div>
+
+    </div>
+</div>

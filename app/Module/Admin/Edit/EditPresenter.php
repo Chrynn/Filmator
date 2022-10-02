@@ -1,10 +1,11 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace App\Module\Admin\Edit;
 
-use App\Model\Database\Entity\Movie;
 use App\Model\Database\Entity\MovieEntity;
-use App\Model\Facade\Auth\AuthorizationFacade;
+use App\Model\Facade\Anonymous\Auth\AuthorizationFacade;
+use App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade;
+use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
 use App\Module\Admin\AdminPresenter;
 use App\Module\Admin\Edit\Component\EditMovie\EditMovie;
 use App\Module\Admin\Edit\Component\EditMovie\EditMovieFactory;
@@ -17,12 +18,14 @@ class EditPresenter extends AdminPresenter
 	private EditMovieFactory $editMovieFactory;
 
 	public function __construct(
+		AutoIncrementFacade $autoIncrementFacade,
+		PermanentLoginFacade $permanentLoginFacade,
 		EntityManagerInterface $entityManager,
 		EditMovieFactory $editMovieFactory,
 		AuthorizationFacade $authorizationFacade,
 	)
 	{
-		parent::__construct($authorizationFacade);
+		parent::__construct($autoIncrementFacade, $permanentLoginFacade, $authorizationFacade);
 		$this->entityManager = $entityManager;
 		$this->editMovieFactory = $editMovieFactory;
 	}

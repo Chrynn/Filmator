@@ -8,7 +8,6 @@ use Nette\Neon\Neon;
 use Nette\Utils\Strings;
 use Nettrine\Fixtures\ContainerAwareInterface;
 
-
 final class ActorFixture extends AbstractFixture implements ContainerAwareInterface
 {
 

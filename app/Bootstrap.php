@@ -4,7 +4,7 @@ namespace App;
 
 use Nette\Bootstrap\Configurator;
 
-class Bootstrap
+final class Bootstrap
 {
 
 	public static function boot(): Configurator
@@ -22,12 +22,12 @@ class Bootstrap
 			->addDirectory(__DIR__)
 			->register();
 
-		$configurator->addConfig($appDir . '/config/query.neon');
 		$configurator->addConfig($appDir . '/config/common.neon');
-		$configurator->addConfig($appDir . '/config/services.neon');
-		$configurator->addConfig($appDir . '/config/factory.neon');
 		$configurator->addConfig($appDir . '/config/local.neon');
-		$configurator->addConfig($appDir . '/config/facade.neon');
+
+		$configurator->addConfig($appDir . '/app/Model/Facade/facade.neon');
+		$configurator->addConfig($appDir . '/app/Model/Service/service.neon');
+		$configurator->addConfig($appDir . '/app/Module/factory.neon');
 
 		return $configurator;
 	}

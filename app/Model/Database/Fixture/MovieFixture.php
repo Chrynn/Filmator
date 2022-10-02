@@ -3,15 +3,20 @@
 namespace App\Model\Database\Fixture;
 
 use App\Model\Database\Entity\MovieEntity;
-use App\Model\Facade\Admin\NewContentFacade;
+use App\Model\Facade\Admin\Content\Trailer\TrailerFacade;
 use Doctrine\Persistence\ObjectManager;
 use Nette\Neon\Neon;
 use Nette\Utils\Strings;
 use Nettrine\Fixtures\ContainerAwareInterface;
 
-
 final class MovieFixture extends AbstractFixture implements ContainerAwareInterface
 {
+
+	public function getTrailerFacade(): TrailerFacade
+	{
+		return $this->getContainer()->getByType(TrailerFacade::class);
+	}
+
 
 	public function load(ObjectManager $manager): void
 	{
@@ -19,8 +24,9 @@ final class MovieFixture extends AbstractFixture implements ContainerAwareInterf
 
 		foreach ($movies as $movie) {
 			$newMovie = new MovieEntity();
-			$newMovie->setName($movie['title']);
-			$newMovie->setSlug(Strings::webalize($movie['title']));
+			$title = $movie['title'];
+			$newMovie->setName($title);
+			$newMovie->setSlug(Strings::webalize($title));
 			$newMovie->setYear($movie['year']);
 			$newMovie->setRating($movie['rating']);
 			$newMovie->setTeaser($movie['teaser']);
@@ -33,7 +39,7 @@ final class MovieFixture extends AbstractFixture implements ContainerAwareInterf
 					$newMovie->setImagePoster($value);
 				}
 			}
-			$newMovie->setTrailer(NewContentFacade::getTrailerLink($movie['trailer']));
+			$newMovie->setTrailer($this->getTrailerFacade()->getTrailerLink($movie['trailer']));
 			$manager->persist($newMovie);
 		}
 		$manager->flush();
