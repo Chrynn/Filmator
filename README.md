@@ -22,8 +22,8 @@ Použité nástroje
 - Docker, MariaDB
 
 Coding standard
-- CSS 3 - [BEM](https://www.vzhurudolu.cz/prirucka/bem) a [W3C](https://www.w3.org/Style/CSS/specs.en.html)
-- PHP 8 - čistý [OOP](https://php.baraja.cz/uvod-do-oop) kód
+- CSS `3` - [BEM](https://www.vzhurudolu.cz/prirucka/bem) a [W3C](https://www.w3.org/Style/CSS/specs.en.html)
+- PHP `8.1` - čistý [OOP](https://php.baraja.cz/uvod-do-oop) kód
 
 Rozcestník
 - **app** - PHP a latte soubory (source)
