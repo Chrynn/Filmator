@@ -42,3 +42,7 @@ reset:
 	make down
 	make up
 	make cache
+
+# for this you can use makefile or git alias
+load:
+	docker-compose -f .docker/docker-compose.yml exec php composer dump-autoload
