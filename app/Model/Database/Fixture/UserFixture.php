@@ -8,13 +8,12 @@ use Nette\Neon\Neon;
 use Nette\Security\Passwords;
 use Nettrine\Fixtures\ContainerAwareInterface;
 
-
 final class UserFixture extends AbstractFixture implements ContainerAwareInterface
 {
 
 	public function load(ObjectManager $manager): void
 	{
-		$users = Neon::decodeFile(__DIR__ . "/content/user.neon");
+		$users = Neon::decodeFile(__DIR__ . '/content/user.neon');
 
 		foreach ($users as $user) {
 			$newUser = new UserEntity();
@@ -28,21 +27,10 @@ final class UserFixture extends AbstractFixture implements ContainerAwareInterfa
 			$newUser->setNewsletter($user['newsletter']);
 
 			$newUser->setPassword($passwordHash);
-			foreach ($user['right'] as $role => $value) {
-				if ($role === 'admin') {
-					$newUser->setAdminRole($value);
-				}
-				if ($role === 'editor') {
-					$newUser->setEditorRole($value);
-				}
-				if ($role === 'user') {
-					$newUser->setUserRole($value);
-				}
-			}
+			$newUser->setRole($user['role']);
 			$manager->persist($newUser);
 		}
 		$manager->flush();
 	}
 
 }
-

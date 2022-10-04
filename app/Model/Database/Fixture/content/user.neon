@@ -5,17 +5,18 @@
 	password: bengoro
 	conditions: true
 	newsletter: false
-	right:
-		admin: 1
-		editor: 1
-		user: 1
+	role: admin
 -
 	nickname: Mike
 	email: hello@gmail.com
 	password: '123'
 	conditions: true
 	newsletter: true
-	right:
-		admin: 0
-		editor: 0
-		user: 1
+	role: user
+-
+	nickname: Chrynn
+	email: filipmachala88@gmail.com
+	password: '123'
+	conditions: true
+	newsletter: true
+	role: developer
