@@ -23,6 +23,7 @@ Použité nástroje
 - Docs - PHP [dokumentace](https://www.php.net/), Nette [dokumentace](https://doc.nette.org/), Stackoverflow atd.
 
 Coding standard
+- HTML `5`
 - CSS `3` - [BEM](https://www.vzhurudolu.cz/prirucka/bem) a [W3C](https://www.w3.org/Style/CSS/specs.en.html)
 - PHP `8.1` - čistý [OOP](https://php.baraja.cz/uvod-do-oop) kód
 
