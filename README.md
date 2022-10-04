@@ -17,10 +17,10 @@ Použité technologie
 - Git, Github
 
 Použité nástroje
-- [PHPStorm](https://www.jetbrains.com/phpstorm/), VSCode
-- PHP [dokumentace](https://www.php.net/), Nette [dokumentace](https://doc.nette.org/), Stackoverflow atd.
-- Docker, Nginx, MariaDB
-- Adobe Photoshop, XDesign, Illustrator
+- IDE: [PHPStorm](https://www.jetbrains.com/phpstorm/), VSCode
+- Docs: PHP [dokumentace](https://www.php.net/), Nette [dokumentace](https://doc.nette.org/), Stackoverflow atd.
+- DevOps: Docker, Nginx, MariaDB
+- Design: Adobe Photoshop, XDesign, Illustrator
 
 Coding standard
 - CSS `3` - [BEM](https://www.vzhurudolu.cz/prirucka/bem) a [W3C](https://www.w3.org/Style/CSS/specs.en.html)
