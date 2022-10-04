@@ -18,7 +18,8 @@ Neon Support
 
 ![image](https://user-images.githubusercontent.com/91970419/191776247-2bf5cd99-ec6e-4fbe-aac3-f3ebf2fa3817.png)
 
-PHP Annotations (pro Doctrine)
+PHP Annotations
+> pro Doctrine
 
 ![image](https://user-images.githubusercontent.com/91970419/193900752-8f768ae5-bcb3-492b-b6ec-5a40021e1896.png)
 
