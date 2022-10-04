@@ -49,19 +49,9 @@ class UserEntity
 	protected bool $newsletter;
 
 	/**
-	 * @ORM\Column(type="smallint", nullable=false)
+	 * @ORM\Column(type="string", nullable=false)
 	 */
-	protected int $userRole;
-
-	/**
-	 * @ORM\Column(type="smallint", nullable=false)
-	 */
-	protected int $editorRole;
-
-	/**
-	 * @ORM\Column(type="smallint", nullable=false)
-	 */
-	protected int $adminRole;
+	protected string $role;
 
 	/**
 	 * @var Collection<int, MovieEntity>
@@ -179,39 +169,15 @@ class UserEntity
 	}
 
 
-	public function getUserRole(): int
+	public function getRole(): string
 	{
-		return $this->userRole;
+		return $this->role;
 	}
 
 
-	public function setUserRole(int $userRole): void
+	public function setRole(string $role): void
 	{
-		$this->userRole = $userRole;
-	}
-
-
-	public function getEditorRole(): int
-	{
-		return $this->editorRole;
-	}
-
-
-	public function setEditorRole(int $editorRole): void
-	{
-		$this->editorRole = $editorRole;
-	}
-
-
-	public function getAdminRole(): int
-	{
-		return $this->adminRole;
-	}
-
-
-	public function setAdminRole(int $adminRole): void
-	{
-		$this->adminRole = $adminRole;
+		$this->role = $role;
 	}
 
 
