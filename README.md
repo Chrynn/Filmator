@@ -19,7 +19,7 @@ Použité technologie
 Použité nástroje
 - [PHPStorm](https://www.jetbrains.com/phpstorm/), VSCode
 - PHP [dokumentace](https://www.php.net/), Nette [dokumentace](https://doc.nette.org/), Stackoverflow atd.
-- Docker, MariaDB
+- Docker, Nginx, MariaDB
 - Adobe Photoshop, XDesign, Illustrator
 
 Coding standard
