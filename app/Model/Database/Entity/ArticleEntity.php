@@ -4,71 +4,61 @@ namespace App\Model\Database\Entity;
 
 use DateTime;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\Entity;
+use Doctrine\ORM\Mapping\GeneratedValue;
+use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\JoinTable;
+use Doctrine\ORM\Mapping\ManyToMany;
+use Doctrine\ORM\Mapping\Table;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="article")
- */
-class ArticleEntity
+#[Entity]
+#[Table(name: "article")]
+final class ArticleEntity
 {
 
-	/**
-	 * @ORM\Id
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 * @ORM\Column(type="integer")
-	 */
+	#[Id]
+	#[GeneratedValue(strategy: "AUTO")]
+	#[Column(type: "integer")]
 	protected int $id;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[Column(type: "string", nullable: false)]
 	protected string $name;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[Column(type: "string", nullable: false)]
 	protected string $slug;
 
-	/**
-	 * @ORM\Column(type="string", nullable=true)
-	 */
+	#[Column(type: "string", nullable: true)]
 	protected ?string $description;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[Column(type: "string", nullable: false)]
 	protected string $image;
 
-	/**
-	 * @ORM\Column(type="datetime", nullable=false)
-	 */
+	#[Column(type: "datetime", nullable: false)]
 	protected DateTime $createdAt;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[Column(type: "string", nullable: false)]
 	protected string $createdAtMonth;
 
 	/**
 	 * @var Collection<int, UserEntity>
-	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="likeArticle")
-	 * @ORM\JoinTable(name="like_article")
 	 */
+	#[ManyToMany(targetEntity: "UserEntity", mappedBy: "likeArticle")]
+	#[JoinTable(name: "like_article")]
 	protected Collection $likeUser;
 
 	/**
 	 * @var Collection<int, UserEntity>
-	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="watchArticle")
-	 * @ORM\JoinTable(name="read_article")
 	 */
+	#[ManyToMany(targetEntity: "UserEntity", mappedBy: "watchArticle")]
+	#[JoinTable(name: "read_article")]
 	protected Collection $watchUser;
 
 	/**
 	 * @var Collection<int, TagReadEntity>
-	 * @ORM\ManyToMany(targetEntity="TagReadEntity", mappedBy="tagArticle")
-	 * @ORM\JoinTable(name="tag_article")
 	 */
+	#[ManyToMany(targetEntity: "TagReadEntity", mappedBy: "tagArticle")]
+	#[JoinTable(name: "tag_article")]
 	protected Collection $articleTag;
 
 
