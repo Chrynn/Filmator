@@ -3,7 +3,7 @@
 namespace App\Module\Admin\EditAdmin;
 
 use App\Model\Database\Entity\UserEntity;
-use App\Model\Facade\Auth\AuthorizationFacade;
+use App\Model\Facade\Anonymous\Auth\AuthorizationFacade;
 use App\Module\Admin\AdminPresenter;
 use Doctrine\ORM\EntityManagerInterface;
 

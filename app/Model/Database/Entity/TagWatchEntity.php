@@ -3,40 +3,39 @@
 namespace App\Model\Database\Entity;
 
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\Entity;
+use Doctrine\ORM\Mapping\GeneratedValue;
+use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\JoinTable;
+use Doctrine\ORM\Mapping\ManyToMany;
+use Doctrine\ORM\Mapping\Table;
 
-
-/**
- * @ORM\Entity
- * @ORM\Table(name="watch_tag")
- */
-class TagWatchEntity
+#[Entity]
+#[Table(name: "watch_tag")]
+final class TagWatchEntity
 {
 
-	/**
-	 * @ORM\Id
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 * @ORM\Column(type="integer")
-	 */
+	#[Id]
+	#[GeneratedValue(strategy: "AUTO")]
+	#[Column(type: "integer")]
 	protected int $id;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[Column(type: "string", nullable: false)]
 	protected string $title;
 
 	/**
 	 * @var Collection<int, MovieEntity>
-	 * @ORM\ManyToMany(targetEntity="MovieEntity", inversedBy="movieTag")
-	 * @ORM\JoinTable(name="tag_movie")
 	 */
+	#[ManyToMany(targetEntity: "MovieEntity", inversedBy: "movieTag")]
+	#[JoinTable(name: "tag_movie")]
 	protected Collection $tagMovie;
 
 	/**
 	 * @var Collection<int, SerialEntity>
-	 * @ORM\ManyToMany(targetEntity="SerialEntity", inversedBy="serialTag")
-	 * @ORM\JoinTable(name="tag_serial")
 	 */
+	#[ManyToMany(targetEntity: "SerialEntity", inversedBy: "serialTag")]
+	#[JoinTable(name: "tag_serial")]
 	protected Collection $tagSerial;
 
 
@@ -45,15 +44,18 @@ class TagWatchEntity
 		return $this->id;
 	}
 
+
 	public function getTitle(): string
 	{
 		return $this->title;
 	}
 
+
 	public function setTitle(string $title): void
 	{
 		$this->title = $title;
 	}
+
 
 	/**
 	 * @return Collection<int, MovieEntity>
@@ -63,6 +65,7 @@ class TagWatchEntity
 		return $this->tagMovie;
 	}
 
+
 	/**
 	 * @param Collection<int, MovieEntity> $tagMovie
 	 */
@@ -71,6 +74,7 @@ class TagWatchEntity
 		$this->tagMovie = $tagMovie;
 	}
 
+
 	/**
 	 * @return Collection<int, SerialEntity>
 	 */
@@ -78,6 +82,7 @@ class TagWatchEntity
 	{
 		return $this->tagSerial;
 	}
+
 
 	/**
 	 * @param Collection<int, SerialEntity> $tagSerial

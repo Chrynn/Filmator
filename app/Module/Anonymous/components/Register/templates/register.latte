@@ -1,0 +1,122 @@
+<div class="auth__content js-block-register">
+	<div class="auth__content-wrap">
+		<div class="auth__content-center">
+
+			<div class="auth__block-heading">
+				<div class="auth__heading-box">
+					<h2 class="auth__heading">Členská sekce</h2>
+				</div>
+				<div class="auth__cross-box js-close-auth" title="Zavřít">
+					<div class="auth__cross"></div>
+				</div>
+			</div>
+
+			<div>
+				{snippet register}
+					<form n:name="form" class="ajax">
+						<div class="auth__block-message">
+							<div class="auth__message-box" n:foreach="$form->ownErrors as $error">
+								<span class="auth__message auth__message--active auth__message--error">{$error}</span>
+							</div>
+							<div class="auth__message-box" n:foreach="$flashes as $flash">
+								<span class="auth__message auth__message--active auth__message--success">{$flash->message}</span>
+							</div>
+						</div>
+						<div>
+							<div class="auth__form-wrap">
+								<div class="auth__label-wrap">
+									<div class="auth__label-box">
+										<span class="auth__required" title="Povinný údaj">*</span>
+										<label class="auth__label" n:name="nickname">Přezdívka</label>
+									</div>
+									<div class="auth__label-error-box">
+										<span class="auth__label-error{if $form["nickname"]->hasErrors()} auth__label-error--active{/if}">{$form["nickname"]->error ?? ""}</span>
+									</div>
+								</div>
+								<div class="fillable">
+									<input type="text" n:name="nickname" class="auth__form{if ($form["nickname"]->hasErrors())} auth__form--error{/if}">
+								</div>
+							</div>
+							<div class="auth__form-wrap">
+								<div class="auth__label-wrap">
+									<div class="auth__label-box">
+										<span class="auth__required" title="Povinný údaj">*</span>
+										<label class="auth__label" n:name="email">E-mail</label>
+									</div>
+									<div class="auth__label-error-box">
+										<span class="auth__label-error{if $form["email"]->hasErrors()} auth__label-error--active{/if}">{$form["email"]->error ?? ""}</span>
+									</div>
+								</div>
+								<div class="fillable">
+									<input type="email" n:name="email" class="auth__form{if ($form["email"]->hasErrors())} auth__form--error{/if}">
+								</div>
+							</div>
+							<div class="auth__form-wrap">
+								<div class="auth__label-wrap">
+									<div class="auth__label-box">
+										<span class="auth__required" title="Povinný údaj">*</span>
+										<label class="auth__label" n:name="password">Heslo</label>
+									</div>
+									<div class="auth__label-error-box">
+										<span class="auth__label-error{if $form["password"]->hasErrors()} auth__label-error--active{/if}">{$form["password"]->error ?? ""}</span>
+									</div>
+								</div>
+								<div class="auth__input-box">
+									<div class="auth__image-eye-box js-password-register" title="Zobrazit heslo">
+										<img src="../img/icons/eye.svg" alt="eye-icon" class="auth__image-eye">
+									</div>
+									<input type="password" id="auth__form-password-register" class="auth__form auth__form--special{if ($form["password"]->hasErrors())} auth__form--error{/if}" n:name="password" autocomplete="off">
+								</div>
+							</div>
+							<div class="auth__form-wrap">
+								<div class="auth__label-wrap">
+									<div class="auth__label-box">
+										<span class="auth__required" title="Povinný údaj">*</span>
+										<label n:name="passwordAgain" class="auth__label">Heslo znovu</label>
+									</div>
+									<div class="auth__label-error-box">
+										<span class="auth__label-error{if $form["passwordAgain"]->hasErrors()} auth__label-error--active{/if}">{$form["passwordAgain"]->error ?? ""}</span>
+									</div>
+								</div>
+								<div class="auth__input-box">
+									<div class="auth__image-eye-box js-password-again-register" title="Zobrazit heslo">
+										<img src="../img/icons/eye.svg" alt="eye-icon" class="auth__image-eye">
+									</div>
+									<input type="password" id="auth__form-password-again-register" class="auth__form auth__form--special{if ($form["passwordAgain"]->hasErrors())} auth__form--error{/if}" n:name="passwordAgain" autocomplete="off">
+								</div>
+							</div>
+						</div>
+						<div class="auth__check-wrap">
+							<div class="auth__check-box auth__check-box--first">
+								<input type="checkbox" class="auth__check{if $form["conditions"]->hasErrors()} auth__check--error{/if}" n:name="conditions">
+								<span class="auth__text-check auth__text-check--required" title="Povinný údaj">*</span>
+								<label n:name="conditions" class="auth__text-check">Souhlasím s podmínkami používání</label>
+							</div>
+							<div class="auth__check-box">
+								<input type="checkbox" class="auth__check" n:name="newsletter">
+								<label n:name="newsletter" class="auth__text-check auth__text-check--second">Dostávat novinky na E-mail</label>
+							</div>
+						</div>
+						<div class="auth__block-button">
+							<button class="button button--special" n:name="register">
+								<div class="button__block-image">
+									<img src="../img/icons/lock.svg" alt="lock-icon" class="button__image">
+								</div>
+									<div class="button__block-text">
+									<span class="button__text">registrovat</span>
+								</div>
+							</button>
+						</div>
+					</form>
+				{/snippet}
+			</div>
+
+			<div>
+				<ul class="auth__register-list">
+					<li class="auth__register-item"><span class="auth__register-text">Již máte účet?</span></li>
+					<li class="auth__register-item"><span class="auth__register-text--colored js-show-login">Přihlašte se</span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

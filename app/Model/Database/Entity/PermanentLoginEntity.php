@@ -2,41 +2,32 @@
 
 namespace App\Model\Database\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\Entity;
+use Doctrine\ORM\Mapping\GeneratedValue;
+use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\Table;
 
-
-/**
- * @ORM\Entity
- * @ORM\Table(name="token_permanent_login")
- */
-class PermanentLoginEntity
+#[Entity]
+#[Table(name: "token_permanent_login")]
+final class PermanentLoginEntity
 {
 
-	/**
-	 * @ORM\Id
-	 * @ORM\GeneratedValue(strategy="IDENTITY")
-	 * @ORM\Column(type="integer")
-	 */
+	#[Id]
+	#[GeneratedValue(strategy: "AUTO")]
+	#[Column(type: "integer")]
 	protected int $id;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[Column(type: "string", nullable: false)]
 	protected string $validator;
 
-	/**
-	 * @ORM\Column(type="smallint", nullable=false)
-	 */
+	#[Column(type: "smallint", nullable: false)]
 	protected int $userId;
 
-	/**
-	 * @ORM\Column(type="datetime", nullable=false)
-	 */
+	#[Column(type: "datetime", nullable: false)]
 	protected \DateTime $createdAt;
 
-	/**
-	 * @ORM\Column(type="datetime", nullable=false)
-	 */
+	#[Column(type: "datetime", nullable: false)]
 	protected \DateTime $expiration;
 
 

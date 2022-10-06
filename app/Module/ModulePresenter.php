@@ -2,59 +2,59 @@
 
 namespace App\Module;
 
-use App\Model\Facade\Auth\AuthorizationFacade;
-use App\Model\Facade\AutoIncrement\AutoIncrementFacade;
-use App\Model\Facade\PermanentLogin\PermanentLoginFacade;
+use App\Model\Facade\Anonymous\Auth\AuthorizationFacade;
+use App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade;
+use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
 use App\Model\FlashMessage;
 use Nette\Application\UI\Presenter;
 
 class ModulePresenter extends Presenter
 {
 
-	private AuthorizationFacade $authorizationFacade;
-	private PermanentLoginFacade $permanentLoginFacade;
-	private AutoIncrementFacade $autoIncrementFacade;
-
+	private readonly AutoIncrementFacade $autoIncrementFacade;
+	private readonly PermanentLoginFacade $permanentLoginFacade;
+	private readonly AuthorizationFacade $authorizationFacade;
 
 	public function __construct(
-		AuthorizationFacade $authorizationFacade,
+		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
-		AutoIncrementFacade $autoIncrementFacade
-	)
-	{
+		AuthorizationFacade $authorizationFacade
+	) {
 		parent::__construct();
-		$this->authorizationFacade = $authorizationFacade;
-		$this->permanentLoginFacade = $permanentLoginFacade;
 		$this->autoIncrementFacade = $autoIncrementFacade;
+		$this->permanentLoginFacade = $permanentLoginFacade;
+		$this->authorizationFacade = $authorizationFacade;
 	}
 
 
-	protected function beforeRender()
+	protected function beforeRender(): void
 	{
 		$this->autoIncrementFacade->resetAutoIncrement();
 		$this->permanentLoginFacade->setPermanentLogin();
 
-		$this->getTemplate()->isLogged = $this->authorizationFacade->isLoggedIn();;
-		if ($this->authorizationFacade->isLoggedIn()) {
-			$this->getTemplate()->isAdmin = $this->authorizationFacade->getLoggedUser()->getAdminRole();
-			$this->getTemplate()->isEditor = $this->authorizationFacade->getLoggedUser()->getEditorRole();
-			$this->getTemplate()->isUser = $this->authorizationFacade->getLoggedUser()->getUserRole();
+		$loginStatus = $this->authorizationFacade->isLoggedIn();
+		$this->getTemplate()->isLogged = $loginStatus;
+		if ($loginStatus) {
+			$role = $this->authorizationFacade->getLoggedUser()->getRole();
+			$this->getTemplate()->isAdmin = $role === "admin";
+			$this->getTemplate()->isDeveloper = $role === "developer";
+			$this->getTemplate()->isUser = $role === "user";
 		}
 	}
 
 
-	public function handleLoggOut(): void
+	public function handleLogout(): void
 	{
 		$this->permanentLoginFacade->removePermanentLogin();
 		$this->authorizationFacade->logout();
 		$this->flashMessage("Úspěšně odhlášen", FlashMessage::TYPE_BASIC);
-		$this->redirect(":Ghost:Homepage:");
+		$this->redirect(":Anonymous:Homepage:");
 	}
 
 
 	public function findLayoutTemplateFile(): ?string
 	{
-		return __DIR__ . '/_template/@layout.latte';
+		return __DIR__ . '/templates/@layout.latte';
 	}
 
 }

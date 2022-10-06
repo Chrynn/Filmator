@@ -3,49 +3,42 @@
 namespace App\Model\Database\Entity;
 
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
-use Nette\Security\User;
+use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\Entity;
+use Doctrine\ORM\Mapping\GeneratedValue;
+use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\JoinTable;
+use Doctrine\ORM\Mapping\ManyToMany;
+use Doctrine\ORM\Mapping\Table;
 
+#[Entity]
+#[Table(name: "actor")]
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="actor")
- */
-class ActorEntity
+final class ActorEntity
 {
 
-	/**
-	 * @ORM\Id
-	 * @ORM\GeneratedValue
-	 * @ORM\Column(type="integer", nullable=false)
-	 */
+	#[Id]
+	#[GeneratedValue(strategy: "AUTO")]
+	#[Column(type: "integer", nullable: false)]
 	protected int $id;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[Column(type: "string", nullable: false)]
 	protected string $slug;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[Column(type: "string", nullable: false)]
 	protected string $name;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[Column(type: "string", nullable: false)]
 	protected string $imagePoster;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[Column(type: "string", nullable: false)]
 	protected string $imageBanner;
 
 	/**
 	 * @var Collection<int, UserEntity>
-	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="likeActor")
-	 * @ORM\JoinTable(name="like_actor")
 	 */
+	#[ManyToMany(targetEntity: "UserEntity", mappedBy: "likeActor")]
+	#[JoinTable(name: "like_actor")]
 	protected Collection $likeUser;
 
 
@@ -54,45 +47,54 @@ class ActorEntity
 		return $this->id;
 	}
 
+
 	public function getSlug(): string
 	{
 		return $this->slug;
 	}
+
 
 	public function setSlug(string $slug): void
 	{
 		$this->slug = $slug;
 	}
 
+
 	public function getName(): string
 	{
 		return $this->name;
 	}
+
 
 	public function setName(string $name): void
 	{
 		$this->name = $name;
 	}
 
+
 	public function getImagePoster(): string
 	{
 		return $this->imagePoster;
 	}
+
 
 	public function setImagePoster(string $imagePoster): void
 	{
 		$this->imagePoster = $imagePoster;
 	}
 
+
 	public function getImageBanner(): string
 	{
 		return $this->imageBanner;
 	}
 
+
 	public function setImageBanner(string $imageBanner): void
 	{
 		$this->imageBanner = $imageBanner;
 	}
+
 
 	/**
 	 * @return Collection<int, UserEntity>

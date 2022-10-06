@@ -1,0 +1,10 @@
+services:
+	- App\Router\RouterFactory::createRouter
+
+	- App\Model\Service\Actor\ActorService
+	- App\Model\Service\Article\ArticleService
+	- App\Model\Service\Movie\MovieService
+	- App\Model\Service\PermanentLogin\PermanentLoginService
+	- App\Model\Service\Serial\SerialService
+	- App\Model\Service\User\UserService
+

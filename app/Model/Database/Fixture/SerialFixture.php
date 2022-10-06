@@ -3,15 +3,20 @@
 namespace App\Model\Database\Fixture;
 
 use App\Model\Database\Entity\SerialEntity;
-use App\Model\Facade\Admin\NewContentFacade;
+use App\Model\Facade\Admin\Content\Trailer\TrailerFacade;
 use Doctrine\Persistence\ObjectManager;
 use Nette\Neon\Neon;
 use Nette\Utils\Strings;
 use Nettrine\Fixtures\ContainerAwareInterface;
 
-
 final class SerialFixture extends AbstractFixture implements ContainerAwareInterface
 {
+
+	public function getTrailerFacade(): TrailerFacade
+	{
+		return $this->getContainer()->getByType(TrailerFacade::class);
+	}
+
 
 	public function load(ObjectManager $manager): void
 	{
@@ -19,8 +24,9 @@ final class SerialFixture extends AbstractFixture implements ContainerAwareInter
 
 		foreach ($serials as $serial) {
 			$newSerial = new SerialEntity();
-			$newSerial->setName($serial['title']);
-			$newSerial->setSlug(Strings::webalize($serial['title']));
+			$title = $serial['title'];
+			$newSerial->setName($title);
+			$newSerial->setSlug(Strings::webalize($title));
 			$newSerial->setYear($serial['year']);
 			$newSerial->setRating($serial['rating']);
 			$newSerial->setTeaser($serial['teaser']);
@@ -33,7 +39,7 @@ final class SerialFixture extends AbstractFixture implements ContainerAwareInter
 					$newSerial->setImagePoster($value);
 				}
 			}
-			$newSerial->setTrailer(NewContentFacade::getTrailerLink($serial['trailer']));
+			$newSerial->setTrailer($this->getTrailerFacade()->getTrailerLink($serial['trailer']));
 			$manager->persist($newSerial);
 		}
 		$manager->flush();

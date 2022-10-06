@@ -3,12 +3,11 @@
 namespace App\Model\Database\Fixture;
 
 use App\Model\Database\Entity\ArticleEntity;
-use App\Model\Facade\Month\MonthFacade;
+use App\Model\Facade\Admin\Content\Month\MonthFacade;
 use Doctrine\Persistence\ObjectManager;
 use Nette\Neon\Neon;
 use Nette\Utils\Strings;
 use Nettrine\Fixtures\ContainerAwareInterface;
-
 
 final class ArticleFixture extends AbstractFixture implements ContainerAwareInterface
 {

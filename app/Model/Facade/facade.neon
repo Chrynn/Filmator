@@ -1,0 +1,20 @@
+services:
+	- App\Model\Facade\Admin\Content\Image\ImageFacade
+	- App\Model\Facade\Admin\Content\Month\MonthFacade
+	- App\Model\Facade\Admin\Content\Trailer\TrailerFacade
+
+	- App\Model\Facade\Anonymous\Auth\AuthorizationFacade
+	- App\Model\Facade\Anonymous\Auth\AuthenticationFacade
+	- App\Model\Facade\Anonymous\InputCheck\InputCheckFacade
+	- App\Model\Facade\Anonymous\EmailForgotten\EmailForgottenFacade
+
+	- App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade
+	- App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade
+
+	- App\Model\Facade\User\ButtonLater\LaterArticleFacade
+	- App\Model\Facade\User\ButtonLater\LaterMovieFacade
+	- App\Model\Facade\User\ButtonLater\LaterSerialFacade
+	- App\Model\Facade\User\ButtonLike\LikeActorFacade
+	- App\Model\Facade\User\ButtonLike\LikeArticleFacade
+	- App\Model\Facade\User\ButtonLike\LikeMovieFacade
+	- App\Model\Facade\User\ButtonLike\LikeSerialFacade
