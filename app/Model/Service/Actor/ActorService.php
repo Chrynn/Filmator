@@ -5,16 +5,12 @@ namespace App\Model\Service\Actor;
 use App\Model\Database\Entity\ActorEntity;
 use Doctrine\ORM\EntityManagerInterface;
 
-final class ActorService
+final class ActorService implements IActorService
 {
 
-	private EntityManagerInterface $entityManager;
-
-
-	public function __construct(EntityManagerInterface $entityManager)
-	{
-		$this->entityManager = $entityManager;
-	}
+	public function __construct(
+		private readonly EntityManagerInterface $entityManager
+	) {}
 
 
 	public function getActors(): array

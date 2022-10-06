@@ -11,16 +11,15 @@ use Nette\Application\UI\Presenter;
 class ModulePresenter extends Presenter
 {
 
-	private AutoIncrementFacade $autoIncrementFacade;
-	private PermanentLoginFacade $permanentLoginFacade;
-	private AuthorizationFacade $authorizationFacade;
+	private readonly AutoIncrementFacade $autoIncrementFacade;
+	private readonly PermanentLoginFacade $permanentLoginFacade;
+	private readonly AuthorizationFacade $authorizationFacade;
 
 	public function __construct(
 		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
 		AuthorizationFacade $authorizationFacade
-	)
-	{
+	) {
 		parent::__construct();
 		$this->autoIncrementFacade = $autoIncrementFacade;
 		$this->permanentLoginFacade = $permanentLoginFacade;

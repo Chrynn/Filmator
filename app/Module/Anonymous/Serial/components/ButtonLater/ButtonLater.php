@@ -12,18 +12,11 @@ class ButtonLater extends Control
 	public array $onWatch;
 	public array $onUnWatch;
 
-	private SerialEntity $serial;
-	private LaterSerialFacade $laterSerialFacade;
-
 
 	public function __construct(
-		SerialEntity $serial,
-		LaterSerialFacade $laterSerialFacade
-	)
-	{
-		$this->serial = $serial;
-		$this->laterSerialFacade = $laterSerialFacade;
-	}
+		private readonly SerialEntity $serial,
+		private readonly LaterSerialFacade $laterSerialFacade
+	) {}
 
 
 	public function handleWatch(): void

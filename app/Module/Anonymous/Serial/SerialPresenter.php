@@ -18,10 +18,6 @@ use App\Module\Anonymous\Serial\components\ButtonLike\ButtonLikeFactory;
 class SerialPresenter extends AnonymousPresenter
 {
 
-	private SerialService $serialService;
-	private ButtonLikeFactory $buttonLikeFactory;
-	private ButtonLaterFactory $buttonLaterFactory;
-
 	public function __construct(
 		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
@@ -29,11 +25,10 @@ class SerialPresenter extends AnonymousPresenter
 		RegisterFactory $registerFactory,
 		LoginFactory $loginFactory,
 		ForgottenFactory $forgottenFactory,
-		SerialService $serialService,
-		ButtonLikeFactory $buttonLikeFactory,
-		ButtonLaterFactory $buttonLaterFactory
-	)
-	{
+		private readonly SerialService $serialService,
+		private readonly ButtonLikeFactory $buttonLikeFactory,
+		private readonly ButtonLaterFactory $buttonLaterFactory
+	) {
 		parent::__construct(
 			$autoIncrementFacade,
 			$permanentLoginFacade,
@@ -42,9 +37,6 @@ class SerialPresenter extends AnonymousPresenter
 			$loginFactory,
 			$forgottenFactory
 		);
-		$this->serialService = $serialService;
-		$this->buttonLikeFactory = $buttonLikeFactory;
-		$this->buttonLaterFactory = $buttonLaterFactory;
 	}
 
 

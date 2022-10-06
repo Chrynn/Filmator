@@ -9,18 +9,10 @@ use Doctrine\ORM\EntityManagerInterface;
 final class LikeMovieFacade
 {
 
-	private AuthorizationFacade $authorizationFacade;
-	private EntityManagerInterface $entityManager;
-
-
 	public function __construct(
-		AuthorizationFacade $authorizationFacade,
-		EntityManagerInterface $entityManager,
-	)
-	{
-		$this->authorizationFacade = $authorizationFacade;
-		$this->entityManager = $entityManager;
-	}
+		private readonly AuthorizationFacade $authorizationFacade,
+		private readonly EntityManagerInterface $entityManager,
+	) {}
 
 
 	public function like(MovieEntity $movie): void

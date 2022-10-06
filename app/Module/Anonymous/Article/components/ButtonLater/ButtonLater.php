@@ -12,18 +12,11 @@ class ButtonLater extends Control
 	public array $onWatch;
 	public array $onUnWatch;
 
-	private ArticleEntity $article;
-	private LaterArticleFacade $laterArticleFacade;
-
 
 	public function __construct(
-		ArticleEntity $article,
-		LaterArticleFacade $laterArticleFacade
-	)
-	{
-		$this->article = $article;
-		$this->laterArticleFacade = $laterArticleFacade;
-	}
+		private readonly ArticleEntity $article,
+		private readonly LaterArticleFacade $laterArticleFacade
+	) {}
 
 
 	public function handleWatch(): void

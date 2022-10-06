@@ -12,15 +12,11 @@ class ButtonLike extends Control
 	public array $onLike;
 	public array $onDislike;
 
-	private MovieEntity $movie;
-	private LikeMovieFacade $likeMovieFacade;
 
-
-	public function __construct(MovieEntity $movie, LikeMovieFacade $likeMovieFacade)
-	{
-		$this->movie = $movie;
-		$this->likeMovieFacade = $likeMovieFacade;
-	}
+	public function __construct(
+		private readonly MovieEntity $movie,
+		private readonly LikeMovieFacade $likeMovieFacade
+	) {}
 
 
 	public function handleLike(): void

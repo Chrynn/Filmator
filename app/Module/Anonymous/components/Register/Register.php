@@ -2,7 +2,7 @@
 
 namespace App\Module\Anonymous\components\Register;
 
-use App\Model\Facade\Anonymous\Auth\InputCheckFacade;
+use App\Model\Facade\Anonymous\InputCheck\InputCheckFacade;
 use App\Model\Service\User\UserService;
 use Nette\Application\UI\Control;
 use Nette\Application\UI\Form;
@@ -17,18 +17,11 @@ final class Register extends Control
 	/** @var array<callable> */
 	public array $onRegister = [];
 
-	private InputCheckFacade $inputCheckFacade;
-	private UserService $userService;
-
 
 	public function __construct(
-		InputCheckFacade $inputCheckFacade,
-		UserService $userService
-	)
-	{
-		$this->inputCheckFacade = $inputCheckFacade;
-		$this->userService = $userService;
-	}
+		private readonly InputCheckFacade $inputCheckFacade,
+		private readonly UserService $userService
+	) {}
 
 
 	protected function createComponentForm(): Form

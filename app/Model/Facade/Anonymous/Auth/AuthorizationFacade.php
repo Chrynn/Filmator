@@ -8,21 +8,13 @@ use Exception;
 use Nette\Security\IIdentity;
 use Nette\Security\User as NetteSecurityUser;
 
-final class AuthorizationFacade implements IAuthorization
+final class AuthorizationFacade implements IAuthorizationFacade
 {
 
-	private EntityManagerInterface $entityManager;
-	private NetteSecurityUser $netteSecurityUser;
-
-
 	public function __construct(
-		EntityManagerInterface $entityManager,
-		NetteSecurityUser $netteSecurityUser,
-	)
-	{
-		$this->entityManager = $entityManager;
-		$this->netteSecurityUser = $netteSecurityUser;
-	}
+		private readonly EntityManagerInterface $entityManager,
+		private readonly NetteSecurityUser $netteSecurityUser,
+	) {}
 
 
 	public function login(string $user, string $password): void
@@ -57,9 +49,9 @@ final class AuthorizationFacade implements IAuthorization
 	}
 
 
-	public function getIdentityById(int $id): UserIdentityFacade
+	public function getIdentityById(int $userId): UserIdentityFacade
 	{
-		return new UserIdentityFacade($id);
+		return new UserIdentityFacade($userId);
 	}
 
 

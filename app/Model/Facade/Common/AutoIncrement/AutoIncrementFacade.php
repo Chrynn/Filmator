@@ -4,16 +4,12 @@ namespace App\Model\Facade\Common\AutoIncrement;
 
 use Doctrine\ORM\EntityManagerInterface;
 
-final class AutoIncrementFacade
+final class AutoIncrementFacade implements IAutoIncrementFacade
 {
 
-	private EntityManagerInterface $entityManager;
-
-
-	public function __construct(EntityManagerInterface $entityManager)
-	{
-		$this->entityManager = $entityManager;
-	}
+	public function __construct(
+		private readonly EntityManagerInterface $entityManager
+	) {}
 
 
 	/**

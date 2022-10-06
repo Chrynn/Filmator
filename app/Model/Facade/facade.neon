@@ -5,7 +5,7 @@ services:
 
 	- App\Model\Facade\Anonymous\Auth\AuthorizationFacade
 	- App\Model\Facade\Anonymous\Auth\AuthenticationFacade
-	- App\Model\Facade\Anonymous\Auth\InputCheckFacade
+	- App\Model\Facade\Anonymous\InputCheck\InputCheckFacade
 	- App\Model\Facade\Anonymous\EmailForgotten\EmailForgottenFacade
 
 	- App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade

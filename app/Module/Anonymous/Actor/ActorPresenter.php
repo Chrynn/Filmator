@@ -17,21 +17,16 @@ use App\Module\Anonymous\components\Register\RegisterFactory;
 class ActorPresenter extends AnonymousPresenter
 {
 
-	private ActorService $actorService;
-	private MovieService $movieService;
-	private ButtonLikeFactory $buttonLikeFactory;
-
-
 	public function __construct(
 		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
 		AuthorizationFacade $authorizationFacade,
 		RegisterFactory $registerFactory,
 		LoginFactory $loginFactory,
-		ForgottenFactory $forgottenFactory,
-		ActorService $actorService,
-		MovieService $movieService,
-		ButtonLikeFactory $buttonLikeFactory
+		ForgottenFactory  $forgottenFactory,
+		private readonly ActorService $actorService,
+		private readonly MovieService $movieService,
+		private readonly ButtonLikeFactory $buttonLikeFactory
 	)
 	{
     	parent::__construct(
@@ -42,9 +37,6 @@ class ActorPresenter extends AnonymousPresenter
 			$loginFactory,
 			$forgottenFactory
 		);
-		$this->actorService = $actorService;
-		$this->movieService = $movieService;
-		$this->buttonLikeFactory = $buttonLikeFactory;
 	}
 
 

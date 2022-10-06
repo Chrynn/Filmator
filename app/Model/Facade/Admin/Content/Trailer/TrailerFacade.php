@@ -2,15 +2,18 @@
 
 namespace App\Model\Facade\Admin\Content\Trailer;
 
-final class TrailerFacade
+final class TrailerFacade implements ITrailerFacade
 {
+
+	private const VIDEO_PREFIX = "https://youtube.com/embed/";
+
 
 	public function getTrailerLink(string $link): string
 	{
 		$linkArray = explode("/", $link);
 		$videoCode = $linkArray[3];
 
-		return "https://youtube.com/embed/" . $videoCode;
+		return self::VIDEO_PREFIX . $videoCode;
 	}
 
 }

@@ -3,7 +3,7 @@
 namespace App\Module\Anonymous\components\Login;
 
 use App\Model\Facade\Anonymous\Auth\AuthorizationFacade;
-use App\Model\Facade\Anonymous\Auth\InputCheckFacade;
+use App\Model\Facade\Anonymous\InputCheck\InputCheckFacade;
 use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
 use Nette\Application\UI\Control;
 use Nette\Application\UI\Form;
@@ -17,21 +17,12 @@ final class Login extends Control
 	/** @var array<callable> */
 	public array $onLogin = [];
 
-	private AuthorizationFacade $authorizationFacade;
-	private InputCheckFacade $inputCheckFacade;
-	private PermanentLoginFacade $permanentLoginFacade;
-
 
 	public function __construct(
-		AuthorizationFacade $authorizationFacade,
-		InputCheckFacade $inputCheckFacade,
-		PermanentLoginFacade $permanentLoginFacade
-	)
-	{
-		$this->authorizationFacade = $authorizationFacade;
-		$this->inputCheckFacade = $inputCheckFacade;
-		$this->permanentLoginFacade = $permanentLoginFacade;
-	}
+		private readonly AuthorizationFacade $authorizationFacade,
+		private readonly InputCheckFacade $inputCheckFacade,
+		private readonly PermanentLoginFacade $permanentLoginFacade
+	) {}
 
 
 	protected function createComponentForm(): Form

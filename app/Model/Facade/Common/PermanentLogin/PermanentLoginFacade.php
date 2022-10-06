@@ -8,32 +8,19 @@ use App\Model\Service\User\UserService;
 use Nette\Http\Request;
 use Nette\Http\Response;
 
-final class PermanentLoginFacade
+final class PermanentLoginFacade implements IPermanentLoginFacade
 {
 
 	public const COOKIE_PERMANENT_LOGIN = "Filmator-PL";
 
-	private PermanentLoginService $permanentLoginService;
-	private Response $response;
-	private UserService $userService;
-	private AuthorizationFacade $authorizationFacade;
-	private Request $request;
-
 
 	public function __construct(
-		PermanentLoginService $permanentLoginService,
-		Response $response,
-		UserService $userService,
-		AuthorizationFacade $authorizationFacade,
-		Request $request
-	)
-	{
-		$this->permanentLoginService = $permanentLoginService;
-		$this->response = $response;
-		$this->userService = $userService;
-		$this->authorizationFacade = $authorizationFacade;
-		$this->request = $request;
-	}
+		private readonly PermanentLoginService $permanentLoginService,
+		private readonly Response $response,
+		private readonly UserService $userService,
+		private readonly AuthorizationFacade $authorizationFacade,
+		private readonly Request $request
+	) {}
 
 
 	public function setPermanentLogin(): void

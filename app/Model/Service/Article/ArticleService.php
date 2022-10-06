@@ -5,16 +5,12 @@ namespace App\Model\Service\Article;
 use App\Model\Database\Entity\ArticleEntity;
 use Doctrine\ORM\EntityManagerInterface;
 
-final class ArticleService
+final class ArticleService implements IArticleService
 {
 
-	private EntityManagerInterface $entityManager;
-
-
-	public function __construct(EntityManagerInterface $entityManager)
-	{
-		$this->entityManager = $entityManager;
-	}
+	public function __construct(
+		private readonly EntityManagerInterface $entityManager
+	) {}
 
 
 	public function getArticles(): array

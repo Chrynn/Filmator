@@ -17,24 +17,19 @@ use App\Module\ModulePresenter;
 abstract class AnonymousPresenter extends ModulePresenter
 {
 
-	private RegisterFactory $registerFactory;
-	private LoginFactory $loginFactory;
-	private ForgottenFactory $forgottenFactory;
-
-
 	public function __construct(
 		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
 		AuthorizationFacade $authorizationFacade,
-		RegisterFactory $registerFactory,
-		LoginFactory $loginFactory,
-		ForgottenFactory $forgottenFactory
-	)
-	{
-		parent::__construct($autoIncrementFacade, $permanentLoginFacade, $authorizationFacade);
-		$this->registerFactory = $registerFactory;
-		$this->loginFactory = $loginFactory;
-		$this->forgottenFactory = $forgottenFactory;
+		protected readonly RegisterFactory $registerFactory,
+		protected readonly LoginFactory $loginFactory,
+		protected readonly ForgottenFactory $forgottenFactory
+	) {
+		parent::__construct(
+			$autoIncrementFacade,
+			$permanentLoginFacade,
+			$authorizationFacade
+		);
 	}
 
 

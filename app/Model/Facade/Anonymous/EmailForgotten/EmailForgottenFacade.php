@@ -4,16 +4,12 @@ namespace App\Model\Facade\Anonymous\EmailForgotten;
 
 use Nette\Mail\Message;
 
-final class EmailForgottenFacade
+final class EmailForgottenFacade implements IEmailForgottenFacade
 {
 
-	private \Nette\Mail\Mailer $mailer; // this package is not extension, only class addition
-
-
-	public function __construct(\Nette\Mail\Mailer $mailer)
-	{
-		$this->mailer = $mailer;
-	}
+	public function __construct(
+		private readonly \Nette\Mail\Mailer $mailer // this package is not extension, only class addition
+	) {}
 
 
 	public function sentEmail(string $from, string $to, string $subject, string $content): void

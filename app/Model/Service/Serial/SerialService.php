@@ -5,16 +5,12 @@ namespace App\Model\Service\Serial;
 use App\Model\Database\Entity\SerialEntity;
 use Doctrine\ORM\EntityManagerInterface;
 
-final class SerialService
+final class SerialService implements ISerialService
 {
 
-	private EntityManagerInterface $entityManager;
-
-
-	public function __construct(EntityManagerInterface $entityManager)
-	{
-		$this->entityManager = $entityManager;
-	}
+	public function __construct(
+		private readonly EntityManagerInterface $entityManager
+	) {}
 
 
 	public function getSerials(): array

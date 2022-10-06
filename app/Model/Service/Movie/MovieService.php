@@ -5,16 +5,12 @@ namespace App\Model\Service\Movie;
 use App\Model\Database\Entity\MovieEntity;
 use Doctrine\ORM\EntityManagerInterface;
 
-final class MovieService
+final class MovieService implements IMovieService
 {
 
-	private EntityManagerInterface $entityManager;
-
-
-	public function __construct(EntityManagerInterface $entityManager)
-	{
-		$this->entityManager = $entityManager;
-	}
+	public function __construct(
+		private readonly EntityManagerInterface $entityManager
+	) {}
 
 
 	public function getMovies(): array
@@ -34,22 +30,6 @@ final class MovieService
 	public function getMoviesByLimit(int $limit): array
 	{
 		return $this->entityManager->getRepository(MovieEntity::class)->findBy([], null, $limit, 0);
-	}
-
-
-	public function getMoviesByTrend(int $limit): array
-	{
-		// vytáhnutí filmu (movie) podle roku (nejnovější)
-		/*
-		return $this->entityManager->createQueryBuilder()
-			->select()
-			->from()
-			->where()
-			->setParameter()
-			->getQuery()
-			->getSingleScalarResult();
-		*/
-		return [];
 	}
 
 }

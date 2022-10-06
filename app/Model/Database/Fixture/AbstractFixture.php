@@ -14,8 +14,7 @@ class AbstractFixture implements FixtureInterface
 
 
 	public function load(ObjectManager $manager): void
-	{
-	}
+	{}
 
 
 	public function setContainer(Container $container): void

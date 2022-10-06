@@ -18,11 +18,6 @@ use App\Module\Anonymous\components\Register\RegisterFactory;
 class ArticlePresenter extends AnonymousPresenter
 {
 
-	private ArticleService $articleService;
-	private ButtonLikeFactory $buttonLikeFactory;
-	private ButtonLaterFactory $buttonLaterFactory;
-
-
 	public function __construct(
 		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
@@ -30,9 +25,9 @@ class ArticlePresenter extends AnonymousPresenter
 		RegisterFactory $registerFactory,
 		LoginFactory $loginFactory,
 		ForgottenFactory $forgottenFactory,
-		ArticleService $articleService,
-		ButtonLikeFactory $buttonLikeFactory,
-		ButtonLaterFactory $buttonLaterFactory
+		private readonly ArticleService $articleService,
+		private readonly ButtonLikeFactory $buttonLikeFactory,
+		private readonly ButtonLaterFactory $buttonLaterFactory
 	)
     {
         parent::__construct(
@@ -43,9 +38,6 @@ class ArticlePresenter extends AnonymousPresenter
 			$loginFactory,
 			$forgottenFactory
 		);
-		$this->articleService = $articleService;
-		$this->buttonLikeFactory = $buttonLikeFactory;
-		$this->buttonLaterFactory = $buttonLaterFactory;
 	}
 
 

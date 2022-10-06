@@ -18,10 +18,6 @@ use App\Module\Anonymous\Movie\components\ButtonLike\ButtonLikeFactory;
 class MoviePresenter extends AnonymousPresenter
 {
 
-	private MovieService $movieService;
-	private ButtonLaterFactory $buttonLaterFactory;
-	private ButtonLikeFactory $buttonLikeFactory;
-
 	public function __construct(
 		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
@@ -29,11 +25,10 @@ class MoviePresenter extends AnonymousPresenter
 		RegisterFactory $registerFactory,
 		LoginFactory $loginFactory,
 		ForgottenFactory $forgottenFactory,
-		MovieService $movieService,
-		ButtonLaterFactory $buttonLaterFactory,
-		ButtonLikeFactory $buttonLikeFactory
-	)
-  	{
+		private readonly MovieService $movieService,
+		private readonly ButtonLaterFactory $buttonLaterFactory,
+		private readonly ButtonLikeFactory $buttonLikeFactory
+	) {
 		parent::__construct(
 			$autoIncrementFacade,
 			$permanentLoginFacade,
@@ -42,9 +37,6 @@ class MoviePresenter extends AnonymousPresenter
 			$loginFactory,
 			$forgottenFactory
 		);
-		$this->movieService = $movieService;
-		$this->buttonLaterFactory = $buttonLaterFactory;
-		$this->buttonLikeFactory = $buttonLikeFactory;
 	}
 
 

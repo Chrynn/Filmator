@@ -3,24 +3,17 @@
 namespace App\Model\Service\PermanentLogin;
 
 use App\Model\Database\Entity\PermanentLoginEntity;
+use App\Model\Facade\Common\PermanentLogin\IPermanentLoginFacade;
 use App\Model\Service\User\UserService;
 use Doctrine\ORM\EntityManagerInterface;
 
-final class PermanentLoginService
+final class PermanentLoginService implements IPermanentLoginService
 {
 
-	private EntityManagerInterface $entityManager;
-	private UserService $userService;
-
-
 	public function __construct(
-		EntityManagerInterface $entityManager,
-		UserService $userService
-	)
-	{
-		$this->entityManager = $entityManager;
-		$this->userService = $userService;
-	}
+		private readonly EntityManagerInterface $entityManager,
+		private readonly UserService $userService
+	) {}
 
 
 	public function add(string $email): array

@@ -12,18 +12,11 @@ class ButtonLater extends Control
 	public array $onWatch;
 	public array $onUnWatch;
 
-	private MovieEntity $movie;
-	private LaterMovieFacade $laterMovieFacade;
-
 
 	public function __construct(
-		MovieEntity $movie,
-		LaterMovieFacade $laterMovieFacade
-	)
-	{
-		$this->movie = $movie;
-		$this->laterMovieFacade = $laterMovieFacade;
-	}
+		private readonly MovieEntity $movie,
+		private readonly LaterMovieFacade $laterMovieFacade
+	) {}
 
 
 	public function handleWatch(): void

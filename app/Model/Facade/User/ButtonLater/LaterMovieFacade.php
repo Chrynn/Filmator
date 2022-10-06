@@ -9,18 +9,10 @@ use Doctrine\ORM\EntityManagerInterface;
 final class LaterMovieFacade
 {
 
-	private AuthorizationFacade $authorizationFacade;
-	private EntityManagerInterface $entityManager;
-
-
 	public function __construct(
-		AuthorizationFacade $authorizationFacade,
-		EntityManagerInterface $entityManager,
-	)
-	{
-		$this->authorizationFacade = $authorizationFacade;
-		$this->entityManager = $entityManager;
-	}
+		private readonly AuthorizationFacade $authorizationFacade,
+		private readonly EntityManagerInterface $entityManager,
+	) {}
 
 
 	public function watch(MovieEntity $movie): void
@@ -51,6 +43,7 @@ final class LaterMovieFacade
 
 		$this->entityManager->flush();
 	}
+
 
 	public function wantWatch(MovieEntity $movie): bool
 	{

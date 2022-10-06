@@ -12,15 +12,10 @@ use Nette\Security\Passwords;
 final class AuthenticationFacade implements Authenticator
 {
 
-	private EntityManagerInterface $entityManager;
-	private Passwords $passwords;
-
-
-	public function __construct(EntityManagerInterface $entityManager, Passwords $passwords)
-	{
-		$this->entityManager = $entityManager;
-		$this->passwords = $passwords;
-	}
+	public function __construct(
+		private readonly EntityManagerInterface $entityManager,
+		private readonly Passwords $passwords
+	) {}
 
 
 	public function authenticate(string $user, string $password): IIdentity

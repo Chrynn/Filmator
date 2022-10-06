@@ -10,20 +10,16 @@ use App\Module\ModulePresenter;
 abstract class AdminPresenter extends ModulePresenter
 {
 
-	private AuthorizationFacade $authorizationFacade;
-
 	public function __construct(
-		AutoIncrementFacade $autoIncrementFacade,
-		PermanentLoginFacade $permanentLoginFacade,
-		AuthorizationFacade $authorizationFacade
-	)
-	{
+		protected readonly AutoIncrementFacade $autoIncrementFacade,
+		protected readonly PermanentLoginFacade $permanentLoginFacade,
+		protected readonly AuthorizationFacade $authorizationFacade
+	) {
 		parent::__construct(
 			$autoIncrementFacade,
 			$permanentLoginFacade,
 			$authorizationFacade
 		);
-		$this->authorizationFacade = $authorizationFacade;
 	}
 
 

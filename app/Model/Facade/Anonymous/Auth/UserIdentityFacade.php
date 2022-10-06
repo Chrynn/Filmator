@@ -7,13 +7,9 @@ use Nette\Security\IIdentity;
 final class UserIdentityFacade implements IIdentity
 {
 
-	private int $id;
-
-
-	public function __construct(int $id)
-	{
-		$this->id = $id;
-	}
+	public function __construct(
+		private readonly int $id
+	) {}
 
 
 	public function getId(): int

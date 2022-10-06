@@ -16,10 +16,6 @@ use App\Module\Anonymous\components\Register\RegisterFactory;
 final class HomepagePresenter extends AnonymousPresenter
 {
 
-	private MovieService $movieService;
-	private SerialService $serialService;
-	private ArticleService $articleService;
-
 	public function __construct(
 		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
@@ -27,11 +23,10 @@ final class HomepagePresenter extends AnonymousPresenter
 		RegisterFactory $registerFactory,
 		LoginFactory $loginFactory,
 		ForgottenFactory $forgottenFactory,
-		MovieService $movieService,
-		SerialService $serialService,
-		ArticleService $articleService
-	)
-    {
+		private readonly MovieService  $movieService,
+		private readonly SerialService $serialService,
+		private readonly ArticleService $articleService
+	) {
         parent::__construct(
 			$autoIncrementFacade,
 			$permanentLoginFacade,
@@ -40,9 +35,6 @@ final class HomepagePresenter extends AnonymousPresenter
 			$loginFactory,
 			$forgottenFactory
 		);
-		$this->movieService = $movieService;
-		$this->serialService = $serialService;
-		$this->articleService = $articleService;
 	}
 
 

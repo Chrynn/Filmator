@@ -7,20 +7,16 @@ use Doctrine\ORM\EntityManagerInterface;
 use Nette\Application\UI\Form;
 use Nette\Security\Passwords;
 
-final class UserService
+final class UserService implements IUserService
 {
 
 	private const DEFAULT_ROLE = "user";
 
-	private Passwords $passwords;
-	private EntityManagerInterface $entityManager;
 
-
-	public function __construct(Passwords $passwords, EntityManagerInterface $entityManager)
-	{
-		$this->passwords = $passwords;
-		$this->entityManager = $entityManager;
-	}
+	public function __construct(
+		private Passwords $passwords,
+		private EntityManagerInterface $entityManager
+	) {}
 
 
 	public function add(Form $form): void

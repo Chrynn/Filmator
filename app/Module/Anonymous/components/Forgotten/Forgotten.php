@@ -2,8 +2,8 @@
 
 namespace App\Module\Anonymous\components\Forgotten;
 
-use App\Model\Facade\Anonymous\Auth\InputCheckFacade;
 use App\Model\Facade\Anonymous\EmailForgotten\EmailForgottenFacade;
+use App\Model\Facade\Anonymous\InputCheck\InputCheckFacade;
 use App\Model\FlashMessage;
 use Nette\Application\UI\Control;
 use Nette\Application\UI\Form;
@@ -21,18 +21,11 @@ final class Forgotten extends Control
 	/** @var array<callable> */
 	public array $onForgotten = [];
 
-	private InputCheckFacade $inputCheckFacade;
-	private EmailForgottenFacade $emailForgottenFacade;
-
 
 	public function __construct(
-		InputCheckFacade $inputCheckFacade,
-		EmailForgottenFacade $emailForgottenFacade
-	)
-	{
-		$this->inputCheckFacade = $inputCheckFacade;
-		$this->emailForgottenFacade = $emailForgottenFacade;
-	}
+		private readonly InputCheckFacade $inputCheckFacade,
+		private readonly EmailForgottenFacade $emailForgottenFacade
+	) {}
 
 
 	protected function createComponentForm(): Form

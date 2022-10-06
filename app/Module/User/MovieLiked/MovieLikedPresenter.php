@@ -12,24 +12,17 @@ use Doctrine\ORM\EntityManagerInterface;
 class MovieLikedPresenter extends UserPresenter
 {
 
-	private AuthorizationFacade $authorizationFacade;
-	private EntityManagerInterface $entityManager;
-
-
 	public function __construct(
 		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
 		AuthorizationFacade $authorizationFacade,
-		EntityManagerInterface $entityManager,
-	)
-	{
+		private readonly EntityManagerInterface $entityManager,
+	) {
 		parent::__construct(
 			$autoIncrementFacade,
 			$permanentLoginFacade,
 			$authorizationFacade
 		);
-		$this->authorizationFacade = $authorizationFacade;
-		$this->entityManager = $entityManager;
 	}
 
 
