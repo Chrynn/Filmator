@@ -2,33 +2,42 @@
 
 namespace App\Model\Database\Entity;
 
-use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\Entity;
-use Doctrine\ORM\Mapping\GeneratedValue;
-use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\Table;
+use DateTime;
+use Doctrine\ORM\Mapping as ORM;
 
-#[Entity]
-#[Table(name: "token_permanent_login")]
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="token_permament_login")
+ */
 final class PermanentLoginEntity
 {
 
-	#[Id]
-	#[GeneratedValue(strategy: "AUTO")]
-	#[Column(type: "integer")]
+	/**
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 * @ORM\Column(type="integer", nullable=false)
+	 */
 	protected int $id;
 
-	#[Column(type: "string", nullable: false)]
+	/**
+	 * @ORM\Column(type="string", nullable=false)
+	 */
 	protected string $validator;
 
-	#[Column(type: "smallint", nullable: false)]
+	/**
+	 * @ORM\Column(type="smallint", nullable=false)
+	 */
 	protected int $userId;
 
-	#[Column(type: "datetime", nullable: false)]
-	protected \DateTime $createdAt;
+	/**
+	 * @ORM\Column(type="datetime", nullable=false)
+	 */
+	protected DateTime $createdAt;
 
-	#[Column(type: "datetime", nullable: false)]
-	protected \DateTime $expiration;
+	/**
+	 * @ORM\Column(type="datetime", nullable=false)
+	 */
+	protected DateTime $expiration;
 
 
 	public function getId(): int
@@ -61,19 +70,19 @@ final class PermanentLoginEntity
 	}
 
 
-	public function setCreatedAt(\DateTime $createdAt): void
+	public function setCreatedAt(DateTime $createdAt): void
 	{
 		$this->createdAt = $createdAt;
 	}
 
 
-	public function getExpiration(): \DateTime
+	public function getExpiration(): DateTime
 	{
 		return $this->expiration;
 	}
 
 
-	public function setExpiration(\DateTime $expiration): void
+	public function setExpiration(DateTime $expiration): void
 	{
 		$this->expiration = $expiration;
 	}

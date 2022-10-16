@@ -4,89 +4,99 @@ namespace App\Model\Database\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\Entity;
-use Doctrine\ORM\Mapping\GeneratedValue;
-use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\JoinTable;
-use Doctrine\ORM\Mapping\ManyToMany;
-use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping as ORM;
 
-#[Entity]
-#[Table(name: "user")]
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="user")
+ */
 final class UserEntity
 {
 
-	#[Id]
-	#[GeneratedValue(strategy: "AUTO")]
-	#[Column(type: "integer")]
+	/**
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 * @ORM\Column(type="integer", nullable=false)
+	 */
 	protected int $id;
 
-	#[Column(type: "string", nullable: false)]
+	/**
+	 * @ORM\Column(type="string", nullable=false)
+	 */
 	protected string $nickname;
 
-	#[Column(type: "string", nullable: false)]
+	/**
+	 * @ORM\Column(type="string", nullable=false)
+	 */
 	protected string $email;
 
-	#[Column(type: "string", nullable: false)]
+	/**
+	 * @ORM\Column(type="string", nullable=false)
+	 */
 	protected string $password;
 
-	#[Column(type: "smallint", nullable: false)]
+	/**
+	 * @ORM\Column(type="smallint", nullable=false)
+	 */
 	protected bool $conditions;
 
-	#[Column(type: "smallint", nullable: false)]
+	/**
+	 * @ORM\Column(type="smallint", nullable=false)
+	 */
 	protected bool $newsletter;
 
-	#[Column(type: "string", nullable: false)]
+	/**
+	 * @ORM\Column(type="string", nullable=false)
+	 */
 	protected string $role;
 
 	/**
 	 * @var Collection<int, MovieEntity>
+	 * @ORM\ManyToMany(targetEntity="MovieEntity", inversedBy="likeUser")
+	 * @ORM\JoinTable(name="like_movie")
 	 */
-	#[ManyToMany(targetEntity: "MovieEntity", inversedBy: "likeUser")]
-	#[JoinTable(name: "like_movie")]
 	protected Collection $likeMovie;
 
 	/**
 	 * @var Collection<int, SerialEntity>
+	 * @ORM\ManyToMany(targetEntity="SerialEntity", inversedBy="likeUser")
+	 * @ORM\JoinTable(name="like_serial")
 	 */
-	#[ManyToMany(targetEntity: "SerialEntity", inversedBy: "likeUser")]
-	#[JoinTable(name: "like_serial")]
 	protected Collection $likeSerial;
 
 	/**
 	 * @var Collection<int, ArticleEntity>
+	 * @ORM\ManyToMany(targetEntity="ArticleEntity", inversedBy="likeUser")
+	 * @ORM\JoinTable(name="like_article")
 	 */
-	#[ManyToMany(targetEntity: "ArticleEntity", inversedBy: "likeUser")]
-	#[JoinTable(name: "like_article")]
 	protected Collection $likeArticle;
 
 	/**
 	 * @var Collection<int, ActorEntity>
+	 * @ORM\ManyToMany(targetEntity="ActorEntity", inversedBy="likeUser")
+	 * @ORM\JoinTable(name="like_actor")
 	 */
-	#[ManyToMany(targetEntity: "ActorEntity", inversedBy: "likeUser")]
-	#[JoinTable(name: "like_actor")]
 	protected Collection $likeActor;
 
 	/**
 	 * @var Collection<int, MovieEntity>
+	 * @ORM\ManyToMany(targetEntity="MovieEntity", inversedBy="watchUser")
+	 * @ORM\JoinTable(name="watch_movie")
 	 */
-	#[ManyToMany(targetEntity: "MovieEntity", inversedBy: "watchUser")]
-	#[JoinTable(name: "watch_movie")]
 	protected Collection $watchMovie;
 
 	/**
 	 * @var Collection<int, SerialEntity>
+	 * @ORM\ManyToMany(targetEntity="SerialEntity", inversedBy="watchUser")
+	 * @ORM\JoinTable(name="watch_serial")
 	 */
-	#[ManyToMany(targetEntity: "SerialEntity", inversedBy: "watchUser")]
-	#[JoinTable(name: "watch_serial")]
 	protected Collection $watchSerial;
 
 	/**
 	 * @var Collection<int, ArticleEntity>
+	 * @ORM\ManyToMany(targetEntity="ArticleEntity", inversedBy="watchUser")
+	 * @ORM\JoinTable(name="read_article")
 	 */
-	#[ManyToMany(targetEntity: "ArticleEntity", inversedBy: "watchUser")]
-	#[JoinTable(name: "read_article")]
 	protected Collection $watchArticle;
 
 

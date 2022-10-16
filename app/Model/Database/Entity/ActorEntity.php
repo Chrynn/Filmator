@@ -3,42 +3,47 @@
 namespace App\Model\Database\Entity;
 
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\Entity;
-use Doctrine\ORM\Mapping\GeneratedValue;
-use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\JoinTable;
-use Doctrine\ORM\Mapping\ManyToMany;
-use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping as ORM;
 
-#[Entity]
-#[Table(name: "actor")]
-
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="actor")
+ */
 final class ActorEntity
 {
 
-	#[Id]
-	#[GeneratedValue(strategy: "AUTO")]
-	#[Column(type: "integer", nullable: false)]
+	/**
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 * @ORM\Column(type="integer", nullable=false)
+	 */
 	protected int $id;
 
-	#[Column(type: "string", nullable: false)]
+	/**
+	 * @ORM\Column(type="string", nullable=false)
+	 */
 	protected string $slug;
 
-	#[Column(type: "string", nullable: false)]
+	/**
+	 * @ORM\Column(type="string", nullable=false)
+	 */
 	protected string $name;
 
-	#[Column(type: "string", nullable: false)]
+	/**
+	 * @ORM\Column(type="string", nullable=false)
+	 */
 	protected string $imagePoster;
 
-	#[Column(type: "string", nullable: false)]
+	/**
+	 * @ORM\Column(type="string", nullable=false)
+	 */
 	protected string $imageBanner;
 
 	/**
 	 * @var Collection<int, UserEntity>
+	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="likeActor")
+	 * @ORM\JoinTable(name="like_actor")
 	 */
-	#[ManyToMany(targetEntity: "UserEntity", mappedBy: "likeActor")]
-	#[JoinTable(name: "like_actor")]
 	protected Collection $likeUser;
 
 

@@ -3,39 +3,39 @@
 namespace App\Model\Database\Entity;
 
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\Entity;
-use Doctrine\ORM\Mapping\GeneratedValue;
-use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\JoinTable;
-use Doctrine\ORM\Mapping\ManyToMany;
-use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping as ORM;
 
-#[Entity]
-#[Table(name: "watch_tag")]
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="watch_tag")
+ */
 final class TagWatchEntity
 {
 
-	#[Id]
-	#[GeneratedValue(strategy: "AUTO")]
-	#[Column(type: "integer")]
+	/**
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 * @ORM\Column(type="integer", nullable=false)
+	 */
 	protected int $id;
 
-	#[Column(type: "string", nullable: false)]
+	/**
+	 * @ORM\Column(type="string", nullable=false)
+	 */
 	protected string $title;
 
 	/**
 	 * @var Collection<int, MovieEntity>
+	 * @ORM\ManyToMany(targetEntity="MovieEntity", inversedBy="movieTag")
+	 * @ORM\JoinTable(name="tag_movie")
 	 */
-	#[ManyToMany(targetEntity: "MovieEntity", inversedBy: "movieTag")]
-	#[JoinTable(name: "tag_movie")]
 	protected Collection $tagMovie;
 
 	/**
 	 * @var Collection<int, SerialEntity>
+	 * @ORM\ManyToMany(targetEntity="SerialEntity", inversedBy="serialTag")
+	 * @ORM\JoinTable(name="tag_serial")
 	 */
-	#[ManyToMany(targetEntity: "SerialEntity", inversedBy: "serialTag")]
-	#[JoinTable(name: "tag_serial")]
 	protected Collection $tagSerial;
 
 
