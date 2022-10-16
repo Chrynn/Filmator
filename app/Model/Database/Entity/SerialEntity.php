@@ -3,70 +3,86 @@
 namespace App\Model\Database\Entity;
 
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\Entity;
-use Doctrine\ORM\Mapping\GeneratedValue;
-use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\JoinTable;
-use Doctrine\ORM\Mapping\ManyToMany;
-use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping as ORM;
 
-#[Entity]
-#[Table(name: "serial")]
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="serial")
+ */
 final class SerialEntity
 {
 
-	#[Id]
-	#[GeneratedValue(strategy: "AUTO")]
-	#[Column(type: "integer")]
+	/**
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 * @ORM\Column(type="integer", nullable=false)
+	 */
 	protected int $id;
 
-	#[Column(type: "string")]
+	/**
+	 * @ORM\Column(type="string", nullable=false)
+	 */
 	protected string $slug;
 
-	#[Column(type: "string")]
+	/**
+	 * @ORM\Column(type="string")
+	 */
 	protected string $name;
 
-	#[Column(type: "string", nullable: false)]
+	/**
+	 * @ORM\Column(type="string", nullable=false)
+	 */
 	protected string $year;
 
-	#[Column(type: "smallint", nullable: true)]
+	/**
+	 * @ORM\Column(type="smallint", nullable=true)
+	 */
 	protected ?int $rating;
 
-	#[Column(type: "text", nullable: false)]
+	/**
+	 * @ORM\Column(type="text", nullable=false)
+	 */
 	protected string $teaser;
 
-	#[Column(type: "text", nullable: false)]
+	/**
+	 * @ORM\Column(type="text", nullable=false)
+	 */
 	protected string $description;
 
-	#[Column(type: "text", nullable: false)]
+	/**
+	 * @ORM\Column(type="text", nullable=false)
+	 */
 	protected string $imagePoster;
 
-	#[Column(type: "text", nullable: false)]
+	/**
+	 * @ORM\Column(type="text", nullable=false)
+	 */
 	protected string $imageBanner;
 
-	#[Column(type: "text", nullable: false)]
+	/**
+	 * @ORM\Column(type="text", nullable=false)
+	 */
 	protected string $trailer;
 
 	/**
 	 * @var Collection<int, UserEntity>
+	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="likeSerial")
+	 * @ORM\JoinTable(name="like_serial")
 	 */
-	#[ManyToMany(targetEntity: "UserEntity", mappedBy: "likeSerial")]
-	#[JoinTable(name: "like_serial")]
 	protected Collection $likeUser;
 
 	/**
 	 * @var Collection<int, UserEntity>
+	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="watchSerial")
+	 * @ORM\JoinTable(name="watch_serial")
 	 */
-	#[ManyToMany(targetEntity: "UserEntity", mappedBy: "watchSerial")]
-	#[JoinTable(name: "watch_serial")]
 	protected Collection $watchUser;
 
 	/**
 	 * @var Collection<int, TagWatchEntity>
+	 * @ORM\ManyToMany(targetEntity="TagWatchEntity", mappedBy="tagSerial")
+	 * @ORM\JoinTable(name="tag_movie")
 	 */
-	#[ManyToMany(targetEntity: "TagWatchEntity", mappedBy: "tagSerial")]
-	#[JoinTable(name: "tag_movie")]
 	protected Collection $serialTag;
 
 

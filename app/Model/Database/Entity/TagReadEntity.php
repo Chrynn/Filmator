@@ -3,32 +3,32 @@
 namespace App\Model\Database\Entity;
 
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\Entity;
-use Doctrine\ORM\Mapping\GeneratedValue;
-use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\JoinTable;
-use Doctrine\ORM\Mapping\ManyToMany;
-use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping as ORM;
 
-#[Entity]
-#[Table(name: "read_tag")]
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="read_tag")
+ */
 final class TagReadEntity
 {
 
-	#[Id]
-	#[GeneratedValue(strategy: "AUTO")]
-	#[Column(type: "integer")]
+	/**
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 * @ORM\Column(type="integer", nullable=false)
+	 */
 	protected int $id;
 
-	#[Column(type: "string", nullable: false)]
+	/**
+	 * @ORM\Column(type="string", nullable=false)
+	 */
 	protected string $title;
 
 	/**
 	 * @var Collection<int, ArticleEntity>
+	 * @ORM\ManyToMany(targetEntity="ArticleEntity", inversedBy="articleTag")
+	 * @ORM\JoinTable(name="tag_article")
 	 */
-	#[ManyToMany(targetEntity: "ArticleEntity", inversedBy: "articleTag")]
-	#[JoinTable(name: "tag_article")]
 	protected Collection $tagArticle;
 
 
