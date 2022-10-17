@@ -17,6 +17,23 @@ function navigationScroll() {
 }
 navigationScroll();
 
+function hideFlash() {
+
+    let flash = document.querySelector(".flash");
+
+    if (flash) {
+        setTimeout(() => {
+            fadeAway();
+        }, 5000)
+    }
+
+    function fadeAway() {
+        flash?.classList.remove("visible");
+    }
+
+}
+hideFlash();
+
 // --- hamburger menu ---
 function navigationHamburger() {
   var menuLine2 = document.querySelector('.hamburger-div2');

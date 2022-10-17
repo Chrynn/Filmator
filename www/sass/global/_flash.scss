@@ -1,0 +1,35 @@
+// flash message
+.flash {
+    height: 70px;
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.33s;
+    z-index: 6;
+
+    &__content {
+        height: 45px;
+        background: $green;
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+        border-radius: 30px;
+        border: 1px solid $green;
+    }
+
+    &__text {
+        @include darkRegular;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    &.visible {
+        visibility: visible;
+        opacity: 1;
+    }
+}

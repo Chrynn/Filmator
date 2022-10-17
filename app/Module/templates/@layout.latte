@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../sass/style.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
@@ -35,9 +35,14 @@
 </head>
 
 <body>
-<div n:foreach="$flashes as $flash" n:class="flash, $flash->type"><span>{$flash->message}</span></div>
 
 <div class="page-wrap page-wrap--light">
+    <div n:foreach="$flashes as $flash" n:class="flash, $flash->type, visible">
+        <div class="flash__content">
+            <span class="flash__text">{$flash->message}</span>
+        </div>
+    </div>
+
     {include header}
 
     <main class="main" role="main">

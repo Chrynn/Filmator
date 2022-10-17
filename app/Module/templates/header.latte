@@ -1,5 +1,6 @@
 {import "../Anonymous/templates/auth.latte"}
 {block header}
+
 <header class="header" role="banner">
     <div class="container-extern">
         <div class="header__wrap">
@@ -41,7 +42,7 @@
                     </div>
                     {else}
                     <a n:href="logout!" class="button__link">
-                        <div class="button button--special">
+                        <div class="button button--failure">
                             <div class="button__block-image">
                                 <img src="../img/icons/profile.svg" alt="profile-icon" class="button__image">
                             </div>

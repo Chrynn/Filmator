@@ -75,4 +75,19 @@
             border: 1px solid $grey;
         }
     }
+
+    &.button--failure {
+        @include lightRegular;
+        background: $shadeRed;
+        border: 1px solid $shadeRed;
+
+        &:hover {
+            background: $red;
+            border: 1px solid $red;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+    }
 }
