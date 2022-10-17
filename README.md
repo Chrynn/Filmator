@@ -21,6 +21,7 @@ Použité nástroje
 - IDE - [PHPStorm](https://www.jetbrains.com/phpstorm/), VSCode
 - Design - Adobe Photoshop, XDesign, Illustrator
 - Docs - PHP [dokumentace](https://www.php.net/), Nette [dokumentace](https://doc.nette.org/), Stackoverflow atd.
+- Ubuntu (Virtual OS)
 
 Coding standard
 - HTML `5`
