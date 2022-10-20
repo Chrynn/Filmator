@@ -1,62 +1,31 @@
-## Připravení projektu
+## Začínáme
 
-- vytvoření složky
-```
-mkdir "nazev"
-```
-- smazání složky
-```
-rmdir "nazev"
-```
-- složku vytvářet v Ubuntu konzoli, ale klonovat v PHPStorm konzoli
+- Jelikož projekt používá Linuxové příkazy, je doporučeno používat operační systém `Linux` nebo Virtuální operační systém jako například `Ubuntu`
 
-## Získání projektu
-- bude potřeba mít vygenerovaný SSH klíč (pokud nemáme)
+### Naklonování repozitáře
+
+- `git clone` naklonuje repozitář do vybrané složky 
+- Můžete použít HTTPS (potřeba ověřit identitu) nebo SSH link (potřeba vygenerovat SSH klíč)
+- Osobně doporučuji SSH, ale je to na Vás
+
 ```
-git clone "repository"
+git clone git@github.com:Chrynn/Chess-Club.git
 ```
 
-## Rozjetí projektu
+### Zapnutí projektu
+> nyní máme hlavní soubory projektu, ale ještě bude potřeba přidat pár věcí
 
-> Pozn.
-> - číslo portu nastavíme v `nginx/default.conf` a v `docker-compose.yml`
-> - název databáze nastavíme v `docker-compose.yml`
+- Vytvořte `local.neon` soubor do `config` složky s obsahem níže
+- Můžete použít `touch` a `nano` příkazy nebo provést manuálně
 
-- pro první rozjetí vybuildíme image
 ```
-make up:build
-```
-- nahodíme stránku
-```
-make up
-```
-- přepneme se do PHP kontejneru
-```
-make exec:php
-```
-- aktualizujeme `composer.json` (nainstalujeme `vendor` složku)
-```
-composer update
-```
-- opustíme kontejner
-```
-exit
-```
-- vytvoříme složku pro cache `temp` (cache se generuje sama)
-- nastavíme ji práva
-```
-chmod 777 temp
-```
-- do složky `config` vytvoříme `local.neon` soubor
-```neon
 parameters:
-
 
 database:
     dsn: 'mysql:host=127.0.0.1;dbname=test'
     user: root
     password: root
-
+    
 # nextras mailer
 tracy:
 	bar:
@@ -67,13 +36,27 @@ services:
 		class: Nette\Mail\Mailer
 		factory: Nextras\MailPanel\FileMailer(%tempDir%/mail-panel-mails)
 ```
-- přidáme konzoli práva pro spuštění `make init` příkazu
-```
-sudo chmod 777 bin/console
-```
-- nahodíme databázi
-```
-make init
-```
+
+- Použijte Makefile příkaz `make start`, který:
+1. nastaví Docker kontejner a image
+2. přidá potřebné práva `log` a `cache` složce
+3. nastaví composer balíčky jako `vendor` složku
+4. načte a vyplní databázi testovacími daty - použije `make init`
+
 > pokud jsme na windows
-> - upravit kódování `bin/console` z CRLF na LF (pravo dole) - jinak nepůjde (error)
+> - upravit kódování bin/console z CRLF na LF (pravo dole) - jinak nepůjde (error)
+
+```
+make start
+```
+- Nyní by vám měl projekt plně fungovat v prohlížeči na URL adrese `localhost:90` a databázi na `localhost:10000`- **Ujistěte se** že vám neběží nějaký jiný projekt na portu s číslem `90`
+> Hotovo, hodně štěstí s testováním projektu!
+
+- Pokud chcete projekt vypnout, provolejte `make down` příkaz
+```
+make down
+```
+- Pro znovu zapnutí, provolejte `make up`
+```
+make up
+```

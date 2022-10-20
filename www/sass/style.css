@@ -1881,7 +1881,7 @@ body.auth--active {
   color: #e70000;
 }
 .auth__message--success {
-  color: #4feb34;
+  color: #70ff57;
 }
 .auth__form-wrap:not(:first-child) {
   margin-top: 10px;
@@ -2060,7 +2060,7 @@ body.auth--active {
 }
 .auth__forgotten-text--colored:hover {
   transition: 0.25s;
-  color: #4feb34;
+  color: #70ff57;
 }
 .auth__block-button {
   margin: 30px 0;
@@ -2090,7 +2090,7 @@ body.auth--active {
 }
 .auth__register-text--colored:hover {
   transition: 0.25s;
-  color: #4feb34;
+  color: #70ff57;
 }
 
 .button {
@@ -2167,6 +2167,19 @@ body.auth--active {
   background: #999999;
   border: 1px solid #999999;
 }
+.button.button--failure {
+  color: white;
+  font-family: Roboto Condensed Regular;
+  background: #ff6464;
+  border: 1px solid #ff6464;
+}
+.button.button--failure:hover {
+  background: #e70000;
+  border: 1px solid #e70000;
+}
+.button__link {
+  text-decoration: none;
+}
 
 .reveal {
   position: relative;
@@ -2180,23 +2193,36 @@ body.auth--active {
 }
 
 .flash {
+  height: 70px;
   width: 100%;
+  margin: 0 auto;
   position: fixed;
   display: flex;
   justify-content: center;
-  padding: 10px 0 10px 0;
-  z-index: 10;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.33s;
+  z-index: 6;
 }
-.flash + .page-wrap .header__wrap {
-  margin-top: 42px;
+.flash__content {
+  height: 45px;
+  background: #70ff57;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  border-radius: 30px;
+  border: 1px solid #70ff57;
 }
-.flash.basic {
-  background-color: #ff8a00;
-}
-.flash.basic span {
-  font-size: 18px;
+.flash__text {
   color: black;
   font-family: Roboto Condensed Regular;
+  font-size: 18px;
+  text-align: center;
+}
+.flash.visible {
+  visibility: visible;
+  opacity: 1;
 }
 
 .background-icon {
