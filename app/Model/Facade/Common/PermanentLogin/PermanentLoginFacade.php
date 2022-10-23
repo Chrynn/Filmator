@@ -2,7 +2,7 @@
 
 namespace App\Model\Facade\Common\PermanentLogin;
 
-use App\Model\Facade\Anonymous\Auth\AuthorizationFacade;
+use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use App\Model\Service\PermanentLogin\PermanentLoginService;
 use App\Model\Service\User\UserService;
 use Nette\Http\Request;

@@ -1,0 +1,40 @@
+{varType App\Model\Database\Entity\ActorEntity[] $actors}
+{import "../../notFound.latte"}
+{block actor}
+
+{if $actors}
+    <div class="actor__row">
+        <div class="flexer">
+            {foreach $actors as $actor}
+
+            <div class="actor__item">
+                <a n:href=":Front:Actor:detail $actor->getSlug()" class="actor__link">
+                    <div class="actor__content-wrap">
+                        <div class="actor__image-box">
+                            <img src="../../{$actor->getImagePoster()}" class="actor__image">
+                        </div>
+                        <div>
+                            <h3 class="actor__heading">{$actor->getName()}</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            {if $iterator->even && !(($iterator->counter % 4) === 0)}
+        </div>
+        <div class="flexer">
+            {/if}
+
+            {if ($iterator->counter % 4) === 0}
+        </div>
+    </div>
+    <div class="actor__row">
+        <div class="flexer">
+            {/if}
+
+            {/foreach}
+        </div>
+    </div>
+{else}
+    {include notFound}
+{/if}

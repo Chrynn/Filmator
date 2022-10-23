@@ -73,10 +73,10 @@ final class SerialEntity
 
 	/**
 	 * @var Collection<int, UserEntity>
-	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="watchSerial")
-	 * @ORM\JoinTable(name="watch_serial")
+	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="laterSerial")
+	 * @ORM\JoinTable(name="later_serial")
 	 */
-	protected Collection $watchUser;
+	protected Collection $laterUser;
 
 	/**
 	 * @var Collection<int, TagWatchEntity>
@@ -233,6 +233,18 @@ final class SerialEntity
 	public function setSerialTag(Collection $serialTag): void
 	{
 		$this->serialTag = $serialTag;
+	}
+
+
+	public function getLaterUser(): Collection
+	{
+		return $this->laterUser;
+	}
+
+
+	public function setLaterUser(Collection $laterUser): void
+	{
+		$this->laterUser = $laterUser;
 	}
 
 }

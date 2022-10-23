@@ -84,6 +84,17 @@ function contentAnimation(){
   }
 }
 
+function closePlay() {
+  
+  var playbutton = document.querySelector(".js-close-play");
+
+  playbutton?.addEventListener("click", () => {
+    playbutton.style.display = "none";
+  });
+
+}
+closePlay();
+
 // --- slider ---
 function MainSlider() {
   
@@ -341,4 +352,4 @@ $(document).ajaxComplete(function refreshAuth(){
 });
 
 // --- hide flash ID in URL ---
-window.history.replaceState({}, null, removeFid(url, pos));
+// window.history.replaceState({}, null, removeFid(url, pos));

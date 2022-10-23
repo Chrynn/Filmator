@@ -48,7 +48,7 @@ class EditMovie extends Control
 		$this->movie->setDescription($values->description);
 		$this->entityManager->flush();
 		$this->presenter->flashMessage("Upraveno");
-		$this->presenter->redirect(":Anonymous:Movie:detail", $this->movie->getSlug());
+		$this->presenter->redirect(":Front:Movie:detail", $this->movie->getSlug());
 	}
 
 	public function render(): void

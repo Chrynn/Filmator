@@ -59,10 +59,10 @@ final class ArticleEntity
 
 	/**
 	 * @var Collection<int, UserEntity>
-	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="watchArticle")
-	 * @ORM\JoinTable(name="read_article")
+	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="laterArticle")
+	 * @ORM\JoinTable(name="later_article")
 	 */
-	protected Collection $watchUser;
+	protected Collection $laterUser;
 
 	/**
 	 * @var Collection<int, TagReadEntity>
@@ -114,42 +114,6 @@ final class ArticleEntity
 	}
 
 
-	/**
-	 * @return Collection<int, UserEntity>
-	 */
-	public function getLikeUser(): Collection
-	{
-		return $this->likeUser;
-	}
-
-
-	/**
-	 * @return Collection<int, UserEntity>
-	 */
-	public function getWatchUser(): Collection
-	{
-		return $this->watchUser;
-	}
-
-
-	/**
-	 * @return Collection<int, TagReadEntity>
-	 */
-	public function getArticleTag(): Collection
-	{
-		return $this->articleTag;
-	}
-
-
-	/**
-	 * @param Collection<int, TagReadEntity> $articleTag
-	 */
-	public function setArticleTag(Collection $articleTag): void
-	{
-		$this->articleTag = $articleTag;
-	}
-
-
 	public function getImage(): string
 	{
 		return $this->image;
@@ -183,6 +147,42 @@ final class ArticleEntity
 	public function setCreatedAtMonth(string $createdAtMonth): void
 	{
 		$this->createdAtMonth = $createdAtMonth;
+	}
+
+
+	public function getLikeUser(): Collection
+	{
+		return $this->likeUser;
+	}
+
+
+	public function setLikeUser(Collection $likeUser): void
+	{
+		$this->likeUser = $likeUser;
+	}
+
+
+	public function getLaterUser(): Collection
+	{
+		return $this->laterUser;
+	}
+
+
+	public function setLaterUser(Collection $laterUser): void
+	{
+		$this->laterUser = $laterUser;
+	}
+
+
+	public function getArticleTag(): Collection
+	{
+		return $this->articleTag;
+	}
+
+
+	public function setArticleTag(Collection $articleTag): void
+	{
+		$this->articleTag = $articleTag;
 	}
 
 }

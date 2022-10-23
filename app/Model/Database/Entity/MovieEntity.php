@@ -73,10 +73,10 @@ final class MovieEntity
 
 	/**
 	 * @var Collection<int, UserEntity>
-	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="watchMovie")
-	 * @ORM\JoinTable(name="watch_movie")
+	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="laterMovie")
+	 * @ORM\JoinTable(name="later_movie")
 	 */
-	protected Collection $watchUser;
+	protected Collection $laterUser;
 
 	/**
 	 * @var Collection<int, UserEntity>
@@ -209,12 +209,6 @@ final class MovieEntity
 	}
 
 
-	public function getWatchUser(): Collection
-	{
-		return $this->watchUser;
-	}
-
-
 	/**
 	 * @return Collection<int, TagWatchEntity>
 	 */
@@ -230,6 +224,18 @@ final class MovieEntity
 	public function setMovieTag(Collection $movieTag): void
 	{
 		$this->movieTag = $movieTag;
+	}
+
+
+	public function getLaterUser(): Collection
+	{
+		return $this->laterUser;
+	}
+
+
+	public function setLaterUser(Collection $laterUser): void
+	{
+		$this->laterUser = $laterUser;
 	}
 
 }

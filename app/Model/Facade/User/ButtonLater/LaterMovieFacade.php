@@ -3,7 +3,7 @@
 namespace App\Model\Facade\User\ButtonLater;
 
 use App\Model\Database\Entity\MovieEntity;
-use App\Model\Facade\Anonymous\Auth\AuthorizationFacade;
+use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use Doctrine\ORM\EntityManagerInterface;
 
 final class LaterMovieFacade
@@ -15,40 +15,40 @@ final class LaterMovieFacade
 	) {}
 
 
-	public function watch(MovieEntity $movie): void
+	public function later(MovieEntity $movie): void
 	{
 		$user = $this->authorizationFacade->getLoggedUser();
 
-		if ($movie->getWatchUser()->contains($user)) {
+		if ($movie->getLaterUser()->contains($user)) {
 			return;
 		}
 
-		$movie->getWatchUser()->add($user);
-		$user->getWatchMovie()->add($movie);
+		$movie->getLaterUser()->add($user);
+		$user->getLaterMovie()->add($movie);
 
 		$this->entityManager->flush();
 	}
 
 
-	public function unWatch(MovieEntity $movie): void
+	public function unLater(MovieEntity $movie): void
 	{
 		$user = $this->authorizationFacade->getLoggedUser();
 
-		if (!$movie->getWatchUser()->contains($user)) {
+		if (!$movie->getLaterUser()->contains($user)) {
 			return;
 		}
 
-		$movie->getWatchUser()->removeElement($user);
-		$user->getWatchMovie()->removeElement($movie);
+		$movie->getLaterUser()->removeElement($user);
+		$user->getLaterMovie()->removeElement($movie);
 
 		$this->entityManager->flush();
 	}
 
 
-	public function wantWatch(MovieEntity $movie): bool
+	public function laterMarked(MovieEntity $movie): bool
 	{
 		$user = $this->authorizationFacade->getLoggedUser();
-		return $movie->getWatchUser()->contains($user);
+		return $movie->getLaterUser()->contains($user);
 	}
 
 }
