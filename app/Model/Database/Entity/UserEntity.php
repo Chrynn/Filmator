@@ -80,24 +80,24 @@ final class UserEntity
 
 	/**
 	 * @var Collection<int, MovieEntity>
-	 * @ORM\ManyToMany(targetEntity="MovieEntity", inversedBy="watchUser")
-	 * @ORM\JoinTable(name="watch_movie")
+	 * @ORM\ManyToMany(targetEntity="MovieEntity", inversedBy="laterUser")
+	 * @ORM\JoinTable(name="later_movie")
 	 */
-	protected Collection $watchMovie;
+	protected Collection $laterMovie;
 
 	/**
 	 * @var Collection<int, SerialEntity>
-	 * @ORM\ManyToMany(targetEntity="SerialEntity", inversedBy="watchUser")
-	 * @ORM\JoinTable(name="watch_serial")
+	 * @ORM\ManyToMany(targetEntity="SerialEntity", inversedBy="laterUser")
+	 * @ORM\JoinTable(name="later_serial")
 	 */
-	protected Collection $watchSerial;
+	protected Collection $laterSerial;
 
 	/**
 	 * @var Collection<int, ArticleEntity>
-	 * @ORM\ManyToMany(targetEntity="ArticleEntity", inversedBy="watchUser")
-	 * @ORM\JoinTable(name="read_article")
+	 * @ORM\ManyToMany(targetEntity="ArticleEntity", inversedBy="laterUser")
+	 * @ORM\JoinTable(name="later_article")
 	 */
-	protected Collection $watchArticle;
+	protected Collection $laterArticle;
 
 
 	public function __construct()
@@ -214,30 +214,33 @@ final class UserEntity
 	}
 
 
-	/**
-	 * @return Collection<int, MovieEntity>
-	 */
-	public function getWatchMovie(): Collection
+	public function getLaterMovie(): Collection
 	{
-		return $this->watchMovie;
+		return $this->laterMovie;
 	}
 
 
-	/**
-	 * @return Collection<int, SerialEntity>
-	 */
-	public function getWatchSerial(): Collection
+	public function setLaterMovie(Collection $laterMovie): void
 	{
-		return $this->watchSerial;
+		$this->laterMovie = $laterMovie;
 	}
 
 
-	/**
-	 * @return Collection<int, ArticleEntity>
-	 */
-	public function getWatchArticle(): Collection
+	public function getLaterSerial(): Collection
 	{
-		return $this->watchArticle;
+		return $this->laterSerial;
+	}
+
+
+	public function getLaterArticle(): Collection
+	{
+		return $this->laterArticle;
+	}
+
+
+	public function setLaterArticle(Collection $laterArticle): void
+	{
+		$this->laterArticle = $laterArticle;
 	}
 
 }

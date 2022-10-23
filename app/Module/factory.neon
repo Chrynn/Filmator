@@ -1,14 +1,14 @@
 services:
-    - App\Module\Anonymous\components\Login\LoginFactory
-    - App\Module\Anonymous\components\Register\RegisterFactory
-    - App\Module\Anonymous\components\Forgotten\ForgottenFactory
+    - App\Module\Front\components\Login\LoginFactory
+    - App\Module\Front\components\Register\RegisterFactory
+    - App\Module\Front\components\Forgotten\ForgottenFactory
 
-    - App\Module\Anonymous\Actor\components\ButtonLike\ButtonLikeFactory
-    - App\Module\Anonymous\Article\components\ButtonLike\ButtonLikeFactory
-    - App\Module\Anonymous\Article\components\ButtonLater\ButtonLaterFactory
-    - App\Module\Anonymous\Movie\components\ButtonLike\ButtonLikeFactory
-    - App\Module\Anonymous\Movie\components\ButtonLater\ButtonLaterFactory
-    - App\Module\Anonymous\Serial\components\ButtonLike\ButtonLikeFactory
-    - App\Module\Anonymous\Serial\components\ButtonLater\ButtonLaterFactory
+    - App\Module\Front\Actor\components\ButtonLike\ButtonLikeFactory
+    - App\Module\Front\Article\components\ButtonLike\ButtonLikeFactory
+    - App\Module\Front\Article\components\ButtonLater\ButtonLaterFactory
+    - App\Module\Front\Movie\components\ButtonLike\ButtonLikeFactory
+    - App\Module\Front\Movie\components\ButtonLater\ButtonLaterFactory
+    - App\Module\Front\Serial\components\ButtonLike\ButtonLikeFactory
+    - App\Module\Front\Serial\components\ButtonLater\ButtonLaterFactory
 
     - App\Module\Admin\Edit\Component\EditMovie\EditMovieFactory

@@ -58,13 +58,16 @@ body.auth--active {
 
 // theme
 .page-wrap {
+	position: relative;
+
 	&--light {
 
 		.player,
 		.watch,
 		.biography,
 		.news-content,
-		.read {
+		.read,
+		.section-user {
 			background: $backgroundSecondary;
 		}
 	}
@@ -73,7 +76,8 @@ body.auth--active {
 }
 
 // pages
-@import "pages/homepage";
+@import "pages/anonymous";
+@import "pages/user";
 
 // repeating
 @import "repeating/default";
@@ -88,6 +92,7 @@ body.auth--active {
 @import "global/reveal";
 @import "global/flash";
 @import "global/tapes";
+@import "global/module-button";
 
 // import fonts
 @font-face {

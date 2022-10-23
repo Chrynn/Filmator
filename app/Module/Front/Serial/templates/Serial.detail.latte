@@ -1,0 +1,230 @@
+{import "../../../templates/menu.latte"}
+{import "../../../templates/watch/detail/watchSerial.latte"}
+{varType App\Model\Database\Entity\SerialEntity $serial}
+{varType bool $isLogged}
+{block content}
+
+<div class="topic-detail topic-detail--normal">
+    <div class="container-extern">
+        <div class="topic-detail__content-wrap">
+            <div class="topic-detail__image-box">
+                <img src="../{$serial->getImageBanner()}" alt="serial-banner" class="topic-detail__image">
+            </div>
+            <div class="topic-detail__content">
+                <div class="darken">
+                    <div class="container-intern">
+                        <div class="topic-detail__heading-wrap">
+                            <div>
+                                <h2 n:block="title" class="topic-detail__title">{$serial->getName()}</h2>
+                            </div>
+
+                            <div>
+                                <ul class="topic-detail__translate-list">
+                                    <li class="topic-detail__translate-item"><img src="../img/filmator/uk-flag.jpg" class="topic-detail__translate-image"></li>
+                                    <li class="topic-detail__translate-item"><span class="topic-detail__translate">{$serial->getName()}</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{include menu}
+
+<div class="player">
+    <div class="container-intern">
+
+        <div class="background-icon">
+            <img src="../img/icons/movie-tape.svg" alt="movie-tape-icon" class="background-icon__image--top">
+        </div>
+        <div class="flexer">
+            <div class="player__column--first">
+                <div class="player__quality-box">
+                    <span class="player__quality">HD</span>
+                </div>
+                {if $isLogged}
+                    {control likeButton}
+                    {control laterButton}
+                {/if}
+            </div>
+            <div class="player__column--second">
+                <div class="flexer">
+                    <ul class="player__list">
+                        <li class="player__item">
+                            <div>
+                                <span class="player__rating-text">Filmátor</span>
+                            </div>
+                            <div class="player__rating--second">
+                                <span class="player__rating-number">85%</span>
+                            </div>
+                        </li>
+                        <li class="player__item player__item--second">
+                            <div>
+                                <span class="player__rating-text">ČSFD</span>
+                            </div>
+                            <div class="player__rating--second">
+                                <span class="player__rating-number">{$serial->getRating()}%</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="player__block-screen">
+            <div class="player__screen">
+                {snippet last}
+                    <a n:href="markLast!" class="player__button-play js-close-play">
+                        <img src="../img/icons/play-black.svg" class="player__image-play">
+                    </a>
+                {/snippet}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="overview">
+    <div class="container-extern">
+        <div class="darken">
+            <div class="container-intern">
+
+                <div class="overview__row">
+                    <div class="overview__column">
+                        <div class="overview__poster-box">
+                            <img src="../{$serial->getImagePoster()}" class="overview__poster">
+                        </div>
+                        <div class="overview__main-wrap">
+                            <div class="overview__block-main">
+                                <table>
+                                    <tr>
+                                        <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong">Rok</span></td>
+                                        <td><span class="overview__text-main">2012</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong">Délka</span></td>
+                                        <td><span class="overview__text-main">120 min</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong">Místo</span></td>
+                                        <td><span class="overview__text-main">USA</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong">Žánr</span></td>
+                                        <td><span class="overview__text-main overview__text-main--colored">Krimi, Drama, Akční</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="overview__block-tags">
+                                <ul class="overview__list-tags">
+                                    <li class="overview__item-tags">
+                                        <span class="overview__text-tags">Detektivka</span>
+                                    </li>
+                                    <li class="overview__item-tags">
+                                        <span class="overview__text-tags">Historický</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overview__column">
+                        <div class="overview__trailer-box">
+                            <iframe frameborder="0" allowfullscreen="allowfullscreen" loading="lazy"
+                                    src="{$serial->getTrailer()}" class="overview__trailer">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overview__row">
+                    <div class="overview__column">
+                        <div class="overview__description-box">
+                            <p class="overview__description">{$serial->getDescription()}</p>
+                        </div>
+                    </div>
+                    <div class="overview__column">
+                        <div class="overview__content-wrap-cast">
+                            <div class="overview__cast-wrap">
+                                <div class="overview__cast">
+                                    <table>
+                                        <tr>
+                                            <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong"">Režie</span></td>
+                                            <td><span class="overview__text-main">Guy Ritchie</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong"">Předloha</span></td>
+                                            <td><span class="overview__text-main">Arthur Conan Doyle</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong"">Scénář</span></td>
+                                            <td><span class="overview__text-main">Michael Robert Johnson, Anthony Peckham, Simon
+                                                        Kinberg</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong"">Kamera</span></td>
+                                            <td><span class="overview__text-main">Philippe Rousselot</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong"">Hudba</span></td>
+                                            <td><span class="overview__text-main">Hans Zimmer</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="overview__actor-wrap">
+                                <div class="overview__actor">
+                                    <table>
+                                        <tr>
+                                            <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong">Herci</span></td>
+                                            <td><span class="overview__text-main">
+                                                Robert Downey Jr.,
+                                                Jude Law,
+                                                Rachel McAdams,
+                                                Mark Strong,
+                                                Eddie Marsan,
+                                                Kelly Reilly,
+                                                James Fox,
+                                                Hans Matheson,
+                                                Geraldine James,
+                                                Robert Maillet
+                                            </span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="watch">
+    <div class="container-intern">
+
+        <div class="background-icon">
+            <img src="../img/icons/movie-tape.svg" alt="movie-tape-icon" class="background-icon__image--top">
+        </div>
+
+        <div class="watch__block-topic">
+            <div class="watch__topic-line--dark"></div>
+            <div class="watch__topic-title">
+                <div class="watch__topic-box--dark">
+                    <h3 class="watch__topic-heading--dark">Podobné</h3>
+                </div>
+                <div class="watch__topic-box--light">
+                    <h3 class="watch__topic-heading--light">seriály</h3>
+                </div>
+            </div>
+            <div class="watch__topic-line--light"></div>
+        </div>
+
+        <div class="reveal">
+            {include watchSerial}
+        </div>
+
+    </div>
+</div>

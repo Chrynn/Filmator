@@ -6,7 +6,7 @@ use App\Model\Database\Entity\ActorEntity;
 use App\Model\Database\Entity\ArticleEntity;
 use App\Model\Database\Entity\MovieEntity;
 use App\Model\Database\Entity\SerialEntity;
-use App\Model\Facade\Anonymous\Auth\AuthorizationFacade;
+use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use App\Module\Admin\AdminPresenter;
 use Doctrine\ORM\EntityManagerInterface;
 use Nette\Application\UI\Form;

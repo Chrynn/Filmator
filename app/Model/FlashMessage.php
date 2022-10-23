@@ -5,9 +5,9 @@ namespace App\Model;
 final class FlashMessage
 {
 
-	public const TYPE_SUCCESS = 'success';
-	public const TYPE_WARNING = 'warning';
+	public const TYPE_SUCCESS = 'flash__content--success';
+	public const TYPE_WARNING = 'flash__content--warning';
 
-	public const TYPE_BASIC = 'basic';
+	public const TYPE_BASIC = 'flash__content--basic';
 
 }

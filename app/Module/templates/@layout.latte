@@ -1,9 +1,13 @@
 {import "header.latte"}
 {import "footer.latte"}
+{import "flash/flashMessage.latte"}
+{import "button/moduleButton.latte"}
+{varType bool $isLogged}
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <link rel="stylesheet" type="text/css" href="../sass/style.css">
+    <link rel="stylesheet" type="text/css" href="/../sass/style.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
@@ -37,11 +41,7 @@
 <body>
 
 <div class="page-wrap page-wrap--light">
-    <div n:foreach="$flashes as $flash" n:class="flash, $flash->type, visible">
-        <div class="flash__content">
-            <span class="flash__text">{$flash->message}</span>
-        </div>
-    </div>
+    {include flashMessage}
 
     {include header}
 
@@ -50,13 +50,17 @@
     </main>
 
     {include footer}
+
+    {if $isLogged}
+        {include moduleButton}
+    {/if}
 </div>
 
 <!-- scripts -->
 <div class="script">
     <script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
-    <script src="../js/nette.ajax.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../../js/nette.ajax.js"></script>
+    <script src="../../js/script.js"></script>
 </div>
 
 </body>

@@ -2,7 +2,7 @@
 
 namespace App\Module\User;
 
-use App\Model\Facade\Anonymous\Auth\AuthorizationFacade;
+use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade;
 use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
 use App\Module\ModulePresenter;
@@ -26,9 +26,8 @@ class UserPresenter extends ModulePresenter
 	protected function startup(): void
 	{
 		parent::startup();
-		$logged = $this->authorizationFacade->isLoggedIn();
-		if (!$logged) {
-			$this->redirect(":Anonymous:Homepage:");
+		if (!$this->userLogged()) {
+			$this->redirect(":Front:Homepage:");
 		}
 	}
 

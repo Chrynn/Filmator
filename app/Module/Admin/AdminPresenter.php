@@ -2,7 +2,7 @@
 
 namespace App\Module\Admin;
 
-use App\Model\Facade\Anonymous\Auth\AuthorizationFacade;
+use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade;
 use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
 use App\Module\ModulePresenter;
@@ -33,7 +33,7 @@ abstract class AdminPresenter extends ModulePresenter
 				$this->redirect(":User:Homepage:");
 			}
 		} else {
-			$this->redirect(":Anonymous:Homepage:");
+			$this->redirect(":Front:Homepage:");
 		}
 	}
 

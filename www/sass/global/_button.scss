@@ -78,6 +78,7 @@
 
     &.button--failure {
         @include lightRegular;
+
         background: $shadeRed;
         border: 1px solid $shadeRed;
 

@@ -3,6 +3,8 @@
 namespace App\Model\Service\Movie;
 
 use App\Model\Database\Entity\MovieEntity;
+use App\Model\Database\Entity\UserEntity;
+use App\Model\Facade\Front\Auth\UserIdentityFacade;
 use Doctrine\ORM\EntityManagerInterface;
 
 final class MovieService implements IMovieService

@@ -1,0 +1,22 @@
+{varType bool $isAdmin}
+{block moduleButton}
+
+<div class="module-button">
+
+    {if !$presenter->isLinkCurrent(":User:Homepage:")}
+        <a n:href=":User:Homepage:" class="module-button__link" title="Uživatelská sekce">
+            <div class="module-button__content">
+                <img src="../../img/icons/profile.svg" class="module-button__image" alt="icon-profile">
+            </div>
+        </a>
+    {/if}
+
+    {if $isAdmin && !$presenter->isLinkCurrent(":Admin:Homepage:")}
+        <a n:href=":Admin:Homepage:" class="module-button__link" title="Admin sekce">
+            <div class="module-button__content">
+                <img src="../../img/icons/key.svg" class="module-button__image" alt="icon-key">
+            </div>
+        </a>
+    {/if}
+
+</div>
