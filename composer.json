@@ -26,12 +26,12 @@
 		"nettrine/migrations": "^0.8.0",
 		"nettrine/fixtures": "^0.6.2",
 		"nettrine/cache": "^0.3.0",
-		"nextras/mail-panel": "^2.6"
+		"nextras/mail-panel": "^2.6",
+		"phpstan/phpstan": "^1.9"
 	},
 	"require-dev": {
 		"nette/tester": "^2.3",
-		"symfony/thanks": "^1",
-		"phpstan/phpstan": "^1.9"
+		"symfony/thanks": "^1"
 	},
 	"autoload": {
 		"files": [
