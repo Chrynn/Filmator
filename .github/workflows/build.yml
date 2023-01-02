@@ -17,5 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - name: Install composer
+        run: compsoer install
+      
       - name: PHPStan
         run: vendor/bin/phpstan analyse app -l max
