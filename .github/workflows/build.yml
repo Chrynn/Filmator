@@ -17,8 +17,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Install composer
-        run: composer install
+      - name: Composer
+        run: |
+         composer validate
+         composer install --no-interaction --prefer-dist
       
       - name: PHPStan
-        run: vendor/bin/phpstan analyse app -l max
+        run: |
+         vendor/bin/phpstan analyse app -l max --memory-limit 2048M --error-format github
