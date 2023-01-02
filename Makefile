@@ -59,4 +59,4 @@ start:
 
 fix:
     # phpstan -l (level 0-9, max - newest)
-	docker-compose -f .docker/docker-compose.yml exec php vendor/bin/phpstan analyse app -l max
+	docker-compose -f .docker/docker-compose.yml exec php vendor/bin/phpstan analyse -c phpstan/config.neon --memory-limit 2048M

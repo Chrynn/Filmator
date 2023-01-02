@@ -1,0 +1,8 @@
+parameters:
+	level: max
+
+	paths:
+		- app
+
+rules:
+    - app\PHPStan\Rules\Psr4NamespaceCheckRule
