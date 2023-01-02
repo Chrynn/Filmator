@@ -1,29 +1,21 @@
 name: Build
 
 on:
+  push:
+    branches:
+      - master
   pull_request:
     branches:
       - master
-  push:
-    branches:
-      - gh-readonly-queue/master/**
-
-concurrency:
-  group: build-${{ github.head_ref }}
-  cancel-in-progress: true
 
 jobs:
   phpstan:
     name: PHPStan
 
-    runs-on: [ self-hosted, project-large ]
-
-    timeout-minutes: 5
-
-    env:
-      COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
+    runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
+      
       - name: PHPStan
-        run: |
-          docker-compose -f .docker/docker-compose.yml exec php vendor/bin/phpstan analyse app -l max
+        run: vendor/bin/phpstan analyse app -l max
