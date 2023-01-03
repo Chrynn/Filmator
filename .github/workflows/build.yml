@@ -10,14 +10,23 @@ on:
 
 jobs:
   phpstan:
+    environment: staging
     name: PHPStan
-
     runs-on: ubuntu-latest
-    
     timeout-minutes: 5
 
     steps:
       - uses: actions/checkout@v2
+      
+      - uses: burnett01/rsync-deployments@23a557dceb19f9bb960ef40cf75cab5e9b37ec1f
+        name: Deploy to production
+        with:
+          switches: -avzr --delete
+          path: ./web
+          remote_path: /var/app
+          remote_host: ${{ secrets.HOSTNAME }}
+          remote_user: ${{ secrets.REMOTE_USER }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
     
       - name: Composer
         run: |
