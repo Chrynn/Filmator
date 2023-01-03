@@ -9,6 +9,27 @@ on:
       - master
 
 jobs:
+
+  deploy_staging:
+    environment: staging
+    name: 'Deploy to staging'
+    runs-on: ubuntu-latest
+
+    steps:
+      
+      - uses: actions/checkout@v2
+        name: 'Checkout repository'
+
+      - uses: burnett01/rsync-deployments@23a557dceb19f9bb960ef40cf75cab5e9b37ec1f
+        name: 'Deploy to staging'
+        with:
+          switches: -avzr --delete
+          path: ./web
+          remote_path: /var/app
+          remote_host: ${{ secrets.HOSTNAME }}
+          remote_user: ${{ secrets.REMOTE_USER }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
   phpstan:
     environment: staging
     name: PHPStan
@@ -17,16 +38,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      
-      - uses: burnett01/rsync-deployments@23a557dceb19f9bb960ef40cf75cab5e9b37ec1f
-        name: Deploy to production
-        with:
-          switches: -avzr --delete
-          path: ./web
-          remote_path: /var/app
-          remote_host: ${{ secrets.HOSTNAME }}
-          remote_user: ${{ secrets.REMOTE_USER }}
-          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
     
       - name: Composer
         run: |
@@ -36,3 +47,4 @@ jobs:
       - name: PHPStan
         run: |
          vendor/bin/phpstan analyse app -l max --memory-limit 2048M --error-format github
+ 
