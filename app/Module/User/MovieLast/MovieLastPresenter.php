@@ -16,7 +16,7 @@ class MovieLastPresenter extends UserPresenter
 	public function __construct(
 		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
-		AuthorizationFacade $authorizationFacade,
+		private readonly AuthorizationFacade $authorizationFacade,
 		private readonly EntityManagerInterface $entityManager
 	)
 	{
@@ -29,9 +29,14 @@ class MovieLastPresenter extends UserPresenter
 
 	public function actionDefault(): void
 	{
+        $loggedUser = $this->authorizationFacade->getLoggedUser();
 		$this->getTemplate()->movies = $this->entityManager->createQueryBuilder()
-			->select("movie")
-			->from(MovieEntity::class, "movie")
+			->select("movie, movieLast, user")
+            ->from(MovieEntity::class, "movie")
+            ->join("movie.movieLast", "movieLast")
+            ->join("movieLast.user", "user")
+            ->where("user.id = :userId")
+            ->setParameter("userId", $loggedUser->getId())
 			->getQuery()
 			->getResult();
 	}

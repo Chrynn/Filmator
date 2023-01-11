@@ -85,6 +85,12 @@ final class MovieEntity
 	 */
 	protected Collection $movieTag;
 
+    /**
+     * @var Collection<int, MovieLastEntity>
+     * @ORM\OneToMany(targetEntity="MovieLastEntity", mappedBy="movie")
+     */
+    protected Collection $movieLast;
+
 
 	public function getId(): int
 	{
@@ -237,5 +243,21 @@ final class MovieEntity
 	{
 		$this->laterUser = $laterUser;
 	}
+
+    /**
+     * @return Collection
+     */
+    public function getMovieLast(): Collection
+    {
+        return $this->movieLast;
+    }
+
+    /**
+     * @param Collection $movieLast
+     */
+    public function setMovieLast(Collection $movieLast): void
+    {
+        $this->movieLast = $movieLast;
+    }
 
 }

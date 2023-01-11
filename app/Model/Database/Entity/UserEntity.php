@@ -99,6 +99,12 @@ final class UserEntity
 	 */
 	protected Collection $laterArticle;
 
+    /**
+     * @var Collection<int, MovieLastEntity>
+     * @ORM\OneToMany(targetEntity="MovieLastEntity", mappedBy="user")
+     */
+    protected Collection $userLast;
+
 
 	public function __construct()
 	{

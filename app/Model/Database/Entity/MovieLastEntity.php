@@ -22,12 +22,12 @@ class MovieLastEntity
 	protected int $id;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="UserEntity")
+	 * @ORM\ManyToOne(targetEntity="UserEntity", inversedBy="userLast")
 	 */
 	protected UserEntity $user;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="MovieEntity")
+	 * @ORM\ManyToOne(targetEntity="MovieEntity", inversedBy="movieLast")
 	 */
 	protected MovieEntity $movie;
 
