@@ -3,14 +3,14 @@
 namespace App\Module\Front\Movie\components\ButtonLater;
 
 use App\Model\Database\Entity\MovieEntity;
-use App\Model\Facade\User\ButtonLater\LaterMovieFacade;
+use App\Model\Facade\User\Later\LaterMovieFacade;
 use Nette\Application\UI\Control;
 
 class ButtonLater extends Control
 {
 
-	public array $onLater;
-	public array $onUnLater;
+	public array $onMarkLater;
+	public array $onUnmarkLater;
 
 
 	public function __construct(
@@ -19,23 +19,24 @@ class ButtonLater extends Control
 	) {}
 
 
-	public function handleLater(): void
+	public function handleMarkLater(): void
 	{
-		$this->laterMovieFacade->later($this->movie);
-		$this->onLater();
+		$this->laterMovieFacade->markLater($this->movie);
+		$this->onMarkLater();
 	}
 
 
-	public function handleUnLater(): void
+	public function handleUnmarkLater(): void
 	{
-		$this->laterMovieFacade->unLater($this->movie);
-		$this->onUnLater();
+		$this->laterMovieFacade->unmarkLater($this->movie);
+		$this->onUnmarkLater();
 	}
 
 
 	public function render(): void
 	{
-		$this->getTemplate()->later = $this->laterMovieFacade->laterMarked($this->movie);
+		$this->getTemplate()->later = $this->laterMovieFacade->isMarkedLater($this->movie);
+
 		$this->getTemplate()->setFile(__DIR__ . "/templates/buttonLater.latte");
 		$this->getTemplate()->render();
 	}

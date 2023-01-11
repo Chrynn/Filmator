@@ -3,14 +3,14 @@
 namespace App\Module\Front\Serial\components\ButtonLater;
 
 use App\Model\Database\Entity\SerialEntity;
-use App\Model\Facade\User\ButtonLater\LaterSerialFacade;
+use App\Model\Facade\User\Later\LaterSerialFacade;
 use Nette\Application\UI\Control;
 
 class ButtonLater extends Control
 {
 
-	public array $onLater;
-	public array $onUnLater;
+	public array $onMarkLater;
+	public array $onUnmarkLater;
 
 
 	public function __construct(
@@ -19,23 +19,24 @@ class ButtonLater extends Control
 	) {}
 
 
-	public function handleLater(): void
+	public function handleMarkLater(): void
 	{
-		$this->laterSerialFacade->later($this->serial);
-		$this->onLater();
+		$this->laterSerialFacade->markLater($this->serial);
+		$this->onMarkLater();
 	}
 
 
-	public function handleUnLater(): void
+	public function handleUnmarkLater(): void
 	{
-		$this->laterSerialFacade->unLater($this->serial);
-		$this->onUnLater();
+		$this->laterSerialFacade->unmarkLater($this->serial);
+		$this->onUnmarkLater();
 	}
 
 
 	public function render(): void
 	{
-		$this->getTemplate()->later = $this->laterSerialFacade->laterMarked($this->serial);
+		$this->getTemplate()->later = $this->laterSerialFacade->isMarkedLater($this->serial);
+
 		$this->getTemplate()->setFile(__DIR__ . "/templates/buttonLater.latte");
 		$this->getTemplate()->render();
 	}

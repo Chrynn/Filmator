@@ -9,8 +9,8 @@ use Nette\Application\UI\Control;
 class ButtonLike extends Control
 {
 
-	public array $onLike;
-	public array $onDislike;
+	public array $onMarkLike;
+	public array $onUnmarkLike;
 
 
 	public function __construct(
@@ -19,23 +19,24 @@ class ButtonLike extends Control
 	) {}
 
 
-	public function handleLike(): void
+	public function handleMarkLike(): void
 	{
-		$this->actorLikeFacade->like($this->actor);
-		$this->onLike();
+		$this->actorLikeFacade->markLike($this->actor);
+		$this->onMarkLike();
 	}
 
 
-	public function handleUnLike(): void
+	public function handleUnmarkLike(): void
 	{
-		$this->actorLikeFacade->unLike($this->actor);
-		$this->onDislike();
+		$this->actorLikeFacade->unmarkLike($this->actor);
+		$this->onUnmarkLike();
 	}
 
 
 	public function render(): void
 	{
-		$this->getTemplate()->liked = $this->actorLikeFacade->isLiked($this->actor);
+		$this->getTemplate()->liked = $this->actorLikeFacade->isMarkedLike($this->actor);
+
 		$this->getTemplate()->setFile(__DIR__ . "/templates/buttonLike.latte");
 		$this->getTemplate()->render();
 	}

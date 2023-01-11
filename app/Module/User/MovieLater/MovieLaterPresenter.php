@@ -2,12 +2,11 @@
 
 namespace App\Module\User\MovieLater;
 
-use App\Model\Database\Entity\MovieEntity;
 use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade;
 use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
 use App\Module\User\UserPresenter;
-use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 
 class MovieLaterPresenter extends UserPresenter
 {
@@ -15,9 +14,8 @@ class MovieLaterPresenter extends UserPresenter
 	public function __construct(
 		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
-		private readonly AuthorizationFacade $authorizationFacade
-	)
-	{
+		AuthorizationFacade $authorizationFacade
+	) {
 		parent::__construct(
 			$autoIncrementFacade,
 			$permanentLoginFacade,
@@ -26,10 +24,12 @@ class MovieLaterPresenter extends UserPresenter
 	}
 
 
+	/**
+	 * @throws Exception
+	 */
 	public function actionDefault(): void
 	{
-		$laterMovies = $this->authorizationFacade->getLoggedUser()->getLaterMovie();
-		$this->getTemplate()->movies = $laterMovies->isEmpty() ? [] : $laterMovies;
+		$this->getTemplate()->movies = $this->getLoggedUser()->getLaterMovie()->toArray();
 	}
 
 }

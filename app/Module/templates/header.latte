@@ -1,4 +1,3 @@
-{import "../Front/templates/auth.latte"}
 {varType bool $isLogged}
 {block header}
 
@@ -62,7 +61,14 @@
             </div>
         </div>
     </div>
-{if !$isLogged}
-    {include auth}
-{/if}
+
+    {if !$isLogged}
+        <div class="auth">
+            <div class="flexer">
+                {control forgotten}
+                {control login}
+                {control register}
+            </div>
+        </div>
+    {/if}
 </header>

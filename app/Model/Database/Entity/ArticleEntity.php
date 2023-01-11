@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="article")
  */
-final class ArticleEntity
+class ArticleEntity
 {
 
 	/**
@@ -63,13 +63,6 @@ final class ArticleEntity
 	 * @ORM\JoinTable(name="later_article")
 	 */
 	protected Collection $laterUser;
-
-	/**
-	 * @var Collection<int, TagReadEntity>
-	 * @ORM\ManyToMany(targetEntity="TagReadEntity", mappedBy="tagArticle")
-	 * @ORM\JoinTable(name="tag_article")
-	 */
-	protected Collection $articleTag;
 
 
 	public function getId(): int

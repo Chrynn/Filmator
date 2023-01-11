@@ -6,11 +6,11 @@ use App\Model\Database\Entity\MovieEntity;
 use App\Model\Facade\User\Like\MovieLikeFacade;
 use Nette\Application\UI\Control;
 
-class ButtonLike extends Control
+final class ButtonLike extends Control
 {
 
-	public array $onLike;
-	public array $onDislike;
+	public array $onMarkLike;
+	public array $onUnmarkLike;
 
 
 	public function __construct(
@@ -19,23 +19,24 @@ class ButtonLike extends Control
 	) {}
 
 
-	public function handleLike(): void
+	public function handleMarkLike(): void
 	{
-		$this->movieLikeFacade->like($this->movie);
-		$this->onLike();
+		$this->movieLikeFacade->markLike($this->movie);
+		$this->onMarkLike();
 	}
 
 
-	public function handleUnLike(): void
+	public function handleUnmarkLike(): void
 	{
-		$this->movieLikeFacade->unLike($this->movie);
-		$this->onDislike();
+		$this->movieLikeFacade->unmarkLike($this->movie);
+		$this->onUnmarkLike();
 	}
 
 
 	public function render(): void
 	{
-		$this->getTemplate()->liked = $this->movieLikeFacade->isLiked($this->movie);
+		$this->getTemplate()->liked = $this->movieLikeFacade->isMarkLike($this->movie);
+
 		$this->getTemplate()->setFile(__DIR__ . "/templates/buttonLike.latte");
 		$this->getTemplate()->render();
 	}

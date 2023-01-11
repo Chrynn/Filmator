@@ -26,7 +26,7 @@ class UserPresenter extends ModulePresenter
 	protected function startup(): void
 	{
 		parent::startup();
-		if (!$this->userLogged()) {
+		if (!$this->isLogged()) {
 			$this->redirect(":Front:Homepage:");
 		}
 	}

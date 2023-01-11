@@ -2,13 +2,11 @@
 
 namespace App\Module\User\ArticleLike;
 
-
-use App\Model\Database\Entity\ArticleEntity;
 use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade;
 use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
 use App\Module\User\UserPresenter;
-use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 
 class ArticleLikePresenter extends UserPresenter
 {
@@ -16,9 +14,8 @@ class ArticleLikePresenter extends UserPresenter
 	public function __construct(
 		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
-		private readonly AuthorizationFacade $authorizationFacade
-	)
-	{
+		AuthorizationFacade $authorizationFacade
+	) {
 		parent::__construct(
 			$autoIncrementFacade,
 			$permanentLoginFacade,
@@ -27,10 +24,12 @@ class ArticleLikePresenter extends UserPresenter
 	}
 
 
+	/**
+	 * @throws Exception
+	 */
 	public function actionDefault(): void
 	{
-		$likeArticles = $this->authorizationFacade->getLoggedUser()->getLikeArticle();
-		$this->getTemplate()->articles = $likeArticles->isEmpty() ? [] : $likeArticles;
+		$this->getTemplate()->articles = $this->getLoggedUser()->getLikeArticle()->toArray();
 	}
 
 }

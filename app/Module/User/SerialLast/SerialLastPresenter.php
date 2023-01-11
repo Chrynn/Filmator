@@ -2,12 +2,12 @@
 
 namespace App\Module\User\SerialLast;
 
-use App\Model\Database\Entity\SerialEntity;
 use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade;
 use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
+use App\Model\Service\Serial\SerialService;
 use App\Module\User\UserPresenter;
-use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 
 class SerialLastPresenter extends UserPresenter
 {
@@ -16,9 +16,8 @@ class SerialLastPresenter extends UserPresenter
 		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
 		AuthorizationFacade $authorizationFacade,
-		private readonly EntityManagerInterface $entityManager
-	)
-	{
+		private readonly SerialService $serialService
+	) {
 		parent::__construct(
 			$autoIncrementFacade,
 			$permanentLoginFacade,
@@ -26,13 +25,14 @@ class SerialLastPresenter extends UserPresenter
 		);
 	}
 
+	/**
+	 * @throws Exception
+	 */
 	public function actionDefault(): void
 	{
-		$this->getTemplate()->serials = $this->entityManager->createQueryBuilder()
-			->select("serial")
-			->from(SerialEntity::class, "serial")
-			->getQuery()
-			->getResult();
+		$loggedUser = $this->getLoggedUser();
+
+		$this->getTemplate()->serials = $this->serialService->getSerialsLastByUser($loggedUser);
 	}
 
 }

@@ -32,28 +32,4 @@ abstract class FrontPresenter extends ModulePresenter
 		);
 	}
 
-
-	protected function createComponentRegister(): Register
-	{
-		return $this->registerFactory->create();
-	}
-
-
-	protected function createComponentLogin(): Login
-	{
-		$component = $this->loginFactory->create();
-		$component->onLogin[] = function (): void {
-			$this->flashBasic('Přihlášení bylo úspěšné');
-			$this->redirect('this');
-		};
-
-		return $component;
-	}
-
-
-	protected function createComponentForgotten(): Forgotten
-	{
-		return $this->forgottenFactory->create();
-	}
-
 }

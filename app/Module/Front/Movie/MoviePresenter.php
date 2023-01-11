@@ -2,6 +2,7 @@
 
 namespace App\Module\Front\Movie;
 
+use App\Model\Database\Entity\MovieEntity;
 use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade;
 use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
@@ -58,7 +59,7 @@ class MoviePresenter extends FrontPresenter
 
 	public function handleMarkLast(string $url): void
 	{
-		if ($this->userLogged()) {
+		if ($this->isLogged()) {
 			$movie = $this->movieService->getMovieBySlug($url);
 			$this->movieLastFacade->markLast($movie);
 		}
@@ -68,37 +69,45 @@ class MoviePresenter extends FrontPresenter
 
 	protected function createComponentLikeButton(): ButtonLike
 	{
-		$url = $this->getParameter("url");
-		$movie = $this->movieService->getMovieBySlug($url);
+		$movie = $this->getMovieByUrl();
 
 		$component = $this->buttonLikeFactory->create($movie);
-		$component->onLike[] = function (): void {
-			$this->flashMessage("Přidáno mezi oblíbené", FlashMessage::TYPE_BASIC);
-			$this->redirect("this");
+		$component->onMarkLike[] = function (): void {
+			$this->flashBasic("Přidáno");
+			$this->redirectThis();
 		};
-		$component->onDislike[] = function (): void {
-			$this->flashMessage("Odebráno z oblíbených", FlashMessage::TYPE_BASIC);
-			$this->redirect("this");
+		$component->onUnmarkLike[] = function (): void {
+			$this->flashBasic("Odebráno");
+			$this->redirectThis();
 		};
+
 		return $component;
 	}
 
 
 	protected function createComponentLaterButton(): ButtonLater
 	{
-		$url = $this->getParameter("url");
-		$movie = $this->movieService->getMovieBySlug($url);
+		$movie = $this->getMovieByUrl();
 
 		$component = $this->buttonLaterFactory->create($movie);
-		$component->onLater[] = function (): void {
-			$this->flashMessage("Přidáno", FlashMessage::TYPE_BASIC);
-			$this->redirect("this");
+		$component->onMarkLater[] = function (): void {
+			$this->flashBasic("Přidáno");
+			$this->redirectThis();
 		};
-		$component->onUnLater[] = function (): void {
-			$this->flashMessage("Odebráno", FlashMessage::TYPE_BASIC);
-			$this->redirect("this");
+		$component->onUnmarkLater[] = function (): void {
+			$this->flashBasic("Odebráno");
+			$this->redirectThis();
 		};
+
 		return $component;
+	}
+
+
+	private function getMovieByUrl(): MovieEntity
+	{
+		$url = $this->getParameter("url");
+
+		return $this->movieService->getMovieBySlug($url);
 	}
 
 }

@@ -2,12 +2,11 @@
 
 namespace App\Module\User\ActorLike;
 
-use App\Model\Database\Entity\ActorEntity;
 use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade;
 use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
 use App\Module\ModulePresenter;
-use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 
 class ActorLikePresenter extends ModulePresenter
 {
@@ -15,9 +14,8 @@ class ActorLikePresenter extends ModulePresenter
 	public function __construct(
 		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
-		private readonly AuthorizationFacade $authorizationFacade
-	)
-	{
+		AuthorizationFacade $authorizationFacade
+	) {
 		parent::__construct(
 			$autoIncrementFacade,
 			$permanentLoginFacade,
@@ -26,10 +24,12 @@ class ActorLikePresenter extends ModulePresenter
 	}
 
 
+	/**
+	 * @throws Exception
+	 */
 	public function actionDefault(): void
 	{
-		$likeActors = $this->authorizationFacade->getLoggedUser()->getLikeActor();
-		$this->getTemplate()->actors = $likeActors->isEmpty() ? [] : $likeActors;
+		$this->getTemplate()->actors = $this->getLoggedUser()->getLikeActor()->toArray();
 	}
 
 }

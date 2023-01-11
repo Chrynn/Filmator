@@ -13,7 +13,7 @@ use App\Module\Front\components\Login\LoginFactory;
 use App\Module\Front\components\Register\RegisterFactory;
 use App\Module\Front\FrontPresenter;
 
-final class HomepagePresenter extends FrontPresenter
+class HomepagePresenter extends FrontPresenter
 {
 
 	public function __construct(

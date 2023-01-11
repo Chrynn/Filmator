@@ -1,13 +1,13 @@
 {varType bool $liked}
 
 {if !$liked}
-    <a n:href="like!" class="player__link-like" title="Přidat mezi oblíbené">
+    <a n:href="markLike!" class="player__link-like" title="Přidat mezi oblíbené">
         <div class="player__like player__like--check">
             <img src="../../img/icons/heart.svg" class="player__image-like">
         </div>
     </a>
 {else}
-    <a n:href="unLike!" class="player__link-like" title="Odebrat z oblíbených">
+    <a n:href="unmarkLike!" class="player__link-like" title="Odebrat z oblíbených">
         <div class="player__like player__like--uncheck">
             <img src="../../img/icons/heart-broken.svg" class="player__image-like">
         </div>

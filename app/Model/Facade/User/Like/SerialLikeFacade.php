@@ -3,21 +3,30 @@
 namespace App\Model\Facade\User\Like;
 
 use App\Model\Database\Entity\SerialEntity;
+use App\Model\Database\Entity\UserEntity;
+use App\Model\Facade\AbstractFacade;
 use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use Doctrine\ORM\EntityManagerInterface;
 
-final class SerialLikeFacade
+final class SerialLikeFacade extends AbstractFacade
 {
 
+	protected readonly UserEntity $user;
+
+
 	public function __construct(
-		private readonly AuthorizationFacade $authorizationFacade,
-		private readonly EntityManagerInterface $entityManager,
-	) {}
+		AuthorizationFacade $authorizationFacade,
+		EntityManagerInterface $entityManager,
+	) {
+		parent::__construct($authorizationFacade, $entityManager);
+
+		$this->user = $this->getLoggedUser();
+	}
 
 
-	public function like(SerialEntity $serial): void
+	public function markLike(SerialEntity $serial): void
 	{
-		$user = $this->authorizationFacade->getLoggedUser();
+		$user = $this->user;
 
 		if ($serial->getLikeUser()->contains($user)) {
 			return;
@@ -26,13 +35,13 @@ final class SerialLikeFacade
 		$serial->getLikeUser()->add($user);
 		$user->getLikeSerial()->add($serial);
 
-		$this->entityManager->flush();
+		$this->flush();
 	}
 
 
-	public function unLike(SerialEntity $serial): void
+	public function unmarkLike(SerialEntity $serial): void
 	{
-		$user = $this->authorizationFacade->getLoggedUser();
+		$user = $this->user;
 
 		if (!$serial->getLikeUser()->contains($user)) {
 			return;
@@ -41,14 +50,13 @@ final class SerialLikeFacade
 		$serial->getLikeUser()->removeElement($user);
 		$user->getLikeSerial()->removeElement($serial);
 
-		$this->entityManager->flush();
+		$this->flush();
 	}
 
 
-	public function isLiked(SerialEntity $serial): bool
+	public function isMarkedLike(SerialEntity $serial): bool
 	{
-		$user = $this->authorizationFacade->getLoggedUser();
-		return $serial->getLikeUser()->contains($user);
+		return $serial->getLikeUser()->contains($this->user);
 	}
 
 }

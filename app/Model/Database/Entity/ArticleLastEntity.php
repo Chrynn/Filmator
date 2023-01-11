@@ -21,12 +21,12 @@ class ArticleLastEntity
 	protected int $id;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="UserEntity")
+	 * @ORM\ManyToOne(targetEntity="UserEntity", inversedBy="userArticleLast")
 	 */
 	protected UserEntity $user;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="ArticleEntity")
+	 * @ORM\ManyToOne(targetEntity="ArticleEntity", inversedBy="articleLast")
 	 */
 	protected ArticleEntity $article;
 

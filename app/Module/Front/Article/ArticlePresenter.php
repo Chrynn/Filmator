@@ -2,11 +2,11 @@
 
 namespace App\Module\Front\Article;
 
+use App\Model\Database\Entity\ArticleEntity;
 use App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade;
 use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
 use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use App\Model\Facade\User\Last\ArticleLastFacade;
-use App\Model\FlashMessage;
 use App\Model\Service\Article\ArticleService;
 use App\Module\Front\Article\components\ButtonLater\ButtonLater;
 use App\Module\Front\Article\components\ButtonLater\ButtonLaterFactory;
@@ -53,7 +53,7 @@ class ArticlePresenter extends FrontPresenter
     public function actionDetail(string $url): void
     {
 		$article = $this->articleService->getArticleBySlug($url);
-		if ($this->userLogged()) {
+		if ($this->isLogged()) {
 			$this->articleLastFacade->markLast($article);
 		}
         $this->getTemplate()->article = $article;
@@ -63,16 +63,15 @@ class ArticlePresenter extends FrontPresenter
 
     protected function createComponentButtonLike(): ButtonLike
     {
-    	$url = $this->getParameter("url");
-        $article = $this->articleService->getArticleBySlug($url);
+    	$article = $this->getArticleByUrl();
 
         $component = $this->buttonLikeFactory->create($article);
-        $component->onLike[] = function(): void{
-            $this->flashMessage("Líbí se", FlashMessage::TYPE_BASIC);
+        $component->onMarkLike[] = function(): void{
+            $this->flashBasic("Přidáno");
             $this->redirectThis();
         };
-        $component->onDislike[] = function(): void{
-            $this->flashMessage("Nelíbí se", FlashMessage::TYPE_BASIC);
+        $component->onUnmarkLike[] = function(): void{
+            $this->flashBasic("Odebráno");
             $this->redirectThis();
         };
         return $component;
@@ -81,19 +80,26 @@ class ArticlePresenter extends FrontPresenter
 
 	protected function createComponentButtonLater(): ButtonLater
 	{
-		$url = $this->getParameter("url");
-		$article = $this->articleService->getArticleBySlug($url);
+		$article = $this->getArticleByUrl();
 
 		$component = $this->buttonLaterFactory->create($article);
-		$component->onLater[] = function (): void {
+		$component->onMarkLater[] = function (): void {
 			$this->flashBasic("Přidáno");
 			$this->redirectThis();
 		};
-		$component->onUnLater[] = function (): void {
+		$component->onUnmarkLater[] = function (): void {
 			$this->flashBasic("Odebráno");
 			$this->redirectThis();
 		};
 		return $component;
+	}
+
+
+	private function getArticleByUrl(): ArticleEntity
+	{
+		$url = $this->getParameter("url");
+
+		return $this->articleService->getArticleBySlug($url);
 	}
 
 }

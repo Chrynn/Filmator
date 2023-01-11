@@ -2,11 +2,11 @@
 
 namespace App\Module\Front\Serial;
 
+use App\Model\Database\Entity\SerialEntity;
 use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade;
 use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
 use App\Model\Facade\User\Last\SerialLastFacade;
-use App\Model\FlashMessage;
 use App\Model\Service\Serial\SerialService;
 use App\Module\Front\components\Forgotten\ForgottenFactory;
 use App\Module\Front\components\Login\LoginFactory;
@@ -55,48 +55,58 @@ class SerialPresenter extends FrontPresenter
 		$this->getTemplate()->otherSerials = $this->serialService->getSerialsByLimit(4);
 	}
 
+
 	public function handleMarkLast(string $url): void
 	{
-		if ($this->userLogged()) {
+		if ($this->isLogged()) {
 			$serial = $this->serialService->getSerialBySlug($url);
 			$this->serialLastFacade->markLast($serial);
 		}
 		$this->redrawControl("last");
 	}
 
+
 	public function createComponentLikeButton(): ButtonLike
 	{
-		$url = $this->getParameter("url");
-		$serial = $this->serialService->getSerialBySlug($url);
+		$serial = $this->getSerialByUrl();
 
 		$component = $this->buttonLikeFactory->create($serial);
-		$component->onLike[] = function (): void {
-			$this->flashMessage("Přidáno mezi oblíbené", FlashMessage::TYPE_BASIC);
-			$this->redirect("this");
+		$component->onMarkLike[] = function (): void {
+			$this->flashBasic("Přidáno");
+			$this->redirectThis();
 		};
-		$component->onDislike[] = function (): void {
-			$this->flashMessage("Odebráno z oblíbených", FlashMessage::TYPE_BASIC);
-			$this->redirect("this");
+		$component->onUnmarkLike[] = function (): void {
+			$this->flashBasic("Odebráno");
+			$this->redirectThis();
 		};
+
 		return $component;
 	}
 
 
 	protected function createComponentLaterButton(): ButtonLater
 	{
-		$url = $this->getParameter("url");
-		$serial = $this->serialService->getSerialBySlug($url);
+		$serial = $this->getSerialByUrl();
 
 		$component = $this->buttonLaterFactory->create($serial);
-		$component->onLater[] = function (): void {
-			$this->flashMessage("Přidáno", FlashMessage::TYPE_BASIC);
-			$this->redirect("this");
+		$component->onMarkLater[] = function (): void {
+			$this->flashBasic("Přidáno");
+			$this->redirectThis();
 		};
-		$component->onUnLater[] = function (): void {
-			$this->flashMessage("Odebráno", FlashMessage::TYPE_BASIC);
-			$this->redirect("this");
+		$component->onUnmarkLater[] = function (): void {
+			$this->flashBasic("Odebráno");
+			$this->redirectThis();
 		};
+
 		return $component;
+	}
+
+
+	private function getSerialByUrl(): SerialEntity
+	{
+		$url = $this->getParameter("url");
+
+		return $this->serialService->getSerialBySlug($url);
 	}
 
 }

@@ -3,21 +3,29 @@
 namespace App\Model\Facade\User\Like;
 
 use App\Model\Database\Entity\MovieEntity;
+use App\Model\Database\Entity\UserEntity;
+use App\Model\Facade\AbstractFacade;
 use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use Doctrine\ORM\EntityManagerInterface;
 
-final class MovieLikeFacade
+final class MovieLikeFacade extends AbstractFacade
 {
 
+	protected readonly UserEntity $user;
+
+
 	public function __construct(
-		private readonly AuthorizationFacade $authorizationFacade,
-		private readonly EntityManagerInterface $entityManager,
-	) {}
+		AuthorizationFacade $authorizationFacade,
+		EntityManagerInterface $entityManager,
+	) {
+		parent::__construct($authorizationFacade, $entityManager);
+		$this->user = $this->getLoggedUser();
+	}
 
 
-	public function like(MovieEntity $movie): void
+	public function markLike(MovieEntity $movie): void
 	{
-		$user = $this->authorizationFacade->getLoggedUser();
+		$user = $this->user;
 
 		if ($movie->getLikeUser()->contains($user)) {
 			return;
@@ -26,13 +34,13 @@ final class MovieLikeFacade
 		$movie->getLikeUser()->add($user);
 		$user->getLikeMovie()->add($movie);
 
-		$this->entityManager->flush();
+		$this->flush();
 	}
 
 
-	public function unLike(MovieEntity $movie): void
+	public function unmarkLike(MovieEntity $movie): void
 	{
-		$user = $this->authorizationFacade->getLoggedUser();
+		$user = $this->user;
 
 		if (!$movie->getLikeUser()->contains($user)) {
 			return;
@@ -41,14 +49,13 @@ final class MovieLikeFacade
 		$movie->getLikeUser()->removeElement($user);
 		$user->getLikeMovie()->removeElement($movie);
 
-		$this->entityManager->flush();
+		$this->flush();
 	}
 
 
-	public function isLiked(MovieEntity $movie): bool
+	public function isMarkLike(MovieEntity $movie): bool
 	{
-		$user = $this->authorizationFacade->getLoggedUser();
-		return $movie->getLikeUser()->contains($user);
+		return $movie->getLikeUser()->contains($this->user);
 	}
 
 }

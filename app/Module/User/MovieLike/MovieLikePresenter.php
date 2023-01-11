@@ -14,7 +14,7 @@ class MovieLikePresenter extends UserPresenter
 	public function __construct(
 		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
-		private readonly AuthorizationFacade $authorizationFacade,
+		AuthorizationFacade $authorizationFacade,
 	) {
 		parent::__construct(
 			$autoIncrementFacade,
@@ -29,8 +29,7 @@ class MovieLikePresenter extends UserPresenter
 	 */
 	public function actionDefault(): void
 	{
-		$likeMovies = $this->authorizationFacade->getLoggedUser()->getLikeMovie();
-		$this->getTemplate()->movies = $likeMovies->isEmpty() ? [] : $likeMovies;
+		$this->getTemplate()->movies = $this->getLoggedUser()->getLikeMovie()->toArray();
 	}
 
 }

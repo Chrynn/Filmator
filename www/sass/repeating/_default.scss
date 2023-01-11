@@ -1,4 +1,6 @@
 .topic-default {
+    position: relative;
+    z-index: 1;
 
     &__content-wrap {
         width: 100%;

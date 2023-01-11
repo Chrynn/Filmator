@@ -2,10 +2,10 @@
 
 namespace App\Module\Front\Actor;
 
+use App\Model\Database\Entity\ActorEntity;
 use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade;
 use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
-use App\Model\FlashMessage;
 use App\Model\Service\Actor\ActorService;
 use App\Model\Service\Movie\MovieService;
 use App\Module\Front\Actor\components\ButtonLike\ButtonLike;
@@ -56,19 +56,26 @@ class ActorPresenter extends FrontPresenter
 
     protected function createComponentButtonLike(): ButtonLike
     {
-    	$url = $this->getParameter("url");
-        $actor = $this->actorService->getActorBySlug($url);
+    	$actor = $this->getActorByUrl();
 
         $component = $this->buttonLikeFactory->create($actor);
-        $component->onLike[] = function(): void{
-            $this->flashMessage("Líbí se", FlashMessage::TYPE_BASIC);
-            $this->redirect("this");
+        $component->onMarkLike[] = function(): void{
+            $this->flashBasic("Přidáno");
+            $this->redirectThis();
         };
-        $component->onDislike[] = function(): void{
-            $this->flashMessage("Nelíbí se", FlashMessage::TYPE_BASIC);
-            $this->redirect("this");
+        $component->onUnmarkLike[] = function(): void{
+            $this->flashBasic("Odebráno");
+            $this->redirectThis();
         };
         return $component;
     }
+
+
+	private function getActorByUrl(): ActorEntity
+	{
+		$url = $this->getParameter("url");
+
+		return $this->actorService->getActorBySlug($url);
+	}
 
 }

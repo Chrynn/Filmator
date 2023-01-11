@@ -20,12 +20,12 @@ class SerialLastEntity
 	protected int $id;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="UserEntity")
+	 * @ORM\ManyToOne(targetEntity="UserEntity", inversedBy="userSerialLast")
 	 */
 	protected UserEntity $user;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="SerialEntity")
+	 * @ORM\ManyToOne(targetEntity="SerialEntity", inversedBy="serialLast")
 	 */
 	protected SerialEntity $serial;
 
