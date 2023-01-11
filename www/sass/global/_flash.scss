@@ -14,16 +14,26 @@
 
     &__content {
         height: 45px;
-        background: $green;
         display: flex;
         align-items: center;
         padding: 0 30px;
         border-radius: 30px;
-        border: 1px solid $green;
+
+        &--basic {
+            background: $blue;
+            border: 1px solid $blue;
+        }
+
+        &--success {
+            background: $green;
+            border: 1px solid $green;
+        }
+
+        &--warning {}
     }
 
     &__text {
-        @include darkRegular;
+        @include lightRegular;
         font-size: 18px;
         text-align: center;
     }

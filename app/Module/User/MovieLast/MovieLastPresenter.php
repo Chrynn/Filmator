@@ -3,10 +3,12 @@
 namespace App\Module\User\MovieLast;
 
 
-use App\Model\Facade\Anonymous\Auth\AuthorizationFacade;
+use App\Model\Database\Entity\MovieEntity;
+use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade;
 use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
 use App\Module\User\UserPresenter;
+use Doctrine\ORM\EntityManagerInterface;
 
 class MovieLastPresenter extends UserPresenter
 {
@@ -14,7 +16,8 @@ class MovieLastPresenter extends UserPresenter
 	public function __construct(
 		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
-		AuthorizationFacade $authorizationFacade
+		private readonly AuthorizationFacade $authorizationFacade,
+		private readonly EntityManagerInterface $entityManager
 	)
 	{
 		parent::__construct(
@@ -22,6 +25,20 @@ class MovieLastPresenter extends UserPresenter
 			$permanentLoginFacade,
 			$authorizationFacade
 		);
+	}
+
+	public function actionDefault(): void
+	{
+        $loggedUser = $this->authorizationFacade->getLoggedUser();
+		$this->getTemplate()->movies = $this->entityManager->createQueryBuilder()
+			->select("movie, movieLast, user")
+            ->from(MovieEntity::class, "movie")
+            ->join("movie.movieLast", "movieLast")
+            ->join("movieLast.user", "user")
+            ->where("user.id = :userId")
+            ->setParameter("userId", $loggedUser->getId())
+			->getQuery()
+			->getResult();
 	}
 
 }

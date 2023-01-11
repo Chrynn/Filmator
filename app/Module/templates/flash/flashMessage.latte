@@ -1,0 +1,6 @@
+{block flashMessage}
+<div n:foreach="$flashes as $flash" class="flash visible">
+    <div n:class="flash__content, $flash->type">
+        <span class="flash__text">{$flash->message}</span>
+    </div>
+</div>

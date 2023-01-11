@@ -43,7 +43,7 @@
     &__title {
         @include lightThin;
         z-index: 1;
-        font-size: 70px;
+        font-size: $headingBig;
     }
 
     &__translate-list {
@@ -89,21 +89,64 @@
     &__column--first,
     &__column--second {
         width: 50%;
+        position: relative;
+    }
+
+    &__column--first {
+        display: flex;
     }
 
     &__quality-box {
         height: 50px;
         width: 50px;
         border-radius: 50%;
-        background: $primary;
         display: flex;
         align-items: center;
         justify-content: center;
+        background: $primary;
     }
 
     &__quality {
         @include lightRegular;
         font-size: 20px;
+    }
+
+    &__link-like {
+        margin-left: 10px;
+        display: inline-block;
+
+        &:hover .player__like--check {
+            background: $shadeGreen;
+        }
+
+        &:hover .player__like--uncheck {
+            background: $shadeRed;
+        }
+    }
+
+    &__like {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.22s;
+
+        &--check {
+            background: $green;
+            transition: 0.22s;
+        }
+
+        &--uncheck {
+            background: $red;
+            transition: 0.22s;
+        }
+    }
+
+    &__image-like {
+        height: 25px;
+        width: 25px;
     }
 
     // --- rating ---
@@ -161,7 +204,36 @@
         height: auto;
         min-height: 600px;
         background: $primary;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
+
+    &__button-play {
+        background: $secondary;
+        position: absolute;
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.33s;
+
+        &:hover {
+            transition: 0.33s;
+            transform: scale(1.2);
+        }
+    }
+
+    &__image-play {
+        height: 30px;
+        width: 30px;
+        margin-left: 7px;
+    }
+
 }
 
 .overview {
@@ -305,8 +377,15 @@
 }
 
 .biography {
-
     padding: 35px 0;
+
+    .flexer {
+        justify-content: flex-end;
+
+        &:not(:first-child) {
+            margin-top: 10px;
+        }
+    }
 
     &__overview-wrap {
         width: 100%;
@@ -340,6 +419,9 @@
         padding: 10px 30px;
     }
 
+    &__column-menu {
+        width: 50%;
+    }
 
     &__item {
         width: 140px;
@@ -361,6 +443,45 @@
             margin-top: 30px;
         }
 
+    }
+
+    &__link-like {
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+
+        &:hover .player__like--check {
+            background: $shadeGreen;
+        }
+
+        &:hover .player__like--uncheck {
+            background: $shadeRed;
+        }
+    }
+
+    &__like {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.22s;
+
+        &--check {
+            background: $green;
+            transition: 0.22s;
+        }
+
+        &--uncheck {
+            background: $red;
+            transition: 0.22s;
+        }
+    }
+
+    &__image-like {
+        height: 25px;
+        width: 25px;
     }
 }
 
@@ -566,6 +687,45 @@
         &:not(:first-child) {
             margin-left: 5px;
         }
+    }
+
+    &__link-like {
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+
+        &:hover .player__like--check {
+            background: $shadeGreen;
+        }
+
+        &:hover .player__like--uncheck {
+            background: $shadeRed;
+        }
+    }
+
+    &__like {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.22s;
+
+        &--check {
+            background: $green;
+            transition: 0.22s;
+        }
+
+        &--uncheck {
+            background: $red;
+            transition: 0.22s;
+        }
+    }
+
+    &__image-like {
+        height: 25px;
+        width: 25px;
     }
 
 }

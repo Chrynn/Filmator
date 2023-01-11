@@ -3,7 +3,7 @@
 namespace App\Model\Facade\User\ButtonLater;
 
 use App\Model\Database\Entity\ArticleEntity;
-use App\Model\Facade\Anonymous\Auth\AuthorizationFacade;
+use App\Model\Facade\Front\Auth\AuthorizationFacade;
 use Doctrine\ORM\EntityManagerInterface;
 
 final class LaterArticleFacade
@@ -15,40 +15,40 @@ final class LaterArticleFacade
 	) {}
 
 
-	public function watch(ArticleEntity $article): void
+	public function later(ArticleEntity $article): void
 	{
 		$user = $this->authorizationFacade->getLoggedUser();
 
-		if ($article->getWatchUser()->contains($user)) {
+		if ($article->getLaterUser()->contains($user)) {
 			return;
 		}
 
-		$article->getWatchUser()->add($user);
-		$user->getWatchArticle()->add($article);
+		$article->getLaterUser()->add($user);
+		$user->getLaterArticle()->add($article);
 
 		$this->entityManager->flush();
 	}
 
 
-	public function unWatch(ArticleEntity $article): void
+	public function unLater(ArticleEntity $article): void
 	{
 		$user = $this->authorizationFacade->getLoggedUser();
 
-		if (!$article->getWatchUser()->contains($user)) {
+		if (!$article->getLaterUser()->contains($user)) {
 			return;
 		}
 
-		$article->getWatchUser()->removeElement($user);
-		$user->getWatchArticle()->removeElement($article);
+		$article->getLaterUser()->removeElement($user);
+		$user->getLaterArticle()->removeElement($article);
 
 		$this->entityManager->flush();
 	}
 
 
-	public function wantWatch(ArticleEntity $article): bool
+	public function laterMarked(ArticleEntity $article): bool
 	{
 		$user = $this->authorizationFacade->getLoggedUser();
-		return $article->getWatchUser()->contains($user);
+		return $article->getLaterUser()->contains($user);
 	}
 
 }
