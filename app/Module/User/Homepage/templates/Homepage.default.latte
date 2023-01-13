@@ -1,80 +1,166 @@
 {block content}
-<div class="block">
-    <div class="topic">
-        <h1>Uživatelská sekce</h1>
-    </div>
 
-    <div class="content">
-        <div class="space">
-
-        </div>
-        <div class="navigation">
-            <div class="box">
-                <h1>Filmy</h1>
-                <ul>
-                    <li><a n:href=":User:MovieLiked:">Oblíbené</a></li>
-                    <li><a n:href=":User:MovieLast:">Nedávno sledované</a></li>
-                    <li><a n:href=":User:MovieLater:">Sledovat později</a></li>
-                </ul>
+<div class="topic-default">
+    <div class="container-extern">
+        <div class="topic-default__content-wrap">
+            <div class="topic-default__image-box">
+                <img src="../img/banners/watching-tv.jpg" alt="movie-n-popcorn" class="topic-default__image">
             </div>
-
-            <div class="box">
-                <h1>Seriály</h1>
-                <ul>
-                    <li><a n:href=":User:SerialLiked:">Oblíbené</a></li>
-                    <li><a n:href=":User:SerialLast:">Nedávno sledované</a></li>
-                    <li><a n:href=":User:SerialLater:">Sledovat později</a></li>
-                </ul>
-            </div>
-
-            <div class="box">
-                <h1>Články</h1>
-                <ul>
-                    <li><a n:href=":User:ReadLiked:">Oblíbené</a></li>
-                    <li><a n:href=":User:ReadLast:">Nedávno čtené</a></li>
-                    <li><a n:href=":User:ReadLater:">Přečíst později</a></li>
-                </ul>
-            </div>
-
-            <div class="box">
-                <h1>Herci</h1>
-                <ul>
-                    <li><a n:href=":User:ActorLiked:">Oblíbené</a></li>
-                </ul>
+            <div class="topic-default__content">
+                <div class="darken">
+                    <div class="container-intern">
+                        <div class="topic-default__heading-box">
+                            <ul>
+                                <li class="topic-default__heading-item"><a n:href=":Front:Homepage:default" class="topic-default__link">&lt;</a></li>
+                                <li class="topic-default__heading-item"><h2 n:block="title" class="topic-default__heading">Uživatelská sekce</h2></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<style>
-    .block{
-        padding: 20px 0;
-    }
-    .block .topic{
-        text-align: center;
-    }
-    .block .content{
-        display: flex;
-    }
-    .block .content .space, .block .content .navigation{
-        width: 50%;
-    }
-    .block .content .box{
-        margin-top: 20px;
-        padding: 20px 0;
-        background: darkred;
-        color: white;
-    }
-    .block .content .box h1{
-        margin-left: 20px;
-    }
-    .block .content .box ul li{
-        list-style: none;
-        margin: 10px 0 10px 20px;
-    }
+<div class="section-user">
+    <div class="container-intern">
 
-    .block .content .box ul li a{
-        text-decoration: none;
-        color: white;
-    }
-</style>
+        <div class="background-icon">
+            <img src="../../img/icons/movie-tape.svg" alt="movie-tape-icon" class="background-icon__image--top">
+        </div>
+
+        <div class="section-user__menu">
+            <a href="" class="section-user__link-settings" title="Nastavení">
+                <div class="section-user__settings">
+                    <img src="../img/icons/settings.svg" class="section-user__image-settings">
+                </div>
+            </a>
+        </div>
+        <div class="section-user__content">
+            <div class="section-user__row">
+                <div class="section-user__column">
+                    <h3 class="section-user__heading">Filmy</h3>
+                    <ul>
+                        <li class="section-user__item">
+                            <a n:href=":User:MovieLike:" class="section-user__link">
+                                <div class="section-user__image-box">
+                                    <img src="../img/icons/heart.svg" class="section-user__image">
+                                </div>
+                                <div class="section-user__text-box">
+                                    <span class="section-user__text">Oblíbené</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="section-user__item">
+                            <a n:href=":User:MovieLater:" class="section-user__link">
+                                <div class="section-user__image-box">
+                                    <img src="../img/icons/time.svg" class="section-user__image">
+                                </div>
+                                <div class="section-user__text-box">
+                                    <span class="section-user__text">Sledovat později</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="section-user__item">
+                            <a n:href=":User:MovieLast:" class="section-user__link">
+                                <div class="section-user__image-box">
+                                    <img src="../img/icons/eye-2.svg" class="section-user__image">
+                                </div>
+                                <div class="section-user__text-box">
+                                    <span class="section-user__text">Naposled sledováné</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="section-user__column">
+                    <h3 class="section-user__heading">Seriály</h3>
+                    <ul>
+                        <li class="section-user__item">
+                            <a n:href=":User:SerialLike:" class="section-user__link">
+                                <div class="section-user__image-box">
+                                    <img src="../img/icons/heart.svg" class="section-user__image">
+                                </div>
+                                <div class="section-user__text-box">
+                                    <span class="section-user__text">Oblíbené</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="section-user__item">
+                            <a n:href=":User:SerialLater:" class="section-user__link">
+                                <div class="section-user__image-box">
+                                    <img src="../img/icons/time.svg" class="section-user__image">
+                                </div>
+                                <div class="section-user__text-box">
+                                    <span class="section-user__text">Sledovat později</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="section-user__item">
+                            <a n:href=":User:SerialLast:" class="section-user__link">
+                                <div class="section-user__image-box">
+                                    <img src="../img/icons/eye-2.svg" class="section-user__image">
+                                </div>
+                                <div class="section-user__text-box">
+                                    <span class="section-user__text">Naposled sledováné</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section-user__row">
+                <div class="section-user__column">
+                    <h3 class="section-user__heading">Herci</h3>
+                    <ul>
+                        <li class="section-user__item">
+                            <a n:href=":User:ActorLike:" class="section-user__link">
+                                <div class="section-user__image-box">
+                                    <img src="../img/icons/heart.svg" class="section-user__image">
+                                </div>
+                                <div class="section-user__text-box">
+                                    <span class="section-user__text">Oblíbené</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="section-user__column">
+                    <h3 class="section-user__heading">Články</h3>
+                    <ul>
+                        <li class="section-user__item">
+                            <a n:href=":User:ArticleLike:" class="section-user__link">
+                                <div class="section-user__image-box">
+                                    <img src="../img/icons/heart.svg" class="section-user__image">
+                                </div>
+                                <div class="section-user__text-box">
+                                    <span class="section-user__text">Oblíbené</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="section-user__item">
+                            <a n:href=":User:ArticleLater:" class="section-user__link">
+                                <div class="section-user__image-box">
+                                    <img src="../img/icons/time.svg" class="section-user__image">
+                                </div>
+                                <div class="section-user__text-box">
+                                    <span class="section-user__text">Číst později</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="section-user__item">
+                            <a n:href=":User:ArticleLast:" class="section-user__link">
+                                <div class="section-user__image-box">
+                                    <img src="../img/icons/eye-2.svg" class="section-user__image">
+                                </div>
+                                <div class="section-user__text-box">
+                                    <span class="section-user__text">Naposled čtěné</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

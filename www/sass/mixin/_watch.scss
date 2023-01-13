@@ -134,4 +134,26 @@
         @include darkRegular;
     }
 
+    &__error-wrap {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__image-error {
+        height: 250px;
+        width: 200px;
+        margin: 0 auto;
+        display: block;
+        opacity: 0.08;
+    }
+
+    &__text-error {
+        margin-top: 20px;
+        @include darkThin;
+        text-align: center;
+        font-size: 26px;
+    }
+
 }

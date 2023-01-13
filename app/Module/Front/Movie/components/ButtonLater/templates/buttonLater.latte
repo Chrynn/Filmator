@@ -1,0 +1,15 @@
+{varType bool $later}
+
+{if !$later}
+    <a n:href="markLater!" class="player__link-like" title="Přidat mezi oblíbené">
+        <div class="player__like player__like--check">
+            <img src="../../img/icons/time.svg" class="player__image-like">
+        </div>
+    </a>
+{else}
+    <a n:href="unmarkLater!" class="player__link-like" title="Odebrat z oblíbených">
+        <div class="player__like player__like--uncheck">
+            <img src="../../img/icons/time.svg" class="player__image-like">
+        </div>
+    </a>
+{/if}

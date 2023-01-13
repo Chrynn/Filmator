@@ -67,23 +67,22 @@ final class SerialEntity
 	/**
 	 * @var Collection<int, UserEntity>
 	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="likeSerial")
-	 * @ORM\JoinTable(name="like_serial")
+	 * @ORM\JoinTable(name="serial_like")
 	 */
 	protected Collection $likeUser;
 
 	/**
 	 * @var Collection<int, UserEntity>
-	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="watchSerial")
-	 * @ORM\JoinTable(name="watch_serial")
+	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="laterSerial")
+	 * @ORM\JoinTable(name="serial_later")
 	 */
-	protected Collection $watchUser;
+	protected Collection $laterUser;
 
 	/**
-	 * @var Collection<int, TagWatchEntity>
-	 * @ORM\ManyToMany(targetEntity="TagWatchEntity", mappedBy="tagSerial")
-	 * @ORM\JoinTable(name="tag_movie")
+	 * @var Collection<int, SerialLastEntity>
+	 * @ORM\OneToMany(targetEntity="SerialLastEntity", mappedBy="serial")
 	 */
-	protected Collection $serialTag;
+	protected Collection $serialLast;
 
 
 	public function getId(): int
@@ -233,6 +232,18 @@ final class SerialEntity
 	public function setSerialTag(Collection $serialTag): void
 	{
 		$this->serialTag = $serialTag;
+	}
+
+
+	public function getLaterUser(): Collection
+	{
+		return $this->laterUser;
+	}
+
+
+	public function setLaterUser(Collection $laterUser): void
+	{
+		$this->laterUser = $laterUser;
 	}
 
 }

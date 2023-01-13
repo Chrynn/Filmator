@@ -1,0 +1,42 @@
+{import "../../../../templates/content/read/default/read.latte"}
+{block article}
+
+<div class="read">
+    <div class="container-intern">
+
+        <div class="background-icon">
+            <img src="img/icons/movie-tape.svg" alt="movie-tape-icon" class="background-icon__image--top">
+        </div>
+
+        <div class="read__block-topic">
+            <div class="read__topic-line--dark"></div>
+            <div class="read__topic-title">
+                <div class="read__topic-box--dark">
+                    <h3 class="read__topic-heading--dark">Filmové</h3>
+                </div>
+                <div class="read__topic-box--light">
+                    <h3 class="read__topic-heading--light">novinky</h3>
+                </div>
+            </div>
+            <div class="read__topic-line--light"></div>
+        </div>
+
+        <div class="reveal">
+            {include read}
+        </div>
+
+        <div class="read__block-button">
+            <a n:href=":Front:Article:" class="read__button-link">
+                <div class="button button--dark">
+                    <div class="button__block-text">
+                        <span class="button__text">další</span>
+                    </div>
+                    <div class="button__block-image">
+                        <img src="img/icons/next.svg" alt="arrow-icon" class="button__image">
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>

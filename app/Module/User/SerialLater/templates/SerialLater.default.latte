@@ -1,13 +1,30 @@
-{block  content}
-<div class="block">
-    <h1>Číst později seriály</h1>
+{import "../../../../templates/content/watch/default/watchSerial.latte"}
+{block content}
+
+<div class="topic-default">
+    <div class="container-extern">
+        <div class="topic-default__content-wrap">
+            <div class="topic-default__image-box">
+                <img src="../../img/banners/movie&popcorn.jpg" alt="movie-n-popcorn" class="topic-default__image">
+            </div>
+            <div class="topic-default__content">
+                <div class="darken">
+                    <div class="container-intern">
+                        <div class="topic-default__heading-box">
+                            <ul>
+                                <li class="topic-default__heading-item"><a n:href=":User:Homepage:default" class="topic-default__link">&lt;</a></li>
+                                <li class="topic-default__heading-item"><h2 n:block="title" class="topic-default__heading">Seriály k sledování později</h2></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<style>
-    .block{
-        margin: 20px 0;
-    }
-    .block h1{
-        text-align: center;
-    }
-</style>
+<div class="watch">
+    <div class="container-intern">
+        {include watchSerial}
+    </div>
+</div>

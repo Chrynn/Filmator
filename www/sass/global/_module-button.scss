@@ -1,0 +1,45 @@
+.module-button {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    z-index: 2;
+
+    &__link {
+        text-decoration: none;
+        border-radius: 50%;
+
+        &:not(:first-child) .module-button__content {
+            margin-top: 15px;
+            background: $blue;
+
+            &:hover {
+                background: $shadeBlue;
+            }
+        }
+
+        &:not(:first-child) .module-button__image {
+            transform: rotate(-45deg);
+        }
+    }
+
+    &__content {
+        height: 70px;
+        width: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: $tercialy;
+        transition: 0.32s;
+
+        &:hover {
+            background: $shadeLightTercialy;
+            transition: 0.32s;
+        }
+    }
+
+    &__image {
+        height: 30px;
+        width: 30px;
+    }
+}

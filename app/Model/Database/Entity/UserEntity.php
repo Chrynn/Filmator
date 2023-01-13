@@ -53,51 +53,69 @@ final class UserEntity
 	/**
 	 * @var Collection<int, MovieEntity>
 	 * @ORM\ManyToMany(targetEntity="MovieEntity", inversedBy="likeUser")
-	 * @ORM\JoinTable(name="like_movie")
+	 * @ORM\JoinTable(name="movie_like")
 	 */
 	protected Collection $likeMovie;
 
 	/**
 	 * @var Collection<int, SerialEntity>
 	 * @ORM\ManyToMany(targetEntity="SerialEntity", inversedBy="likeUser")
-	 * @ORM\JoinTable(name="like_serial")
+	 * @ORM\JoinTable(name="serial_like")
 	 */
 	protected Collection $likeSerial;
 
 	/**
 	 * @var Collection<int, ArticleEntity>
 	 * @ORM\ManyToMany(targetEntity="ArticleEntity", inversedBy="likeUser")
-	 * @ORM\JoinTable(name="like_article")
+	 * @ORM\JoinTable(name="article_like")
 	 */
 	protected Collection $likeArticle;
 
 	/**
 	 * @var Collection<int, ActorEntity>
 	 * @ORM\ManyToMany(targetEntity="ActorEntity", inversedBy="likeUser")
-	 * @ORM\JoinTable(name="like_actor")
+	 * @ORM\JoinTable(name="actor_like")
 	 */
 	protected Collection $likeActor;
 
 	/**
 	 * @var Collection<int, MovieEntity>
-	 * @ORM\ManyToMany(targetEntity="MovieEntity", inversedBy="watchUser")
-	 * @ORM\JoinTable(name="watch_movie")
+	 * @ORM\ManyToMany(targetEntity="MovieEntity", inversedBy="laterUser")
+	 * @ORM\JoinTable(name="movie_later")
 	 */
-	protected Collection $watchMovie;
+	protected Collection $laterMovie;
 
 	/**
 	 * @var Collection<int, SerialEntity>
-	 * @ORM\ManyToMany(targetEntity="SerialEntity", inversedBy="watchUser")
-	 * @ORM\JoinTable(name="watch_serial")
+	 * @ORM\ManyToMany(targetEntity="SerialEntity", inversedBy="laterUser")
+	 * @ORM\JoinTable(name="serial_later")
 	 */
-	protected Collection $watchSerial;
+	protected Collection $laterSerial;
 
 	/**
 	 * @var Collection<int, ArticleEntity>
-	 * @ORM\ManyToMany(targetEntity="ArticleEntity", inversedBy="watchUser")
-	 * @ORM\JoinTable(name="read_article")
+	 * @ORM\ManyToMany(targetEntity="ArticleEntity", inversedBy="laterUser")
+	 * @ORM\JoinTable(name="article_later")
 	 */
-	protected Collection $watchArticle;
+	protected Collection $laterArticle;
+
+    /**
+     * @var Collection<int, MovieLastEntity>
+     * @ORM\OneToMany(targetEntity="MovieLastEntity", mappedBy="user")
+     */
+    protected Collection $userMovieLast;
+
+	/**
+	 * @var Collection<int, SerialLastEntity>
+	 * @ORM\OneToMany(targetEntity="SerialLastEntity", mappedBy="user")
+	 */
+	protected Collection $userSerialLast;
+
+	/**
+	 * @var Collection<int, ArticleLastEntity>
+	 * @ORM\OneToMany(targetEntity="ArticleLastEntity", mappedBy="user")
+	 */
+	protected Collection $userArticleLast;
 
 
 	public function __construct()
@@ -214,30 +232,33 @@ final class UserEntity
 	}
 
 
-	/**
-	 * @return Collection<int, MovieEntity>
-	 */
-	public function getWatchMovie(): Collection
+	public function getLaterMovie(): Collection
 	{
-		return $this->watchMovie;
+		return $this->laterMovie;
 	}
 
 
-	/**
-	 * @return Collection<int, SerialEntity>
-	 */
-	public function getWatchSerial(): Collection
+	public function setLaterMovie(Collection $laterMovie): void
 	{
-		return $this->watchSerial;
+		$this->laterMovie = $laterMovie;
 	}
 
 
-	/**
-	 * @return Collection<int, ArticleEntity>
-	 */
-	public function getWatchArticle(): Collection
+	public function getLaterSerial(): Collection
 	{
-		return $this->watchArticle;
+		return $this->laterSerial;
+	}
+
+
+	public function getLaterArticle(): Collection
+	{
+		return $this->laterArticle;
+	}
+
+
+	public function setLaterArticle(Collection $laterArticle): void
+	{
+		$this->laterArticle = $laterArticle;
 	}
 
 }

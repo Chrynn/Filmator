@@ -1,4 +1,6 @@
 .topic-default {
+    position: relative;
+    z-index: 1;
 
     &__content-wrap {
         width: 100%;
@@ -34,8 +36,27 @@
 
     &__heading {
         z-index: 1;
-        font-size: 70px;
+        font-size: $headingBig;
         @include lightThin;
+    }
+
+    &__link {
+        text-decoration: none;
+        z-index: 1;
+        font-size: 70px;
+        @include coloredThin;
+        margin-right: 10px;
+        transition: .25s;
+
+        &:hover {
+            @include lightThin;
+            transition: .25s;
+        }
+    }
+
+    &__heading-item {
+        list-style: none;
+        display: inline-block;
     }
 }
 
