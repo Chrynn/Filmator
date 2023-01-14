@@ -10,20 +10,22 @@
             <div>
                 <img src="../{$nextArticle->getImage()}" alt="" class="read__image">
             </div>
-            <a n:href=":Front:Article:detail $nextArticle->getSlug()" class="read__link">
-                <div class="darken">
-                    <div class="read__content">
-                        <p class="read__type">oznámení</p>
-                        <h2 class="read__title">{$nextArticle->getName()|truncate:35}</h2>
-                        <div class="read__date-box">
-                            <ul class="read__list-date">
-                                <li class="read__item-date"><p class="read__date">{$nextArticle->getCreatedAt()|date:'d.'}</p></li>
-                                <li class="read__item-date"><p class="read__date">{$nextArticle->getCreatedAtMonth()}</p></li>
-                            </ul>
+            <article>
+                <a n:href=":Front:Article:detail $nextArticle->getSlug()" class="read__link">
+                    <div class="darken">
+                        <div class="read__content">
+                            <p class="read__type">oznámení</p>
+                            <h2 class="read__title">{$nextArticle->getName()|truncate:35}</h2>
+                            <div class="read__date-box">
+                                <ul class="read__list-date">
+                                    <li class="read__item-date"><p class="read__date">{$nextArticle->getCreatedAt()|date:'d.'}</p></li>
+                                    <li class="read__item-date"><p class="read__date">{$nextArticle->getCreatedAtMonth()}</p></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </article>
 
         </div>
 

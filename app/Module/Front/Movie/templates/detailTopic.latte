@@ -1,0 +1,32 @@
+{varType App\Model\Database\Entity\MovieEntity $movie}
+{block detailTopic}
+
+<div class="topic-detail topic-detail--normal">
+    <div class="container-extern">
+        <div class="topic-detail__content-wrap">
+            <div class="topic-detail__image-box">
+                <img src="../{$movie->getImageBanner()}" alt="movie-banner" class="topic-detail__image">
+            </div>
+            <div class="topic-detail__content">
+                <div class="darken">
+                    <div class="container-intern">
+                        <div class="topic-default__heading-box">
+                            <ul>
+                                <li class="topic-default__heading-item">
+                                    <a n:href=":Front:Movie:default" class="topic-default__link">&lt;</a>
+                                </li>
+                                <li class="topic-default__heading-item">
+                                    <ul class="topic-detail__translate-list">
+                                        <li class="topic-detail__translate-item"><img src="../img/filmator/uk-flag.jpg" class="topic-detail__translate-image"></li>
+                                        <li class="topic-detail__translate-item"><span class="topic-detail__translate">{$movie->getName()}</span></li>
+                                    </ul>
+                                    <h2 n:block="title" class="topic-default__heading">{$movie->getName()}</h2>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

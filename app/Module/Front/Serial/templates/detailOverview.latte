@@ -1,0 +1,119 @@
+{varType App\Model\Database\Entity\SerialEntity $serial}
+{block detailOverview}
+
+<div class="overview">
+    <div class="container-extern">
+        <div class="darken">
+            <div class="container-intern">
+
+                <div class="overview__row">
+                    <div class="overview__column">
+                        <div class="overview__poster-box">
+                            <img src="../{$serial->getImagePoster()}" class="overview__poster">
+                        </div>
+                        <div class="overview__main-wrap">
+                            <div class="overview__block-main">
+                                <table>
+                                    <tr>
+                                        <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong">Rok</span></td>
+                                        <td><span class="overview__text-main">2012</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong">Délka</span></td>
+                                        <td><span class="overview__text-main">120 min</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong">Místo</span></td>
+                                        <td><span class="overview__text-main">USA</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong">Žánr</span></td>
+                                        <td><span class="overview__text-main overview__text-main--colored">Krimi, Drama, Akční</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="overview__block-tags">
+                                <ul class="overview__list-tags">
+                                    <li class="overview__item-tags">
+                                        <span class="overview__text-tags">Detektivka</span>
+                                    </li>
+                                    <li class="overview__item-tags">
+                                        <span class="overview__text-tags">Historický</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overview__column">
+                        <div class="overview__trailer-box">
+                            <iframe frameborder="0" allowfullscreen="allowfullscreen" loading="lazy"
+                                    src="{$serial->getTrailer()}" class="overview__trailer">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overview__row">
+                    <div class="overview__column">
+                        <div class="overview__description-box">
+                            <p class="overview__description">{$serial->getDescription()}</p>
+                        </div>
+                    </div>
+                    <div class="overview__column">
+                        <div class="overview__content-wrap-cast">
+                            <div class="overview__cast-wrap">
+                                <div class="overview__cast">
+                                    <table>
+                                        <tr>
+                                            <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong"">Režie</span></td>
+                                            <td><span class="overview__text-main">Guy Ritchie</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong"">Předloha</span></td>
+                                            <td><span class="overview__text-main">Arthur Conan Doyle</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong"">Scénář</span></td>
+                                            <td><span class="overview__text-main">Michael Robert Johnson, Anthony Peckham, Simon
+                                                        Kinberg</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong"">Kamera</span></td>
+                                            <td><span class="overview__text-main">Philippe Rousselot</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong"">Hudba</span></td>
+                                            <td><span class="overview__text-main">Hans Zimmer</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="overview__actor-wrap">
+                                <div class="overview__actor">
+                                    <table>
+                                        <tr>
+                                            <td class="overview__item-fixed"><span class="overview__text-main overview__text-main--strong">Herci</span></td>
+                                            <td><span class="overview__text-main">
+                                                Robert Downey Jr.,
+                                                Jude Law,
+                                                Rachel McAdams,
+                                                Mark Strong,
+                                                Eddie Marsan,
+                                                Kelly Reilly,
+                                                James Fox,
+                                                Hans Matheson,
+                                                Geraldine James,
+                                                Robert Maillet
+                                            </span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

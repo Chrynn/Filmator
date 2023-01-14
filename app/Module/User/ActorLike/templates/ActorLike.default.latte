@@ -1,31 +1,12 @@
-{import "../../../../templates/content/actor/default/actor.latte"}
+{import "defaultTopic.latte"}
+{import "defaultActor.latte"}
 {block content}
 
-<div class="topic-default">
-    <div class="container-extern">
-        <div class="topic-default__content-wrap">
-            <div class="topic-default__image-box">
-                <img src="../../img/banners/movie&popcorn.jpg" alt="movie-n-popcorn" class="topic-default__image">
-            </div>
-            <div class="topic-default__content">
-                <div class="darken">
-                    <div class="container-intern">
-                        <div class="topic-default__heading-box">
-                            <ul>
-                                <li class="topic-default__heading-item"><a n:href=":User:Homepage:default" class="topic-default__link">&lt;</a></li>
-                                <li class="topic-default__heading-item"><h2 n:block="title" class="topic-default__heading">Oblíbení herci</h2></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<section>
+    {include defaultTopic}
+</section>
 
-<div class="actor">
-    <div class="container-intern">
-        {include actor}
-    </div>
-</div>
+<section>
+    {include defaultActor}
+</section>
 

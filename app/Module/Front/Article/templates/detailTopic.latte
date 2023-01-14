@@ -1,0 +1,24 @@
+{varType App\Model\Database\Entity\ArticleEntity $article}
+{block detailTopic}
+
+<div class="topic-detail topic-detail--special">
+    <div class="container-extern">
+        <div class="topic-detail__content-wrap">
+            <div class="topic-detail__image-box">
+                <img src="../{$article->getImage()}" alt="actor-face" class="topic-detail__image">
+            </div>
+            <div class="topic-detail__content">
+                <div class="darken">
+                    <div class="container-intern">
+                        <div class="topic-default__heading-box">
+                            <ul>
+                                <li class="topic-default__heading-item"><a n:href=":Front:Article:default" class="topic-default__link">&lt;</a></li>
+                                <li class="topic-default__heading-item"><h2 n:block="title" class="topic-default__heading">{$article->getName()}</h2></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+{import "../../../../templates/content/watch/default/watchShared.latte"}
+{varType string $contentType}
+{block detailWatch}
+
+<div class="watch">
+    <div class="container-intern">
+
+        <div class="background-icon">
+            <img src="../img/icons/movie-tape.svg" alt="movie-tape-icon" class="background-icon__image--top">
+        </div>
+
+        {snippet switchContent}
+            <div class="watch__block-topic">
+                <div class="watch__topic-wrap">
+                    <div class="watch__topic-line--dark"></div>
+                    <h3 class="watch__topic-heading">Obsazení</h3>
+                    <div class="watch__topic-line--light"></div>
+                </div>
+                <div class="watch__column-picker">
+                    <ul class="watch__list-picker">
+                        <li class="watch__item-picker">
+                            <a n:href="showMovies!" class="watch__link-picker{if $contentType === "Movie"} watch__link-picker--active{/if} ajax" >Filmy</a>
+                        </li>
+                        <li class="watch__item-picker">
+                            <a n:href="showSerials!" class="watch__link-picker{if $contentType === "Serial"} watch__link-picker--active{/if} ajax">Seriály</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="watch__sort-picker"></div>
+            </div>
+
+            {include watchShared}
+        {/snippet}
+
+    </div>
+</div>

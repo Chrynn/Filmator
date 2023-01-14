@@ -8,16 +8,18 @@
             {foreach $actors as $actor}
 
             <div class="actor__item">
-                <a n:href=":Front:Actor:detail $actor->getSlug()" class="actor__link">
-                    <div class="actor__content-wrap">
-                        <div class="actor__image-box">
-                            <img src="../../{$actor->getImagePoster()}" class="actor__image">
+                <article>
+                    <a n:href=":Front:Actor:detail $actor->getSlug()" class="actor__link">
+                        <div class="actor__content-wrap">
+                            <div class="actor__image-box">
+                                <img src="../../{$actor->getImagePoster()}" class="actor__image">
+                            </div>
+                            <div>
+                                <h3 class="actor__heading">{$actor->getName()}</h3>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="actor__heading">{$actor->getName()}</h3>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                </article>
             </div>
 
             {if $iterator->even && !(($iterator->counter % 4) === 0)}

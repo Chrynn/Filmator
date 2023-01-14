@@ -1,11 +1,13 @@
 {block menu}
 <div class="category">
     <div class="category__wrap">
-        <ul>
-            <li class="category__item"><a n:href=":Front:Movie:" class="category__link{if $presenter->isLinkCurrent("Movie:*")} category__item--active{/if}">filmy</a></li>
-            <li class="category__item"><a n:href=":Front:Serial:" class="category__link{if $presenter->isLinkCurrent("Serial:*")} category__item--active{/if}">seriály</a></li>
-            <li class="category__item"><a n:href=":Front:Actor:" class="category__link{if $presenter->isLinkCurrent("Actor:*")} category__item--active{/if}">herci</a></li>
-            <li class="category__item"><a n:href=":Front:Article:" class="category__link{if $presenter->isLinkCurrent("Article:*")} category__item--active{/if}">blog</a></li>
-        </ul>
+        <nav>
+            <ul>
+                <li class="category__item"><a n:href=":Front:Movie:" class="category__link{if $presenter->isLinkCurrent("Movie:*")} category__item--active{/if}">filmy</a></li>
+                <li class="category__item"><a n:href=":Front:Serial:" class="category__link{if $presenter->isLinkCurrent("Serial:*")} category__item--active{/if}">seriály</a></li>
+                <li class="category__item"><a n:href=":Front:Actor:" class="category__link{if $presenter->isLinkCurrent("Actor:*")} category__item--active{/if}">herci</a></li>
+                <li class="category__item"><a n:href=":Front:Article:" class="category__link{if $presenter->isLinkCurrent("Article:*")} category__item--active{/if}">blog</a></li>
+            </ul>
+        </nav>
     </div>
 </div>

@@ -1,13 +1,23 @@
-{import "slider.latte"}
 {import "../../../templates/menu.latte"}
-{import "watch.latte"}
-{import "advert.latte"}
-{import "read.latte"}
-
+{import "defaultSlider.latte"}
+{import "defaultWatch.latte"}
+{import "defaultAdvert.latte"}
+{import "defaultRead.latte"}
 {block content}
 
-{include hpSlider}
-{include menu}
-{include hpWatch}
-{include hpAdvert}
-{include article}
+<section>
+    {include homepageSlider}
+    {include menu}
+</section>
+
+<section>
+    {include homepageWatch}
+</section>
+
+<section>
+    {include homepageAdvert}
+</section>
+
+<section>
+    {include homepageBlog}
+</section>
