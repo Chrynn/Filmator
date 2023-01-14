@@ -11,30 +11,22 @@
         width: 100%;
         display: flex;
         margin-bottom: 25px;
+        justify-content: space-between;
+        position: relative;
     }
 
     &__topic-line--dark {
         width: 50%;
         height: 1px;
-        margin-top: 18px;
         background: $grey;
+        margin: 23px 0 0 0;
     }
 
     &__topic-line--light {
         width: 50%;
         height: 1px;
-        margin-top: 18px;
         background: $tercialy;
-    }
-
-    &__topic-title {
-        width: 300px;
-        display: flex;
-    }
-
-    &__topic-box--dark {
-        text-align: right;
-        margin: 0 0 0 auto;
+        margin: 23px 0 0 0;
     }
 
     &__topic-box--light {
@@ -42,14 +34,10 @@
         margin: 0 auto 0 10px;
     }
 
-    &__topic-heading--dark {
+    &__topic-heading {
         @include darkThin;
-        font-size: 30px;
-    }
-
-    &__topic-heading--light {
-        @include coloredThin;
-        font-size: 30px;
+        font-size: 35px;
+        margin: 0 30px;
     }
 
     // --- content ---
@@ -78,7 +66,6 @@
     }
 
     &__column-picker {
-        width: 50%;
 
         &--second {
             display: flex;
@@ -86,22 +73,22 @@
         }
     }
 
-    &__text-picker {
+    &__link-picker {
         @include lightRegular;
-        font-size: 18px;
-    }
-
-    &__button-picker {
+        font-size: 20px;
         display: flex;
         align-items: center;
-        height: 40px;
+        height: 45px;
         list-style: none;
         background: $grey;
-        padding: 0 20px;
+        padding: 0 25px;
         border-radius: 5px;
         cursor: pointer;
         transition: 0.25s;
         border: none;
+        text-decoration: none;
+        z-index: 1;
+        position: relative;
 
         &--active {
             background: $primary;
@@ -114,12 +101,14 @@
     }
 
     &__sort-picker {
-        height: 40px;
-        width: 40px;
+        height: 45px;
+        width: 45px;
         background: $grey;
         border-radius: 5px;
         transition: 0.25s;
+        margin-left: 10px;
         cursor: pointer;
+        z-index: 1;
 
         &:hover {
             background: $tercialy;
@@ -133,7 +122,13 @@
     }
 
     &__item-picker:not(:first-child) {
-        margin-left: 10px;
+        margin-left: 13px;
+    }
+
+    &__topic-wrap {
+        position: absolute;
+        display: flex;
+        width: 100%;
     }
 
 

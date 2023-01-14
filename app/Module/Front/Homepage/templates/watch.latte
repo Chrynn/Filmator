@@ -1,6 +1,6 @@
-{import "../../../../templates/content/watch/default/watchMovie.latte"}
-{import "../../../../templates/content/watch/default/watchSerial.latte"}F
+{import "../../../../templates/content/watch/default/watchShared.latte"}
 {block hpWatch}
+{varType string $contentType}
 
 <div class="watch">
     <div class="watch__movie">
@@ -11,72 +11,40 @@
                      <img src="img/icons/movie-tape.svg" alt="movie-tape-icon" class="background-icon__image--top">
                 </div>
 
-                <div class="watch__block-topic">
-                    <div class="watch__topic-line--dark"></div>
-                    <div class="watch__topic-title">
-                        <div class="watch__topic-box--dark">
-                            <h3 class="watch__topic-heading--dark">Top 4</h3>
+                {snippet switchContent}
+                    <div class="watch__block-topic">
+                        <div class="watch__topic-wrap">
+                            <div class="watch__topic-line--dark"></div>
+                            <h3 class="watch__topic-heading">Trending</h3>
+                            <div class="watch__topic-line--light"></div>
                         </div>
-                        <div class="watch__topic-box--light">
-                            <h3 class="watch__topic-heading--light">filmy</h3>
-                        </div>
-                    </div>
-                    <div class="watch__topic-line--light"></div>
-                </div>
-
-                <div class="reveal">
-                    {include watchMovie}
-                </div>
-
-                <div class="watch__block-button">
-                    <a n:href=":Front:Movie:" class="watch__button-link">
-                        <div class="button button--dark">
-                            <div class="button__block-text">
-                                <span class="button__text">další</span>
-                            </div>
-                            <div class="button__block-image">
-                                <img src="img/icons/next.svg" alt="arrow-icon" class="button__image">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-            <div class="watch__serial-wrap">
-
-                <div class="watch__block-topic">
-                    <div class="watch__topic-line--dark"></div>
-                    <div class="watch__topic-title">
-                        <div class="watch__topic-box--dark">
-                            <h3 class="watch__topic-heading--dark">Top 4</h3>
-                        </div>
-                        <div class="watch__topic-box--light">
-                            <h3 class="watch__topic-heading--light">seriály</h3>
+                        <div class="watch__column-picker">
+                            <ul class="watch__list-picker">
+                                <li class="watch__item-picker">
+                                    <a n:href="showMovies!" class="watch__link-picker{if $contentType === "Movie"} watch__link-picker--active{/if} ajax" >Filmy</a>
+                                </li>
+                                <li class="watch__item-picker">
+                                    <a n:href="showSerials!" class="watch__link-picker{if $contentType === "Serial"} watch__link-picker--active{/if} ajax">Seriály</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="watch__topic-line--light"></div>
-                </div>
 
-                <div class="reveal">
-                    {include watchSerial}
-                </div>
+                    {include watchShared}
 
-                <div class="watch__block-button">
-                    <a n:href=":Front:Serial:" class="watch__button-link">
-                        <div class="button button--dark">
-                            <div class="button__block-text">
-                                <span class="button__text">další</span>
+                    <div class="watch__block-button">
+                        <a n:href=":Front:{$contentType}:" class="watch__button-link">
+                            <div class="button button--dark">
+                                <div class="button__block-text">
+                                    <span class="button__text">další</span>
+                                </div>
+                                <div class="button__block-image">
+                                    <img src="img/icons/next.svg" alt="arrow-icon" class="button__image">
+                                </div>
                             </div>
-                            <div class="button__block-image">
-                                <img src="img/icons/next.svg" alt="arrow-icon" class="button__image">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="background-icon">
-                    <img src="img/icons/movie-tape.svg" alt="movie-tape-icon" class="background-icon__image--bottom">
-                </div>
+                        </a>
+                    </div>
+                {/snippet}
 
             </div>
         </div>

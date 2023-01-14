@@ -8,6 +8,7 @@ use App\Model\Facade\Common\AutoIncrement\AutoIncrementFacade;
 use App\Model\Facade\Common\PermanentLogin\PermanentLoginFacade;
 use App\Model\Service\Actor\ActorService;
 use App\Model\Service\Movie\MovieService;
+use App\Model\Service\Serial\SerialService;
 use App\Module\Front\Actor\components\ButtonLike\ButtonLike;
 use App\Module\Front\Actor\components\ButtonLike\ButtonLikeFactory;
 use App\Module\Front\components\Forgotten\ForgottenFactory;
@@ -27,7 +28,8 @@ class ActorPresenter extends FrontPresenter
 		ForgottenFactory  $forgottenFactory,
 		private readonly ActorService $actorService,
 		private readonly MovieService $movieService,
-		private readonly ButtonLikeFactory $buttonLikeFactory
+		private readonly ButtonLikeFactory $buttonLikeFactory,
+		private readonly SerialService $serialService
 	)
 	{
     	parent::__construct(
@@ -50,8 +52,25 @@ class ActorPresenter extends FrontPresenter
     public function actionDetail(string $url): void
 	{
         $this->getTemplate()->actor = $this->actorService->getActorBySlug($url);
-		$this->getTemplate()->otherMovies = $this->movieService->getMovies();
+		$this->getTemplate()->contentShared = $this->movieService->getMoviesByLimit(4);
+		$this->getTemplate()->contentType = "Movie";
     }
+
+
+	public function handleShowMovies(): void
+	{
+		$this->getTemplate()->contentShared = $this->movieService->getMoviesByLimit(4);
+		$this->getTemplate()->contentType = "Movie";
+		$this->redrawControl("switchContent");
+	}
+
+
+	public function handleShowSerials(): void
+	{
+		$this->getTemplate()->contentShared = $this->serialService->getSerialsByLimit(4);
+		$this->getTemplate()->contentType = "Serial";
+		$this->redrawControl("switchContent");
+	}
 
 
     protected function createComponentButtonLike(): ButtonLike

@@ -485,40 +485,30 @@ body.auth--active {
   width: 100%;
   display: flex;
   margin-bottom: 25px;
+  justify-content: space-between;
+  position: relative;
 }
 .watch__topic-line--dark {
   width: 50%;
   height: 1px;
-  margin-top: 18px;
   background: #999999;
+  margin: 23px 0 0 0;
 }
 .watch__topic-line--light {
   width: 50%;
   height: 1px;
-  margin-top: 18px;
   background: #ff8a00;
-}
-.watch__topic-title {
-  width: 300px;
-  display: flex;
-}
-.watch__topic-box--dark {
-  text-align: right;
-  margin: 0 0 0 auto;
+  margin: 23px 0 0 0;
 }
 .watch__topic-box--light {
   text-align: left;
   margin: 0 auto 0 10px;
 }
-.watch__topic-heading--dark {
+.watch__topic-heading {
   color: black;
   font-family: Roboto Condensed Light;
-  font-size: 30px;
-}
-.watch__topic-heading--light {
-  color: #ff8a00;
-  font-family: Roboto Condensed Light;
-  font-size: 30px;
+  font-size: 35px;
+  margin: 0 30px;
 }
 .watch .flexer {
   gap: 2%;
@@ -667,44 +657,44 @@ body.auth--active {
   margin: 0 0 30px 0;
   position: relative;
 }
-.watch__column-picker {
-  width: 50%;
-}
 .watch__column-picker--second {
   display: flex;
   justify-content: flex-end;
 }
-.watch__text-picker {
+.watch__link-picker {
   color: white;
   font-family: Roboto Condensed Regular;
-  font-size: 18px;
-}
-.watch__button-picker {
+  font-size: 20px;
   display: flex;
   align-items: center;
-  height: 40px;
+  height: 45px;
   list-style: none;
   background: #999999;
-  padding: 0 20px;
+  padding: 0 25px;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.25s;
   border: none;
+  text-decoration: none;
+  z-index: 1;
+  position: relative;
 }
-.watch__button-picker--active {
+.watch__link-picker--active {
   background: black;
 }
-.watch__button-picker:hover {
+.watch__link-picker:hover {
   background: #ff8a00;
   transition: 0.25s;
 }
 .watch__sort-picker {
-  height: 40px;
-  width: 40px;
+  height: 45px;
+  width: 45px;
   background: #999999;
   border-radius: 5px;
   transition: 0.25s;
+  margin-left: 10px;
   cursor: pointer;
+  z-index: 1;
 }
 .watch__sort-picker:hover {
   background: #ff8a00;
@@ -715,7 +705,12 @@ body.auth--active {
   list-style-type: none;
 }
 .watch__item-picker:not(:first-child) {
-  margin-left: 10px;
+  margin-left: 13px;
+}
+.watch__topic-wrap {
+  position: absolute;
+  display: flex;
+  width: 100%;
 }
 
 .banner {
