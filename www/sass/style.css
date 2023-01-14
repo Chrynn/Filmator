@@ -1101,6 +1101,8 @@ body.auth--active {
   font-family: Roboto Condensed Light;
   margin-right: 10px;
   transition: 0.25s;
+  display: inline-block;
+  position: relative;
 }
 .topic-default__link:hover {
   color: white;
@@ -1216,16 +1218,13 @@ body.auth--active {
   display: flex;
 }
 .topic-detail__translate-item {
-  height: 20px;
   list-style: none;
 }
 .topic-detail__translate-item:not(:first-child) {
-  margin-left: 15px;
-  display: flex;
-  align-items: center;
+  margin-left: 10px;
 }
 .topic-detail__translate-image {
-  height: 100%;
+  height: 20px;
   width: auto;
 }
 .topic-detail__translate {

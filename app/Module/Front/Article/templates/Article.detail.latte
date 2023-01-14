@@ -13,10 +13,11 @@
             <div class="topic-detail__content">
                 <div class="darken">
                     <div class="container-intern">
-                        <div class="topic-detail__heading-wrap">
-                            <div>
-                                <h2 n:block="title" class="topic-detail__title">{$article->getName()}</h2>
-                            </div>
+                        <div class="topic-default__heading-box">
+                            <ul>
+                                <li class="topic-default__heading-item"><a n:href=":Front:Article:default" class="topic-default__link">&lt;</a></li>
+                                <li class="topic-default__heading-item"><h2 n:block="title" class="topic-default__heading">{$article->getName()}</h2></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
