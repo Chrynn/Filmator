@@ -54,6 +54,7 @@ class MoviePresenter extends FrontPresenter
 	{
 		$this->getTemplate()->movie = $this->movieService->getMovieBySlug($url);
 		$this->getTemplate()->otherMovies = $this->movieService->getMoviesByLimit(4);
+		$this->getTemplate()->showMarkLast = true;
 	}
 
 
@@ -63,7 +64,8 @@ class MoviePresenter extends FrontPresenter
 			$movie = $this->movieService->getMovieBySlug($url);
 			$this->movieLastFacade->markLast($movie);
 		}
-		$this->redrawControl("last");
+		$this->redrawControl("markLast");
+		$this->getTemplate()->showMarkLast = false;
 	}
 
 

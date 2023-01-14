@@ -53,6 +53,7 @@ class SerialPresenter extends FrontPresenter
 	{
 		$this->getTemplate()->serial = $this->serialService->getSerialBySlug($url);
 		$this->getTemplate()->otherSerials = $this->serialService->getSerialsByLimit(4);
+		$this->getTemplate()->showMarkLast = true;
 	}
 
 
@@ -62,7 +63,8 @@ class SerialPresenter extends FrontPresenter
 			$serial = $this->serialService->getSerialBySlug($url);
 			$this->serialLastFacade->markLast($serial);
 		}
-		$this->redrawControl("last");
+		$this->redrawControl("markLast");
+		$this->getTemplate()->showMarkLast = false;
 	}
 
 

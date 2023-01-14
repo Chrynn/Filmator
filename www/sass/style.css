@@ -483,6 +483,7 @@ body.auth--active {
 }
 .watch__block-topic {
   width: 100%;
+  height: 40px;
   display: flex;
   margin-bottom: 25px;
   justify-content: space-between;
@@ -1360,6 +1361,9 @@ body.auth--active {
 .player__button-play:hover {
   transition: 0.33s;
   transform: scale(1.2);
+}
+.player__button-play--disabled {
+  display: none;
 }
 .player__image-play {
   height: 30px;

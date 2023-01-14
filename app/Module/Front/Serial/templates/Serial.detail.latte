@@ -2,6 +2,7 @@
 {import "../../../../templates/content/watch/detail/watchSerial.latte"}
 {varType App\Model\Database\Entity\SerialEntity $serial}
 {varType bool $isLogged}
+{varType bool $showMarkLast}
 {block content}
 
 <div class="topic-detail topic-detail--normal">
@@ -75,8 +76,8 @@
         </div>
         <div class="player__block-screen">
             <div class="player__screen">
-                {snippet last}
-                    <a n:href="markLast!" class="player__button-play js-close-play">
+                {snippet markLast}
+                    <a n:href="markLast!" class="player__button-play{if !$showMarkLast} player__button-play--disabled{/if} js-close-play ajax">
                         <img src="../img/icons/play-black.svg" class="player__image-play">
                     </a>
                 {/snippet}
@@ -210,21 +211,14 @@
         </div>
 
         <div class="watch__block-topic">
-            <div class="watch__topic-line--dark"></div>
-            <div class="watch__topic-title">
-                <div class="watch__topic-box--dark">
-                    <h3 class="watch__topic-heading--dark">Podobné</h3>
-                </div>
-                <div class="watch__topic-box--light">
-                    <h3 class="watch__topic-heading--light">seriály</h3>
-                </div>
+            <div class="watch__topic-wrap">
+                <div class="watch__topic-line--dark"></div>
+                <h3 class="watch__topic-heading">Podobné</h3>
+                <div class="watch__topic-line--light"></div>
             </div>
-            <div class="watch__topic-line--light"></div>
         </div>
 
-        <div class="reveal">
-            {include watchSerial}
-        </div>
+        {include watchSerial}
 
     </div>
 </div>

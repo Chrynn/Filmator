@@ -226,6 +226,10 @@
             transition: 0.33s;
             transform: scale(1.2);
         }
+
+        &--disabled {
+            display: none;
+        }
     }
 
     &__image-play {
