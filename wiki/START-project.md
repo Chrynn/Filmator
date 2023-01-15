@@ -2,6 +2,11 @@
 
 - Jelikož projekt používá Linuxové příkazy, je doporučeno používat operační systém `Linux` nebo Virtuální operační systém jako například `Ubuntu`
 
+### Doporučené technologie
+- Linux OS based on system (Mac, Ubuntu etc.)
+- Docker application (devOps)
+- Make (commands) - `sudo apt install make`
+
 ### Naklonování repozitáře
 
 - `git clone` naklonuje repozitář do vybrané složky 
