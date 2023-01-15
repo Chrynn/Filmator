@@ -1,11 +1,12 @@
-{block hpSlider}
+{block homepageSlider}
+{varType App\Model\Database\Entity\MovieEntity[] $contentSlider}
 
 <div class="slider">
     <div class="container-extern">
         <div class="slider__block-slide">
             <div class="slider__block-wrap">
 
-                {foreach $movies as $movie}
+                {foreach $contentSlider as $movie}
                     <div class="slider__item{if $iterator->counter === 1} slider__item--active{/if}">
                         <div class="slider__slide-wrap">
                             <div class="slider__image">

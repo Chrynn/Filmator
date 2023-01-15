@@ -64,6 +64,12 @@ class ArticleEntity
 	 */
 	protected Collection $laterUser;
 
+	/**
+	 * @var Collection<int, ArticleLastEntity>
+	 * @ORM\OneToMany(targetEntity="ArticleLastEntity", mappedBy="article")
+	 */
+	protected Collection $articleLast;
+
 
 	public function getId(): int
 	{

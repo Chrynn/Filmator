@@ -47,6 +47,8 @@
         @include coloredThin;
         margin-right: 10px;
         transition: .25s;
+        display: inline-block;
+        position: relative;
 
         &:hover {
             @include lightThin;

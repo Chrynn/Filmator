@@ -1,0 +1,22 @@
+{import "../../../../templates/content/watch/detail/watchMovie.latte"}
+{block detailWatch}
+
+<div class="watch">
+    <div class="container-intern">
+
+        <div class="background-icon">
+            <img src="../img/icons/movie-tape.svg" alt="movie-tape-icon" class="background-icon__image--top">
+        </div>
+
+        <div class="watch__block-topic">
+            <div class="watch__topic-wrap">
+                <div class="watch__topic-line--dark"></div>
+                <h3 class="watch__topic-heading">Podobné</h3>
+                <div class="watch__topic-line--light"></div>
+            </div>
+        </div>
+
+        {include watchMovie}
+
+    </div>
+</div>
