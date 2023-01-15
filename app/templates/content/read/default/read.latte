@@ -9,9 +9,10 @@
             {foreach $articles as $article}
                 {var $iteratorCount = $iterator->counter}
                 <div class="read__item">
-                    <div>
-                        <img src="../../{$article->getImage()}"
-                             alt=""
+                    <picture>
+                        <source srcset="../../{$article->getImage()}.avif">
+                        <source srcset="../../{$article->getImage()}.webp">
+                        <img src="../../{$article->getImage()}.png"
                              class="read__image"
                             {if $iteratorCount <= 3}
                                 loading="eager"
@@ -21,7 +22,7 @@
                                 loading="lazy"
                             {/if}
                         >
-                    </div>
+                    </picture>
                     <article>
                         <a n:href=":Front:Article:detail $article->getSlug()" class="read__link">
                             <div class="darken">

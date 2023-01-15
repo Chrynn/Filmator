@@ -1,67 +1,49 @@
 {import "header.latte"}
 {import "footer.latte"}
+{import "meta.latte"}
 {import "../../templates/global/flash/flashMessage.latte"}
 {import "../../templates/global/button/moduleButton.latte"}
 {varType bool $isLogged}
 
 <!DOCTYPE html>
 <html lang="cs">
-<head>
-    <link rel="stylesheet" type="text/css" href="/../sass/style.css">
+    <head>
+        <link rel="stylesheet" type="text/css" href="/../sass/style.css">
+        <link rel="canonical" href="https://www.filmator.com/">
+        {* <link rel="icon" href="https://www.filmator.com/www/favicon.ico"> *}
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta http-equiv="content-language" content="cs">
-    <meta name="author" content="Filip Machala">
-    <meta name="description" content="Sledujte zdarma své oblíbené filmy a seriály nebo si přečtěte novinky z filmového světa">
-    <meta name="robots" content="index, follow">
+        {include meta}
 
-    <meta name="og:type" content="website">
-    <meta name="og:title" content="Filmátor">
-    <meta name="og:description" content="Sledujte zdarma filmy a seriály">
-    <meta name="og:image" content="https://www.filmator.com/www/img/filmator/og-image.jpg">
-    <meta name="og:url" content="https://www.filmator.com/">
-    <meta name="og:locale" content="cs_CZ">
-    <meta name="og:site_name" content="Filmátor">
+        <title>{ifset title}{include title|stripHtml} - {/ifset}Filmátor</title>
+    </head>
+    <body>
+        <div class="page-wrap page-wrap--light">
+            {include flashMessage}
 
-    <meta name="twitter:title" content="Filmátor">
-    <meta name="twitter:description" content="Sledujte zdarma filmy a seriály">
-    <meta name="twitter:image" content="https://www.filmator.com/www/img/filmator/og-image.jpg">
-    <meta name="twitter:site" content="https://www.filmator.com/">
-    <meta name="twitter:creator" content="Filip Machala">
+            <header class="header" role="banner">
+                {include header}
+            </header>
 
-    {* <link rel="icon" href="https://www.filmator.com/www/favicon.ico"> *}
-    <link rel="canonical" href="https://www.filmator.com/">
+            <main class="main" role="main">
+                {include content}
+            </main>
 
-    <title>{ifset title}{include title|stripHtml} - {/ifset}Filmátor</title>
-</head>
+            <footer class="footer" role="contentinfo">
+                {include footer}
+            </footer>
 
-<body>
+            {if $isLogged}
+                {include moduleButton}
+            {/if}
+        </div>
 
-<div class="page-wrap page-wrap--light">
-    {include flashMessage}
-
-    {include header}
-
-    <main class="main" role="main">
-        {include content}
-    </main>
-
-    {include footer}
-
-    {if $isLogged}
-        {include moduleButton}
-    {/if}
-</div>
-
-<!-- scripts -->
-<div class="script">
-    <script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
-    <script src="../../js/nette.ajax.js"></script>
-    <script src="../../js/script.js"></script>
-</div>
-
-</body>
+        <!-- scripts -->
+        <div class="script">
+            <script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
+            <script src="../../js/nette.ajax.js"></script>
+            <script src="../../js/script.js"></script>
+        </div>
+    </body>
 </html>

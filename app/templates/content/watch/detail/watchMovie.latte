@@ -11,11 +11,15 @@
                     <article>
                         <a n:href=":Front:Movie:detail $otherMovie->getSlug()" class="watch__item-link">
                             <div class="watch__item-image-box">
-                                <img src="../{$otherMovie->getImagePoster()}"
-                                     alt="poster-movie"
-                                     class="watch__item-image"
-                                     loading="lazy"
-                                >
+                                <picture>
+                                    <source srcset="../../{$otherMovie->getImagePoster()}.avif">
+                                    <source srcset="../../{$otherMovie->getImagePoster()}.webp">
+                                    <img src="../{$otherMovie->getImagePoster()}.png"
+                                         alt="poster-movie"
+                                         class="watch__item-image"
+                                         loading="lazy"
+                                    >
+                                </picture>
                             </div>
                             <div class="watch__item-button-box">
                                 <div class="watch__item-button-text-wrap">

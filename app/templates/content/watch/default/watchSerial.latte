@@ -13,17 +13,21 @@
                         <article>
                             <a n:href=":Front:Serial:detail $serial->getSlug()" class="watch__item-link">
                                 <div class="watch__item-image-box">
-                                    <img src="../../{$serial->getImagePoster()}"
-                                         alt="poster-movie"
-                                         class="watch__item-image"
-                                         {if $iteratorCount <= 4}
-                                             loading="eager"
-                                         {elseif $iteratorCount > 4 && $iteratorCount <= 8}
-                                             loading="auto"
-                                         {else}
-                                             loading="lazy"
-                                         {/if}
-                                    >
+                                    <picture>
+                                        <source srcset="../../{$serial->getImagePoster()}.avif">
+                                        <source srcset="../../{$serial->getImagePoster()}.webp">
+                                        <img src="../../{$serial->getImagePoster()}.png"
+                                             alt="poster-movie"
+                                             class="watch__item-image"
+                                             {if $iteratorCount <= 4}
+                                                 loading="eager"
+                                             {elseif $iteratorCount > 4 && $iteratorCount <= 8}
+                                                 loading="auto"
+                                             {else}
+                                                 loading="lazy"
+                                             {/if}
+                                        >
+                                    </picture>
                                 </div>
                                 <div class="watch__item-button-box">
                                     <div class="watch__item-button-text-wrap">

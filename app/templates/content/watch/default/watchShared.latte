@@ -12,11 +12,16 @@
                         <article>
                             <a n:href=":Front:{$contentType}:detail $shared->getSlug()" class="watch__item-link">
                                 <div class="watch__item-image-box">
-                                    <img src="../../{$shared->getImagePoster()}"
-                                         alt="poster-movie"
-                                         class="watch__item-image"
-                                         loading="lazy"
-                                    >
+                                    <picture>
+                                        <source srcset="../../{$shared->getImagePoster()}.avif">
+                                        <source srcset="../../{$shared->getImagePoster()}.webp">
+                                        {* ajax loading images should use: in first screen view - eager, else - auto *}
+                                        <img src="../../{$shared->getImagePoster()}.png"
+                                             alt="poster-movie"
+                                             class="watch__item-image"
+                                             loading="auto"
+                                        >
+                                    </picture>
                                 </div>
                                 <div class="watch__item-button-box">
                                     <div class="watch__item-button-text-wrap">

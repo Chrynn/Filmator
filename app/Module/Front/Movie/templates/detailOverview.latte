@@ -9,7 +9,14 @@
                 <div class="overview__row">
                     <div class="overview__column">
                         <div class="overview__poster-box">
-                            <img src="../{$movie->getImagePoster()}" class="overview__poster">
+                            <picture>
+                                <source srcset="../../{$movie->getImagePoster()}.avif">
+                                <source srcset="../../{$movie->getImagePoster()}.webp">
+                                <img src="../{$movie->getImagePoster()}.png"
+                                     class="overview__poster"
+                                     loading="lazy"
+                                >
+                            </picture>
                         </div>
                         <div class="overview__main-wrap">
                             <div class="overview__block-main">

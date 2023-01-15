@@ -1,74 +1,72 @@
 {varType bool $isLogged}
 {block header}
 
-<header class="header" role="banner">
-    <div class="container-extern">
-        <div class="header__wrap">
-            <div class="container-intern">
+<div class="container-extern">
+    <div class="header__wrap">
+        <div class="container-intern">
 
-                <div class="header__logo">
-                    <a n:href=":Front:Homepage:" class="header__link-logo">
-                        <div class="header__block-image-logo">
-                            <img src="../../img/icons/logo-circle.svg" alt="logo-icon" class="header__image-logo">
-                        </div>
-                        <div class="header__block-heading-logo">
-                            <h3 class="header__heading-logo">Filmátor</h3>
-                        </div>
-                    </a>
-                </div>
+            <div class="header__logo">
+                <a n:href=":Front:Homepage:" class="header__link-logo">
+                    <div class="header__block-image-logo">
+                        <img src="../../img/icons/logo-circle.svg" alt="logo-icon" class="header__image-logo">
+                    </div>
+                    <div class="header__block-heading-logo">
+                        <h3 class="header__heading-logo">Filmátor</h3>
+                    </div>
+                </a>
+            </div>
 
-                <div class="header__menu-desktop">
-                    <div class="header__search">
-                        <div class="flexer">
-                            <div>
-                                <input type="text" name="find" placeholder="hledat" class="header__input-search">
-                            </div>
-                            <div>
-                                <button class="header__button-search">
-                                    <img src="../../img/icons/find.svg" alt="eyeglass-icon" class="header__image-search">
-                                </button>
-                            </div>
+            <div class="header__menu-desktop">
+                <div class="header__search">
+                    <div class="flexer">
+                        <div>
+                            <input type="text" name="find" placeholder="hledat" class="header__input-search">
+                        </div>
+                        <div>
+                            <button class="header__button-search">
+                                <img src="../../img/icons/find.svg" alt="eyeglass-icon" class="header__image-search">
+                            </button>
                         </div>
                     </div>
+                </div>
 
-                    {if !$isLogged}
-                        <div class="button button--special js-show-auth">
+                {if !$isLogged}
+                    <div class="button button--special js-show-auth">
+                        <div class="button__block-image">
+                            <img src="../../img/icons/profile.svg" alt="profile-icon" class="button__image">
+                        </div>
+                        <div class="button__block-text">
+                            <span class="button__text">přihlásit</span>
+                        </div>
+                    </div>
+                {else}
+                    <a n:href="logout!" class="button__link">
+                        <div class="button button--failure">
                             <div class="button__block-image">
                                 <img src="../../img/icons/profile.svg" alt="profile-icon" class="button__image">
                             </div>
                             <div class="button__block-text">
-                                <span class="button__text">přihlásit</span>
+                                <span class="button__text">odhlásit</span>
                             </div>
                         </div>
-                    {else}
-                        <a n:href="logout!" class="button__link">
-                            <div class="button button--failure">
-                                <div class="button__block-image">
-                                    <img src="../../img/icons/profile.svg" alt="profile-icon" class="button__image">
-                                </div>
-                                <div class="button__block-text">
-                                    <span class="button__text">odhlásit</span>
-                                </div>
-                            </div>
-                        </a>
-                    {/if}
+                    </a>
+                {/if}
 
-                    <div class="hamburger-div2">
-                        <div class="menu-line2"></div>
-                    </div>
-
+                <div class="hamburger-div2">
+                    <div class="menu-line2"></div>
                 </div>
+
             </div>
         </div>
     </div>
+</div>
 
-    {if !$isLogged}
-        <div class="auth">
-            <div class="flexer">
-                {control forgotten}
-                {control login}
-                {control register}
-            </div>
+{if !$isLogged}
+    <div class="auth">
+        <div class="flexer">
+            {control forgotten}
+            {control login}
+            {control register}
         </div>
-    {/if}
-</header>
+    </div>
+{/if}

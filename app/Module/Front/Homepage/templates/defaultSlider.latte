@@ -11,14 +11,18 @@
                     <div class="slider__item{if $iterator->counter === 1} slider__item--active{/if}">
                         <div class="slider__slide-wrap">
                             <div class="slider__image">
-                                <img src="{$movie->getImageBanner()}"
-                                     class="slider__image-background"
-                                     {if $iterator->counter === 1}
-                                        fetchpriority="high"
-                                     {else}
-                                        fetchpriority="low"
-                                     {/if}
-                                >
+                                <picture>
+                                    <source srcset="{$movie->getImageBanner()}.avif">
+                                    <source srcset="{$movie->getImageBanner()}.webp">
+                                    <img src="{$movie->getImageBanner()}.png"
+                                         class="slider__image-background"
+                                         {if $iterator->counter === 1}
+                                            fetchpriority="high"
+                                         {else}
+                                            fetchpriority="low"
+                                         {/if}
+                                    >
+                                </picture>
                             </div>
                             <div class="slider__content">
                                 <div class="darken">

@@ -2,34 +2,13 @@
     background-size: cover;
 }
 
-// == NEWS ==
-@mixin newsBgOne {
-    background: url('../img/banners/black-panther.jpg') no-repeat center;
-    @include bgSize;
-}
-
-@mixin newsBgTwo {
-    background: url('../img/banners/robert-downey.jpg') no-repeat center;
-    @include bgSize;
-}
-
-@mixin newsBgThree {
-    background: url('../img/banners/black-widow.jpg') no-repeat center;
-    @include bgSize;
-}
-
-@mixin newsBgFour {
-    background: url('../img/banners/wraith-of-man.jpg') no-repeat center;
-    @include bgSize;
-}
-
 // == FOOTER ==
 @mixin footerBg {
-    background: url('../img/banners/office.jpg') no-repeat center;
+    background: url('../img/filmator/office.jpg') no-repeat center;
     @include bgSize;
 }
 
 @mixin pageTopic {
-    background: url('../img/banners/movie&popcorn.jpg') no-repeat center;
+    background: url('../img/filmator/movie&popcorn.jpg') no-repeat center;
     @include bgSize;
 }

@@ -7,8 +7,10 @@
         {foreach $nextArticles as $nextArticle}
             {var $iteratorCount = $iterator->counter}
             <div class="read__item">
-                <div>
-                    <img src="../{$nextArticle->getImage()}"
+                <picture>
+                    <source srcset="../../{$nextArticle->getImage()}.avif">
+                    <source srcset="../../{$nextArticle->getImage()}.webp">
+                    <img src="../{$nextArticle->getImage()}.png"
                          alt=""
                          class="read__image"
                          loading="lazy"
@@ -20,7 +22,7 @@
                             loading="lazy"
                         {/if}
                     >
-                </div>
+                </picture>
                 <article>
                     <a n:href=":Front:Article:detail $nextArticle->getSlug()" class="read__link">
                         <div class="darken">
