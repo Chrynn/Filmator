@@ -1,5 +1,6 @@
-{block homepageSlider}
 {varType App\Model\Database\Entity\MovieEntity[] $contentSlider}
+{varType object $iterator}
+{block homepageSlider}
 
 <div class="slider">
     <div class="container-extern">
@@ -10,7 +11,14 @@
                     <div class="slider__item{if $iterator->counter === 1} slider__item--active{/if}">
                         <div class="slider__slide-wrap">
                             <div class="slider__image">
-                                <img src="{$movie->getImageBanner()}" class="slider__image-background" {if $iterator->counter === 1}fetchpriority="high"{else}fetchpriority="low"{/if}>
+                                <img src="{$movie->getImageBanner()}"
+                                     class="slider__image-background"
+                                     {if $iterator->counter === 1}
+                                        fetchpriority="high"
+                                     {else}
+                                        fetchpriority="low"
+                                     {/if}
+                                >
                             </div>
                             <div class="slider__content">
                                 <div class="darken">

@@ -11,14 +11,20 @@
                     <article>
                         <a n:href=":Front:Movie:detail $otherMovie->getSlug()" class="watch__item-link">
                             <div class="watch__item-image-box">
-                                <img src="../{$otherMovie->getImagePoster()}" alt="poster-movie" class="watch__item-image">
+                                <img src="../{$otherMovie->getImagePoster()}"
+                                     alt="poster-movie"
+                                     class="watch__item-image"
+                                     loading="lazy"
+                                >
                             </div>
                             <div class="watch__item-button-box">
                                 <div class="watch__item-button-text-wrap">
                                     <span class="watch__item-button-text">přehrát</span>
                                 </div>
                                 <div class="watch__item-button-image-wrap">
-                                    <img src="../img/icons/play-orange.svg" alt="icon-play" class="watch__item-button-image">
+                                    <img src="../img/icons/play-orange.svg"
+                                         alt="icon-play"
+                                         class="watch__item-button-image">
                                 </div>
                             </div>
                         </a>
