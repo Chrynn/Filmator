@@ -13,16 +13,20 @@
                         <a n:href=":Front:Actor:detail $actor->getSlug()" class="actor__link">
                             <div class="actor__content-wrap">
                                 <div class="actor__image-box">
-                                    <img src="../../{$actor->getImagePoster()}"
-                                         class="actor__image"
-                                         {if $iteratorCount <= 8}
-                                            loading="eager"
-                                         {elseif $iteratorCount > 8 && $iteratorCount <= 12}
-                                            loading="auto"
-                                         {else}
-                                            loading="lazy"
-                                         {/if}
-                                    >
+                                    <picture>
+                                        <source srcset="../../{$actor->getImagePoster()}.avif">
+                                        <source srcset="../../{$actor->getImagePoster()}.webp">
+                                        <img src="../../{$actor->getImagePoster()}.png"
+                                             class="actor__image"
+                                                {if $iteratorCount <= 8}
+                                                    loading="eager"
+                                                {elseif $iteratorCount > 8 && $iteratorCount <= 12}
+                                                    loading="auto"
+                                                {else}
+                                                    loading="lazy"
+                                                {/if}
+                                        >
+                                    </picture>
                                 </div>
                                 <div>
                                     <h3 class="actor__heading">{$actor->getName()}</h3>
