@@ -718,7 +718,7 @@ body.auth--active {
   position: relative;
 }
 .banner .darken {
-  padding: 40px 0 50px 0;
+  padding: 50px 0 60px 0;
   position: relative;
 }
 .banner__image-box {
@@ -754,7 +754,7 @@ body.auth--active {
 }
 .banner__column--first, .banner__column--second, .banner__column--third {
   width: 33.3%;
-  padding: 10px;
+  padding: 30px;
   opacity: 0;
 }
 .banner__animation {
