@@ -12,14 +12,26 @@
                         <article>
                             <a n:href=":Front:{$contentType}:detail $shared->getSlug()" class="watch__item-link">
                                 <div class="watch__item-image-box">
-                                    <img src="../../{$shared->getImagePoster()}" alt="poster-movie" class="watch__item-image">
+                                    <picture>
+                                        <source srcset="../../{$shared->getImagePoster()}.avif">
+                                        <source srcset="../../{$shared->getImagePoster()}.webp">
+                                        {* ajax loading images should use: in first screen view - eager, else - auto *}
+                                        <img src="../../{$shared->getImagePoster()}.png"
+                                             alt="poster-movie"
+                                             class="watch__item-image"
+                                             loading="auto"
+                                        >
+                                    </picture>
                                 </div>
                                 <div class="watch__item-button-box">
                                     <div class="watch__item-button-text-wrap">
                                         <span class="watch__item-button-text">přehrát</span>
                                     </div>
                                     <div class="watch__item-button-image-wrap">
-                                        <img src="../../img/icons/play-orange.svg" alt="icon-play" class="watch__item-button-image">
+                                        <img src="../../img/icons/play-orange.svg"
+                                             alt="icon-play"
+                                             class="watch__item-button-image"
+                                        >
                                     </div>
                                 </div>
                             </a>
@@ -28,7 +40,11 @@
                                     <h3 class="watch__item-title">{$shared->getName()}</h3>
                                 </div>
                                 <div class="watch__item-rating-box">
-                                    <img src="../../img/icons/stars.svg" alt="icon-stars" class="watch__item-rating-image">
+                                    <img src="../../img/icons/stars.svg"
+                                         alt="icon-stars"
+                                         class="watch__item-rating-image"
+
+                                    >
                                     <div class="watch__item-rating-text-wrap">
                                         <p class="watch__item-rating-text">{$shared->getRating()}% ČSFD</p>
                                     </div>

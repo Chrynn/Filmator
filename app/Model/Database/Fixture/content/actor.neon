@@ -2,35 +2,35 @@
 -
 	name: Silvester Stalone
 	image:
-		imageBanner: img/fixture/actor/sylvester-stalone_banner.jpg
-		imagePoster: img/fixture/actor/sylvester-stalone_poster.jpg
+		imageBanner: img/fixture/actor/1/1_banner
+		imagePoster: img/fixture/actor/1/1_poster
 -
 	name: Dwayne Johnson
 	image:
-		imageBanner: img/fixture/actor/dwayne-johnson_banner.jpg
-		imagePoster: img/fixture/actor/dwayne-johnson_poster.jpg
+		imageBanner: img/fixture/actor/2/2_banner
+		imagePoster: img/fixture/actor/2/2_poster
 -
 	name: Jason Statham
 	image:
-		imageBanner: img/fixture/actor/jason-statham_banner.jpg
-		imagePoster: img/fixture/actor/jason-statham_poster.jpg
+		imageBanner: img/fixture/actor/3/3_banner
+		imagePoster: img/fixture/actor/3/3_poster
 -
 	name: Keyanu Reaves
 	image:
-		imageBanner: img/fixture/actor/keyanu-reaves_banner.jpg
-		imagePoster: img/fixture/actor/keyanu-reaves_poster.jpg
+		imageBanner: img/fixture/actor/4/4_banner
+		imagePoster: img/fixture/actor/4/4_poster
 -
 	name: Arnold Schwanceneger
 	image:
-		imageBanner: img/fixture/actor/arnold-schwarzeneger_banner.jpg
-		imagePoster: img/fixture/actor/arnold-schwarzeneger_poster.jpg
+		imageBanner: img/fixture/actor/5/5_banner
+		imagePoster: img/fixture/actor/5/5_poster
 -
 	name: Johny Depp
 	image:
-		imageBanner: img/fixture/actor/johny-depp_banner.jpg
-		imagePoster: img/fixture/actor/johny-depp_poster.jpg
+		imageBanner: img/fixture/actor/6/6_banner
+		imagePoster: img/fixture/actor/6/6_poster
 -
 	name: Robert Downey Jr.
 	image:
-		imageBanner: img/fixture/actor/robert-downey-jr_banner.jpg
-		imagePoster: img/fixture/actor/robert-downey-jr_poster.jpg
+		imageBanner: img/fixture/actor/7/7_banner
+		imagePoster: img/fixture/actor/7/7_poster

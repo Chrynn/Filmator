@@ -1,9 +1,24 @@
 .banner {
-    background: url('../img/banners/watching-tv.jpg') no-repeat center;
-    background-size: cover;
+    position: relative;
 
     .darken {
-        padding: 40px 0 50px 0;
+        padding: 50px 0 60px 0;
+        position: relative;
+    }
+
+    &__image-box {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    &__image {
+        height: 100%;
+        width: 100%;
+        display: block;
+        position: relative;
+        object-fit: cover;
+        object-position: center
     }
 
     // --- topic ---
@@ -29,7 +44,7 @@
     &__column--second,
     &__column--third {
         width: 33.3%;
-        padding: 10px;
+        padding: 30px;
         opacity: 0;
     }
 
@@ -49,7 +64,7 @@
         animation-delay: 1.2s;
     }
 
-    &__image {
+    &__icon {
         height: 70px;
         width: 70px;
         margin: 40px auto 25px auto;

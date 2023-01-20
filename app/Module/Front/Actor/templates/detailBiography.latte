@@ -29,7 +29,15 @@
         <div class="flexer">
             <div class="biography__cover-wrap">
                 <div class="biography__cover-box">
-                    <img src="../{$actor->getImagePoster()}" alt="actor-face" class="biography__cover">
+                    <picture>
+                        <source srcset="../{$actor->getImagePoster()}.avif">
+                        <source srcset="../{$actor->getImagePoster()}.webp">
+                        <img src="../{$actor->getImagePoster()}.png"
+                             alt="actor-face"
+                             class="biography__cover"
+                             loading="eager"
+                        >
+                    </picture>
                 </div>
             </div>
             <div class="biography__overview-wrap">

@@ -1,40 +1,49 @@
 {varType App\Model\Database\Entity\ArticleEntity[] $nextArticles}
+{varType object $iterator}
 {block read}
 
 <div class="read__block-content">
     <div class="read__row">
-
         {foreach $nextArticles as $nextArticle}
-        <div class="read__item">
-
-            <div>
-                <img src="../{$nextArticle->getImage()}" alt="" class="read__image">
-            </div>
-            <article>
-                <a n:href=":Front:Article:detail $nextArticle->getSlug()" class="read__link">
-                    <div class="darken">
-                        <div class="read__content">
-                            <p class="read__type">oznámení</p>
-                            <h2 class="read__title">{$nextArticle->getName()|truncate:35}</h2>
-                            <div class="read__date-box">
-                                <ul class="read__list-date">
-                                    <li class="read__item-date"><p class="read__date">{$nextArticle->getCreatedAt()|date:'d.'}</p></li>
-                                    <li class="read__item-date"><p class="read__date">{$nextArticle->getCreatedAtMonth()}</p></li>
-                                </ul>
+            {var $iteratorCount = $iterator->counter}
+            <div class="read__item">
+                <picture>
+                    <source srcset="../../{$nextArticle->getImage()}.avif">
+                    <source srcset="../../{$nextArticle->getImage()}.webp">
+                    <img src="../{$nextArticle->getImage()}.png"
+                         alt=""
+                         class="read__image"
+                         loading="lazy"
+                        {if $iteratorCount <= 3}
+                            loading="eager"
+                        {elseif $iteratorCount > 3 && $iteratorCount <= 6}
+                            loading="auto"
+                        {else}
+                            loading="lazy"
+                        {/if}
+                    >
+                </picture>
+                <article>
+                    <a n:href=":Front:Article:detail $nextArticle->getSlug()" class="read__link">
+                        <div class="darken">
+                            <div class="read__content">
+                                <p class="read__type">oznámení</p>
+                                <h2 class="read__title">{$nextArticle->getName()|truncate:35}</h2>
+                                <div class="read__date-box">
+                                    <ul class="read__list-date">
+                                        <li class="read__item-date"><p class="read__date">{$nextArticle->getCreatedAt()|date:'d.'}</p></li>
+                                        <li class="read__item-date"><p class="read__date">{$nextArticle->getCreatedAtMonth()}</p></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </article>
-
+                    </a>
+                </article>
+            </div>
+            {if ($iterator->counter % 3) === 0}
         </div>
-
-        {if ($iterator->counter % 3) === 0}
-    </div>
-    <div class="read__row">
-        {/if}
-
+        <div class="read__row">
+            {/if}
         {/foreach}
-
     </div>
 </div>

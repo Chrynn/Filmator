@@ -5,7 +5,15 @@
     <div class="container-extern">
         <div class="topic-detail__content-wrap">
             <div class="topic-detail__image-box">
-                <img src="../{$article->getImage()}" alt="actor-face" class="topic-detail__image">
+                <picture>
+                    <source srcset="../{$article->getImage()}.avif">
+                    <source srcset="../{$article->getImage()}.webp">
+                    <img src="../{$article->getImage()}.png"
+                         alt="actor-face"
+                         class="topic-detail__image"
+                         loading="eager"
+                    >
+                </picture>
             </div>
             <div class="topic-detail__content">
                 <div class="darken">

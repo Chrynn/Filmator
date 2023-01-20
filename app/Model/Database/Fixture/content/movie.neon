@@ -6,8 +6,8 @@
 	teaser: 		'Slavný detektiv Sherlock Holmes (Robert Downey Jr.) je proslulý tím, že dokáže vyřešit i nejsložitější záhady. S věrným přítelem Dr. Watsonem (Jude Law) po boku je téměř nepřemožitelný. Jenže nyní je Londýn v ohrožení a náhlá hrozba je děsivější, než cokoli dříve.'
 	description: 	'Slavný detektiv Sherlock Holmes (Robert Downey Jr.) je proslulý tím, že dokáže vyřešit i nejsložitější záhady. S věrným přítelem Dr. Watsonem (Jude Law) po boku je téměř nepřemožitelný. Jenže nyní je Londýn v ohrožení a náhlá hrozba je děsivější, než cokoli dříve. Pro detektiva je to ovšem jen další výzva, které s radostí a odvahou hodlá čelit. Po sérii brutálních rituálních vražd přijíždí Holmes a Watson právě včas, aby zachránili před smrtí další oběť a odhalili nebezpečného vraha, zatvrzelého Lorda Blackwooda. Předtím, než je oběšen, varuje Blackwood Holmese, že smrt nad ním nemá žádnou moc. Když následně dojde k jeho záhadnému vzkříšení, Londýn oněmí v panické hrůze. Scotland Yard si neví rady, a tak se Holmes s Watsonem vydávají do světa černé magie a překvapivých nových technologií.'
 	image:
-		imageBanner: img/fixture/movie/sherlock-holmes_banner.jpg
-		imagePoster: img/fixture/movie/sherlock-holmes_poster.jpg
+		imageBanner: img/fixture/movie/1/sherlock-holmes_banner
+		imagePoster: img/fixture/movie/1/sherlock-holmes_poster
 	trailer: https://youtu.be/GK9oObrzn1w
 -
 	title: Klub rváčů
@@ -16,8 +16,8 @@
 	teaser: 		'Když nemůžete půl roku usnout, celý okolní svět vám začne připadat jako nekonečný sen. Všechno kolem vás je nedokonalou xeroxovou kopií sebe sama. Chodíte do práce, díváte se na televizi a jste vděčni za to, když občas ztratíte vědomí a nevíte o světě. Lidí s podobnými problémy moc není, ale mladý úspěšný úředník, který si říká Jack, je jedním z nich.'
 	description: 	'Když nemůžete půl roku usnout, celý okolní svět vám začne připadat jako nekonečný sen. Všechno kolem vás je nedokonalou xeroxovou kopií sebe sama. Chodíte do práce, díváte se na televizi a jste vděčni za to, když občas ztratíte vědomí a nevíte o světě. Lidí s podobnými problémy moc není, ale mladý úspěšný úředník, který si říká Jack, je jedním z nich. Má slušnou práci, vydělává slušné peníze, ale trpí nejtěžší formou nespavosti. Na služební cestě se Jack seznámí s Tylerem Durdenem, který mu nabídne příbytek pod podmínkou, že mu vrazí pořádnou ránu. Tato "výměna názorů" se oběma zalíbí a brzy vznikne první Klub rváčů. Místo, kde můžou mladí muži, znechucení světem, odložit své starosti a stát se na pár minut zvířaty.'
 	image:
-		imageBanner: img/fixture/movie/klub-rvacu_banner.jpg
-		imagePoster: img/fixture/movie/klub-rvacu_poster.jpg
+		imageBanner: img/fixture/movie/2/fight-club_banner
+		imagePoster: img/fixture/movie/2/fight-club_poster
 	trailer: https://youtu.be/MAidmBZD0Bk
 -
 	title: 'Avengers: Endgame'
@@ -26,8 +26,8 @@
 	teaser: 		'Hrozivé události způsobené Thanosem, který vyhladil polovinu života ve vesmíru a silně oslabil Avengers, vedou zbylé superhrdiny k tomu, aby ve strhujícím finále 22 filmů studia Marvel zvaném Avengers: Endgame sebrali poslední síly a pokusili se vrátit úder.'
 	description: 	'Hrozivé události způsobené Thanosem, který vyhladil polovinu života ve vesmíru a silně oslabil Avengers, vedou zbylé superhrdiny k tomu, aby ve strhujícím finále 22 filmů studia Marvel zvaném Avengers: Endgame sebrali poslední síly a pokusili se vrátit úder.'
 	image:
-		imageBanner: img/fixture/movie/avengers-endgame_banner.jpg
-		imagePoster: img/fixture/movie/avengers-endgame_poster.jpg
+		imageBanner: img/fixture/movie/3/avengers-endgame_banner
+		imagePoster: img/fixture/movie/3/avengers-endgame_poster
 	trailer: https://youtu.be/02YEOiHZH1I
 -
 	title: Láska 911
@@ -36,8 +36,8 @@
 	teaser: 		'Kang-il je hasič, ktorého manželka zomrela, keď zachraňoval ľudí pri nehode. Zápasí s pocitom viny za to, že nedokázal pomôcť svojej žene. Po tejto tragédii sa bez rozmýšľania vrhá do nebezpečenstva, aby zachránil ostatných.'
 	description: 	'Kang-il je hasič, ktorého manželka zomrela, keď zachraňoval ľudí pri nehode. Zápasí s pocitom viny za to, že nedokázal pomôcť svojej žene. Po tejto tragédii sa bez rozmýšľania vrhá do nebezpečenstva, aby zachránil ostatných. Lekárka Mi-soo urobí v nemocnici chybu pri stanovení diagnózy, a keď sa pacientka dostane do kritického stavu, Kang-il je zhodou okolností pri jej záchrane. Manžel pacientky chce Mi-soo zažalovať, a tým jej hrozí strata lekárskej licencie. Právnička Mi-soo poradí presvedčiť Kang-ila o tom, aby svedčil, že manžel pacientky naňho zaútočil potom, čo sa dozvedel o nesprávne stanovenej diagnóze. Kang-il však Mi-Soo a jej prosby ignoruje. V zúfalstve sa Mi-soo stáva dobrovoľníčkou, aby ako zdravotníčka mohla pracovať po boku Kang-ila a dostala sa tak k nemu čo najbližšie.'
 	image:
-		imageBanner: img/fixture/movie/laska-911_banner.jpg
-		imagePoster: img/fixture/movie/laska-911_poster.jpg
+		imageBanner: img/fixture/movie/4/love-911_banner
+		imagePoster: img/fixture/movie/4/love-911_poster
 	trailer: https://youtu.be/3MVgdmd8ri0
 -
 	title: 'Spiderman: No way home'
@@ -46,8 +46,8 @@
 	teaser: 		'Vůbec poprvé ve filmové historii je odhalena totožnost Spider-Mana a náš dobrý soused již nedokáže oddělit svou zodpovědnost superhrdiny od běžného života, čímž se jeho nebližší ocitnou ve velkém nebezpečí.'
 	description: 	'Vůbec poprvé ve filmové historii je odhalena totožnost Spider-Mana a náš dobrý soused již nedokáže oddělit svou zodpovědnost superhrdiny od běžného života, čímž se jeho nebližší ocitnou ve velkém nebezpečí. Spider-Man požádá Doctora Strange, aby mu pomohl jeho tajemství obnovit. Kouzlo však způsobí v realitě obrovskou trhlinu, jíž do světa proniknou ti nejmocnější zloduši, kteří kdy bojovali se Spider-Manem v paralelním světě. Peter tak musí překonat svou doposud největší výzvu, která navždy změní nejen jeho budoucnost, ale i budoucnost paralelních světů.'
 	image:
-		imageBanner: img/fixture/movie/spiderman-no-way-home_banner.jpg
-		imagePoster: img/fixture/movie/spiderman-no-way-home_poster.jpg
+		imageBanner: img/fixture/movie/5/spiderman-no-way-home_banner
+		imagePoster: img/fixture/movie/5/spiderman-no-way-home_poster
 	trailer: https://youtu.be/BkJ37-waPD8
 -
 	title: 'GI Joe: 2'
@@ -56,6 +56,6 @@
 	teaser: 		'V demilitarizované zóně mezi Jižní a Severní Koreou hledá jednotka G. I. Joe pod velením kapitána Dukea Housera dezertéra. Najdou ho a dopraví bezpečně do Jižní Koreje. Agenti Kobry Stormshadow a Zartan jsou stále na svobodě a aktivní, a i Commander a Dextro, kteří jsou momentálně ve vězení, přísahali pomstu…'
 	description: 	'V demilitarizované zóně mezi Jižní a Severní Koreou hledá jednotka G. I. Joe pod velením kapitána Dukea Housera dezertéra. Najdou ho a dopraví bezpečně do Jižní Koreje. Agenti Kobry Stormshadow a Zartan jsou stále na svobodě a aktivní, a i Commander a Dextro, kteří jsou momentálně ve vězení, přísahali pomstu…  V Pákistánu je po atentátu na prezidenta zmatek. Pákistán je spojencem USA a panuje tam naprostý chaos, na jeho území jsou i jaderné hlavice. Generálové navrhují okamžitou vojenskou akci, prezident povolá G. I. Joe. Ve vrtulníku si procházejí plán – hlavice jsou v montážní hale a nejdou přenášet, musejí se zlikvidovat na místě. Na místě zabijí ochranku a odvezou hlavici na vojenskou základnu USA. Nahlásí prezidentovi a generálům, že mise byla splněna a že plánují cestu zpět. Odpověď je, že plán evakuace je třeba pozměnit, ať zůstanou na místě.'
 	image:
-		imageBanner: img/fixture/movie/gi-joe-2_banner.jpg
-		imagePoster: img/fixture/movie/gi-joe-2_poster.jpg
+		imageBanner: img/fixture/movie/6/gi-joe-2_banner
+		imagePoster: img/fixture/movie/6/gi-joe-2_poster
 	trailer: https://youtu.be/h8orF3EwOhI

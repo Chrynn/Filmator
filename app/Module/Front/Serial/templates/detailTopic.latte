@@ -5,7 +5,15 @@
     <div class="container-extern">
         <div class="topic-detail__content-wrap">
             <div class="topic-detail__image-box">
-                <img src="../{$serial->getImageBanner()}" alt="serial-banner" class="topic-detail__image">
+                <picture>
+                    <source srcset="../../{$serial->getImagePoster()}.avif">
+                    <source srcset="../../{$serial->getImagePoster()}.webp">
+                    <img src="../../{$serial->getImageBanner()}.png"
+                         alt="serial-banner"
+                         class="topic-detail__image"
+                         loading="eager"
+                    >
+                </picture>
             </div>
             <div class="topic-detail__content">
                 <div class="darken">

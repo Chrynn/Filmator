@@ -59,7 +59,7 @@ class HomepagePresenter extends FrontPresenter
 		$this->getTemplate()->contentSlider = $this->movieService->getMoviesByLimit(4);
 		$this->getTemplate()->contentShared = $this->movieService->getMoviesByLimit(8);
 		$this->getTemplate()->contentType = "Movie";
-		$this->getTemplate()->articles = $this->articleService->getArticlesByLimit(3);
+		$this->getTemplate()->nextArticles = $this->articleService->getArticlesByLimit(3);
 	}
 
 }
