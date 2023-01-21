@@ -2,7 +2,9 @@
 {import "defaultSlider.latte"}
 {import "defaultWatch.latte"}
 {import "defaultAdvert.latte"}
+{import "defaultAdvertLogged.latte"}
 {import "defaultRead.latte"}
+{varType bool $isLogged}
 {block content}
 
 <section>
@@ -15,7 +17,11 @@
 </section>
 
 <section>
-    {include homepageAdvert}
+    {if !$isLogged}
+        {include homepageAdvert}
+    {else}
+        {include homepageAdvertLogged}
+    {/if}
 </section>
 
 <section>
