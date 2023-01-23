@@ -1,6 +1,5 @@
 services:
 	- App\Model\Facade\Admin\Content\Image\ImageFacade
-	- App\Model\Facade\Admin\Content\Month\MonthFacade
 	- App\Model\Facade\Admin\Content\Trailer\TrailerFacade
 
 	- App\Model\Facade\Front\Auth\AuthorizationFacade

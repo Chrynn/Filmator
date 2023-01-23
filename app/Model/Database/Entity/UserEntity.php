@@ -6,115 +6,79 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="user")
- */
+#[ORM\Entity]
+#[ORM\Table(name: "user")]
 final class UserEntity
 {
 
-	/**
-	 * @ORM\Id
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 * @ORM\Column(type="integer", nullable=false)
-	 */
+	#[ORM\Id]
+	#[ORM\GeneratedValue(strategy: "AUTO")]
+	#[ORM\Column(type: "integer", nullable: false)]
 	protected int $id;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[ORM\Column(type: "string", nullable: false)]
 	protected string $nickname;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[ORM\Column(type: "string", nullable: false)]
 	protected string $email;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[ORM\Column(type: "string", nullable: false)]
 	protected string $password;
 
-	/**
-	 * @ORM\Column(type="smallint", nullable=false)
-	 */
+	#[ORM\Column(type: "smallint", nullable: false)]
 	protected bool $conditions;
 
-	/**
-	 * @ORM\Column(type="smallint", nullable=false)
-	 */
+	#[ORM\Column(type: "smallint", nullable: false)]
 	protected bool $newsletter;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[ORM\Column(type: "string", nullable: false)]
 	protected string $role;
 
-	/**
-	 * @var Collection<int, MovieEntity>
-	 * @ORM\ManyToMany(targetEntity="MovieEntity", inversedBy="likeUser")
-	 * @ORM\JoinTable(name="movie_like")
-	 */
+	/** @var Collection<int, MovieEntity> */
+	#[ORM\ManyToMany(targetEntity: MovieEntity::class, inversedBy: "likeUser")]
+	#[ORM\JoinTable(name: "movie_like")]
 	protected Collection $likeMovie;
 
-	/**
-	 * @var Collection<int, SerialEntity>
-	 * @ORM\ManyToMany(targetEntity="SerialEntity", inversedBy="likeUser")
-	 * @ORM\JoinTable(name="serial_like")
-	 */
+	/** @var Collection<int, SerialEntity> */
+	#[ORM\ManyToMany(targetEntity: SerialEntity::class, inversedBy: "likeUser")]
+	#[ORM\JoinTable(name: "serial_like")]
 	protected Collection $likeSerial;
 
-	/**
-	 * @var Collection<int, ArticleEntity>
-	 * @ORM\ManyToMany(targetEntity="ArticleEntity", inversedBy="likeUser")
-	 * @ORM\JoinTable(name="article_like")
-	 */
+	/** @var Collection<int, ArticleEntity> */
+	#[ORM\ManyToMany(targetEntity: ArticleEntity::class, inversedBy: "likeUser")]
+	#[ORM\JoinTable(name: "article_like")]
 	protected Collection $likeArticle;
 
-	/**
-	 * @var Collection<int, ActorEntity>
-	 * @ORM\ManyToMany(targetEntity="ActorEntity", inversedBy="likeUser")
-	 * @ORM\JoinTable(name="actor_like")
-	 */
+	/** @var Collection<int, ActorEntity> */
+	#[ORM\ManyToMany(targetEntity: ActorEntity::class, inversedBy: "likeUser")]
+	#[ORM\JoinTable(name: "actor_like")]
 	protected Collection $likeActor;
 
-	/**
-	 * @var Collection<int, MovieEntity>
-	 * @ORM\ManyToMany(targetEntity="MovieEntity", inversedBy="laterUser")
-	 * @ORM\JoinTable(name="movie_later")
-	 */
+	/** @var Collection<int, MovieEntity> */
+	#[ORM\ManyToMany(targetEntity: MovieEntity::class, inversedBy: "laterUser")]
+	#[ORM\JoinTable(name: "movie_later")]
 	protected Collection $laterMovie;
 
-	/**
-	 * @var Collection<int, SerialEntity>
-	 * @ORM\ManyToMany(targetEntity="SerialEntity", inversedBy="laterUser")
-	 * @ORM\JoinTable(name="serial_later")
-	 */
+	/** @var Collection<int, SerialEntity> */
+	#[ORM\ManyToMany(targetEntity: SerialEntity::class, inversedBy: "laterUser")]
+	#[ORM\JoinTable(name: "serial_later")]
 	protected Collection $laterSerial;
 
-	/**
-	 * @var Collection<int, ArticleEntity>
-	 * @ORM\ManyToMany(targetEntity="ArticleEntity", inversedBy="laterUser")
-	 * @ORM\JoinTable(name="article_later")
-	 */
+	/** @var Collection<int, ArticleEntity> */
+	#[ORM\ManyToMany(targetEntity: ArticleEntity::class, inversedBy: "laterUser")]
+	#[ORM\JoinTable(name: "article_later")]
 	protected Collection $laterArticle;
 
-    /**
-     * @var Collection<int, MovieLastEntity>
-     * @ORM\OneToMany(targetEntity="MovieLastEntity", mappedBy="user")
-     */
+    /** @var Collection<int, MovieLastEntity> */
+	#[ORM\OneToMany(mappedBy: "user", targetEntity: MovieLastEntity::class)]
     protected Collection $userMovieLast;
 
-	/**
-	 * @var Collection<int, SerialLastEntity>
-	 * @ORM\OneToMany(targetEntity="SerialLastEntity", mappedBy="user")
-	 */
+	/** @var Collection<int, SerialLastEntity> */
+	#[ORM\OneToMany(mappedBy: "user", targetEntity: SerialLastEntity::class)]
 	protected Collection $userSerialLast;
 
-	/**
-	 * @var Collection<int, ArticleLastEntity>
-	 * @ORM\OneToMany(targetEntity="ArticleLastEntity", mappedBy="user")
-	 */
+	/** @var Collection<int, ArticleLastEntity> */
+	#[ORM\OneToMany(mappedBy: "user", targetEntity: ArticleLastEntity::class)]
 	protected Collection $userArticleLast;
 
 
