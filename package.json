@@ -1,0 +1,19 @@
+{
+  "name": "srv",
+  "version": "1.0.0",
+  "description": "> - úvodní dokumentace projektu > - pro orientaci v projektu **DOPORUČUJI PŘEČÍST**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chrynn/Filmator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chrynn/Filmator/issues"
+  },
+  "homepage": "https://github.com/Chrynn/Filmator#readme"
+}

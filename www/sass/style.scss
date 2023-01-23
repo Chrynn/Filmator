@@ -76,6 +76,7 @@ body.auth--active {
 }
 
 // pages
+@import "pages/admin";
 @import "pages/front";
 @import "pages/user";
 
@@ -93,6 +94,7 @@ body.auth--active {
 @import "global/flash";
 @import "global/tapes";
 @import "global/module-button";
+@import "global/grid";
 
 // import fonts
 @font-face {

@@ -1,0 +1,133 @@
+{block contentEdit}
+
+<div class="content-create">
+    <div class="container-intern">
+        <div class="content-create__form-wrap">
+            <form n:name="movieForm">
+                <div class="content-create__form-block">
+                    <div class="content-create__column">
+                        <div class="content-create__input-wrap">
+                            <div class="content-create__label-box">
+                                <span class="content-create__required" title="Povinný údaj">*</span>
+                                <label n:name="name" class="content-create__label">Název</label>
+                            </div>
+                            <div>
+                                <input type="text" n:name="name" class="content-create__form{if $form["name"]->hasErrors() || $form->ownErrors} content-create__form--error{/if}">
+                                <label n:name="name" n:ifcontent>{$form["name"]->error}</label>
+                            </div>
+                        </div>
+                        <div class="content-create__input-small content-create__input-wrap">
+                            <div class="content-create__input-small--left">
+                                <div class="content-create__label-box">
+                                    <span class="content-create__required" title="Povinný údaj">*</span>
+                                    <label n:name="year" class="content-create__label">Rok</label>
+                                </div>
+                                <div>
+                                    <input type="text" n:name="year" class="content-create__form content-create__form--small{if $form["year"]->hasErrors() || $form->ownErrors} content-create__form--error{/if}">
+                                    <label n:name="year" n:ifcontent>{$form["year"]->error}</label>
+                                </div>
+                            </div>
+                            <div class="content-create__input-small--right">
+                                <div class="content-create__label-box">
+                                    <span class="content-create__required" title="Povinný údaj">*</span>
+                                    <label n:name="rating" class="content-create__label">Hodnocení</label>
+                                </div>
+                                <div>
+                                    <div class="content-create__box-flexer">
+                                        <input type="text" n:name="rating" class="content-create__form content-create__form--small{if $form["rating"]->hasErrors() || $form->ownErrors} content-create__form--error{/if}">
+                                        <span class="content-create__percent">%</span>
+                                    </div>
+                                    <label n:name="rating" n:ifcontent>{$form["rating"]->error}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-create__input-wrap">
+                            <div class="content-create__label-box">
+                                <span class="content-create__required" title="Povinný údaj">*</span>
+                                <label n:name="teaser" class="content-create__label">Upoutávka</label>
+                            </div>
+                            <div>
+                                <textarea n:name="teaser" class="content-create__textarea content-create__textarea--small{if $form["name"]->hasErrors() || $form->ownErrors} content-create__form--error{/if}" />
+                            </div>
+                        </div>
+                        <div class="content-create__input-wrap">
+                            <div class="content-create__label-wrap">
+                                <div class="content-create__label-box">
+                                    <span class="content-create__required" title="Povinný údaj">*</span>
+                                    <label n:name="description" class="content-create__label">Popis</label>
+                                </div>
+                            </div>
+                            <div>
+                                <textarea n:name="description" class="content-create__textarea content-create__textarea--big{if $form["name"]->hasErrors() || $form->ownErrors} content-create__form--error{/if}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-create__column">
+                        <div>
+                            <div class="content-create__label-wrap">
+                                <div class="content-create__label-box">
+                                    <span class="content-create__required" title="Povinný údaj">*</span>
+                                    <span class="content-create__label-text">Menší plakát</span>
+                                </div>
+                            </div>
+                            <div class="content-create__upload-file">
+                                <div class="content-create__upload-file-input-wrap">
+                                    <input type="file" n:name="poster" class="content-create__upload-file-input js-input-poster" />
+                                </div>
+                                <div class="content-create__upload-file-button-wrap">
+                                    <label n:name="poster" class="content-create__upload-file-button">Nahrát soubor</label>
+                                    <span class="content-create__upload-file-text js-upload-file-text-poster">Soubor není vybrán</span>
+                                    <div class="content-create__upload-file-remove-wrap js-upload-file-reset-poster">
+                                        <img src="../../img/icons/cross.svg" class="content-create__upload-file-remove">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-create__preview">
+                                <span class="content-create__preview-text">Náhled</span>
+                                <div class="content-create__preview-image-wrap">
+                                    <img src="../../img/filmator/unknown-image.png" class="content-create__preview-image js-upload-file-image-poster">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="content-create__label-wrap">
+                                <div class="content-create__label-box">
+                                    <span class="content-create__required" title="Povinný údaj">*</span>
+                                    <span class="content-create__label-text">Větší plakát</span>
+                                </div>
+                            </div>
+                            <div class="content-create__upload-file">
+                                <div class="content-create__upload-file-input-wrap">
+                                    <input type="file" n:name="banner" class="content-create__upload-file-input js-input-banner" />
+                                </div>
+                                <div class="content-create__upload-file-button-wrap">
+                                    <label n:name="banner" class="content-create__upload-file-button">Nahrát soubor</label>
+                                    <span class="content-create__upload-file-text js-upload-file-text-banner">Soubor není vybrán</span>
+                                    <div class="content-create__upload-file-remove-wrap js-upload-file-reset-banner">
+                                        <img src="../../img/icons/cross.svg" class="content-create__upload-file-remove">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-create__preview">
+                                <span class="content-create__preview-text">Náhled</span>
+                                <div class="content-create__preview-image-wrap">
+                                    <img src="../../img/filmator/unknown-image.png" class="content-create__preview-image js-upload-file-image-banner">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-create__button-block">
+                    <ul class="content-create__list">
+                        <li class="content-create__item">
+                            <button class="content-create__button" n:name="create">Upravit</button>
+                        </li>
+                        <li class="content-create__item">
+                            <button class="content-create__button" n:name="createAndShow">Upravit a přejít</button>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

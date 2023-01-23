@@ -16,17 +16,7 @@ final class ActorFixture extends AbstractFixture implements ContainerAwareInterf
 		$actors = Neon::decodeFile(__DIR__ . "/content/actor.neon");
 
 		foreach ($actors as $actor) {
-			$newActor = new ActorEntity();
-			$newActor->setName($actor['name']);
-			$newActor->setSlug(Strings::webalize($actor['name']));
-			foreach ($actor['image'] as $type => $value) {
-				if ($type === 'imageBanner') {
-					$newActor->setImageBanner($value);
-				}
-				if ($type === 'imagePoster') {
-					$newActor->setImagePoster($value);
-				}
-			}
+			$newActor = new ActorEntity($actor['name']);
 			$manager->persist($newActor);
 		}
 		$manager->flush();

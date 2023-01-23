@@ -3,20 +3,22 @@
 namespace App\Model\Database\Entity;
 
 use App\Model\Enum\Admin\Content\Month\EDateMonth;
-use App\Model\Enum\Admin\Content\Month\EMonthFacade;
 use DateTime;
+use App\Model\Trait\hasCreatedAt;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Nette\Utils\Strings;
 
 #[ORM\Entity]
 #[ORM\Table(name: "article")]
-class ArticleEntity
+class ArticleEntity extends AbstractListEntity
 {
 
-    #[ORM\Id]
-    #[ORM\GeneratedValue(strategy: "AUTO")]
-    #[ORM\Column(type: "integer", nullable: false)]
-	protected int $id;
+	use hasCreatedAt;
+
+
+	private const IMAGE_PATH = "img/fixture/article/";
+
 
 	#[ORM\Column(type: "string", nullable: false)]
 	protected string $name;
@@ -26,12 +28,6 @@ class ArticleEntity
 
 	#[ORM\Column(type: "string", nullable: true)]
 	protected ?string $description;
-
-	#[ORM\Column(type: "string", nullable: false)]
-	protected string $image;
-
-	#[ORM\Column(type: "datetime", nullable: false)]
-	protected DateTime $createdAt;
 
 	/** @var Collection<int, UserEntity> */
 	#[ORM\ManyToMany(targetEntity: UserEntity::class, mappedBy: "likeArticle")]
@@ -48,9 +44,11 @@ class ArticleEntity
 	protected Collection $articleLast;
 
 
-	public function getId(): int
+	public function __construct(string $name)
 	{
-		return $this->id;
+		$this->name = $name;
+		$this->slug = Strings::webalize($name);
+		$this->createdAt = new DateTime();
 	}
 
 
@@ -60,21 +58,9 @@ class ArticleEntity
 	}
 
 
-	public function setName(string $name): void
-	{
-		$this->name = $name;
-	}
-
-
 	public function getSlug(): string
 	{
 		return $this->slug;
-	}
-
-
-	public function setSlug(string $slug): void
-	{
-		$this->slug = $slug;
 	}
 
 
@@ -92,13 +78,7 @@ class ArticleEntity
 
 	public function getImage(): string
 	{
-		return $this->image;
-	}
-
-
-	public function setImage(string $image): void
-	{
-		$this->image = $image;
+		return self::IMAGE_PATH . $this->getId() . "/" . $this->getId();
 	}
 
 

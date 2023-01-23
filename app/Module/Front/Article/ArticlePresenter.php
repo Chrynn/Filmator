@@ -21,7 +21,6 @@ class ArticlePresenter extends FrontPresenter
 {
 
 	public function __construct(
-		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
 		AuthorizationFacade $authorizationFacade,
 		RegisterFactory $registerFactory,
@@ -34,7 +33,6 @@ class ArticlePresenter extends FrontPresenter
 	)
     {
         parent::__construct(
-			$autoIncrementFacade,
 			$permanentLoginFacade,
 			$authorizationFacade,
 			$registerFactory,

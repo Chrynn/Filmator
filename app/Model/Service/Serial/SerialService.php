@@ -34,6 +34,7 @@ final class SerialService implements ISerialService
 		return $this->entityManager->getRepository(SerialEntity::class)->findBy([], null, $limit, 0);
 	}
 
+
 	public function getSerialsLastByUser(UserEntity $user): array
 	{
 		return $this->entityManager->createQueryBuilder()

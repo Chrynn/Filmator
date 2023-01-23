@@ -1,0 +1,45 @@
+.section-admin-default {
+    @include h-content;
+
+    &__options {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: flex-end;
+        list-style-type: none;
+    }
+
+    &__item {}
+
+    &__link {
+        @include lightRegular;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        height: 45px;
+        list-style: none;
+        background: $grey;
+        padding: 0 25px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.25s;
+        border: none;
+        text-decoration: none;
+        z-index: 1;
+        position: relative;
+
+        &--active {
+            background: $primary;
+        }
+
+        &:hover {
+            background: $tercialy;
+            transition: 0.25s;
+        }
+    }
+
+    &__grid {}
+}

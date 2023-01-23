@@ -12,3 +12,6 @@ services:
     - App\Module\Front\Serial\components\ButtonLater\ButtonLaterFactory
 
     - App\Module\Admin\Edit\Component\EditMovie\EditMovieFactory
+
+    # Admin
+    - App\Module\Admin\Movie\components\MovieForm\MovieFormFactory

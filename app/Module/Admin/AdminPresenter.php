@@ -11,12 +11,10 @@ abstract class AdminPresenter extends ModulePresenter
 {
 
 	public function __construct(
-		protected readonly AutoIncrementFacade $autoIncrementFacade,
 		protected readonly PermanentLoginFacade $permanentLoginFacade,
 		protected readonly AuthorizationFacade $authorizationFacade
 	) {
 		parent::__construct(
-			$autoIncrementFacade,
 			$permanentLoginFacade,
 			$authorizationFacade
 		);

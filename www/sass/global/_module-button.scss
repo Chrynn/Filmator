@@ -8,16 +8,26 @@
         text-decoration: none;
         border-radius: 50%;
 
-        &:not(:first-child) .module-button__content {
+        &--first .module-button__content {
+            background: $tercialy;
+
+            &:hover {
+                background: $shadeLightTercialy;
+                transition: 0.32s;
+            }
+        }
+
+        &--second .module-button__content {
             margin-top: 15px;
             background: $blue;
 
             &:hover {
                 background: $shadeBlue;
+                transition: 0.32s;
             }
         }
 
-        &:not(:first-child) .module-button__image {
+        &--second .module-button__image {
             transform: rotate(-45deg);
         }
     }
@@ -29,13 +39,7 @@
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        background: $tercialy;
         transition: 0.32s;
-
-        &:hover {
-            background: $shadeLightTercialy;
-            transition: 0.32s;
-        }
     }
 
     &__image {

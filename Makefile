@@ -19,6 +19,15 @@ logs:
 exec\:php:
 	docker-compose -f .docker/docker-compose.yml exec php sh;
 
+# Exec sh on Node container
+exec\:node:
+	docker-compose -f .docker/docker-compose.yml exec node sh;
+
+setup:
+	docker-compose -f .docker/docker-compose.yml exec php composer install;
+	docker-compose -f .docker/docker-compose.yml exec node npm install;
+	make init
+
 init:
 	docker-compose -f .docker/docker-compose.yml exec php composer install;
 	docker-compose -f .docker/docker-compose.yml exec php bin/console orm:schema-tool:drop --force --full-database;

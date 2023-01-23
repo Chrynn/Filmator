@@ -22,23 +22,15 @@ final class SerialFixture extends AbstractFixture implements ContainerAwareInter
 	{
 		$serials = Neon::decodeFile(__DIR__ . "/content/serial.neon");
 
+
 		foreach ($serials as $serial) {
-			$newSerial = new SerialEntity();
-			$title = $serial['title'];
-			$newSerial->setName($title);
-			$newSerial->setSlug(Strings::webalize($title));
+			$newSerial = new SerialEntity(
+				$serial['title']
+			);
 			$newSerial->setYear($serial['year']);
 			$newSerial->setRating($serial['rating']);
 			$newSerial->setTeaser($serial['teaser']);
 			$newSerial->setDescription($serial['description']);
-			foreach ($serial['image'] as $type => $value) {
-				if ($type === 'imageBanner') {
-					$newSerial->setImageBanner($value);
-				}
-				if ($type === 'imagePoster') {
-					$newSerial->setImagePoster($value);
-				}
-			}
 			$newSerial->setTrailer($this->getTrailerFacade()->getTrailerLink($serial['trailer']));
 			$manager->persist($newSerial);
 		}

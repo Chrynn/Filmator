@@ -21,7 +21,6 @@ class SerialPresenter extends FrontPresenter
 {
 
 	public function __construct(
-		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
 		AuthorizationFacade $authorizationFacade,
 		RegisterFactory $registerFactory,
@@ -33,7 +32,6 @@ class SerialPresenter extends FrontPresenter
 		private readonly SerialLastFacade $serialLastFacade
 	) {
 		parent::__construct(
-			$autoIncrementFacade,
 			$permanentLoginFacade,
 			$authorizationFacade,
 			$registerFactory,

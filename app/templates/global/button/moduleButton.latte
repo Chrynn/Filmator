@@ -4,7 +4,7 @@
 <div class="module-button">
 
     {if !$presenter->isLinkCurrent(":User:Homepage:")}
-        <a n:href=":User:Homepage:" class="module-button__link" title="Uživatelská sekce">
+        <a n:href=":User:Homepage:" class="module-button__link module-button__link--first" title="Uživatelská sekce">
             <div class="module-button__content">
                 <img src="../../img/icons/profile.svg" class="module-button__image" alt="icon-profile">
             </div>
@@ -12,7 +12,7 @@
     {/if}
 
     {if $isAdmin && !$presenter->isLinkCurrent(":Admin:Homepage:")}
-        <a n:href=":Admin:Homepage:" class="module-button__link" title="Admin sekce">
+        <a n:href=":Admin:Homepage:" class="module-button__link module-button__link--second" title="Admin sekce">
             <div class="module-button__content">
                 <img src="../../img/icons/key.svg" class="module-button__image" alt="icon-key">
             </div>

@@ -22,7 +22,6 @@ class MoviePresenter extends FrontPresenter
 {
 
 	public function __construct(
-		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
 		AuthorizationFacade $authorizationFacade,
 		RegisterFactory $registerFactory,
@@ -34,7 +33,6 @@ class MoviePresenter extends FrontPresenter
 		private readonly MovieLastFacade $movieLastFacade
 	) {
 		parent::__construct(
-			$autoIncrementFacade,
 			$permanentLoginFacade,
 			$authorizationFacade,
 			$registerFactory,

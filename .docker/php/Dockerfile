@@ -1,5 +1,13 @@
 FROM php:8.1.1-fpm-alpine3.15
 
+USER root
+
+# Setup user docker
+RUN adduser -S docker
+
+# Sudo
+RUN apk add sudo
+
 # Install Git
 RUN apk update && apk upgrade && \
 	apk add git
@@ -18,8 +26,9 @@ RUN apk add --no-cache \
         libwebp-dev \
         freetype-dev
 
-# As of PHP 7.4 we don't need to add --with-png
-RUN docker-php-ext-configure gd --with-jpeg --with-webp --with-freetype
+# Install gd
+RUN apk add zlib-dev libzip libpng libjpeg-turbo libwebp freetype libpng-dev libwebp-dev libjpeg-turbo-dev freetype-dev # since PHP 7.4 don't need to add --with-png
+RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg --with-webp
 RUN docker-php-ext-install gd
 
 # Install PHP Intl
@@ -27,3 +36,5 @@ RUN apk add icu-dev
 RUN docker-php-ext-configure intl && docker-php-ext-install intl
 
 WORKDIR /srv/
+
+USER docker
