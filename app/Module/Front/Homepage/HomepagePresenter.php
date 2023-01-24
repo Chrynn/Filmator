@@ -38,27 +38,11 @@ class HomepagePresenter extends FrontPresenter
 	}
 
 
-	public function handleShowMovies(): void
-	{
-		$this->getTemplate()->contentShared = $this->movieService->getMoviesByLimit(8);
-		$this->getTemplate()->contentType = "Movie";
-		$this->redrawControl("switchContent");
-	}
-
-
-	public function handleShowSerials(): void
-	{
-		$this->getTemplate()->contentShared = $this->serialService->getSerialsByLimit(8);
-		$this->getTemplate()->contentType = "Serial";
-		$this->redrawControl("switchContent");
-	}
-
-
 	public function actionDefault(): void
 	{
-		$this->getTemplate()->contentSlider = $this->movieService->getMoviesByLimit(4);
-		$this->getTemplate()->contentShared = $this->movieService->getMoviesByLimit(8);
-		$this->getTemplate()->contentType = "Movie";
+		$this->getTemplate()->slider = $this->movieService->getMoviesByLimit(4);
+		$this->getTemplate()->movies = $this->movieService->getMoviesByLimit(8);
+		$this->getTemplate()->serials = $this->serialService->getSerialsByLimit(8);
 		$this->getTemplate()->nextArticles = $this->articleService->getArticlesByLimit(3);
 	}
 
