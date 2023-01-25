@@ -5,33 +5,23 @@ namespace App\Model\Database\Entity;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="serial_last")
- */
+#[ORM\Entity]
+#[ORM\Table(name: "serial_last")]
 class SerialLastEntity
 {
 
-	/**
-	 * @ORM\Id
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 * @ORM\Column(type="integer", nullable=false)
-	 */
+	#[ORM\Id]
+	#[ORM\GeneratedValue(strategy: "AUTO")]
+	#[ORM\Column(type: "integer", nullable: false)]
 	protected int $id;
 
-	/**
-	 * @ORM\ManyToOne(targetEntity="UserEntity", inversedBy="userSerialLast")
-	 */
+	#[ORM\ManyToOne(targetEntity: UserEntity::class, inversedBy: "userSerialLast")]
 	protected UserEntity $user;
 
-	/**
-	 * @ORM\ManyToOne(targetEntity="SerialEntity", inversedBy="serialLast")
-	 */
+	#[ORM\ManyToOne(targetEntity: SerialEntity::class, inversedBy: "serialLast")]
 	protected SerialEntity $serial;
 
-	/**
-	 * @ORM\Column(type="datetime", nullable=false)
-	 */
+	#[ORM\Column(type: "datetime", nullable: false)]
 	protected DateTime $createdAt;
 
 

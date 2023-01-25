@@ -1,5 +1,5 @@
-{import "../../../../templates/content/watch/default/watchShared.latte"}
-{varType string $contentType}
+{import "../../../../templates/content/watch/default/watchMovie.latte"}
+{import "../../../../templates/content/watch/default/watchSerial.latte"}
 {block detailWatch}
 
 <div class="watch">
@@ -9,28 +9,31 @@
             <img src="../img/icons/movie-tape.svg" alt="movie-tape-icon" class="background-icon__image--top">
         </div>
 
-        {snippet switchContent}
-            <div class="watch__block-topic">
-                <div class="watch__topic-wrap">
-                    <div class="watch__topic-line--dark"></div>
-                    <h3 class="watch__topic-heading">Obsazení</h3>
-                    <div class="watch__topic-line--light"></div>
-                </div>
-                <div class="watch__column-picker">
-                    <ul class="watch__list-picker">
-                        <li class="watch__item-picker">
-                            <a n:href="showMovies!" class="watch__link-picker{if $contentType === "Movie"} watch__link-picker--active{/if} ajax" >Filmy</a>
-                        </li>
-                        <li class="watch__item-picker">
-                            <a n:href="showSerials!" class="watch__link-picker{if $contentType === "Serial"} watch__link-picker--active{/if} ajax">Seriály</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="watch__sort-picker"></div>
+        <div class="watch__block-topic">
+            <div class="watch__topic-wrap">
+                <div class="watch__topic-line--dark"></div>
+                <h3 class="watch__topic-heading">Trending</h3>
+                <div class="watch__topic-line--light"></div>
             </div>
+            <div class="watch__column-picker">
+                <ul class="watch__list-picker">
+                    <li class="watch__item-picker">
+                        <button class="watch__link-picker watch__link-picker--active js-swap-movie">Filmy</button>
+                    </li>
+                    <li class="watch__item-picker">
+                        <button class="watch__link-picker js-swap-serial">Seriály</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="watch__sort-picker"></div>
+        </div>
 
-            {include watchShared}
-        {/snippet}
+        <div class="watch__content-movie">
+            {include watchMovie}
+        </div>
+        <div class="watch__content-serial watch__content-serial--hidden">
+            {include watchSerial}
+        </div>
 
     </div>
 </div>

@@ -53,7 +53,7 @@ doctrine.orm.annotations:
 
 nettrine.orm.attributes:
 	mapping:
-		App\Model\Database: %appDir%/Model/Database
+		App\Model: %appDir%/Model
 
 doctrine.migrations:
 	directory: migrations/

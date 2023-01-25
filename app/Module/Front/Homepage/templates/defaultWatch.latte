@@ -1,53 +1,40 @@
-{import "../../../../templates/content/watch/default/watchShared.latte"}
+{import "../../../../templates/content/watch/default/watchMovie.latte"}
+{import "../../../../templates/content/watch/default/watchSerial.latte"}
 {block homepageWatch}
-{varType string $contentType}
 
 <div class="watch">
     <div class="watch__movie">
         <div class="container-intern">
             <div class="watch__movie-wrap">
-
                 <div class="background-icon">
                      <img src="img/icons/movie-tape.svg" alt="movie-tape-icon" class="background-icon__image--top">
                 </div>
 
-                {snippet switchContent}
-                    <div class="watch__block-topic">
-                        <div class="watch__topic-wrap">
-                            <div class="watch__topic-line--dark"></div>
-                            <h3 class="watch__topic-heading">Trending</h3>
-                            <div class="watch__topic-line--light"></div>
-                        </div>
-                        <div class="watch__column-picker">
-                            <ul class="watch__list-picker">
-                                <li class="watch__item-picker">
-                                    <a n:href="showMovies!" class="watch__link-picker{if $contentType === "Movie"} watch__link-picker--active{/if} ajax" >Filmy</a>
-                                </li>
-                                <li class="watch__item-picker">
-                                    <a n:href="showSerials!" class="watch__link-picker{if $contentType === "Serial"} watch__link-picker--active{/if} ajax">Seriály</a>
-                                </li>
-                            </ul>
-                        </div>
+                <div class="watch__block-topic">
+                    <div class="watch__topic-wrap">
+                        <div class="watch__topic-line--dark"></div>
+                        <h3 class="watch__topic-heading">Trending</h3>
+                        <div class="watch__topic-line--light"></div>
                     </div>
-
-                    {include watchShared}
-
-                    <div class="watch__block-button">
-                        <a n:href=":Front:{$contentType}:" class="watch__button-link">
-                            <div class="button button--dark">
-                                <div class="button__block-text">
-                                    <span class="button__text">další</span>
-                                </div>
-                                <div class="button__block-image">
-                                    <img src="img/icons/next.svg" alt="arrow-icon" class="button__image">
-                                </div>
-                            </div>
-                        </a>
+                    <div class="watch__column-picker">
+                        <ul class="watch__list-picker">
+                            <li class="watch__item-picker">
+                                <button class="watch__link-picker watch__link-picker--active js-swap-movie">Filmy</button>
+                            </li>
+                            <li class="watch__item-picker">
+                                <button class="watch__link-picker js-swap-serial">Seriály</button>
+                            </li>
+                        </ul>
                     </div>
-                {/snippet}
+                </div>
 
+                <div class="watch__content-movie">
+                    {include watchMovie}
+                </div>
+                <div class="watch__content-serial watch__content-serial--hidden">
+                    {include watchSerial}
+                </div>
             </div>
         </div>
     </div>
-
 </div>

@@ -5,83 +5,55 @@ namespace App\Model\Database\Entity;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="movie")
- */
+#[ORM\Entity]
+#[ORM\Table(name: "movie")]
 final class MovieEntity
 {
 
-	/**
-	 * @ORM\Id
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 * @ORM\Column(type="integer", nullable=false)
-	 */
+	#[ORM\Id]
+	#[ORM\GeneratedValue(strategy: "AUTO")]
+	#[ORM\Column(type: "integer", nullable: false)]
 	protected int $id;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[ORM\Column(type: "string", nullable: false)]
 	protected string $slug;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[ORM\Column(type: "string", nullable: false)]
 	protected string $name;
 
-	/**
-	 * @ORM\Column(type="smallint", nullable=false)
-	 */
+	#[ORM\Column(type: "smallint", nullable: false)]
 	protected int $year;
 
-	/**
-	 * @ORM\Column(type="smallint", nullable=true)
-	 */
+	#[ORM\Column(type: "smallint", nullable: true)]
 	protected ?int $rating;
 
-	/**
-	 * @ORM\Column(type="text", nullable=false)
-	 */
+	#[ORM\Column(type: "text", nullable: false)]
 	protected string $teaser;
 
-	/**
-	 * @ORM\Column(type="text", nullable=false)
-	 */
+	#[ORM\Column(type: "text", nullable: false)]
 	protected string $description;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[ORM\Column(type: "string", nullable: false)]
 	protected string $imageBanner;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[ORM\Column(type: "string", nullable: false)]
 	protected string $imagePoster;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[ORM\Column(type: "string", nullable: false)]
 	protected string $trailer;
 
-	/**
-	 * @var Collection<int, UserEntity>
-	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="likeMovie")
-	 * @ORM\JoinTable(name="movie_like")
-	 */
+	/** @var Collection<int, UserEntity> */
+	#[ORM\ManyToMany(targetEntity: UserEntity::class, mappedBy: "likeMovie")]
+	#[ORM\JoinTable(name: "movie_like")]
 	protected Collection $likeUser;
 
-	/**
-	 * @var Collection<int, UserEntity>
-	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="laterMovie")
-	 * @ORM\JoinTable(name="movie_later")
-	 */
+	/** @var Collection<int, UserEntity> */
+	#[ORM\ManyToMany(targetEntity: UserEntity::class, mappedBy: "laterMovie")]
+	#[ORM\JoinTable(name: "movie_later")]
 	protected Collection $laterUser;
 
-    /**
-     * @var Collection<int, MovieLastEntity>
-     * @ORM\OneToMany(targetEntity="MovieLastEntity", mappedBy="movie")
-     */
+	/** @var Collection<int, MovieLastEntity> */
+	#[ORM\OneToMany(mappedBy: "movie", targetEntity: MovieLastEntity::class)]
     protected Collection $movieLast;
 
 
@@ -208,24 +180,6 @@ final class MovieEntity
 	}
 
 
-	/**
-	 * @return Collection<int, TagWatchEntity>
-	 */
-	public function getMovieTag(): Collection
-	{
-		return $this->movieTag;
-	}
-
-
-	/**
-	 * @param Collection<int, TagWatchEntity> $movieTag
-	 */
-	public function setMovieTag(Collection $movieTag): void
-	{
-		$this->movieTag = $movieTag;
-	}
-
-
 	public function getLaterUser(): Collection
 	{
 		return $this->laterUser;
@@ -238,7 +192,7 @@ final class MovieEntity
 	}
 
     /**
-     * @return Collection
+     * @return Collection<int, MovieEntity>
      */
     public function getMovieLast(): Collection
     {

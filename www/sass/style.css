@@ -643,6 +643,12 @@ body.auth--active {
   text-align: center;
   font-size: 26px;
 }
+.watch__content-movie--hidden {
+  display: none;
+}
+.watch__content-serial--hidden {
+  display: none;
+}
 .watch__block-button {
   margin-top: 30px;
   width: 100%;

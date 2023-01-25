@@ -2,72 +2,49 @@
 
 namespace App\Model\Database\Entity;
 
+use App\Model\Enum\Admin\Content\Month\EDateMonth;
+use App\Model\Enum\Admin\Content\Month\EMonthFacade;
 use DateTime;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="article")
- */
+#[ORM\Entity]
+#[ORM\Table(name: "article")]
 class ArticleEntity
 {
 
-	/**
-	 * @ORM\Id
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 * @ORM\Column(type="integer", nullable=false)
-	 */
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: "AUTO")]
+    #[ORM\Column(type: "integer", nullable: false)]
 	protected int $id;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[ORM\Column(type: "string", nullable: false)]
 	protected string $name;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[ORM\Column(type: "string", nullable: false)]
 	protected string $slug;
 
-	/**
-	 * @ORM\Column(type="string", nullable=true)
-	 */
+	#[ORM\Column(type: "string", nullable: true)]
 	protected ?string $description;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[ORM\Column(type: "string", nullable: false)]
 	protected string $image;
 
-	/**
-	 * @ORM\Column(type="datetime", nullable=false)
-	 */
+	#[ORM\Column(type: "datetime", nullable: false)]
 	protected DateTime $createdAt;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
-	protected string $createdAtMonth;
-
-	/**
-	 * @var Collection<int, UserEntity>
-	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="likeArticle")
-	 * @ORM\JoinTable(name="like_article")
-	 */
+	/** @var Collection<int, UserEntity> */
+	#[ORM\ManyToMany(targetEntity: UserEntity::class, mappedBy: "likeArticle")]
+	#[ORM\JoinTable(name: "like_article")]
 	protected Collection $likeUser;
 
-	/**
-	 * @var Collection<int, UserEntity>
-	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="laterArticle")
-	 * @ORM\JoinTable(name="later_article")
-	 */
+	/** @var Collection<int, UserEntity> */
+	#[ORM\ManyToMany(targetEntity: UserEntity::class, mappedBy: "laterArticle")]
+	#[ORM\JoinTable(name: "later_article")]
 	protected Collection $laterUser;
 
-	/**
-	 * @var Collection<int, ArticleLastEntity>
-	 * @ORM\OneToMany(targetEntity="ArticleLastEntity", mappedBy="article")
-	 */
+	/** @var Collection<int, ArticleLastEntity> */
+	#[ORM\OneToMany(mappedBy: "article", targetEntity: ArticleLastEntity::class)]
 	protected Collection $articleLast;
 
 
@@ -139,49 +116,24 @@ class ArticleEntity
 
 	public function getCreatedAtMonth(): string
 	{
-		return $this->createdAtMonth;
+		$timeNow = new DateTime();
+		$month = (int) $timeNow->format("m");
+
+		return EDateMonth::tryFrom($month)->getMonth();
 	}
 
 
-	public function setCreatedAtMonth(string $createdAtMonth): void
-	{
-		$this->createdAtMonth = $createdAtMonth;
-	}
-
-
+	/** @return Collection<int, UserEntity> */
 	public function getLikeUser(): Collection
 	{
 		return $this->likeUser;
 	}
 
 
-	public function setLikeUser(Collection $likeUser): void
-	{
-		$this->likeUser = $likeUser;
-	}
-
-
+	/** @return Collection<int, UserEntity> */
 	public function getLaterUser(): Collection
 	{
 		return $this->laterUser;
-	}
-
-
-	public function setLaterUser(Collection $laterUser): void
-	{
-		$this->laterUser = $laterUser;
-	}
-
-
-	public function getArticleTag(): Collection
-	{
-		return $this->articleTag;
-	}
-
-
-	public function setArticleTag(Collection $articleTag): void
-	{
-		$this->articleTag = $articleTag;
 	}
 
 }

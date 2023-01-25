@@ -7,32 +7,22 @@ namespace App\Model\Database\Entity;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="article_last")
- */
+#[ORM\Entity]
+#[ORM\Table(name: "article_last")]
 class ArticleLastEntity
 {
-	/**
-	 * @ORM\Id
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 * @ORM\Column(type="integer", nullable=false)
-	 */
+	#[ORM\Id]
+	#[ORM\GeneratedValue(strategy: "AUTO")]
+	#[ORM\Column(type: "integer", nullable: false)]
 	protected int $id;
 
-	/**
-	 * @ORM\ManyToOne(targetEntity="UserEntity", inversedBy="userArticleLast")
-	 */
+	#[ORM\ManyToOne(targetEntity: UserEntity::class, inversedBy: "userArticleLast")]
 	protected UserEntity $user;
 
-	/**
-	 * @ORM\ManyToOne(targetEntity="ArticleEntity", inversedBy="articleLast")
-	 */
+	#[ORM\ManyToOne(targetEntity: ArticleEntity::class, inversedBy: "articleLast")]
 	protected ArticleEntity $article;
 
-	/**
-	 * @ORM\Column(type="datetime", nullable=false)
-	 */
+	#[ORM\Column(type: "datetime", nullable: false)]
 	protected DateTime $createdAt;
 
 

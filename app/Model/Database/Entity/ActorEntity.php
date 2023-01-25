@@ -5,45 +5,31 @@ namespace App\Model\Database\Entity;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="actor")
- */
+#[ORM\Entity]
+#[ORM\Table(name: "actor")]
 final class ActorEntity
 {
 
-	/**
-	 * @ORM\Id
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 * @ORM\Column(type="integer", nullable=false)
-	 */
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy: "AUTO")]
+    #[ORM\Column(type: "integer", nullable: false)]
 	protected int $id;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[ORM\Column(type: "string", nullable: false)]
 	protected string $slug;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[ORM\Column(type: "string", nullable: false)]
 	protected string $name;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[ORM\Column(type: "string", nullable: false)]
 	protected string $imagePoster;
 
-	/**
-	 * @ORM\Column(type="string", nullable=false)
-	 */
+	#[ORM\Column(type: "string", nullable: false)]
 	protected string $imageBanner;
 
-	/**
-	 * @var Collection<int, UserEntity>
-	 * @ORM\ManyToMany(targetEntity="UserEntity", mappedBy="likeActor")
-	 * @ORM\JoinTable(name="like_actor")
-	 */
+	/** @var Collection<int, UserEntity> */
+	#[ORM\ManyToMany(targetEntity: UserEntity::class, mappedBy: "likeActor")]
+	#[ORM\JoinTable(name: "like_actor")]
 	protected Collection $likeUser;
 
 
@@ -101,9 +87,7 @@ final class ActorEntity
 	}
 
 
-	/**
-	 * @return Collection<int, UserEntity>
-	 */
+	/** @return Collection<int, UserEntity> */
 	public function getLikeUser(): Collection
 	{
 		return $this->likeUser;
