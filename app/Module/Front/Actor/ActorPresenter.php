@@ -52,25 +52,9 @@ class ActorPresenter extends FrontPresenter
     public function actionDetail(string $url): void
 	{
         $this->getTemplate()->actor = $this->actorService->getActorBySlug($url);
-		$this->getTemplate()->contentShared = $this->movieService->getMoviesByLimit(4);
-		$this->getTemplate()->contentType = "Movie";
+		$this->getTemplate()->movies = $this->movieService->getMovies();
+		$this->getTemplate()->serials = $this->serialService->getSerials();
     }
-
-
-	public function handleShowMovies(): void
-	{
-		$this->getTemplate()->contentShared = $this->movieService->getMoviesByLimit(4);
-		$this->getTemplate()->contentType = "Movie";
-		$this->redrawControl("switchContent");
-	}
-
-
-	public function handleShowSerials(): void
-	{
-		$this->getTemplate()->contentShared = $this->serialService->getSerialsByLimit(4);
-		$this->getTemplate()->contentType = "Serial";
-		$this->redrawControl("switchContent");
-	}
 
 
     protected function createComponentButtonLike(): ButtonLike

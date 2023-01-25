@@ -180,33 +180,6 @@ final class SerialEntity
 	}
 
 
-	/**
-	 * @return Collection<int, UserEntity>
-	 */
-	public function getWatchUser(): Collection
-	{
-		return $this->watchUser;
-	}
-
-
-	/**
-	 * @return Collection<int, TagWatchEntity>
-	 */
-	public function getSerialTag(): Collection
-	{
-		return $this->serialTag;
-	}
-
-
-	/**
-	 * @param Collection<int, TagWatchEntity> $serialTag
-	 */
-	public function setSerialTag(Collection $serialTag): void
-	{
-		$this->serialTag = $serialTag;
-	}
-
-
 	public function getLaterUser(): Collection
 	{
 		return $this->laterUser;
