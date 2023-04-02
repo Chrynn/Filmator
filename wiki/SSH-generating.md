@@ -15,6 +15,6 @@ ssh-keygen -o
 ```
 - necháme vypsat obsah vygenerovaného SSH souboru (zkopirujeme celé)
 ```
-cat "link"
+cat id_rsa.pub
 ```
 - nyní v Githubu přidáme tento klíč mezi ostatní - záložka `SSH and GPG keys`
