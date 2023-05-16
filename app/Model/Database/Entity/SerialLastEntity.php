@@ -2,18 +2,17 @@
 
 namespace App\Model\Database\Entity;
 
+use App\Model\Trait\hasCreatedAt;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
 #[ORM\Table(name: "serial_last")]
-class SerialLastEntity
+class SerialLastEntity extends AbstractListEntity
 {
 
-	#[ORM\Id]
-	#[ORM\GeneratedValue(strategy: "AUTO")]
-	#[ORM\Column(type: "integer", nullable: false)]
-	protected int $id;
+	use hasCreatedAt;
+
 
 	#[ORM\ManyToOne(targetEntity: UserEntity::class, inversedBy: "userSerialLast")]
 	protected UserEntity $user;
@@ -21,24 +20,12 @@ class SerialLastEntity
 	#[ORM\ManyToOne(targetEntity: SerialEntity::class, inversedBy: "serialLast")]
 	protected SerialEntity $serial;
 
-	#[ORM\Column(type: "datetime", nullable: false)]
-	protected DateTime $createdAt;
-
 
 	public function __construct()
 	{
 		$this->createdAt = new DateTime();
 	}
 
-	public function getCreatedAt(): DateTime
-	{
-		return $this->createdAt;
-	}
-
-	public function setCreatedAt(DateTime $createdAt): void
-	{
-		$this->createdAt = $createdAt;
-	}
 
 	public function getUser(): UserEntity
 	{

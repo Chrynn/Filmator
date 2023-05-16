@@ -5,16 +5,16 @@ declare(strict_types=1);
 namespace App\Model\Database\Entity;
 
 use DateTime;
+use App\Model\Trait\hasCreatedAt;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
 #[ORM\Table(name: "article_last")]
-class ArticleLastEntity
+class ArticleLastEntity extends AbstractListEntity
 {
-	#[ORM\Id]
-	#[ORM\GeneratedValue(strategy: "AUTO")]
-	#[ORM\Column(type: "integer", nullable: false)]
-	protected int $id;
+
+	use hasCreatedAt;
+
 
 	#[ORM\ManyToOne(targetEntity: UserEntity::class, inversedBy: "userArticleLast")]
 	protected UserEntity $user;
@@ -22,24 +22,12 @@ class ArticleLastEntity
 	#[ORM\ManyToOne(targetEntity: ArticleEntity::class, inversedBy: "articleLast")]
 	protected ArticleEntity $article;
 
-	#[ORM\Column(type: "datetime", nullable: false)]
-	protected DateTime $createdAt;
-
 
 	public function __construct()
 	{
 		$this->createdAt = new DateTime();
 	}
 
-	public function getCreatedAt(): DateTime
-	{
-		return $this->createdAt;
-	}
-
-	public function setCreatedAt(DateTime $createdAt): void
-	{
-		$this->createdAt = $createdAt;
-	}
 
 	public function getUser(): UserEntity
 	{

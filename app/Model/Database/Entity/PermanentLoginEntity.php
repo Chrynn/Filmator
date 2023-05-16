@@ -2,18 +2,17 @@
 
 namespace App\Model\Database\Entity;
 
+use App\Model\Trait\hasCreatedAt;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
 #[ORM\Table(name: "token_permanent_login")]
-final class PermanentLoginEntity
+class PermanentLoginEntity extends AbstractListEntity
 {
 
-	#[ORM\Id]
-	#[ORM\GeneratedValue(strategy: "AUTO")]
-	#[ORM\Column(type: "integer", nullable: false)]
-	protected int $id;
+	use hasCreatedAt;
+
 
 	#[ORM\Column(type: "string", nullable: false)]
 	protected string $validator;
@@ -22,10 +21,13 @@ final class PermanentLoginEntity
 	protected int $userId;
 
 	#[ORM\Column(type: "datetime", nullable: false)]
-	protected DateTime $createdAt;
-
-	#[ORM\Column(type: "datetime", nullable: false)]
 	protected DateTime $expiration;
+
+
+	public function __construct()
+	{
+		$this->createdAt = new DateTime();
+	}
 
 
 	public function getId(): int

@@ -12,13 +12,11 @@ class ArticleLastPresenter extends UserPresenter
 {
 
 	public function __construct(
-		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
 		AuthorizationFacade $authorizationFacade,
 		private readonly ArticleService $articleService
 	) {
 		parent::__construct(
-			$autoIncrementFacade,
 			$permanentLoginFacade,
 			$authorizationFacade
 		);

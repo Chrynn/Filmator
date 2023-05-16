@@ -1,0 +1,133 @@
+.datagrid {
+    margin-top: 20px;
+
+    .text-left,
+    .text-right,
+    .col-action {
+        @include darkThin;
+        font-size: 22px;
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+    }
+
+
+    thead {
+        & tr {
+            background: $shadeLightTercialy;
+        }
+
+        & th {
+            @include darkRegular;
+        }
+    }
+
+    tbody tr {
+        &:nth-child(odd) {
+            background: $backgroundSecondary;
+        }
+    }
+
+    tr {
+        height: 40px;
+    }
+
+    .text-left a,
+    .col-action a {
+        text-decoration: none;
+        transition: 0.25s;
+        color: $darkBlue;
+
+        &:hover {
+            @include coloredThin;
+            transition: 0.25s;
+        }
+    }
+
+    .reset-filter,
+    .datagrid-per-page-submit {
+        @include lightRegular;
+        font-size: 18px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 10px;
+        height: 30px;
+        background: $grey;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.25s;
+        border: none;
+        text-decoration: none;
+        z-index: 1;
+        position: relative;
+
+        &--active {
+            background: $primary;
+        }
+
+        &:hover {
+            background: $tercialy;
+            transition: 0.25s;
+        }
+    }
+
+    .reset-filter {
+        margin-right: 10px;
+    }
+
+    .col-id {
+        min-width: 30px;
+    }
+
+    .col-name {
+        text-align: left;
+        padding-left: 30px;
+    }
+
+    .col-action.text-center {
+        color: transparent;
+    }
+
+    #datagrid-sort-name,
+    #datagrid-sort-id,
+    #datagrid-sort-year {
+        @include darkThin;
+
+        &:hover {
+            color: $darkBlue;
+        }
+    }
+
+    #frm-movieGrid-filter-filter-name,
+    #frm-movieGrid-filter-filter-year {
+        width: 80%;
+        height: 100%;
+        padding: 5px;
+        border: none;
+        outline: none;
+        @include darkRegular;
+        margin-bottom: 3px;
+    }
+
+    .col-items {
+        font-size: 20px;
+        @include darkRegular;
+        margin: 10px 0 0 20px;
+    }
+
+    #frm-movieGrid-filter-perPage {
+        outline: none;
+        @include darkRegular;
+        font-size: 15px;
+        padding-left: 5px;
+        margin-right: 10px;
+
+    }
+
+    .col-per-page {
+        display: flex;
+        justify-content: flex-end;
+    }
+}

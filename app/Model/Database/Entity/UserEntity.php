@@ -2,19 +2,19 @@
 
 namespace App\Model\Database\Entity;
 
+use DateTime;
+use App\Model\Trait\hasCreatedAt;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
 #[ORM\Table(name: "user")]
-final class UserEntity
+class UserEntity extends AbstractListEntity
 {
 
-	#[ORM\Id]
-	#[ORM\GeneratedValue(strategy: "AUTO")]
-	#[ORM\Column(type: "integer", nullable: false)]
-	protected int $id;
+	use hasCreatedAt;
+
 
 	#[ORM\Column(type: "string", nullable: false)]
 	protected string $nickname;
@@ -84,13 +84,7 @@ final class UserEntity
 
 	public function __construct()
 	{
-		$this->likedMovies = new ArrayCollection();
-	}
-
-
-	public function getId(): int
-	{
-		return $this->id;
+		$this->createdAt = new DateTime();
 	}
 
 

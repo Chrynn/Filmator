@@ -2,46 +2,65 @@
 
 namespace App\Model\Facade\Admin\Content\Image;
 
+use App\Model\Database\Entity\MovieEntity;
+use Nette\Http\FileUpload;
+use Nette\Utils\FileSystem;
 use Nette\Utils\Image;
-use Nette\Utils\Strings;
+use Nette\Utils\ImageException;
+use Nette\Utils\UnknownImageFileException;
 
 final class ImageFacade implements IImageFacade
 {
+	public const CONTENT_TYPE_MOVIE = 'movie';
+	public const CONTENT_TYPE_SERIAL = 'serial';
+	public const CONTENT_TYPE_ACTOR = 'actor';
 
-	private const RESULT_PATH = "img/cover/"; // Warning! www folder (as default) needn't be writeable! - sudo chmod 777 www/img
-	private const BANNER_PREFIX = "_banner.jpg";
-	private const POSTER_PREFIX = "_poster.jpg";
+	public const IMAGE_TYPE_BANNER = 'banner';
+	public const IMAGE_TYPE_POSTER = 'poster';
 
-	private const BANNER_WIDTH = 1500;
-	private const BANNER_HEIGHT = 844;
+	// www folder needn't be writeable - chmod
+	public const IMAGE_CONTENT_PATH = 'www/img/public';
 
-	private const POSTER_WIDTH = 712;
-	private const POSTER_HEIGHT = 1000;
-	private const COMPRESS = 80;
+	private int $compress = 80;
 
 
-	public function changeBannerSize(string $imageName, string $imagePath): string
+	/**
+	 * @throws ImageException
+	 */
+	public function createImageFromUpload(FileUpload $file, int $id, string $contentType, string $imageType): void
 	{
-		$slug = Strings::webalize($imageName);
-		$newTitle = self::RESULT_PATH . $slug . self::BANNER_PREFIX;
-		$image = Image::fromFile($imagePath);
-		$image->resize(self::BANNER_WIDTH, self::BANNER_HEIGHT);
-		$image->save($newTitle, self::COMPRESS, Image::JPEG);
+		if (!$file->isImage() || !$file->isOk()) {
+			throw new ImageException('not an image');
+		}
 
-		return $newTitle;
+		$resultFolder = self::IMAGE_CONTENT_PATH . "/$contentType/$id";
+		$resultFile = "$resultFolder/$id" . '_' . $imageType;
+
+        // common mistake before ID folder
+		FileSystem::createDir($resultFolder);
+
+		$image = Image::fromFile($file->getTemporaryFile());
+		$image->save("$resultFile.webp", $this->compress, Image::WEBP);
+		$image->save("$resultFile.png", $this->compress, Image::PNG);
+		$image->save("$resultFile.avif", $this->compress, Image::AVIF);
 	}
 
 
-	public function changePosterSize(string $imageName, string $imagePath): string
+	/**
+	 * @throws ImageException
+	 * @throws UnknownImageFileException
+	 */
+	public function createImageFromFile(string $path, int $id, string $contentType, string $imageType): void
 	{
-		$slug = Strings::webalize($imageName);
-		$newTitle = self::RESULT_PATH . $slug . self::POSTER_PREFIX;
-		$image = Image::fromFile($imagePath);
-		$image->resize(self::POSTER_WIDTH, self::POSTER_HEIGHT);
-		$image->sharpen();
-		$image->save($newTitle, self::COMPRESS, Image::JPEG);
+		$resultFolder = self::IMAGE_CONTENT_PATH . "/$contentType/$id";
+		$resultFile = "$resultFolder/$id" . '_' . $imageType;
 
-		return $newTitle;
+        FileSystem::createDir($resultFolder);
+
+		$image = Image::fromFile($path);
+		$image->save("$resultFile.webp", $this->compress, Image::WEBP);
+		$image->save("$resultFile.png", $this->compress, Image::PNG);
+		$image->save("$resultFile.avif", $this->compress, Image::AVIF);
 	}
 
 }

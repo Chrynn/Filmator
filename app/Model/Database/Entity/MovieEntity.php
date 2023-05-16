@@ -2,18 +2,22 @@
 
 namespace App\Model\Database\Entity;
 
+use App\Model\Facade\Admin\Content\Image\ImageFacade;
+use App\Model\Trait\hasCreatedAt;
+use App\Model\Trait\hasEditedAt;
+use DateTime;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Nette\Utils\Strings;
 
 #[ORM\Entity]
 #[ORM\Table(name: "movie")]
-final class MovieEntity
+class MovieEntity extends AbstractListEntity
 {
 
-	#[ORM\Id]
-	#[ORM\GeneratedValue(strategy: "AUTO")]
-	#[ORM\Column(type: "integer", nullable: false)]
-	protected int $id;
+	use hasCreatedAt;
+	use hasEditedAt;
+
 
 	#[ORM\Column(type: "string", nullable: false)]
 	protected string $slug;
@@ -34,12 +38,6 @@ final class MovieEntity
 	protected string $description;
 
 	#[ORM\Column(type: "string", nullable: false)]
-	protected string $imageBanner;
-
-	#[ORM\Column(type: "string", nullable: false)]
-	protected string $imagePoster;
-
-	#[ORM\Column(type: "string", nullable: false)]
 	protected string $trailer;
 
 	/** @var Collection<int, UserEntity> */
@@ -57,9 +55,14 @@ final class MovieEntity
     protected Collection $movieLast;
 
 
-	public function getId(): int
+	public function __construct(string $name)
 	{
-		return $this->id;
+		$timeNow = new DateTime();
+
+		$this->name = $name;
+		$this->slug = Strings::webalize($name);
+		$this->createdAt = $timeNow;
+		$this->editedAt = $timeNow;
 	}
 
 
@@ -69,21 +72,9 @@ final class MovieEntity
 	}
 
 
-	public function setSlug(string $slug): void
-	{
-		$this->slug = $slug;
-	}
-
-
 	public function getName(): string
 	{
 		return $this->name;
-	}
-
-
-	public function setName(string $name): void
-	{
-		$this->name = $name;
 	}
 
 
@@ -137,25 +128,13 @@ final class MovieEntity
 
 	public function getImagePoster(): string
 	{
-		return $this->imagePoster;
-	}
-
-
-	public function setImagePoster(string $imagePoster): void
-	{
-		$this->imagePoster = $imagePoster;
+		return "img/public/movie/" . $this->getId() . "/" . $this->getId() . "_" . ImageFacade::IMAGE_TYPE_POSTER;
 	}
 
 
 	public function getImageBanner(): string
 	{
-		return $this->imageBanner;
-	}
-
-
-	public function setImageBanner(string $imageBanner): void
-	{
-		$this->imageBanner = $imageBanner;
+		return "img/public/movie/" . $this->getId() . "/" . $this->getId() . "_" . ImageFacade::IMAGE_TYPE_BANNER;
 	}
 
 

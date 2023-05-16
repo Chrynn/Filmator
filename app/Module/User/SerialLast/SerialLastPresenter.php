@@ -13,13 +13,11 @@ class SerialLastPresenter extends UserPresenter
 {
 
 	public function __construct(
-		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
 		AuthorizationFacade $authorizationFacade,
 		private readonly SerialService $serialService
 	) {
 		parent::__construct(
-			$autoIncrementFacade,
 			$permanentLoginFacade,
 			$authorizationFacade
 		);

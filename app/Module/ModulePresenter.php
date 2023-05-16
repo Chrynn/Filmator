@@ -17,17 +17,14 @@ use Nette\Security\User;
 class ModulePresenter extends Presenter
 {
 
-	private readonly AutoIncrementFacade $autoIncrementFacade;
 	private readonly PermanentLoginFacade $permanentLoginFacade;
 	private readonly AuthorizationFacade $authorizationFacade;
 
 	public function __construct(
-		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
 		AuthorizationFacade $authorizationFacade
 	) {
 		parent::__construct();
-		$this->autoIncrementFacade = $autoIncrementFacade;
 		$this->permanentLoginFacade = $permanentLoginFacade;
 		$this->authorizationFacade = $authorizationFacade;
 	}
@@ -35,7 +32,6 @@ class ModulePresenter extends Presenter
 
 	protected function beforeRender(): void
 	{
-		$this->autoIncrementFacade->resetAutoIncrement();
 		$this->permanentLoginFacade->setPermanentLogin();
 
 		$loginStatus = $this->isLogged();

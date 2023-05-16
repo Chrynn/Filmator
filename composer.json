@@ -1,4 +1,4 @@
-{
+	{
 	"name": "nette/filmator",
 	"description": "watch movies & serials for free",
 	"keywords": ["nette"],
@@ -27,7 +27,8 @@
 		"nettrine/fixtures": "^0.6.2",
 		"nettrine/cache": "^0.3.0",
 		"nextras/mail-panel": "^2.6",
-		"phpstan/phpstan": "^1.9"
+		"phpstan/phpstan": "^1.9",
+		"ublaboo/datagrid": "^6.9"
 	},
 	"require-dev": {
 		"nette/tester": "^2.3",

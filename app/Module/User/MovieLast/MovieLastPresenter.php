@@ -13,13 +13,11 @@ class MovieLastPresenter extends UserPresenter
 {
 
 	public function __construct(
-		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
 		AuthorizationFacade $authorizationFacade,
 		private readonly MovieService $movieService
 	) {
 		parent::__construct(
-			$autoIncrementFacade,
 			$permanentLoginFacade,
 			$authorizationFacade
 		);

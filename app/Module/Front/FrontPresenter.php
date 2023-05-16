@@ -18,7 +18,6 @@ abstract class FrontPresenter extends ModulePresenter
 {
 
 	public function __construct(
-		AutoIncrementFacade $autoIncrementFacade,
 		PermanentLoginFacade $permanentLoginFacade,
 		AuthorizationFacade $authorizationFacade,
 		protected readonly RegisterFactory $registerFactory,
@@ -26,7 +25,6 @@ abstract class FrontPresenter extends ModulePresenter
 		protected readonly ForgottenFactory $forgottenFactory
 	) {
 		parent::__construct(
-			$autoIncrementFacade,
 			$permanentLoginFacade,
 			$authorizationFacade
 		);

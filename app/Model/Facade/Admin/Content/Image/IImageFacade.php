@@ -2,11 +2,13 @@
 
 namespace App\Model\Facade\Admin\Content\Image;
 
+use Nette\Http\FileUpload;
+
 interface IImageFacade
 {
 
-	public function changeBannerSize(string $imageName, string $imagePath): string;
+	public function createImageFromUpload(FileUpload $file, int $id, string $contentType, string $imageType): void;
 
-	public function changePosterSize(string $imageName, string $imagePath): string;
+	public function createImageFromFile(string $path, int $id, string $contentType, string $imageType): void;
 
 }
