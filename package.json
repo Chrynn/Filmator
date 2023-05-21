@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Chrynn/Filmator/issues"
   },
-  "homepage": "https://github.com/Chrynn/Filmator#readme"
+  "homepage": "https://github.com/Chrynn/Filmator#readme",
+  "dependencies": {
+    "@symfony/webpack-encore": "^4.3.0"
+  }
 }
