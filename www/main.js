@@ -1,3 +1,9 @@
 import Vue from "vue";
 
-new Vue({}).$mount("#vue-mount");
+import test from '../app/components/test.vue';
+
+new Vue({
+    components: {
+        test
+    }
+}).$mount("#vue-mount");
