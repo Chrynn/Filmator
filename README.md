@@ -1,42 +1,62 @@
-# Filmátor
-> - úvodní dokumentace projektu
-> - pro orientaci v projektu **DOPORUČUJI PŘEČÍST**
+## Začínáme
 
-Popis
-- filmová databáze v podobě webové stránky
+- Jelikož projekt používá Linuxové příkazy, je doporučeno používat operační systém `Linux` nebo Virtuální operační systém jako například `Ubuntu`
 
-Účel
-- volnočasový projekt za účelem sebevzdělávání a prezentace dovedností
+### Doporučené technologie
+- Linux OS based on system (Mac, Ubuntu etc.)
+- Docker application (devOps)
+- Make (commands) - `sudo apt install make`
 
-Použité technologie
-- PHP framework [Nette](https://nette.org/cs/)
-- SQL databázové [ORM](https://cs.wikipedia.org/wiki/Objektov%C4%9B_rela%C4%8Dn%C3%AD_mapov%C3%A1n%C3%AD) [Doctrine](https://www.doctrine-project.org/) (nettrine)
-- Javascript (dříve i jQuery)
-- HTML a CSS v kombinaci s [Latte](https://latte.nette.org/cs/), SCSS (sass)
-- [Neon](https://doc.nette.org/cs/neon/format), [Markdown](https://www.markdownguide.org/)
-- Git, Github
+### Naklonování repozitáře
 
-Použité nástroje
-- DevOps - Docker, Nginx, MariaDB
-- IDE - [PHPStorm](https://www.jetbrains.com/phpstorm/), VSCode
-- Design - Adobe Photoshop, XDesign, Illustrator
-- Docs - PHP [dokumentace](https://www.php.net/), Nette [dokumentace](https://doc.nette.org/), Stackoverflow atd.
-- Ubuntu (Virtual OS)
+- `git clone` naklonuje repozitář do vybrané složky
+- Můžete použít HTTPS (potřeba ověřit identitu) nebo SSH link (potřeba vygenerovat SSH klíč)
+- Osobně doporučuji SSH, ale je to na Vás
 
-Coding standard
-- HTML `5`
-- CSS `3` - [BEM](https://www.vzhurudolu.cz/prirucka/bem) a [W3C](https://www.w3.org/Style/CSS/specs.en.html)
-- PHP `8.1` - čistý [OOP](https://php.baraja.cz/uvod-do-oop) kód
+```
+git clone git@github.com:Chrynn/Chess-Club.git
+```
 
-Rozcestník
-- **app** - PHP a latte soubory (source)
-- **www** - obrázky, ikony, CSS styly a JS scripty (assets)
-- **wiki** - programátorská dokumentace projektu (včetně rozjetí projektu)
+### Zapnutí projektu
+> nyní máme hlavní soubory projektu, ale ještě bude potřeba přidat pár věcí
+- Vytvořte `local.neon` soubor do `config` složky s obsahem níže
+- Můžete použít `touch` a `nano` příkazy nebo provést manuálně
 
-Poznámky
-- design stránky, kód stránky a ikony použité v projektu jsou vytvořené čistě mnou
-- stránka je v neustálém vývoji (není finálním produktem - mohou se vyskytovat chyby)
+```neon
+parameters:
+database:
+    dsn: 'mysql:host=127.0.0.1;dbname=test'
+    user: root
+    password: root
+    
+# nextras mailer
+tracy:
+	bar:
+		- Nextras\MailPanel\MailPanel(%tempDir%/mail-panel-latte)
+services:
+	nette.mailer:
+		class: Nette\Mail\Mailer
+		factory: Nextras\MailPanel\FileMailer(%tempDir%/mail-panel-mails)
+```
 
-> **Stránka podléhá ochraně autorského práva podle [LICENSE.txt](https://github.com/filipmachala88/Moviebase/blob/main/LICENSE.txt)**
-> - nepřeji si aby projekt byl použit pro **cizí** komerci či **cizí** sdílení
-> - veřejnost projektu je určena čistě pro inspiraci či prezentaci
+- Použijte Makefile příkaz `make start`, který:
+1. nastaví Docker kontejner a image
+2. přidá potřebné práva `log` a `cache` složce
+3. nastaví composer balíčky jako `vendor` složku
+4. načte a vyplní databázi testovacími daty - použije `make init`
+
+> pokud jsme na windows
+> - upravit kódování bin/console z CRLF na LF (pravo dole) - jinak nepůjde (error)
+```
+make start
+```
+- Nyní by vám měl projekt plně fungovat v prohlížeči na URL adrese `localhost:90` a databázi na `localhost:10000`- **Ujistěte se** že vám neběží nějaký jiný projekt na portu s číslem `90`
+> Hotovo, hodně štěstí s testováním projektu!
+- Pokud chcete projekt vypnout, provolejte `make down` příkaz
+```
+make down
+```
+- Pro znovu zapnutí, provolejte `make up`
+```
+make up
+```
