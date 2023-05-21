@@ -19,6 +19,8 @@
         <title>{ifset title}{include title|stripHtml} - {/ifset}Filmátor</title>
     </head>
     <body>
+        <div id="vue-mount">
+
         <div class="page-wrap page-wrap--light">
             {include flashMessage}
 
@@ -37,6 +39,8 @@
             {if $isLogged}
                 {include moduleButton}
             {/if}
+        </div>
+
         </div>
 
         <!-- scripts -->
