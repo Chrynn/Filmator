@@ -1,0 +1,19 @@
+{
+  "name": "filmator",
+  "version": "1.0.0",
+  "description": "movie & serial database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chrynn/Filmator.git"
+  },
+  "author": "filip machala",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chrynn/Filmator/issues"
+  },
+  "homepage": "https://github.com/Chrynn/Filmator#readme"
+}
