@@ -1,0 +1,9 @@
+{
+  "entrypoints": {
+    "main": {
+      "js": [
+        "/build/main.js"
+      ]
+    }
+  }
+}
