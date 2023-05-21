@@ -5,7 +5,7 @@ services:
     container_name: Database
     image: mariadb:10.6.4-focal
     environment:
-      - MYSQL_DATABASE=Filmator
+      - MYSQL_DATABASE=filmator
       - MYSQL_ROOT_PASSWORD=root
     volumes:
       - ./data/db/:/var/lib/mysql:delegated
@@ -29,7 +29,7 @@ services:
       - NGINX_PHP_HOST=php
     ports:
     # change localhost:port here (edit left-one)
-      - 80:80
+      - 90:80
 
   phpmyadmin:
     container_name: phpMyAdmin
