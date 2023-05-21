@@ -60,3 +60,12 @@ start:
 fix:
     # phpstan -l (level 0-9, max - newest)
 	docker-compose -f .docker/docker-compose.yml exec php vendor/bin/phpstan analyse app -l max
+
+# Exec sh on Node container
+exec\:node:
+	docker-compose -f .docker/docker-compose.yml exec node sh;
+
+setup:
+	docker-compose -f .docker/docker-compose.yml exec php composer install;
+	docker-compose -f .docker/docker-compose.yml exec node npm install;
+	make init

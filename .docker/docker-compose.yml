@@ -42,3 +42,16 @@ services:
     ports:
     # change database:port here (edit left-one)
       - "10000:80"
+
+  node:
+    container_name: Node
+    build:
+      context: ./..
+      dockerfile: ./.docker/node/Dockerfile
+    working_dir: /srv
+    volumes:
+      - ./../:/srv:delegated
+    ports:
+      - "8080:8080"
+      - "8888:8888"
+    command: [ "tail", "-f", "/dev/null" ]
