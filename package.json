@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Chrynn/Filmator#readme",
   "dependencies": {
     "@symfony/webpack-encore": "^4.3.0",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "vue-loader": "^17.1.1"
   }
 }
