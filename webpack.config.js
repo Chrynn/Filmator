@@ -8,7 +8,7 @@ Encore
     .disableSingleRuntimeChunk()
     .setOutputPath('./www/build')
     .setPublicPath('/build')
-    .addEntry('main', './www/main.js')
+    .addEntry('main', './www/js/main.js')
     .enableVueLoader(() => {}, { runtimeCompilerBuild: true })
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(Encore.isDev());
