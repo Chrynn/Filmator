@@ -1,0 +1,15 @@
+extensions:
+	console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
+	# doctrine
+	doctrine.annotations: Nettrine\Annotations\DI\AnnotationsExtension
+	doctrine.dbal: Nettrine\DBAL\DI\DbalExtension
+	doctrine.dbal.console: Nettrine\DBAL\DI\DbalConsoleExtension
+	doctrine.orm: Nettrine\ORM\DI\OrmExtension
+	doctrine.orm.annotations: Nettrine\ORM\DI\OrmAnnotationsExtension
+	nettrine.orm.attributes: Nettrine\ORM\DI\OrmAttributesExtension
+	doctrine.orm.console: Nettrine\ORM\DI\OrmConsoleExtension
+	doctrine.cache: Nettrine\Cache\DI\CacheExtension
+	doctrine.migrations: Nettrine\Migrations\DI\MigrationsExtension
+	doctrine.fixtures: Nettrine\Fixtures\DI\FixturesExtension
+	# webpack
+	webpack: Contributte\Webpack\DI\WebpackExtension(%debugMode%, %consoleMode%)

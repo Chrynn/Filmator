@@ -3,3 +3,4 @@ config/local.neon
 vendor
 package-lock.json
 node_modules
+www/dist/*

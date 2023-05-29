@@ -1,0 +1,9 @@
+webpack:
+    build:
+        directory: %wwwDir%/dist
+        publicPath: /dist
+    devServer:
+        enabled: %debugMode%
+        url: http://localhost:90/dist
+    manifest:
+        name: manifest.json

@@ -5,12 +5,14 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 }
 
 Encore
-    .disableSingleRuntimeChunk()
-    .setOutputPath('./www/build')
-    .setPublicPath('/build')
+    .setOutputPath('./www/dist')
+    .setPublicPath('/dist')
     .addEntry('main', './www/js/main.js')
-    .enableVueLoader(() => {}, { runtimeCompilerBuild: true })
+    .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()
-    .enableSourceMaps(Encore.isDev());
+    .enableBuildNotifications()
+    .enableSourceMaps(!Encore.isProduction())
+    .enableVersioning(Encore.isProduction())
+    .enableVueLoader(() => {}, { runtimeCompilerBuild: true });
 
 module.exports = Encore.getWebpackConfig();

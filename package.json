@@ -20,6 +20,7 @@
     "@symfony/webpack-encore": "^4.3.0",
     "vue": "^3.3.4",
     "vue-loader": "^17.1.1",
-    "webpack-cli": "^5.1.1"
+    "webpack-cli": "^5.1.1",
+    "webpack-notifier": "^1.15.0"
   }
 }
