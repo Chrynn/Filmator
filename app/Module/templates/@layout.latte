@@ -17,6 +17,10 @@
         {include meta}
 
         <title>{ifset title}{include title|stripHtml} - {/ifset}Filmátor</title>
+
+            {* JS files *}
+        <script type="application/javascript" src="{webpack dist/runtime.js}"></script>
+        <script type="application/javascript" src="{webpack dist/main.js}"></script>
     </head>
     <body>
         <div id="vue-mount">
@@ -48,7 +52,6 @@
             <script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
             <script src="../../js/nette.ajax.js"></script>
             <script src="../../js/script.js"></script>
-            <script type="application/javascript" src="{webpack main.js}"></script>
         </div>
     </body>
 </html>
