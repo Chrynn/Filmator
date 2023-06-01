@@ -17,8 +17,14 @@
         {include meta}
 
         <title>{ifset title}{include title|stripHtml} - {/ifset}Filmátor</title>
+
+            {* JS files *}
+        <script type="application/javascript" src="{webpack dist/runtime.js}"></script>
+        <script type="application/javascript" src="{webpack dist/main.js}"></script>
     </head>
     <body>
+        <div id="vue-mount">
+
         <div class="page-wrap page-wrap--light">
             {include flashMessage}
 
@@ -37,6 +43,8 @@
             {if $isLogged}
                 {include moduleButton}
             {/if}
+        </div>
+
         </div>
 
         <!-- scripts -->

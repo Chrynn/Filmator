@@ -1,0 +1,26 @@
+doctrine.dbal:
+	debug:
+		panel: false
+	connection:
+		driver: pdo_mysql
+		host: %doctrine.host%
+		user: %doctrine.user%
+		password: %doctrine.password%
+		dbname: %doctrine.dbname%
+
+# enable annotations
+doctrine.orm.annotations:
+	mapping:
+		App\Model: %appDir%/Model
+
+# enable attributes
+nettrine.orm.attributes:
+	mapping:
+		App\Model: %appDir%/Model
+
+doctrine.migrations:
+	directory: migrations/
+
+doctrine.fixtures:
+	paths:
+		- %appDir%/Model/Database/Fixture
